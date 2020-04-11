@@ -13,12 +13,12 @@
   },
   "dependencies": {
     "nuxt": "^2.0.0",
-    "@nuxt/typescript-runtime": "^0.4.0",
+    "@nuxt/typescript-runtime": "^0.4.5",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@nuxtjs/dotenv": "^1.4.0"
   },
   "devDependencies": {
-    "@nuxt/typescript-build": "^0.6.0",
+    "@nuxt/typescript-build": "^0.6.5",
     "@nuxtjs/vuetify": "^1.0.0",
     "@nuxtjs/eslint-config-typescript": "^1.0.0",
     "@nuxtjs/eslint-module": "^1.0.0",
