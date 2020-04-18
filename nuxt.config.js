@@ -45,6 +45,19 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    [
+      'nuxt-i18n',
+      {
+        locales: [
+          { code: 'en', file: 'en.json' },
+          { code: 'ru', file: 'ru.json' },
+        ],
+        lazy: true,
+        langDir: 'locales/',
+        defaultLocale: 'ru',
+        strategy: 'no_prefix',
+      },
+    ],
   ],
   /*
   ** vuetify module configuration

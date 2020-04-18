@@ -25,5 +25,8 @@ export default Vue.extend({
     HeaderBar,
     NavBar,
   },
+  head () {
+    return this.$nuxtI18nSeo();
+  },
 });
 </script>
