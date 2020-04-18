@@ -8,9 +8,7 @@
         <nuxt />
       </v-container>
     </v-content>
-    <v-footer fixed app>
-      <span>&copy; {{ new Date().getFullYear() }}</span>
-    </v-footer>
+    <FooterBar />
   </v-app>
 </template>
 
@@ -19,11 +17,13 @@ import Vue from 'vue';
 
 import HeaderBar from '@/components/HeaderBar.vue';
 import NavBar from '@/components/NavBar.vue';
+import FooterBar from '@/components/FooterBar.vue';
 
 export default Vue.extend({
   components: {
     HeaderBar,
     NavBar,
+    FooterBar,
   },
   head () {
     return this.$nuxtI18nSeo();
