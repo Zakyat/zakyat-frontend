@@ -37,12 +37,12 @@ export default Vue.extend({
   data () {
     return {
       pages: [
-        { text: this.$t('fees'), link: '/' },
-        { text: this.$t('projects'), link: '/' },
-        { text: this.$t('reports'), link: '/' },
-        { text: this.$t('news'), link: '/' },
-        { text: this.$t('about'), link: '/' },
-        { text: this.$t('pay'), link: '/' },
+        { text: this.$t('links.fees'), link: '/' },
+        { text: this.$t('links.projects'), link: '/' },
+        { text: this.$t('links.reports'), link: '/' },
+        { text: this.$t('links.news'), link: '/' },
+        { text: this.$t('links.about'), link: '/' },
+        { text: this.$t('links.pay'), link: '/' },
       ],
     };
   },
