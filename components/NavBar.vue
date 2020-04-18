@@ -3,13 +3,13 @@
     <img src="@/assets/logo.svg">
     <v-toolbar-title>
       <p class="title primary--text">
-        Благотворительный фонд «Закят»
+        {{ $t('title') }}
       </p>
       <p class="subtitle-2">
-        Духовного управления мусульман
+        {{ $t('subtitle') }}
       </p>
       <p class="subtitle-2">
-        Республики Татарстан
+        {{ $t('tatarstan') }}
       </p>
     </v-toolbar-title>
     <v-spacer />
@@ -23,10 +23,10 @@
       {{ page.text }}
     </v-btn>
     <v-btn rounded dark color="primary">
-      Хочу помочь
+      {{ $t('give_help') }}
     </v-btn>
     <v-btn rounded dark color="accent">
-      Получить помощь
+      {{ $t('get_help') }}
     </v-btn>
   </v-app-bar>
 </template>
@@ -37,12 +37,12 @@ export default Vue.extend({
   data () {
     return {
       pages: [
-        { text: 'Сборы', link: '/' },
-        { text: 'Проекты', link: '/' },
-        { text: 'Отчеты', link: '/' },
-        { text: 'Новости', link: '/' },
-        { text: 'О фонде', link: '/' },
-        { text: 'Выплатить закят', link: '/' },
+        { text: this.$t('fees'), link: '/' },
+        { text: this.$t('projects'), link: '/' },
+        { text: this.$t('reports'), link: '/' },
+        { text: this.$t('news'), link: '/' },
+        { text: this.$t('about'), link: '/' },
+        { text: this.$t('pay'), link: '/' },
       ],
     };
   },

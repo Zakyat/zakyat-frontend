@@ -1,31 +1,31 @@
 <template>
   <v-system-bar dark height="40">
     <v-icon>mdi-heart</v-icon>
-    Собрано 6 234 234 ₽ для инвалидов
+    {{ $t('collected', [6234234]) }}
     <v-spacer />
     <v-btn text small>
       <v-icon medium>
         mdi-magnify
       </v-icon>
-      Search
+      {{ $t('search') }}
     </v-btn>
     <v-btn text small>
       <v-icon medium>
         mdi-vk
       </v-icon>
-      Vkontakte
+      {{ $t('VK') }}
     </v-btn>
     <v-btn text small>
       <v-icon medium>
         mdi-instagram
       </v-icon>
-      Instagram
+      {{ $t('instagram') }}
     </v-btn>
     <v-btn text small>
       <v-icon medium>
         mdi-account-circle
       </v-icon>
-      Login
+      {{ $t('login') }}
     </v-btn>
   </v-system-bar>
 </template>

@@ -1,1 +1,20 @@
-{}
+{
+    "title": "«Zakat» Charity Foundation",
+    "subtitle": "Muslim Spiritual board",
+    "tatarstan": "Republic of Tatarstand",
+    "collected": "Collected {0} for the disabled",
+    "search": "Search",
+    "VK": "VKontakte",
+    "instagram": "Instagram",
+    "login": "Log in",
+    "give_help": "I want to help",
+    "get_help": "I need help",
+    "links": {
+        "fees": "Fees",
+        "projects": "Projects",
+        "reports": "Reports",
+        "news": "News",
+        "about": "About us",
+        "pay": "Pay out"
+    }
+}
