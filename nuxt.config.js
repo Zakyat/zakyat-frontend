@@ -49,8 +49,8 @@ export default {
       'nuxt-i18n',
       {
         locales: [
-          { code: 'en', file: 'en.json' },
-          { code: 'ru', file: 'ru.json' },
+          { code: 'en', file: 'en.json', name: 'English' },
+          { code: 'ru', file: 'ru.json', name: 'Русский' },
         ],
         lazy: true,
         langDir: 'locales/',

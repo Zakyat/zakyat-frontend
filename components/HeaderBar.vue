@@ -27,11 +27,23 @@
       </v-icon>
       {{ $t('login') }}
     </v-btn>
+    <v-flex md2 xs6>
+      <v-overflow-btn
+        :value="$i18n.locale"
+        :items="$i18n.locales"
+        item-text="name"
+        item-value="code"
+        hide-selected
+        dense
+        @input="$i18n.setLocale"
+      />
+    </v-flex>
   </v-system-bar>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+
 export default Vue.extend({
 
 });
