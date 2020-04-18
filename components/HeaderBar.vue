@@ -1,5 +1,5 @@
 <template>
-  <v-system-bar dark height="50">
+  <v-system-bar dark height="40">
     <v-icon>mdi-heart</v-icon>
     Собрано 6 234 234 ₽ для инвалидов
     <v-spacer />
