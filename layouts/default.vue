@@ -4,11 +4,11 @@
     <NavBar />
     <v-divider />
     <v-content>
-      <v-container>
-        <nuxt />
-        <!-- <PartnerBarSlide /> -->
-        <PartnerBar />
-      </v-container>
+      <nuxt />
+      <!-- <PartnerBarSlide /> -->
+      <AboutUsBar />
+      <DonationBar />
+      <PartnerBar />
     </v-content>
     <FooterBar />
   </v-app>
@@ -22,6 +22,8 @@ import NavBar from '@/components/NavBar.vue';
 import FooterBar from '@/components/FooterBar.vue';
 import PartnerBar from '@/components/PartnerBar.vue';
 import PartnerBarSlide from '@/components/PartnerBarSlide.vue';
+import AboutUsBar from '@/components/AboutUsBar.vue';
+import DonationBar from '@/components/DonationBar.vue';
 
 export default Vue.extend({
   components: {
@@ -30,7 +32,8 @@ export default Vue.extend({
     FooterBar,
     PartnerBar,
     PartnerBarSlide,
-
+    AboutUsBar,
+    DonationBar,
   },
   head () {
     return this.$nuxtI18nSeo();
