@@ -70,6 +70,7 @@ export default {
         light: {
           primary: '#00AC00',
           accent: '#1C6739',
+          secondary: '#FFFFFF',
         },
         dark: {
           primary: colors.blue.darken2,
