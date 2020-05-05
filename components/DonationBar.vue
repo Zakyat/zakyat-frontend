@@ -13,6 +13,7 @@
             dense
             single-line
             hide-details
+            class="amount"
             :placeholder="`${$t('home.sadaka.enter_amount')}, ₽`"
             outlined
             dark
@@ -77,6 +78,9 @@ export default Vue.extend({
     border-radius: 25px;
     padding: 10px;
     margin-top: 0;
+  }
+  .amount {
+    border: thin solid;
   }
 }
 </style>
