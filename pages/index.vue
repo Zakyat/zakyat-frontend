@@ -13,10 +13,10 @@
 </template>
 
 <script>
-import PartnerBar from '@/components/PartnerBar.vue';
-import AboutUsBar from '@/components/AboutUsBar.vue';
-import DonationBar from '@/components/DonationBar.vue';
-import NewsBar from '@/components/NewsBar.vue';
+import PartnerBar from '@/components/home/PartnerBar.vue';
+import AboutUsBar from '@/components/home/AboutUsBar.vue';
+import DonationBar from '@/components/home/DonationBar.vue';
+import NewsBar from '@/components/home/NewsBar.vue';
 
 export default {
   components: {
