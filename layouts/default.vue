@@ -6,6 +6,7 @@
     <v-content>
       <nuxt />
       <!-- <PartnerBarSlide /> -->
+      <NewsBar />
       <AboutUsBar />
       <DonationBar />
       <PartnerBar />
@@ -21,9 +22,9 @@ import HeaderBar from '@/components/HeaderBar.vue';
 import NavBar from '@/components/NavBar.vue';
 import FooterBar from '@/components/FooterBar.vue';
 import PartnerBar from '@/components/PartnerBar.vue';
-import PartnerBarSlide from '@/components/PartnerBarSlide.vue';
 import AboutUsBar from '@/components/AboutUsBar.vue';
 import DonationBar from '@/components/DonationBar.vue';
+import NewsBar from '@/components/NewsBar.vue';
 
 export default Vue.extend({
   components: {
@@ -31,9 +32,9 @@ export default Vue.extend({
     NavBar,
     FooterBar,
     PartnerBar,
-    PartnerBarSlide,
     AboutUsBar,
     DonationBar,
+    NewsBar,
   },
   head () {
     return this.$nuxtI18nSeo();

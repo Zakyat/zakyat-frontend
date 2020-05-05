@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <span>{{ $t('partners') }}
+      <span>{{ $t('links.partners') }}
       </span>
     </v-row>
     <v-carousel hide-delimiters>
