@@ -1,8 +1,8 @@
 <template>
   <v-layout class="donation-container" column>
     <v-flex xs11 md8>
-      <h1>{{ $t('Make_sadaka') }}</h1>
-      <p>{{ $t('Make_sadaka_details') }}</p>
+      <h1>{{ $t('home.sadaka.title') }}</h1>
+      <p>{{ $t('home.sadaka.description') }}</p>
     </v-flex>
     <v-flex xs11>
       <v-layout row wrap align-center justify-space-between>
@@ -13,7 +13,7 @@
             dense
             single-line
             hide-details
-            placeholder="Enter the amount, ₽"
+            :placeholder="`${$t('home.sadaka.enter_amount')}, ₽`"
             outlined
             dark
             type="number"
@@ -39,7 +39,7 @@
         </v-flex>
         <v-flex xs1>
           <v-btn rounded>
-            {{ $t('donate') }}
+            {{ $t('home.sadaka.donate') }}
           </v-btn>
         </v-flex>
       </v-layout>

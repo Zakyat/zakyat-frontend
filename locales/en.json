@@ -24,9 +24,12 @@
             "paragraph1": "Zakat Charity Foundation established by the Central Religious Organization of the Spiritual Administration of Muslims in the Republic of Tatarstan in 1998. Charity Fund “Zakat” collects and distributes Zakat and Sadak in the Republic Tatarstan The collection of Zakat and Sadak is carried out by the foundation’s specialists. Distribution of Zakat and Sadak is carried out by decision of the commission. Consultations The Fund’s Council for the implementation of the Fund’s activities is the Ulema Council of the CRO-DUM RT.",
             "paragraph2": "Zakat Charity Fund Helps Help the Most Unprotected strata of the population: large families, low-income families who find themselves in difficult lifethe situation; orphans and single elderly people. The fund also collects funds and helps in paying for treatment of seriously ill children and adults.",
             "learn_more": "Learn more"
+        },
+        "sadaka": {
+            "title": "Make sadaka",
+            "description": "Sadaka - voluntary alms, which are paid to the needy at their own discretion and desire. We will distribute any of your good deeds done sincerely among those in need.",
+            "enter_amount": "Enter the amount",
+            "donate": "Donate"
         }
-    },
-    "Make_sadaka": "Make sadaka",
-    "Make_sadaka_details": "Sadaka - voluntary alms, which are paid to the needy at their own discretion and desire. We will distribute any of your good deeds done sincerely among those in need.",
-    "donate": "Donate"
+    }
 }
