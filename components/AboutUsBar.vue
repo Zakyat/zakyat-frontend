@@ -1,17 +1,17 @@
 <template>
   <v-container>
     <v-row>
-      <span>{{ $t('about_us') }}</span>
+      <span>{{ $t('home.about.title') }}</span>
     </v-row>
     <v-layout row>
       <v-flex xs12 md6>
         <div class="pa-4">
-          {{ $t('about_us_text_1') }}
+          {{ $t('home.about.paragraph1') }}
           <br>
-          {{ $t('about_us_text_2') }}
+          {{ $t('home.about.paragraph2') }}
           <br><br>
           <v-btn rounded dark color="accent">
-            {{ $t('learn_more') }}
+            {{ $t('home.about.learn_more') }}
           </v-btn>
         </div>
       </v-flex>
