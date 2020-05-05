@@ -30,6 +30,9 @@
             "description": "Sadaka - voluntary alms, which are paid to the needy at their own discretion and desire. We will distribute any of your good deeds done sincerely among those in need.",
             "enter_amount": "Enter the amount",
             "donate": "Donate"
+        },
+        "partners": {
+            "title": "Partners"
         }
     }
 }

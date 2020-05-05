@@ -1,14 +1,13 @@
 <template>
   <v-container>
-    <v-row>
-      <span>{{ $t('links.partners') }}
-      </span>
-    </v-row>
+    <h1>
+      {{ $t('home.partners.title') }}
+    </h1>
     <v-carousel hide-delimiters>
-      <v-carousel-item>
+      <v-carousel-item v-for="page in Math.ceil(partners.length / perPage)" :key="page">
         <v-layout row>
           <v-flex
-            v-for="(partner, j) in partners.slice(0,8)"
+            v-for="(partner, j) in partners.slice((page-1)*perPage, (page)*perPage)"
             :key="j"
             xs6
             md3
@@ -16,23 +15,6 @@
             <img
               class="ma-2 pa-4"
               :src="partner.src"
-              aspect-ratio="1.5"
-            >
-          </v-flex>
-        </v-layout>
-      </v-carousel-item>
-      <v-carousel-item>
-        <v-layout row>
-          <v-flex
-            v-for="(partner, j) in partners.slice(9,16)"
-            :key="j"
-            xs6
-            md3
-          >
-            <img
-              class="ma-2 pa-4"
-              :src="partner.src"
-              aspect-ratio="1.5"
             >
           </v-flex>
         </v-layout>
@@ -61,8 +43,8 @@ export default Vue.extend({
         { src: 'http://zakyatrt.ru/wp-content/uploads/2016/06/1-e1466931484244.jpg' },
         { src: 'http://zakyatrt.ru/wp-content/uploads/2016/06/1-e1466931484244.jpg' },
         { src: 'http://zakyatrt.ru/wp-content/uploads/2016/06/1-e1466931484244.jpg' },
-
       ],
+      perPage: 8,
     };
   },
 });
