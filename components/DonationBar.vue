@@ -1,82 +1,82 @@
 <template>
-  <v-app-bar color="#00AC00" flat height="350">
-    <v-container>
-      <v-row class="pa-4" row>
-        <h1>{{ $t('Make_sadaka') }}</h1>
-        <p style="width: 85%;">
-          {{ $t('Make_sadaka_details') }}
-        </p>
-      </v-row>
-      <v-layout row wrap>
-        <v-flex md3 xs12 sm12>
+  <v-layout class="donation-container" column>
+    <v-flex xs11 md8>
+      <h1>{{ $t('Make_sadaka') }}</h1>
+      <p>{{ $t('Make_sadaka_details') }}</p>
+    </v-flex>
+    <v-flex xs11>
+      <v-layout row wrap align-center justify-space-between>
+        <v-flex xs10 md3>
           <v-text-field
-            id="text-input"
+            v-model.number="amount"
             rounded
-            dence
+            dense
+            single-line
+            hide-details
             placeholder="Enter the amount, ₽"
-            solo
-            color="white"
-            background-color="transparent"
+            outlined
+            dark
+            type="number"
+            min="1"
           />
         </v-flex>
-        <v-flex md6 xs8 sm8 row>
-          <v-radio-group row>
+        <v-flex xs8 md7>
+          <v-radio-group
+            v-model="amount"
+            row
+            dark
+            dense
+            hide-details
+            class="amounts"
+          >
             <v-radio
-              v-for="n in [1,5,10,50,100,1000]"
-              :key="n"
-              class="whitelabel"
-              :label="`${n} ₽`"
-              :value="n"
-              color="white"
+              v-for="a in amounts"
+              :key="a"
+              :label="`${a} ₽`"
+              :value="a"
             />
           </v-radio-group>
         </v-flex>
-        <v-btn rounded dark color="secondary">
-          <span>{{ $t('donate') }}</span>
-        </v-btn>
+        <v-flex xs1>
+          <v-btn rounded>
+            {{ $t('donate') }}
+          </v-btn>
+        </v-flex>
       </v-layout>
-    </v-container>
-  </v-app-bar>
+    </v-flex>
+  </v-layout>
 </template>
 <script lang="ts">
 import Vue from 'vue';
 
-export default Vue.extend({});
+export default Vue.extend({
+  data () {
+    return {
+      amounts: [1, 5, 10, 50, 100, 200, 300, 500],
+      amount: null,
+    };
+  },
+});
 </script>
 
-<style scoped>
-h1 {
-  font-family: Lato;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 43px;
+<style lang="scss" scoped>
+.donation-container {
+  background-color: #00AC00;
+  width: 100%;
+  padding: 2% 10%;
   color:#FFF;
-}
-p,.whitelabel{
-  color:#FFF;
-}
-.border-rounded{
-border: 1px solid #fff;
-border-radius: 20px;
-}
-.whitelabel /deep/ label {
-  color:white;
+  h1 {
+    font: bold 36px Lato;
+    line-height: 43px;
   }
-.theme--light.v-input input{
-  color: white!important;
+  p {
+    width: 80%;
+  }
+  .amounts {
+    border: 1px solid #fff;
+    border-radius: 25px;
+    padding: 10px;
+    margin-top: 0;
+  }
 }
-span{
-  color:black
-}
-.v-input--radio-group__input{
-padding: 12px 24px;
-
-}
-.v-input__slot::before {
-  border: 1px solid #FFFFFF !important;
-  box-sizing: border-box;
-  border-radius:25px;
- }
-
 </style>
