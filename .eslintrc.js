@@ -16,7 +16,7 @@ module.exports = {
     "no-console": ["warn", { allow: ["warn", "error"]}],
     "vue-i18n/no-raw-text": ["warn", {
       "ignoreNodes": ["v-icon"],
-      "ignorePattern": "^[-#:()&]+$",
+      "ignorePattern": "^([\\W\\d\\s]+|\\w+@\\w+\\.\\w+)$",
       "ignoreText": ["©"],
     }]
   },

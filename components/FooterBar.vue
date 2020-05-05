@@ -33,11 +33,11 @@
         <v-btn text small>
           ©{{ new Date().getFullYear() }}  {{ $t('copyright') }}
         </v-btn>
-        <v-btn text small>
-          {{ $t('phone') }}
+        <v-btn text small href="tel:+78432253322">
+          +7 (843) 225-33-22
         </v-btn>
-        <v-btn text small>
-          {{ $t('email') }}
+        <v-btn text small href="mailto:fondzakyat@yandex.ru">
+          fondzakyat@yandex.ru
         </v-btn>
         <v-btn text small>
           <v-icon medium>
