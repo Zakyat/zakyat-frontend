@@ -26,7 +26,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .zakat-container {
   background-color: #00ac00;
-  padding: 5% 10% 0% 10%;
+  padding: 5% 7% 0% 7%;
   color: #fff;
 
   h1 {
