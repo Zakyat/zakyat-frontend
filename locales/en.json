@@ -33,6 +33,11 @@
         },
         "partners": {
             "title": "Partners"
+        },
+        "zakat": {
+            "title": "Make zakat",
+            "description": "Zakat is an obligatory annual tax paid from various types of income by all capable and adult Muslims in favor of needy co-religionists.",
+            "pay": "Pay zakat"
         }
     }
 }

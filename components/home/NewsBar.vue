@@ -3,8 +3,6 @@
     <v-row>
       <span>{{ $t('links.news') }}
       </span>
-      <a>{{ $t('more') }}
-      </a>
     </v-row>
     <v-layout row>
       <v-flex
