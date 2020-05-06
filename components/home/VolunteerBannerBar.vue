@@ -1,5 +1,5 @@
 <template>
-  <v-layout class="zakat-container" row>
+  <v-layout class="volunteer-container" row>
     <v-flex xs12 md6>
       <h1>{{ $t('home.volunteer.title') }}</h1>
       <p>{{ $t('home.volunteer.description') }}</p>
@@ -24,7 +24,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.zakat-container {
+.volunteer-container {
   background-color: #3840f1;
   padding: 2% 10% 2% 10%;
   color: #fff;
