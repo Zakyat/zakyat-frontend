@@ -62,23 +62,27 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .donation-container {
-  background-color: #00AC00;
+  background-color: #00ac00;
   width: 100%;
   padding: 2% 10%;
-  color:#FFF;
+  color: #fff;
+
   h1 {
     font: bold 36px Lato;
     line-height: 43px;
   }
+
   p {
     width: 80%;
   }
+
   .amounts {
     border: 1px solid #fff;
     border-radius: 25px;
     padding: 10px;
     margin-top: 0;
   }
+
   .amount {
     border: thin solid;
   }

@@ -53,12 +53,15 @@ export default Vue.extend({
 .v-btn--active::before {
   opacity: 0;
 }
+
 .v-toolbar__title {
   margin-left: 1em;
+
   p {
     margin-bottom: 0;
+
     &.subtitle-2 {
-      color: #736D5A;
+      color: #736d5a;
     }
   }
 }

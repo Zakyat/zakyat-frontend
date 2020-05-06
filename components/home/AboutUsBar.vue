@@ -34,12 +34,12 @@ import Vue from 'vue';
 export default Vue.extend({});
 </script>
 <style scoped>
-span{
+span {
   font-family: Lato;
-font-style: normal;
-font-weight: bold;
-font-size: 36px;
-line-height: 43px;
-color: #000000;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 43px;
+  color: #000;
 }
 </style>

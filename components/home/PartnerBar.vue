@@ -51,11 +51,12 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-span{font-family: Lato;
-font-style: normal;
-font-weight: bold;
-font-size: 36px;
-line-height: 43px;
-color: #000000;
+span {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 43px;
+  color: #000;
 }
 </style>

@@ -75,15 +75,17 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.v-btn,.v-icon,.v-overflow-btn{
- color:white;
+.v-btn,
+.v-icon,
+.v-overflow-btn {
+  color: white;
 }
 
-.active{
-background-color:black;
+.active {
+  background-color: black;
 }
 
-.select{
+.select {
   display: inline-flex;
 }
 

@@ -3,6 +3,8 @@
     <v-row>
       <span>{{ $t('links.news') }}
       </span>
+      <a>{{ $t('more') }}
+      </a>
     </v-row>
     <v-layout row>
       <v-flex
@@ -46,12 +48,16 @@ export default Vue.extend({
 });
 </script>
 <style scoped>
-span{
-font-family: Lato;
-font-style: normal;
-font-weight: bold;
-font-size: 36px;
-line-height: 43px;
-color: #000000;
+span {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 43px;
+  color: #000;
+}
+
+a {
+  float: right;
 }
 </style>
