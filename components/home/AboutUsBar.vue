@@ -16,12 +16,14 @@
         </div>
       </v-flex>
       <v-flex xs12 md6>
-        <video rounded height="340px" controls>
-          <source
-            src="aboutUs.mp4"
-            type="video/mp4"
-          > Your browser does not support HTML5 video.
-        </video>
+        <center>
+          <video rounded height="340px" controls>
+            <source
+              src="aboutUs.mp4"
+              type="video/mp4"
+            > Your browser does not support HTML5 video.
+          </video>
+        </center>
       </v-flex>
     </v-layout>
   </v-container>
