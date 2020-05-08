@@ -5,6 +5,7 @@
     align-center
   >
     <!-- <PartnerBarSlide /> -->
+    <SliderBar />
     <DonationBar />
     <ProjectBar />
     <VolunteerBannerBar />
@@ -26,6 +27,7 @@ import ZakatBannerBar from '@/components/home/ZakatBannerBar.vue';
 import VolunteerBannerBar from '@/components/home/VolunteerBannerBar.vue';
 import ProjectBar from '@/components/home/ProjectBar.vue';
 import FundedProjectBar from '@/components/home/FundedProjectBar.vue';
+import SliderBar from '@/components/home/SliderBar.vue';
 
 export default {
   components: {
@@ -37,6 +39,7 @@ export default {
     VolunteerBannerBar,
     ProjectBar,
     FundedProjectBar,
+    SliderBar,
   },
 };
 </script>
