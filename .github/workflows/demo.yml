@@ -20,6 +20,7 @@ jobs:
     - name: Install and Build 🔧
       run: |
         npm install
+        export BASE_URL=/zakyat-frontend/
         npm run generate
 
     - name: Deploy demo to GitHub Pages 🚀

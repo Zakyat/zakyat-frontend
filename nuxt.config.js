@@ -91,7 +91,13 @@ export default {
     /*
     ** You can extend webpack config here
     */
-    extend (_config, _ctx) {
+    extend (config, ctx) {
+      if (!ctx.isDev) {
+        config.output.publicPath = './_nuxt/';
+      }
     },
+  },
+  router: {
+    base: process.env.BASE_URL || '/',
   },
 };
