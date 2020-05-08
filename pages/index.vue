@@ -10,6 +10,7 @@
     <VolunteerBannerBar />
     <NewsBar />
     <ZakatBannerBar />
+    <FundedProjectBar />
     <AboutUsBar />
     <DonationBar />
     <PartnerBar />
@@ -24,6 +25,7 @@ import NewsBar from '@/components/home/NewsBar.vue';
 import ZakatBannerBar from '@/components/home/ZakatBannerBar.vue';
 import VolunteerBannerBar from '@/components/home/VolunteerBannerBar.vue';
 import ProjectBar from '@/components/home/ProjectBar.vue';
+import FundedProjectBar from '@/components/home/FundedProjectBar.vue';
 
 export default {
   components: {
@@ -34,6 +36,7 @@ export default {
     ZakatBannerBar,
     VolunteerBannerBar,
     ProjectBar,
+    FundedProjectBar,
   },
 };
 </script>
