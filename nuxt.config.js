@@ -93,7 +93,7 @@ export default {
     */
     extend (config, ctx) {
       if (!ctx.isDev) {
-        config.output.publicPath = './_nuxt/';
+        config.output.publicPath = './_nuxt/'; // default is the absolute '/_nuxt/'.
       }
     },
   },

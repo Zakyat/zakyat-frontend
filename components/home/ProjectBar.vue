@@ -34,14 +34,14 @@ export default Vue.extend({
   data () {
     return {
       projects: [
-        { src: '', title: 'Пункт приема и раздачи одежды' },
-        { src: '/pr2.png', title: 'Пункт приема и раздачи одежды' },
-        { src: '/pr3.png', title: 'Пункт приема и раздачи одежды' },
-        { src: '', title: 'Пункт приема и раздачи одежды' },
-        { src: '/pr4.png', title: 'Пункт приема и раздачи одежды' },
-        { src: '/pr5.png', title: 'Пункт приема и раздачи одежды' },
-        { src: '', title: 'Пункт приема и раздачи одежды' },
-        { src: '', title: 'Пункт приема и раздачи одежды' },
+        { title: 'Пункт приема и раздачи одежды' },
+        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/2.png') },
+        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/3.png') },
+        { title: 'Пункт приема и раздачи одежды' },
+        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/4.png') },
+        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/5.png') },
+        { title: 'Пункт приема и раздачи одежды' },
+        { title: 'Пункт приема и раздачи одежды' },
       ],
     };
   },
@@ -52,6 +52,7 @@ export default Vue.extend({
 .project {
   display: flex;
   flex-direction: column;
+  border-radius: 10px !important;
 }
 span {
   font-family: 'Lato';

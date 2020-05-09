@@ -11,7 +11,7 @@
       <v-img
         max-width="507px"
         width="100%"
-        src="/b2.png"
+        :src="require('@/assets/images/banners/2.png')"
       />
     </v-flex>
   </v-layout>
