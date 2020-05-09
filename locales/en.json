@@ -45,7 +45,11 @@
             "join": "Become a volunteer"
         },
         "funded_project": {
-          "title": "You helped, thanks!"
-      }
+            "title": "You helped, thanks!"
+        },
+        "projects": {
+            "title": "Projects",
+            "help": "I want to help"
+        }
     }
 }

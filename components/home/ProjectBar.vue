@@ -1,32 +1,26 @@
 <template>
   <v-container>
-    <v-row>
-      <span>{{ $t('links.projects') }}
-      </span>
-    </v-row>
+    <span>{{ $t('home.projects.title') }}</span>
     <v-layout row>
       <v-flex
         v-for="(item, j) in projects"
         :key="j"
-        xs6
-        md3
+        xs12
+        sm6
+        md4
+        lg3
       >
-        <v-card class="ma-4" rounded solo color="#F2F2F2" min-height="350">
+        <v-card class="ma-4 project" outlined color="#F2F2F2" min-height="350">
           <v-card-title>{{ item.title }}</v-card-title>
-          <div v-if="item.src">
-            <center>
-              <img :src="item.src">
-            </center>
-          </div>
-          <div v-else>
-            <br><br><br> <br>
-          </div>
-          <center>
+          <v-card-text class="text-center">
+            <img v-if="item.src" :src="item.src" style="max-width: 100%;">
+          </v-card-text>
+          <v-spacer />
+          <v-card-actions style="padding: 15px;">
             <v-btn rounded dark color="primary">
-              {{ item.button }}
+              {{ $t('home.projects.help') }}
             </v-btn>
-            <br>
-          </center>
+          </v-card-actions>
         </v-card>
       </v-flex>
     </v-layout>
@@ -40,20 +34,25 @@ export default Vue.extend({
   data () {
     return {
       projects: [
-        { src: '', title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
-        { src: '/pr2.png', title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
-        { src: '/pr3.png', title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
-        { src: '', title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
-        { src: '/pr4.png', title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
-        { src: '/pr5.png', title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
-        { src: '', title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
-        { src: '', title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
+        { src: '', title: 'Пункт приема и раздачи одежды' },
+        { src: '/pr2.png', title: 'Пункт приема и раздачи одежды' },
+        { src: '/pr3.png', title: 'Пункт приема и раздачи одежды' },
+        { src: '', title: 'Пункт приема и раздачи одежды' },
+        { src: '/pr4.png', title: 'Пункт приема и раздачи одежды' },
+        { src: '/pr5.png', title: 'Пункт приема и раздачи одежды' },
+        { src: '', title: 'Пункт приема и раздачи одежды' },
+        { src: '', title: 'Пункт приема и раздачи одежды' },
       ],
     };
   },
 });
 </script>
-<style scoped>
+
+<style lang="scss" scoped>
+.project {
+  display: flex;
+  flex-direction: column;
+}
 span {
   font-family: 'Lato';
   font-style: normal;
