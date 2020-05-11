@@ -1,19 +1,10 @@
 <template>
   <v-app-bar flat color="white" height="100">
+    <v-spacer />
     <img src="@/assets/logo.svg">
-    <v-toolbar-title>
-      <p class="title primary--text">
-        {{ $t('title') }}
-      </p>
-      <p class="subtitle-2">
-        {{ $t('subtitle') }}
-      </p>
-      <p class="subtitle-2">
-        {{ $t('tatarstan') }}
-      </p>
-    </v-toolbar-title>
     <v-spacer />
     <v-btn
+      class="toolbar_text"
       v-for="(page, i) in pages"
       :key="i"
       :to="page.link"
@@ -22,9 +13,11 @@
     >
       {{ page.text }}
     </v-btn>
-    <v-btn rounded dark color="primary">
+    <v-spacer />
+    <v-btn class="font" rounded dark color="primary">
       {{ $t('give_help') }}
     </v-btn>
+    <v-spacer />
     <v-btn rounded dark color="accent">
       {{ $t('get_help') }}
     </v-btn>
@@ -50,12 +43,21 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+
+.toolbar_text {
+  font-family: Lato;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}
+
 .v-btn--active::before {
   opacity: 0;
 }
 
 .v-toolbar__title {
-  margin-left: 1em;
+  margin-left: 10px;
 
   p {
     margin-bottom: 0;
