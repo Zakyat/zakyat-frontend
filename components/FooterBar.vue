@@ -1,5 +1,5 @@
 <template>
-  <v-footer fixed app color="#202020">
+  <v-footer absolute fixed app color="#202020">
     <v-row
       justify="center"
     >
