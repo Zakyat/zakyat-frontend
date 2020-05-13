@@ -27,6 +27,7 @@ export default Vue.extend({
 .volunteer-container {
   background-color: #3840f1;
   padding: 2% 7% 2% 7%;
+  width: 85%;
   color: #fff;
 
   h1 {

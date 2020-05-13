@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container class="mt-12">
     <span>{{ $t('home.projects.title') }}</span>
-    <v-layout row>
+    <v-layout class="mt-10" row>
       <v-flex
         v-for="(item, j) in projects"
         :key="j"
@@ -10,11 +10,9 @@
         md4
         lg3
       >
-        <v-card class="ma-4 project" outlined color="#F2F2F2" min-height="350">
+        <v-card class="ma-4 project" outlined color="#F2F2F2" min-height="270" max-height="270">
           <v-card-title>{{ item.title }}</v-card-title>
-          <v-card-text class="text-center">
-            <img v-if="item.src" :src="item.src" style="max-width: 100%;">
-          </v-card-text>
+           <v-img v-if="item.src" :src="item.src" style="max-width: 30%;"/>
           <v-spacer />
           <v-card-actions style="padding: 15px;">
             <v-btn rounded dark color="primary">

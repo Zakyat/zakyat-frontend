@@ -1,41 +1,38 @@
 <template>
-  <v-system-bar dark height="40" >
+    <v-system-bar dark height="50">
     <v-spacer />
     <img src="@/assets/images/header/heart_symbol.svg" class="ml-12 mr-3">
     <!-- TODO: make number format with empty spaces. Ex.6234234 as 6 234 234 -->
-    {{ $t('collected', [6234234]) }}
+    <t>{{ $t('collected', [6234234]) }}</t>
     <v-spacer />
     <v-spacer />
     <v-spacer />
     <v-spacer />
-    <v-spacer />
-    <v-spacer />
-    <!-- TODO: replace these v-spacers to correct way  -->
-    <v-btn text small>
+    <v-btn text small class="typical_text mr-7">
       <v-icon medium>
         mdi-magnify
       </v-icon>
       {{ $t('search') }}
     </v-btn>
-    <v-btn text small>
+    <v-btn text small class="typical_text mr-7">
       <v-icon medium>
         mdi-vk
       </v-icon>
       {{ $t('VK') }}
     </v-btn>
-    <v-btn text >
+    <v-btn text small class="typical_text mr-7">
       <v-icon medium>
         mdi-instagram
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
-    <v-btn text small>
+    <v-btn text small class="typical_text mr-10">
       <v-icon medium>
         mdi-account-circle
       </v-icon>
       {{ $t('login') }}
     </v-btn>
-    <v-flex md2 xs6>
+    <v-flex md2 xs6 >
       <v-overflow-btn
         :value="$i18n.locale"
         :items="$i18n.locales"
@@ -43,6 +40,7 @@
         item-value="code"
         hide-selected
         dense
+        auto-select-first
         @input="$i18n.setLocale"
       />
     </v-flex>
@@ -56,3 +54,12 @@ export default Vue.extend({
 
 });
 </script>
+<style lang="scss" scoped>
+.v-overflow-btn {
+  max-width: 105px;
+}
+
+.typical_text {
+  text-transform:none !important;
+}
+</style>

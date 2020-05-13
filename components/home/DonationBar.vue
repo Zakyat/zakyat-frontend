@@ -2,7 +2,7 @@
   <v-layout class="donation-container" column>
     <v-flex xs11 md8>
       <h1>{{ $t('home.sadaka.title') }}</h1>
-      <p>{{ $t('home.sadaka.description') }}</p>
+      <p class="mt-4 mb-6">{{ $t('home.sadaka.description') }}</p>
     </v-flex>
     <v-flex xs11>
       <v-layout row wrap align-center justify-space-between>
@@ -39,7 +39,7 @@
           </v-radio-group>
         </v-flex>
         <v-flex xs1>
-          <v-btn rounded>
+          <v-btn class="typical_text" rounded>
             {{ $t('home.sadaka.donate') }}
           </v-btn>
         </v-flex>
@@ -63,7 +63,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .donation-container {
   background-color: #00ac00;
-  width: 100%;
+  width: 85%;
   padding: 2% 7% 2% 7%;
   color: #fff;
 
@@ -73,7 +73,12 @@ export default Vue.extend({
   }
 
   p {
-    width: 80%;
+    width: 75%;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
   }
 
   .amounts {
@@ -86,5 +91,8 @@ export default Vue.extend({
   .amount {
     border: thin solid;
   }
+}
+.typical_text {
+  text-transform:none !important;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat color="white" height="100">
+  <v-app-bar class="toolbar-container" flat color="white" height="100" justify-center>
     <v-spacer />
     <img src="@/assets/logo.svg">
     <v-spacer />
@@ -40,7 +40,7 @@ export default Vue.extend({
       ],
       green_text: [
         { text: this.$t('links.pay'), link: '/' },
-      ]
+      ],
     };
   },
 });
