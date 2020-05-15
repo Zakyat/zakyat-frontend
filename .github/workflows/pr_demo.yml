@@ -12,15 +12,15 @@ jobs:
       with:
         persist-credentials: false
 
+    - name: Exctract PR number
+      run: echo "::set-env name=PR_NUMBER::$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')"
+    
     - uses: actions/setup-node@v1
     - name: Install and Build
       run: |
         npm install
-        export BASE_URL=/zakyat-frontend/
+        export BASE_URL=/zakyat-frontend/${{ env.PR_NUMBER }}/
         npm run generate
-
-    - name: Exctract PR number
-      run: echo "::set-env name=PR_NUMBER::$(echo $GITHUB_REF | awk 'BEGIN { FS = "/" } ; { print $3 }')"
 
     - name: Move output files to a folder with PR number
       run: |
