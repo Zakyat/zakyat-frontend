@@ -1,7 +1,7 @@
 <template>
   <v-app-bar class="toolbar-container" flat color="white" height="100" justify-center>
     <v-spacer />
-    <img src="@/assets/logo.svg">
+    <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
     <v-spacer />
     <v-btn
       class="toolbar_text"
