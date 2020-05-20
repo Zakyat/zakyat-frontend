@@ -1,22 +1,68 @@
 <template>
-  <v-carousel
+ <v-carousel
     cycle
     hide-delimiter-background
     show-arrows-on-hover
-  >
-    <v-carousel-item
+ >
+         <v-carousel-item
       v-for="(slide, i) in slides"
       :key="i"
-    >
-      <v-row
-        class="fill-height"
-        align="center"
-        justify="center"
-      >
-        <img :src="slide.src">
-      </v-row>
-    </v-carousel-item>
+       xs12
+        sm6
+        md4
+        lg3
+       >
+             <v-card
+     class="pa-md-4 mx-lg-auto"
+      color="white"
+      max-width="870"
+              >
+       <v-img
+        class="white--text align-end "
+        height="456px"
+        width="895px"
+       :src="slide.src"
+
+       >
+
+              <div class="button_slider">
+         <v-card-title><h2>{{slide.title}}</h2>
+           <h5>{{slide.diagnosis}}</h5>
+                        </v-card-title>
+               <v-card-text>
+               <div class="progress">
+                  <div class="collected">
+               <h3>Собрано</h3>
+                    <h4>{{slide.collected}}</h4></div>
+                <div class="left">
+                  <h3>Осталось</h3>
+                  <h4>{{slide.left}}</h4>
+                </div>
+                  <div class="need">
+                <h3>Необходимо</h3>
+                <h4>{{slide.need}}</h4>
+                 </div>
+                                   <v-card-actions style="">
+            <v-btn rounded dark color="primary">
+                            {{ $t('home.projects.help') }}
+                          </v-btn>
+
+          </v-card-actions>
+
+               </div>
+
+                 <v-img>
+            <img v-if="slide.src2" :src2="slide.src2" style="max-width: 100%;">
+                 <img width="600" height="5" alt="" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAAFCAYAAACZ6ZLcAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACNSURBVHgB7dqxCcJQFIXhPwFFyAopAlZpxCppXcERHCppbQI2DpENTJ1V5KF5FoJY5dX/Bxfu3eDCORk3KjZcgROi3tV0VUe5LZEkSVppCiGcM+48luOIvpqiYdgPSJIkJRjjg/VCf+bDjCRJUop8mRH9iDGhJElSoinnySUu6KMtWvqqR5IkKcEYO1hvCwgZagJwg2cAAAAASUVORK5CYII=">
+                        </v-img>
+                        </v-card-text>
+                             </div>
+        </v-img>
+
+                     </v-card>
+       </v-carousel-item>
   </v-carousel>
+
 </template>
 <script lang="ts">
 import Vue from 'vue';
@@ -25,10 +71,35 @@ export default Vue.extend({
   data () {
     return {
       slides: [
-        { src: require('@/assets/images/slideshow.png'), title: 'Пункт приема и раздачи одежды' },
-        { src: require('@/assets/images/slideshow.png'), title: 'Пункт приема и раздачи одежды' },
+        { src: require('@/assets/images/slide1.png'), title: 'Бурганова Альфия, 16 лет', diagnosis: 'Идиопатический прогрессирующий сколиоз 4-й степени, спасет операция', collected: '65 065 ₽', left: '435 435 ₽', need: '500 500 ₽', src2: require('@/assets/images/sl.png') },
+        { src: require('@/assets/images/slide2.png'), title: 'Хабибуллин Данияр, 6 лет', diagnosis: 'Идиопатический прогрессирующий сколиоз 4-й степени, спасет операция', collected: '65 065 ₽', left: '435 435 ₽', need: '500 500 ₽', src2: require('@/assets/images/sl.png') },
+
       ],
-    };
+};
   },
 });
 </script>
+<style lang="scss" scoped>
+.progress {
+ display:flex;
+  
+}
+.left {
+margin-left: 199px;
+ }
+.collected {
+  }
+  .need {
+    margin-left: 189px;
+    }
+  .button_slider {
+    color: #222;
+    margin-left: 20px;
+width: 810px;
+height: 180px;
+background: #fff;
+border-radius: 10px;
+margin-bottom: 20px;
+}
+
+   </style>
