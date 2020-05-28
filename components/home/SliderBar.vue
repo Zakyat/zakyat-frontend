@@ -26,7 +26,7 @@
                       </v-btn>
                     </v-card-actions>
               </div>
-                      <v-img v-for="(scale,j) in scales" :key="j" :src="scale.src" style="max-width: 100%;" width="600" height="3" alt="" >
+                      <v-img v-for="(scale,j) in scales" :key="j" :src="scale.src" width="600" height="3" >
                       </v-img>
              </v-card-text>
          </div>
