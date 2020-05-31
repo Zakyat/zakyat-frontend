@@ -4,19 +4,11 @@
 
 ## Build Setup
 
-```bash
-# install dependencies
-$ npm install
+Running `docker-compose up` in the parent directory should take care of everything.
 
-# serve with hot reload at localhost:3000
-$ npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org) and the README file in each subfolder.
 
-# generate static project
-$ npm run generate
-```
+## Design
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+[Figma](https://www.figma.com/file/Uawx1aTAf6LJjjG2xgoV6v/Web-Zakyat?node-id=0%3A1)
