@@ -1,7 +1,7 @@
 <template>
   <v-system-bar dark height="50">
     <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
-    {{ $t('collected', [6234234]) }}
+    {{ $t('collected', [amount.toLocaleString('ru', {style: 'currency', currency: 'RUB', minimumFractionDigits: 0})]) }}
     <v-spacer />
     <v-btn text small class="text-none">
       <v-icon medium>
@@ -45,6 +45,10 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-
+  data () {
+    return {
+      amount: 6234234,
+    };
+  },
 });
 </script>
