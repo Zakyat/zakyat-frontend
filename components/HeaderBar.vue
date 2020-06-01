@@ -27,16 +27,20 @@
       </v-icon>
       {{ $t('login') }}
     </v-btn>
-    <v-flex md2 xs6>
+    <v-flex lg1 md2 xs4>
       <v-overflow-btn
         :value="$i18n.locale"
         :items="$i18n.locales"
-        item-text="name"
+        item-text="shortName"
         item-value="code"
         hide-selected
         dense
         @input="$i18n.setLocale"
-      />
+      >
+        <template v-slot:item="{ item }">
+          {{ item.name }}
+        </template>
+      </v-overflow-btn>
     </v-flex>
   </v-system-bar>
 </template>
