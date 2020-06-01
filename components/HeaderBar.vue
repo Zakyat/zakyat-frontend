@@ -1,5 +1,5 @@
 <template>
-  <v-system-bar dark height="50">
+  <v-system-bar dark height="50" style="padding: 0 5%;">
     <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
     {{ $t('collected', [amount.toLocaleString('ru', {style: 'currency', currency: 'RUB', minimumFractionDigits: 0})]) }}
     <v-spacer />

@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat color="white" height="100">
+  <v-app-bar flat color="white" height="100" style="padding: 0 5%;">
     <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
     <v-spacer />
     <v-btn
