@@ -1,5 +1,5 @@
 <template>
-  <v-system-bar dark height="40">
+  <v-system-bar dark height="50">
     <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
     {{ $t('collected', [6234234]) }}
     <v-spacer />
