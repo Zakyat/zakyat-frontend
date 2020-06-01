@@ -1,6 +1,6 @@
 <template>
   <v-system-bar dark height="40">
-    <v-icon>mdi-heart</v-icon>
+    <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
     {{ $t('collected', [6234234]) }}
     <v-spacer />
     <v-btn text small>
