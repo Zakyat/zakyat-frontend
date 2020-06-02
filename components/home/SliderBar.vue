@@ -34,8 +34,8 @@ export default Vue.extend({
   data () {
     return {
       slides: [
-        { src: require('@/assets/images/slideshow.png') },
-        { src: require('@/assets/images/slideshow.png') },
+        { src: require('@/assets/images/slideshow1.jpg') },
+        { src: require('@/assets/images/slideshow2.jpg') },
       ],
       swiperOptions: {
         slidesPerView: 'auto',
