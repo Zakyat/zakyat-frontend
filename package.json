@@ -16,7 +16,9 @@
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "nuxt": "^2.0.0",
-    "nuxt-i18n": "^6.12.1"
+    "nuxt-i18n": "^6.12.1",
+    "swiper": "^5.4.1",
+    "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^1.0.1",
