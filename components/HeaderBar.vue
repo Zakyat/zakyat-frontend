@@ -3,25 +3,25 @@
     <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
     {{ $t('collected', [rubles(amount)]) }}
     <v-spacer />
-    <v-btn text small class="text-none">
+    <v-btn text small>
       <v-icon medium>
         mdi-magnify
       </v-icon>
       {{ $t('search') }}
     </v-btn>
-    <v-btn text small class="text-none">
+    <v-btn text small>
       <v-icon medium>
         mdi-vk
       </v-icon>
       {{ $t('VK') }}
     </v-btn>
-    <v-btn text small class="text-none">
+    <v-btn text small>
       <v-icon medium>
         mdi-instagram
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
-    <v-btn text small class="text-none">
+    <v-btn text small>
       <v-icon medium>
         mdi-account-circle
       </v-icon>
