@@ -28,28 +28,20 @@
       {{ $t('login') }}
     </v-btn>
     <v-flex lg1 md2 xs4>
-      <v-overflow-btn
-        :value="$i18n.locale"
-        :items="$i18n.locales"
-        item-text="shortName"
-        item-value="code"
-        hide-selected
-        dense
-        @input="$i18n.setLocale"
-      >
-        <template v-slot:item="{ item }">
-          {{ item.name }}
-        </template>
-      </v-overflow-btn>
+      <LanguageSelector />
     </v-flex>
   </v-system-bar>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import LanguageSelector from '@/components/LanguageSelector.vue';
 import { rubles } from '@/plugins/currency';
 
 export default Vue.extend({
+  components: {
+    LanguageSelector,
+  },
   data () {
     return {
       amount: 6234234,
