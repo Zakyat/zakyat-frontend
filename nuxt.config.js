@@ -31,6 +31,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/currency.ts',
   ],
   /*
   ** Nuxt.js dev-modules
