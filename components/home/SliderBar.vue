@@ -32,7 +32,7 @@
                     </p>
                   </v-col>
                   <v-spacer />
-                  <v-col class="pb-1">
+                  <v-col class="pb-1 text-right">
                     <p class="subtitle">
                       {{ $t('home.slideshow.required') }}
                     </p>

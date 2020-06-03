@@ -3,21 +3,20 @@
     <h1>
       {{ $t('home.partners.title') }}
     </h1>
-    <v-carousel hide-delimiters>
+    <v-carousel hide-delimiters height="350">
       <v-carousel-item v-for="page in Math.ceil(partners.length / perPage)" :key="page">
-        <v-layout row>
-          <v-flex
+        <v-row>
+          <v-col
             v-for="(partner, j) in partners.slice((page-1)*perPage, (page)*perPage)"
             :key="j"
-            xs6
-            md3
+            class="text-center"
+            align-self="center"
+            cols="6"
+            md="3"
           >
-            <img
-              class="ma-2 pa-4"
-              :src="partner.src"
-            >
-          </v-flex>
-        </v-layout>
+            <img :src="partner.src">
+          </v-col>
+        </v-row>
       </v-carousel-item>
     </v-carousel>
   </v-container>
