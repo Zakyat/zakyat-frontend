@@ -7,7 +7,7 @@
         v-for="(page, i) in pages"
         :key="i"
         class="text-center white--text"
-        cols="1"
+        cols="auto"
       >
         <v-btn
           :to="page.link"
@@ -23,7 +23,8 @@
       <v-col cols="1" class="py-2 px-0">
         <LanguageSelector />
       </v-col>
-
+    </v-row>
+    <v-row class="my-3">
       <v-col class="py-2 text-center white--text" cols="12">
         <v-btn text small>
           ©{{ new Date().getFullYear() }}  {{ $t('copyright') }}
@@ -67,7 +68,7 @@ export default Vue.extend({
         { text: this.$t('links.reports'), link: '/' },
         { text: this.$t('links.news'), link: '/' },
         { text: this.$t('links.about'), link: '/' },
-        { text: this.$t('links.pay'), link: '/' },
+        { text: this.$t('links.volunteers'), link: '/' },
       ],
     };
   },
