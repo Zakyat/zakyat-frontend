@@ -22,6 +22,12 @@
             "paragraph2": "Zakat Charity Fund Helps Help the Most Unprotected strata of the population: large families, low-income families who find themselves in difficult lifethe situation; orphans and single elderly people. The fund also collects funds and helps in paying for treatment of seriously ill children and adults.",
             "learn_more": "Learn more"
         },
+        "slideshow": {
+            "collected": "Collected",
+            "remaining": "Remaining",
+            "required": "Required",
+            "donate": "Donate"
+        },
         "sadaka": {
             "title": "Make sadaka",
             "description": "Sadaka - voluntary alms, which are paid to the needy at their own discretion and desire. We will distribute any of your good deeds done sincerely among those in need.",

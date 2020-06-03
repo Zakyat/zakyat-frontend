@@ -4,7 +4,65 @@
       v-for="(slide, i) in slides"
       :key="i"
     >
-      <v-img :src="slide.src" />
+      <v-img :src="slide.src" class="background">
+        <v-card class="overlay" flat>
+          <v-row>
+            <v-col cols="8">
+              <v-card-title class="pb-0">
+                {{ slide.title }}
+              </v-card-title>
+              <v-card-text>
+                {{ slide.description }}
+                <v-row justify="space-between">
+                  <v-col class="pb-1">
+                    <p class="subtitle">
+                      {{ $t('home.slideshow.collected') }}
+                    </p>
+                    <p class="font-weight-bold mb-0">
+                      {{ slide.collected | rubles }}
+                    </p>
+                  </v-col>
+                  <v-spacer />
+                  <v-col class="pb-1">
+                    <p class="subtitle">
+                      {{ $t('home.slideshow.remaining') }}
+                    </p>
+                    <p class="font-weight-bold mb-0">
+                      {{ slide.collected | rubles }}
+                    </p>
+                  </v-col>
+                  <v-spacer />
+                  <v-col class="pb-1">
+                    <p class="subtitle">
+                      {{ $t('home.slideshow.required') }}
+                    </p>
+                    <p class="font-weight-bold mb-0">
+                      {{ slide.required | rubles }}
+                    </p>
+                  </v-col>
+                </v-row>
+                <v-progress-linear height="5" style="border-radius: 5px;" :value="100*slide.collected/slide.required" />
+              </v-card-text>
+            </v-col>
+            <v-col cols="3">
+              <v-row justify="end">
+                <v-col cols="auto">
+                  <v-progress-circular rotate="-90" color="primary" size="60" :value="100*slide.collected/slide.required" class="font-weight-bold title">
+                    {{ Math.floor(100 * slide.collected / slide.required) }}%
+                  </v-progress-circular>
+                </v-col>
+              </v-row>
+              <v-row justify="center">
+                <v-col cols="auto">
+                  <v-btn rounded block color="primary">
+                    {{ $t('home.slideshow.donate') }}
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-col>
+          </v-row>
+        </v-card>
+      </v-img>
     </SwiperSlide>
     <v-btn slot="button-prev" class="swiper-button-prev" fab>
       <v-icon x-large>
@@ -34,8 +92,20 @@ export default Vue.extend({
   data () {
     return {
       slides: [
-        { src: require('@/assets/images/slideshow1.jpg') },
-        { src: require('@/assets/images/slideshow2.jpg') },
+        {
+          src: require('@/assets/images/slideshow1.jpg'),
+          title: 'Бурганова Альфия, 16 лет',
+          description: 'Идиопатический прогрессирующий сколиоз 4-й степени, спасет операция',
+          required: 500_500,
+          collected: 65_065,
+        },
+        {
+          src: require('@/assets/images/slideshow2.jpg'),
+          title: 'Садыков Амирхан, 11 лет',
+          description: 'ДЦП',
+          required: 500_500,
+          collected: 335_065,
+        },
       ],
       swiperOptions: {
         slidesPerView: 'auto',
@@ -66,5 +136,21 @@ export default Vue.extend({
       display: none;
     }
   }
+}
+
+.overlay {
+  margin: 25px;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 50px);
+}
+
+.background {
+  border-radius: $card-border-radius;
+}
+
+.subtitle {
+  margin-bottom: 0;
+  color: #9DA3A6;
 }
 </style>
