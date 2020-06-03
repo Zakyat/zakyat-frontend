@@ -25,6 +25,7 @@
     "@nuxtjs/eslint-config-typescript": "^2.0.0",
     "@nuxtjs/eslint-module": "^2.0.0",
     "@nuxtjs/vuetify": "^1.11.2",
+    "@types/swiper": "^5.3.1",
     "babel-eslint": "^10.0.1",
     "eslint": "^7.1.0",
     "eslint-plugin-nuxt": "^1.0.0",
