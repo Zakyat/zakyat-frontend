@@ -28,7 +28,7 @@
                       {{ $t('home.slideshow.remaining') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ slide.collected | rubles }}
+                      {{ slide.required - slide.collected | rubles }}
                     </p>
                   </v-col>
                   <v-spacer />
