@@ -14,8 +14,8 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
     ],
     link: [
-      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
-      { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css?family=Lato' },
+      { rel: 'icon', type: 'image/png', href: './favicon.png' },
+      { rel: 'stylesheet', type: 'text/css', href: 'https://fonts.googleapis.com/css2?family=Lato&display=swap' },
     ],
   },
   /*
