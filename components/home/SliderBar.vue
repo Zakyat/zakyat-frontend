@@ -41,20 +41,32 @@
                     </p>
                   </v-col>
                 </v-row>
-                <v-progress-linear height="5" style="border-radius: 5px;" :value="100*slide.collected/slide.required" />
+                <v-progress-linear
+                  height="5"
+                  rounded
+                  background-color="#DADADA"
+                  :value="100*slide.collected/slide.required"
+                />
               </v-card-text>
             </v-col>
             <v-col cols="3">
               <v-row justify="end">
                 <v-col cols="auto">
-                  <v-progress-circular rotate="-90" color="primary" size="60" :value="100*slide.collected/slide.required" class="font-weight-bold title">
+                  <v-progress-circular
+                    rotate="-90"
+                    color="primary"
+                    background-color="#DADADA"
+                    size="60"
+                    class="font-weight-bold title"
+                    :value="100*slide.collected/slide.required"
+                  >
                     {{ Math.floor(100 * slide.collected / slide.required) }}%
                   </v-progress-circular>
                 </v-col>
               </v-row>
-              <v-row justify="center">
+              <v-row justify="end">
                 <v-col cols="auto">
-                  <v-btn rounded block color="primary">
+                  <v-btn rounded depressed color="primary">
                     {{ $t('home.slideshow.donate') }}
                   </v-btn>
                 </v-col>
