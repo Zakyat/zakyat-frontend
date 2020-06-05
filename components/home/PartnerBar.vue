@@ -1,9 +1,38 @@
 <template>
   <v-container>
-    <h1>
-      {{ $t('home.partners.title') }}
-    </h1>
-    <v-carousel hide-delimiters height="350">
+    <v-row justify="space-between">
+      <v-col align-self="center">
+        <h1>
+          {{ $t('home.partners.title') }}
+        </h1>
+      </v-col>
+      <v-col align-self="center" class="text-right">
+        <v-btn
+          fab
+          x-small
+          elevation="2"
+          color="white"
+          class="mr-5"
+          @click="currentPage--"
+        >
+          <v-icon size="24" color="black">
+            mdi-chevron-left
+          </v-icon>
+        </v-btn>
+        <v-btn
+          fab
+          x-small
+          elevation="2"
+          color="white"
+          @click="currentPage++"
+        >
+          <v-icon size="24" color="black">
+            mdi-chevron-right
+          </v-icon>
+        </v-btn>
+      </v-col>
+    </v-row>
+    <v-carousel v-model="currentPage" hide-delimiters :show-arrows="false" height="350">
       <v-carousel-item v-for="page in Math.ceil(partners.length / perPage)" :key="page">
         <v-row>
           <v-col
@@ -44,6 +73,7 @@ export default Vue.extend({
         { src: 'http://zakyatrt.ru/wp-content/uploads/2016/06/1-e1466931484244.jpg' },
       ],
       perPage: 8,
+      currentPage: 0,
     };
   },
 });
@@ -51,7 +81,6 @@ export default Vue.extend({
 
 <style scoped>
 span {
-  font-family: Lato;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
