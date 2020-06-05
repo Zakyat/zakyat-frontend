@@ -4,25 +4,25 @@
     {{ $t('collected', [rubles(amount)]) }}
     <v-spacer />
     <v-btn text small>
-      <v-icon medium>
+      <v-icon size="20">
         mdi-magnify
       </v-icon>
       {{ $t('search') }}
     </v-btn>
     <v-btn text small>
-      <v-icon medium>
+      <v-icon size="20">
         mdi-vk
       </v-icon>
       {{ $t('VK') }}
     </v-btn>
     <v-btn text small>
-      <v-icon medium>
+      <v-icon size="20">
         mdi-instagram
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
     <v-btn text small>
-      <v-icon medium>
+      <v-icon size="20" color="white">
         mdi-account-circle
       </v-icon>
       {{ $t('login') }}
