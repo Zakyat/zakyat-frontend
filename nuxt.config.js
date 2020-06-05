@@ -85,6 +85,12 @@ export default {
         },
       },
     },
+    icons: {
+      iconfont: 'mdi',
+      values: {
+        dropdown: 'mdi-chevron-down',
+      },
+    },
   },
   /*
   ** Build configuration

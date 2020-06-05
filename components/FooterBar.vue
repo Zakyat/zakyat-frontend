@@ -20,7 +20,7 @@
           {{ page.text }}
         </v-btn>
       </v-col>
-      <v-col cols="1" class="py-2 px-0">
+      <v-col cols="4" sm="2" lg="1" class="py-2 px-0">
         <LanguageSelector />
       </v-col>
     </v-row>
