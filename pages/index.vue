@@ -4,7 +4,6 @@
     justify-center
     align-center
   >
-    <!-- <PartnerBarSlide /> -->
     <SliderBar />
     <DonationBar />
     <ProjectBar />

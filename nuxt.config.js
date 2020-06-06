@@ -14,7 +14,7 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', type: 'image/png', href: './favicon.png' },
     ],
   },
   /*
@@ -30,6 +30,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/currency.ts',
   ],
   /*
   ** Nuxt.js dev-modules
@@ -49,8 +50,8 @@ export default {
       'nuxt-i18n',
       {
         locales: [
-          { code: 'en', file: 'en.json', name: 'English' },
-          { code: 'ru', file: 'ru.json', name: 'Русский' },
+          { code: 'en', file: 'en.json', name: 'English', shortName: 'Eng' },
+          { code: 'ru', file: 'ru.json', name: 'Русский', shortName: 'Рус' },
         ],
         lazy: true,
         langDir: 'locales/',
@@ -81,6 +82,12 @@ export default {
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
         },
+      },
+    },
+    icons: {
+      iconfont: 'mdi',
+      values: {
+        dropdown: 'mdi-chevron-down',
       },
     },
   },

@@ -5,11 +5,9 @@
     </v-row>
     <v-layout row>
       <v-flex xs12 md6>
-        <div class="pa-4">
-          {{ $t('home.about.paragraph1') }}
-          <br>
-          {{ $t('home.about.paragraph2') }}
-          <br><br>
+        <div class="py-6">
+          <p>{{ $t('home.about.paragraph1') }}</p>
+          <p>{{ $t('home.about.paragraph2') }}</p>
           <v-btn rounded dark color="accent">
             {{ $t('home.about.learn_more') }}
           </v-btn>

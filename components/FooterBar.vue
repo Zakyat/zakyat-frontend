@@ -1,12 +1,15 @@
 <template>
-  <v-footer fixed app color="#202020">
+  <v-footer absolute app color="#202020">
     <v-row
       justify="center"
     >
-      <v-col class="text-center white--text" cols="6">
+      <v-col
+        v-for="(page, i) in pages"
+        :key="i"
+        class="text-center white--text"
+        cols="auto"
+      >
         <v-btn
-          v-for="(page, i) in pages"
-          :key="i"
           :to="page.link"
           text
           nuxt
@@ -16,19 +19,12 @@
         >
           {{ page.text }}
         </v-btn>
-
-        <v-overflow-btn
-          :value="$i18n.locale"
-          :items="$i18n.locales"
-          item-text="name"
-          item-value="code"
-          hide-selected
-          dense
-          class="select"
-          @input="$i18n.setLocale"
-        />
       </v-col>
-
+      <v-col cols="4" sm="2" lg="1" class="py-2 px-0">
+        <LanguageSelector />
+      </v-col>
+    </v-row>
+    <v-row class="my-3">
       <v-col class="py-2 text-center white--text" cols="12">
         <v-btn text small>
           ©{{ new Date().getFullYear() }}  {{ $t('copyright') }}
@@ -58,7 +54,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import LanguageSelector from '@/components/LanguageSelector.vue';
+
 export default Vue.extend({
+  components: {
+    LanguageSelector,
+  },
   data () {
     return {
       pages: [
@@ -67,7 +68,7 @@ export default Vue.extend({
         { text: this.$t('links.reports'), link: '/' },
         { text: this.$t('links.news'), link: '/' },
         { text: this.$t('links.about'), link: '/' },
-        { text: this.$t('links.pay'), link: '/' },
+        { text: this.$t('links.volunteers'), link: '/' },
       ],
     };
   },
