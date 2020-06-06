@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   extends: [
     '@nuxtjs/eslint-config-typescript',
@@ -11,18 +11,19 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    "comma-dangle": ["error", "always-multiline"],
-    "semi": ["error", "always"],
-    "no-console": ["warn", { allow: ["warn", "error"]}],
-    "vue-i18n/no-raw-text": ["warn", {
-      "ignoreNodes": ["v-icon"],
-      "ignorePattern": "^([\\W\\d\\s]+|\\w+@\\w+\\.\\w+)$",
-      "ignoreText": ["©"],
-    }]
+    'comma-dangle': ['error', 'always-multiline'],
+    'semi': ['error', 'always'],
+    'no-console': ['warn', { allow: ['warn', 'error'] }],
+    'quote-props': ['error', 'consistent-as-needed'],
+    'vue-i18n/no-raw-text': ['warn', {
+      ignoreNodes: ['v-icon'],
+      ignorePattern: '^([\\W\\d\\s]+|\\w+@\\w+\\.\\w+)$',
+      ignoreText: ['©'],
+    }],
   },
   settings: {
     'vue-i18n': {
-      localeDir: './locales/en.json',
+      localeDir: './locales/*.json',
     },
   },
-}
+};

@@ -18,6 +18,8 @@
 </template>
 
 <script>
+import Vue from 'vue';
+
 import PartnerBar from '@/components/home/PartnerBar.vue';
 import AboutUsBar from '@/components/home/AboutUsBar.vue';
 import DonationBar from '@/components/home/DonationBar.vue';
@@ -28,7 +30,7 @@ import ProjectBar from '@/components/home/ProjectBar.vue';
 import FundedProjectBar from '@/components/home/FundedProjectBar.vue';
 import SliderBar from '@/components/home/SliderBar.vue';
 
-export default {
+export default Vue.extend({
   components: {
     PartnerBar,
     AboutUsBar,
@@ -40,5 +42,5 @@ export default {
     FundedProjectBar,
     SliderBar,
   },
-};
+});
 </script>

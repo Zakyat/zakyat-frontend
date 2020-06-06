@@ -136,14 +136,18 @@ export default Vue.extend({
 .swiper-container {
   width: 88%;
   min-height: 200px;
-  padding: 0px 5%;
+  padding: 0 5%;
+
   .swiper-slide {
     width: 75%;
     padding: 20px 0;
   }
-  .swiper-button-prev, .swiper-button-next {
+
+  .swiper-button-prev,
+  .swiper-button-next {
     font-size: 2em;
     font-weight: bold;
+
     &::after {
       display: none;
     }
@@ -163,6 +167,6 @@ export default Vue.extend({
 
 .subtitle {
   margin-bottom: 0;
-  color: #9DA3A6;
+  color: #9da3a6;
 }
 </style>
