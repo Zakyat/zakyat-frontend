@@ -47,7 +47,6 @@ export default Vue.extend({
 
 <style scoped>
 span {
-  font-family: 'Lato';
   font-style: normal;
   font-weight: bold;
   font-size: 36px;

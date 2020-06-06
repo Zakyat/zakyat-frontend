@@ -54,8 +54,8 @@ export default Vue.extend({
   flex-direction: column;
   border-radius: 10px !important;
 }
+
 span {
-  font-family: 'Lato';
   font-style: normal;
   font-weight: bold;
   font-size: 36px;

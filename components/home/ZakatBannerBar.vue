@@ -31,7 +31,7 @@ export default Vue.extend({
   color: #fff;
 
   h1 {
-    font: bold 36px Lato;
+    font: bold 36px;
     line-height: 43px;
   }
 }
