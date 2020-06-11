@@ -3,7 +3,7 @@
     <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
     {{ $t('collected', [rubles(amount)]) }}
     <v-spacer />
-    <v-btn text small>
+    <v-btn text small @click="openSearcher">
       <v-icon size="20">
         mdi-magnify
       </v-icon>
@@ -35,8 +35,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import LanguageSelector from '@/components/LanguageSelector.vue';
-import { rubles } from '@/plugins/currency';
+import LanguageSelector from '~/components/LanguageSelector.vue';
+import { rubles } from '~/plugins/currency';
+import toggleSearcher from '~/utils/toggle-searcher';
 
 export default Vue.extend({
   components: {
@@ -49,6 +50,7 @@ export default Vue.extend({
   },
   methods: {
     rubles,
+    openSearcher: toggleSearcher,
   },
 });
 </script>
