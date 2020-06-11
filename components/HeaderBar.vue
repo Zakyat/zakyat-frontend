@@ -3,7 +3,7 @@
     <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
     {{ $t('collected', [rubles(amount)]) }}
     <v-spacer />
-    <v-btn text small @click="openSearcher">
+    <v-btn text small @click="toggleSearcher">
       <v-icon size="20">
         mdi-magnify
       </v-icon>
@@ -37,7 +37,6 @@
 import Vue from 'vue';
 import LanguageSelector from '~/components/LanguageSelector.vue';
 import { rubles } from '~/plugins/currency';
-import toggleSearcher from '~/utils/toggle-searcher';
 
 export default Vue.extend({
   components: {
@@ -50,7 +49,20 @@ export default Vue.extend({
   },
   methods: {
     rubles,
-    openSearcher: toggleSearcher,
+    toggleSearcher () {
+      const searchModalWindow = document.getElementById('searcher');
+      const isSearcherOpen = (localStorage.getItem('isSearcherOpen') === 'true');
+
+      if (searchModalWindow) {
+        if (isSearcherOpen) {
+          searchModalWindow.style.display = 'none';
+          localStorage.setItem('isSearcherOpen', 'false');
+        } else {
+          searchModalWindow.style.display = 'block';
+          localStorage.setItem('isSearcherOpen', 'true');
+        }
+      }
+    },
   },
 });
 </script>
