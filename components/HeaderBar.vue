@@ -40,15 +40,15 @@
         dense
         clearable
         rounded
-      ></v-autocomplete>
+      />
     </v-col>
   </v-system-bar>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import LanguageSelector from '~/components/LanguageSelector.vue';
-import { rubles } from '~/plugins/currency';
+import LanguageSelector from '@/components/LanguageSelector.vue';
+import { rubles } from '@/plugins/currency';
 
 export default Vue.extend({
   components: {
