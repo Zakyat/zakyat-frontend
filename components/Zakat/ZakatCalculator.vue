@@ -1,19 +1,23 @@
 <template>
   <div>
-    <p class="font-weight-black">Выплатить закят</p>
-    <p class="font-weight-regular">Рассчитайте закят из вашего состояния</p>
-    <p class="text--secondary">Сумма ваших денег</p>
+    <h3>Выплатить закят</h3>
+    <h4>Рассчитайте закят из вашего состояния</h4>
     <v-text-field
-      label="Filled"
-      placeholder="Dense & Rounded"
+      placeholder="Сумма ваших денег ₽"
       filled
       rounded
+      v-model="inputSum"
+      type="Number"      
       dense
     ></v-text-field>
-    <p class="font-weight-regular">Нисаб на сегодня  {{nisabSum}}</p>
-    <p class="font-weight-regular">По данным ЦБРФ {{goldPrice}}</p>
-    <p class="font-weight-regular">Сумма не облагается закятом</p>
-    <v-btn rounded color="primary" dark>Заплатить</v-btn>
+    <p class="font-weight-regular">Нисаб на сегодня  {{nisabSum}} ₽</p>
+    <p class="font-weight-regular">По данным ЦБРФ {{goldPrice}} ₽/г золото</p>
+    <br/>        
+    <div v-if="nisabSum<=inputSum">
+      <h4>Ваш закят {{0.025*inputSum}}</h4>
+      <v-btn rounded color="primary" dark>Заплатить</v-btn>
+    </div>
+    <div v-else><p class="font-weight-regular">Сумма не облагается закятом</p></div>
   </div>
 </template>
 <script>
@@ -21,14 +25,15 @@ import Vue from 'vue';
 
 export default Vue.extend({
   data(){
-    return {goldPrice:0,nisabSum:0};
+    return {goldPrice:0,nisabSum:0,inputSum:null};
   },
   async mounted(){
-    let result=await fetch('https://cors-anywhere.herokuapp.com/http://www.cbr.ru/scripts/xml_metall.asp?date_req1=11/06/2020&date_req2=11/06/2020')
+    let date=new Date(Date.now()).toLocaleString().split(',')[0];
+    let result=await fetch('https://cors-anywhere.herokuapp.com/http://www.cbr.ru/scripts/xml_metall.asp?date_req1='+date+'&date_req2='+date)
         .then(x=>x.text());
     let parser = new DOMParser();
-    this.goldPrice=Number.parseFloat(parser.parseFromString(result,'text/xml').getElementsByTagName('Sell')[0].textContent);
-    this.nisabSum=84.8*this.goldPrice;
+    this.goldPrice=Number.parseFloat(parser.parseFromString(result,'text/xml').getElementsByTagName('Sell')[0].textContent.replace(',','.'));
+    this.nisabSum=Number.parseFloat(84.8*this.goldPrice);
   },
   methods:{
   }

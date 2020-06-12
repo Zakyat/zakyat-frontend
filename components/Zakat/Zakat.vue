@@ -1,26 +1,29 @@
 <template>
-  <div>
-    <h1>Zakat  Page</h1>
-    <ZakatAbout/>
-     <v-tooltip top>
-        <template v-slot:activator="{ on }">
-          <span v-on="on">This text has a tooltip</span>
-        </template>
-        <span>Tooltip</span>
-      </v-tooltip>132
-    <v-container fluid>
-    <v-card max-width="90%" class="d-flex flex-row mb-6">
-      <v-card max-width="70%">
-        <QuestionList/>
-      </v-card>
-      <v-card max-width="30%">
-        <div>
+  <v-container class="grey lighten-5">
+    <h1> {{ $t('ZakatPage.title') }} </h1>
+    <v-row no-gutters>
+      <v-col cols="12"
+        sm="6"
+        md="8">
+        <v-card class="pa-2"
+          outlined          
+          tile style="border-radius: 10px">
+            <ZakatAbout/>
+            <v-card>
+            <QuestionList/>
+            </v-card>
+        </v-card>        
+      </v-col>
+      <v-col cols="6"
+        md="4">
+        <v-card class="pa-2"
+          outlined
+          tile style="border-radius: 10px">
           <ZakatCalculator/>
-        </div>
-      </v-card>
-    </v-card>
-    </v-container>
-  </div>
+        </v-card>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 <script lang="ts">
 import Vue from 'vue';
