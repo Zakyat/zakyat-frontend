@@ -1,12 +1,11 @@
 <template>
   <v-col id="searcher">
     <v-autocomplete
-      id="searcher__input"
       :items="items"
       background-color="white"
       item-color="green"
-      placeholder="Введите фразу для поиска"
-      no-data-text="Результатов нет. Попробуйте переформулировать."
+      :placeholder="$t('search.placeholder')"
+      :no-data-text="$t('search.noDataText')"
       append-icon=""
       dense
       clearable
@@ -15,41 +14,43 @@
   </v-col>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'SearchBar',
   data () {
     return {
-      items: [
-        'Сабирзянова Римма Минзагитовна (Отчеты)',
-        'Садака (Главная)',
-        'Садака в размере 100 000 ₽ собрана за 10 дней в м... (Новости)',
-        'Садыков Амирхан (Сборы)',
-        'Садыков Амирхан (Отчеты)',
-      ],
+      items: this.$t('search.suggestions'),
     };
   },
-};
+});
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 #searcher {
   display: none;
   position: absolute;
-  margin-left: 400px;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 50px;
   padding-left: 0;
   padding-right: 0;
   height: 60px;
   width: 600px;
-  z-index: 100;
+  font-family: "Roboto", Arial, sans-serif;
+  color: black;
   background: white;
   border-radius: 10px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  z-index: 100;
 }
 
 #list-24 {
   padding-left: 10px;
+  font-family: "Roboto", Arial, sans-serif;
 }
 
 .v-list-item {

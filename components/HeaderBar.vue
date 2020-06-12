@@ -7,7 +7,7 @@
       <v-icon size="20">
         mdi-magnify
       </v-icon>
-      {{ $t('search') }}
+      {{ $t('search.buttonName') }}
     </v-btn>
     <v-btn text small>
       <v-icon size="20">
@@ -45,21 +45,21 @@ export default Vue.extend({
   data () {
     return {
       amount: 6234234,
+      isSearcherOpen: false,
     };
   },
   methods: {
     rubles,
     toggleSearcher () {
-      const searchModalWindow = document.getElementById('searcher');
-      const isSearcherOpen = (localStorage.getItem('isSearcherOpen') === 'true');
+      const searcher = document.getElementById('searcher');
 
-      if (searchModalWindow) {
-        if (isSearcherOpen) {
-          searchModalWindow.style.display = 'none';
-          localStorage.setItem('isSearcherOpen', 'false');
+      if (searcher) {
+        if (this.isSearcherOpen) {
+          searcher.style.display = 'none';
+          this.isSearcherOpen = false;
         } else {
-          searchModalWindow.style.display = 'block';
-          localStorage.setItem('isSearcherOpen', 'true');
+          searcher.style.display = 'block';
+          this.isSearcherOpen = true;
         }
       }
     },
