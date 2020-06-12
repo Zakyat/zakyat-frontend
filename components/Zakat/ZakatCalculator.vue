@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h3>Выплатить закят</h3>
-    <h4>Рассчитайте закят из вашего состояния</h4>
+    <h3>{{$t('ZakatPage.Calculator.title')}}</h3>
+    <h4>{{$t('ZakatPage.Calculator.title2')}}</h4>
     <v-text-field
       placeholder="Сумма ваших денег ₽"
       filled
@@ -10,14 +10,14 @@
       type="Number"      
       dense
     ></v-text-field>
-    <p class="font-weight-regular">Нисаб на сегодня  {{nisabSum}} ₽</p>
-    <p class="font-weight-regular">По данным ЦБРФ {{goldPrice}} ₽/г золото</p>
+    <p class="font-weight-regular">{{$t('ZakatPage.Calculator.nisabtoday')}}  {{nisabSum}} ₽</p>
+    <p class="font-weight-regular">{{$t('ZakatPage.Calculator.bank')}} {{goldPrice}} ₽/г золото</p>
     <br/>        
     <div v-if="nisabSum<=inputSum">
-      <h4>Ваш закят {{0.025*inputSum}}</h4>
-      <v-btn rounded color="primary" dark>Заплатить</v-btn>
+      <h4>{{$t('ZakatPage.Calculator.yourzakat')}} {{0.025*inputSum}}</h4>
+      <v-btn rounded color="primary" dark>{{$t('ZakatPage.Calculator.pay')}}</v-btn>
     </div>
-    <div v-else><p class="font-weight-regular">Сумма не облагается закятом</p></div>
+    <div v-else><p class="font-weight-regular">{{$t('ZakatPage.Calculator.nopay')}}</p></div>
   </div>
 </template>
 <script>

@@ -9,58 +9,43 @@
         </video>
   </v-flex>
     <div>
-      <h3>Что такое закят?</h3>
-      <p>«Закят» означает установленное количество средств, которое человек, обладающий имуществом в размере, принятом в религии признаком богатства
-        <v-tooltip top max-width="400px">
-        <template v-slot:activator="{ on }">
-          <span v-on="on" style="color:red">нисаб</span>
-        </template>
-        <span>Нисаб — это критерий богатства, взятый за основу для того, чтобы человек был обязан выплачивать закят. Размер нисаба равен 20 мискалям золота (85 гр.), 5 верблюдам, 30 коровам или быкам, 40 овцам или козлам.</span>
-      </v-tooltip>, должен передать определённым людям ради довольства Аллаха.</p>
-      <p>В Благородном Куръане подробно разъяснено то, кому предназначен 
-        <v-tooltip top max-width="400px">
-        <template v-slot:activator="{ on }">
-          <span v-on="on" style="color:red">закят</span>
-        </template>
-        <span>(сура ат-Тауба, аят 60)</span>
-        </v-tooltip>, а об объеме нисаба сообщается в 
-        <v-tooltip top max-width="400px">
-        <template v-slot:activator="{ on }">
-          <span v-on="on" style="color:red">хадисах</span>
-        </template>
-        <span>(Бухари, «Закят», 32, 36, 38, 43)</span>
-        </v-tooltip>
-         . В соответствии с чем, человек, обладающий имуществом в размере нисаба за вычетом трат на основные нужды, при соблюдении прочих условий, должен выплатить закят с этого имущества.</p>
-      <p>Условия, касающиеся поклонения в виде выплаты закята, рассматриваются под двумя отдельными заголовками: условия, при которых закят является для кого-либо обязательным, и условия действительности закята.</p>
-    
-      <h3>Кто обязан выплатить закят? </h3>
-      <h4>Чтобы закят являлся для некого человека обязательным, он должен быть:</h4>
-      <p>- Мусильсанином</p>
-      <p>- Дееспособнам</p>
-      <p>- Совершеннолетним с точки зрения религии</p>
-      <p>- Свободным</p>
-      <p>- Обладает  
-        <v-tooltip top max-width="400px">
-        <template v-slot:activator="{ on }">
-          <span v-on="on" style="color:red">имущества в размере нисаба</span>
-        </template>
-        <span>размер нисаба, актуально или потенциально растущего, то есть приносящего прибыль, и превышающего его долги и расходы на основные потребности. Под «растущим» подразумевается обеспечение имуществом дохода, прибыли и пользы для его обладателя, или присущее ему свойство расти и приумножаться.</span>
-        </v-tooltip></p>
-      <p>- Сохранение имущества, достигшего размера нисаба, по истечении года 
-        <v-tooltip top max-width="400px">
-        <template v-slot:activator="{ on }">
-          <span v-on="on" style="color:red">по лунному каленьдарю</span>
-        </template>
-        <span>исламский календарь, заканчивается месяцем Зуль-хиджа</span>
-        </v-tooltip>. При этом закят может быть  выпоачен и до наступления этого срока.</p>
+      <h3>{{ $t('ZakatPage.About.whatzakat') }}</h3>
+      <p>{{ $t('ZakatPage.About.whatzakatans1') }}
+        <MyTooltip :item="{word:$t('ZakatPage.About.whatzakattooltip1word'), description:$t('ZakatPage.About.whatzakattooltip1description')}"></MyTooltip>
+       {{ $t('ZakatPage.About.whatzakatans2') }}</p>
+      <p>{{ $t('ZakatPage.About.whatzakatans3') }} 
+        <MyTooltip :item="{word:$t('ZakatPage.About.whatzakattooltip2word'), description:$t('ZakatPage.About.whatzakattooltip2description')}"></MyTooltip>
+        {{ $t('ZakatPage.About.whatzakatans4') }}  
+        <MyTooltip :item="{word:$t('ZakatPage.About.whatzakattooltip3word'), description:$t('ZakatPage.About.whatzakattooltip3description')}"></MyTooltip>
+        {{ $t('ZakatPage.About.whatzakatans5') }}       
+         </p>
+      <p>{{ $t('ZakatPage.About.whatzakatans6') }} </p>
+      <h3>{{ $t('ZakatPage.About.whopay') }}</h3>
+      <h4>{{ $t('ZakatPage.About.whopay2') }}</h4>
+      <p>{{ $t('ZakatPage.About.whopayans1') }}</p>
+      <p>{{ $t('ZakatPage.About.whopayans2') }}</p>
+      <p>{{ $t('ZakatPage.About.whopayans3') }}</p>
+      <p>{{ $t('ZakatPage.About.whopayans4') }}</p>
+
       <p>
-        Что же касается условий действительности закята, в первую очередь обязателен ният (намерение). Закят не может быть признан состоявшимся без намерения, поскольку его выплата является актом поклонения. Кроме того, условием является «тамлик», означающий «передача имущества в собственность». Закят не будет засчитан, если просто разрешить поесть, приготовив еду и накормив ею бедняка, без соблюдения остальных условий.
+        <MyTooltip :item="{word:$t('ZakatPage.About.whopaytooltip1word'), description:$t('ZakatPage.About.whopaytooltip1description')}"></MyTooltip>
+      </p>
+      <p>{{ $t('ZakatPage.About.whopayans5') }} 
+        <MyTooltip :item="{word:$t('ZakatPage.About.whopaytooltip2word'), description:$t('ZakatPage.About.whopaytooltip2description')}"></MyTooltip>
+        {{ $t('ZakatPage.About.whopayans6') }}
+        </p>
+      <p>
+        {{ $t('ZakatPage.About.whopayans7') }}
       </p>
     </div>
   </div>
 </template>
 <script>
 import Vue from 'vue';
+import MyTooltip from "@/components/Zakat/MyTooltip"
 export default Vue.extend({
+  components:{
+    MyTooltip
+  }
 })
 </script>
