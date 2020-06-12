@@ -6,7 +6,8 @@
           v-for="question in questions"
           :key="question.questiontext"
         >
-          <QuestionItem :question="question"/>
+          <v-expansion-panel-header>{{question.question}}</v-expansion-panel-header>
+          <v-expansion-panel-content>{{question.answer}}</v-expansion-panel-content>
         </v-expansion-panel>
       </v-expansion-panels>
     </v-row>
@@ -14,10 +15,8 @@
 </template>
 <script lang="ts">
 import Vue from 'vue';
-import QuestionItem from '@/components/Zakat/QuestionItem.vue';
 export default Vue.extend({
   components: {
-    QuestionItem,
   },
   data () {
     return {
