@@ -14,9 +14,7 @@
           style="border-radius: 10px"
         >
           <ZakatAbout />
-          <v-card>
-            <QuestionList />
-          </v-card>
+          <QuestionList />
         </v-card>
       </v-col>
       <v-col
@@ -24,9 +22,6 @@
         md="4"
       >
         <v-card
-          class="pa-2"
-          outlined
-          tile
           style="border-radius: 10px"
         >
           <ZakatCalculator />

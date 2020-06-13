@@ -31,7 +31,7 @@
       <p>{{ $t('ZakatPage.About.whopayans4') }}</p>
 
       <p>
-        <MyTooltip :item="{word:$t('ZakatPage.About.whopaytooltip1word'), description:$t('ZakatPage.About.whopaytooltip1description')}" />
+        <MyTooltip :item="{ word:$t('ZakatPage.About.whopaytooltip1word'), description:$t('ZakatPage.About.whopaytooltip1description') }" />
       </p>
       <p>
         {{ $t('ZakatPage.About.whopayans5') }}
