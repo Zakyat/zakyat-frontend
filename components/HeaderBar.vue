@@ -1,34 +1,34 @@
 <template>
-  <v-system-bar dark height="50" style="padding: 0 5%;">
+  <v-system-bar class="header-bar" height="50" style="padding: 0 5%;">
     <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
-    {{ $t('collected', [rubles(amount)]) }}
+    <span class="descriptor">{{ $t('collected', [rubles(amount)]) }}</span>
     <v-spacer />
     <v-btn text small @click="isSearcherOpen = !isSearcherOpen">
-      <v-icon size="20">
+      <v-icon class="icon" size="20">
         mdi-magnify
       </v-icon>
       {{ $t('search.buttonName') }}
     </v-btn>
     <v-btn text small>
-      <v-icon size="20">
+      <v-icon class="icon" size="20">
         mdi-vk
       </v-icon>
       {{ $t('VK') }}
     </v-btn>
     <v-btn text small>
-      <v-icon size="20">
+      <v-icon class="icon" size="20">
         mdi-instagram
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
     <v-btn text small>
-      <v-icon size="20" color="white">
+      <v-icon class="icon" size="20" color="white">
         mdi-account-circle
       </v-icon>
       {{ $t('login') }}
     </v-btn>
     <v-flex lg1 md2 xs4>
-      <LanguageSelector />
+      <LanguageSelector class="icon" />
     </v-flex>
     <v-col v-show="isSearcherOpen" class="searcher">
       <v-autocomplete
@@ -68,6 +68,16 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+  .header-bar {
+    background-color: black;
+  }
+
+  .header-bar button,
+  .header-bar .icon,
+  .descriptor {
+    color: white;
+  }
+
   .searcher {
     position: absolute;
     left: 0;
@@ -90,10 +100,5 @@ export default Vue.extend({
   #list-24 {
     padding-left: 10px;
     font-family: "Roboto", Arial, sans-serif;
-  }
-
-  .v-list-item {
-    font-weight: bold;
-    font-size: 16px;
   }
 </style>
