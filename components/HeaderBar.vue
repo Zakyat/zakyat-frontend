@@ -3,7 +3,7 @@
     <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
     {{ $t('collected', [rubles(amount)]) }}
     <v-spacer />
-    <v-btn text small @click="toggleSearcher">
+    <v-btn text small @click="isSearcherOpen = !isSearcherOpen">
       <v-icon size="20">
         mdi-magnify
       </v-icon>
@@ -30,6 +30,18 @@
     <v-flex lg1 md2 xs4>
       <LanguageSelector />
     </v-flex>
+    <v-col v-show="isSearcherOpen" class="searcher">
+      <v-autocomplete
+        class="searcher__input"
+        :items="items"
+        :placeholder="$t('search.placeholder')"
+        :no-data-text="$t('search.noDataText')"
+        append-icon=""
+        dense
+        clearable
+        rounded
+      ></v-autocomplete>
+    </v-col>
   </v-system-bar>
 </template>
 
@@ -45,24 +57,43 @@ export default Vue.extend({
   data () {
     return {
       amount: 6234234,
+      items: this.$t('search.suggestions'),
       isSearcherOpen: false,
     };
   },
   methods: {
     rubles,
-    toggleSearcher () {
-      const searcher = document.getElementById('searcher');
-
-      if (searcher) {
-        if (this.isSearcherOpen) {
-          searcher.style.display = 'none';
-          this.isSearcherOpen = false;
-        } else {
-          searcher.style.display = 'block';
-          this.isSearcherOpen = true;
-        }
-      }
-    },
   },
 });
 </script>
+
+<style lang="scss" scoped>
+  .searcher {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 55px;
+    padding-left: 0;
+    padding-right: 0;
+    height: 60px;
+    width: 600px;
+    font-family: "Roboto", Arial, sans-serif;
+    color: black;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    z-index: 2;
+  }
+
+  #list-24 {
+    padding-left: 10px;
+    font-family: "Roboto", Arial, sans-serif;
+  }
+
+  .v-list-item {
+    font-weight: bold;
+    font-size: 16px;
+  }
+</style>
