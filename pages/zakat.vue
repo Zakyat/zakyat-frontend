@@ -8,12 +8,25 @@
         md="8"
       >
         <v-card
-          class="pa-2"
+          class="ma-4"
+          rounded
+          solo
+          color="#FFFFFF"
           outlined
           tile
           style="border-radius: 10px"
         >
           <ZakatAbout />
+        </v-card>
+        <v-card
+          class="ma-4"
+          rounded
+          solo
+          color="#FFFFFF"
+          outlined
+          tile
+          style="border-radius: 10px"
+        >          
           <QuestionList />
         </v-card>
       </v-col>
@@ -22,6 +35,12 @@
         md="4"
       >
         <v-card
+        class="ma-4"
+          rounded
+          solo
+          color="#FFFFFF"
+          outlined
+          tile
           style="border-radius: 10px"
         >
           <ZakatCalculator />

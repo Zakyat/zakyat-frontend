@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ma-4">
     <v-flex xs12 md6 class="text-center">
       <video rounded height="340px" controls>
         <source
@@ -8,7 +8,7 @@
         >Your browser does not support HTML5 video.
       </video>
     </v-flex>
-    <div>
+    <div class="ma-4">
       <h3>{{ $t('ZakatPage.About.whatzakat') }}</h3>
       <p>
         {{ $t('ZakatPage.About.whatzakatans1') }}

@@ -2,10 +2,12 @@
   <div>
     <v-list-item two-line>
       <v-list-item-content>
-        <v-list-item-title class="headline">
+        <v-list-item-title class="headline font-weight-black">
           {{ $t('ZakatPage.Calculator.title') }}
         </v-list-item-title>
-        <v-list-item-subtitle>{{ $t('ZakatPage.Calculator.title2') }}</v-list-item-subtitle>
+        <v-list-item-subtitle class="font-weight-black">
+          {{ $t('ZakatPage.Calculator.title2') }}
+        </v-list-item-subtitle>
       </v-list-item-content>
     </v-list-item>
     <v-col>
@@ -16,36 +18,48 @@
         rounded
         type="Number"
         dense
+        outlined
       />
     </v-col>
-
     <v-list-item>
-      <v-list-item-title>{{ $t('ZakatPage.Calculator.nisabtoday') }} {{ updatedate }}</v-list-item-title>
+      <v-list-item-title class="font-weight-black">
+        {{ $t('ZakatPage.Calculator.nisabtoday') }} {{ updatedate }}
+      </v-list-item-title>
       <v-list-item-title class="text-right">
         {{ nisabSum }} ₽
       </v-list-item-title>
     </v-list-item>
     <v-list-item>
-      <v-list-item-subtitle>{{ $t('ZakatPage.Calculator.bank') }}</v-list-item-subtitle>
+      <v-list-item-title class="green--text">
+        {{ $t('ZakatPage.Calculator.bank') }}
+      </v-list-item-title>
       <v-list-item-subtitle class="text-right">
-        {{ goldPrice }} ₽
+        {{ $t('ZakatPage.Calculator.gold') }}
       </v-list-item-subtitle>
     </v-list-item>
-
     <v-list-item v-if="nisabSum<=inputSum">
-      <v-list-item-title>{{ $t('ZakatPage.Calculator.yourzakat') }}</v-list-item-title>
-      <v-list-item-title class="text-right">
-        {{ 0.025*inputSum }}
-      </v-list-item-title>
+      <v-list-item>
+        <v-list-item-title class="font-weight-black">
+          {{ $t('ZakatPage.Calculator.yourzakat') }}
+        </v-list-item-title>
+        <v-list-item-title class="text-right font-weight-black">
+          {{ 0.025*inputSum }} ₽
+        </v-list-item-title>
+      </v-list-item>
     </v-list-item>
     <v-col v-if="nisabSum<=inputSum" class="text-center">
-      <v-btn rounded color="primary">
+      <v-btn rounded block color="primary">
         {{ $t('ZakatPage.Calculator.pay') }}
       </v-btn>
     </v-col>
     <v-list-item v-else>
-      <v-list-item-title>{{ $t('ZakatPage.Calculator.nopay') }}</v-list-item-title>
+      <v-list-item-title class="font-weight-black">{{ $t('ZakatPage.Calculator.nopay') }}</v-list-item-title>
     </v-list-item>
+    <v-col v-if="nisabSum > inputSum" class="text-center">
+      <v-btn rounded disabled block color="primary">
+        {{ $t('ZakatPage.Calculator.pay') }}
+      </v-btn>
+    </v-col>
   </div>
 </template>
 
@@ -59,8 +73,11 @@ export default Vue.extend({
   async mounted () {
     let now = new Date();
     const dayOfWeek = now.getDay();
-    if (dayOfWeek > 5) { // weekend service is not available
-      now = new Date(Date.now() - 86400000 * (dayOfWeek - 5));
+    if (dayOfWeek === 6) { // weekend service is not available
+      now = new Date(Date.now() - 86400000);
+    }
+    if (dayOfWeek === 0) { // weekend service is not available
+      now = new Date(Date.now() - 86400000 * 2);
     }
     const day = now.getDate();
     const month = now.getMonth() + 1;
