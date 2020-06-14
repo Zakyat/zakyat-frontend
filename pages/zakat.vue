@@ -26,7 +26,7 @@
           outlined
           tile
           style="border-radius: 10px"
-        >          
+        >
           <QuestionList />
         </v-card>
       </v-col>
@@ -35,7 +35,7 @@
         md="4"
       >
         <v-card
-        class="ma-4"
+          class="ma-4"
           rounded
           solo
           color="#FFFFFF"

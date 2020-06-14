@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="ma-4">
     <v-list-item-content two-line>
       <v-list-item-title class="headline font-weight-black">
         {{ $t('ZakatPage.Calculator.title') }}
