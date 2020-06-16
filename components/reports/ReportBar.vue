@@ -7,8 +7,12 @@
             class="section-title__content pt-0"
             @click="haveSubsectionsShown = !haveSubsectionsShown"
           >
-            <span v-if="!haveSubsectionsShown">Поступления</span>
-            <span v-else>Оказанная помощь</span>
+            <span v-if="!haveSubsectionsShown">
+              {{ fees }}
+            </span>
+            <span v-else>
+              {{ realisedSupport }}
+            </span>
           </h2>
           <v-icon>
             mdi-chevron-down
@@ -50,16 +54,17 @@
         <v-btn
           class="reports__subsection--button"
         >
-          Для нуждающихся
+          {{ forDestitute }}
         </v-btn>
         <v-btn class="reports__subsection--button">
-          Иные расходы
+          {{ otherCosts }}
         </v-btn>
       </v-btn-toggle>
     </v-layout>
     <v-layout justify-space-between>
       <div>
-        <h3>{{ $t('reports.section[0].description') }}</h3>
+        <h3 v-if="haveSubsectionsShown">{{ feesDescription }}</h3>
+        <h3 v-else>{{ realisedSupportDescription }}</h3>
       </div>
       <div>
         <h3 onload="items.forEach(item => total + item.size)">{{ total }}</h3>
@@ -117,6 +122,13 @@ export default Vue.extend({
       items: this.$t('reports.table.data'),
       months: this.$t('reports.interval.months'),
       years: this.$t('reports.interval.years'),
+
+      fees: this.$t('reports.section[0].title'),
+      feesDescription: this.$t('reports.section[1].description'),
+      realisedSupport: this.$t('reports.section[1].title'),
+      realisedSupportDescription: this.$t('reports.section[0].description'),
+      forDestitute: this.$t('reports.section[1].subsection[0]'),
+      otherCosts: this.$t('reports.section[1].subsection[1]'),
 
       total: 0,
       haveSubsectionsShown: false,
