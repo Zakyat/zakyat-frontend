@@ -1,50 +1,17 @@
 <template>
-  <v-container class="grey lighten-5">
+  <v-container class="grey lighten-4">
     <h1> {{ $t('zakat.title') }} </h1>
     <v-row no-gutters>
       <v-col
-        cols="12"
-        sm="6"
         md="8"
       >
-        <v-card
-          class="ma-4"
-          rounded
-          solo
-          color="#FFFFFF"
-          outlined
-          tile
-          style="border-radius: 10px"
-        >
-          <ZakatAbout />
-        </v-card>
-        <v-card
-          class="ma-4"
-          rounded
-          solo
-          color="#FFFFFF"
-          outlined
-          tile
-          style="border-radius: 10px"
-        >
-          <QuestionList />
-        </v-card>
+        <ZakatAbout />
+        <QuestionList />
       </v-col>
       <v-col
-        cols="6"
         md="4"
       >
-        <v-card
-          class="ma-4"
-          rounded
-          solo
-          color="#FFFFFF"
-          outlined
-          tile
-          style="border-radius: 10px"
-        >
-          <ZakatCalculator />
-        </v-card>
+        <ZakatCalculator />
       </v-col>
     </v-row>
   </v-container>

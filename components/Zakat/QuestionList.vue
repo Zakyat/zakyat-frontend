@@ -1,6 +1,9 @@
 <template>
-  <v-row justify="center" class="grey lighten-5">
-    <v-expansion-panels popout>
+  <v-card
+    class="grey lighten-4"
+    outlined
+  >
+    <v-expansion-panels popout flat>
       <v-expansion-panel
         v-for="({question, answer}) in $t('zakat.questions')"
         :key="question"
@@ -11,5 +14,5 @@
         <v-expansion-panel-content>{{ answer }}</v-expansion-panel-content>
       </v-expansion-panel>
     </v-expansion-panels>
-  </v-row>
+  </v-card>
 </template>
