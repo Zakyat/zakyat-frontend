@@ -28,7 +28,7 @@
       {{ $t('login') }}
     </v-btn>
     <v-flex lg1 md2 xs4>
-      <LanguageSelector class="icon" />
+      <LanguageSelector />
     </v-flex>
     <v-autocomplete
       v-show="isSearcherOpen"
@@ -38,6 +38,7 @@
       :no-data-text="$t('search.noDataText')"
       append-icon=""
       height="60"
+      autofocus
       light
       solo
       rounded
@@ -74,7 +75,7 @@ export default Vue.extend({
   position: absolute;
   left: 0;
   right: 0;
-  margin-top: 65px;
+  margin-top: 70px;
   width: 600px;
   z-index: 2;
 }

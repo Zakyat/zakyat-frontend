@@ -1,6 +1,6 @@
 <template>
   <v-app-bar flat color="white" height="100" style="padding: 0 5%;">
-    <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
+    <router-link to="/"><img :src="require(`@/assets/logo/${$i18n.locale}.svg`)"></router-link>
     <v-spacer />
     <v-btn
       v-for="(page, i) in pages"
@@ -28,7 +28,7 @@ export default Vue.extend({
       pages: [
         { text: this.$t('links.fees'), link: '/' },
         { text: this.$t('links.projects'), link: '/' },
-        { text: this.$t('links.reports'), link: '/' },
+        { text: this.$t('links.reports'), link: '/reports' },
         { text: this.$t('links.news'), link: '/' },
         { text: this.$t('links.about'), link: '/' },
         { text: this.$t('links.pay'), link: '/' },
