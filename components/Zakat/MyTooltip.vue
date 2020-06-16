@@ -1,18 +1,27 @@
 <template>
   <v-tooltip top max-width="400px">
     <template v-slot:activator="{ on }">
-      <span style="background-color: rgba(224, 246, 224, 1) border: 1px solid rgba(86, 61, 124,.15)" v-on="on">{{ item.word }}</span>
+      <span style="background-color: rgba(224, 246, 224, 1) border: 1px solid rgba(86, 61, 124,.15)" v-on="on">
+        {{ word }}
+      </span>
     </template>
-    <span>{{ item.description }}</span>
+    <span>{{ description }}</span>
   </v-tooltip>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 
 export default Vue.extend({
   props: {
-    item: {},
+    word: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
   },
 });
 </script>

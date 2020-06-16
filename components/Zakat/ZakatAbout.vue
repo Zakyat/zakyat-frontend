@@ -1,46 +1,43 @@
 <template>
   <div class="ma-4">
-    <v-flex xs12 md6 class="text-center">
-      <video rounded height="340px" controls>
+    <v-col>
+      <video height="340px" controls>
         <source
           :src="require('@/assets/videos/aboutUs.mp4')"
           type="video/mp4"
         >Your browser does not support HTML5 video.
       </video>
-    </v-flex>
+    </v-col>
     <div class="ma-4">
-      <h3>{{ $t('ZakatPage.About.whatzakat') }}</h3>
+      <h3>{{ $t('zakat.about.what_is_zakat.question') }}</h3>
       <p>
-        {{ $t('ZakatPage.About.whatzakatans1') }}
-        <MyTooltip :item="{word:$t('ZakatPage.About.whatzakattooltip1word'), description:$t('ZakatPage.About.whatzakattooltip1description')}" />
-        {{ $t('ZakatPage.About.whatzakatans2') }}
+        {{ $t('zakat.about.what_is_zakat.paragraph_1_start') }}
+        <MyTooltip :word="$t('zakat.about.what_is_zakat.paragraps_1_tooltip.text')" :description="$t('zakat.about.what_is_zakat.paragraps_1_tooltip.description')" />
+        {{ $t('zakat.about.what_is_zakat.paragraph_1_end') }}
       </p>
       <p>
-        {{ $t('ZakatPage.About.whatzakatans3') }}
-        <MyTooltip :item="{word:$t('ZakatPage.About.whatzakattooltip2word'), description:$t('ZakatPage.About.whatzakattooltip2description')}" />
-        {{ $t('ZakatPage.About.whatzakatans4') }}
-        <MyTooltip :item="{word:$t('ZakatPage.About.whatzakattooltip3word'), description:$t('ZakatPage.About.whatzakattooltip3description')}" />
-        {{ $t('ZakatPage.About.whatzakatans5') }}
+        {{ $t('zakat.about.what_is_zakat.paragraph_2_start') }}
+        <MyTooltip :word="$t('zakat.about.what_is_zakat.paragraps_2_tooltip_1.text')" :description="$t('zakat.about.what_is_zakat.paragraps_2_tooltip_1.description')" />
+        {{ $t('zakat.about.what_is_zakat.paragraph_2_continuation') }}
+        <MyTooltip :word="$t('zakat.about.what_is_zakat.paragraps_2_tooltip_2.text')" :description="$t('zakat.about.what_is_zakat.paragraps_2_tooltip_2.description')" />
+        {{ $t('zakat.about.what_is_zakat.paragraph_2_end') }}
       </p>
-      <p>{{ $t('ZakatPage.About.whatzakatans6') }} </p>
-      <h3>{{ $t('ZakatPage.About.whopay') }}</h3>
-      <h4>{{ $t('ZakatPage.About.whopay2') }}</h4>
-      <p>{{ $t('ZakatPage.About.whopayans1') }}</p>
-      <p>{{ $t('ZakatPage.About.whopayans2') }}</p>
-      <p>{{ $t('ZakatPage.About.whopayans3') }}</p>
-      <p>{{ $t('ZakatPage.About.whopayans4') }}</p>
-
+      <p>{{ $t('zakat.about.what_is_zakat.paragraps_3_end') }} </p>
+      <h3>{{ $t('zakat.about.required_to_pay.question') }}</h3>
+      <h4>{{ $t('zakat.about.required_to_pay.should_be') }}</h4>
+      <p>{{ $t('zakat.about.required_to_pay.paragraph_1') }}</p>
+      <p>{{ $t('zakat.about.required_to_pay.paragraph_2') }}</p>
+      <p>{{ $t('zakat.about.required_to_pay.paragraph_3') }}</p>
+      <p>{{ $t('zakat.about.required_to_pay.paragraph_4') }}</p>
       <p>
-        <MyTooltip :item="{ word:$t('ZakatPage.About.whopaytooltip1word'), description:$t('ZakatPage.About.whopaytooltip1description') }" />
-      </p>
-      <p>
-        {{ $t('ZakatPage.About.whopayans5') }}
-        <MyTooltip :item="{word:$t('ZakatPage.About.whopaytooltip2word'), description:$t('ZakatPage.About.whopaytooltip2description')}" />
-        {{ $t('ZakatPage.About.whopayans6') }}
+        <MyTooltip :word="$t('zakat.about.required_to_pay.tooltip_1.text')" :description="$t('zakat.about.required_to_pay.tooltip_1.description')" />
       </p>
       <p>
-        {{ $t('ZakatPage.About.whopayans7') }}
+        {{ $t('zakat.about.required_to_pay.paragraph_5_start') }}
+        <MyTooltip :word="$t('zakat.about.required_to_pay.paragraps_5_tooltip.text')" :description="$t('zakat.about.required_to_pay.paragraps_5_tooltip.description')" />
+        {{ $t('zakat.about.required_to_pay.paragraps_5_end') }}
       </p>
+      <p>{{ $t('zakat.about.required_to_pay.paragraps_6') }}</p>
     </div>
   </div>
 </template>

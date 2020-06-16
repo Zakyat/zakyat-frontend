@@ -1,17 +1,17 @@
 <template>
-  <div class="ma-4">
-    <v-list-item-content two-line>
+  <v-list class="ma-4">
+    <v-list-item-content>
       <v-list-item-title class="headline font-weight-black">
-        {{ $t('ZakatPage.Calculator.title') }}
+        {{ $t('zakat.calculator.title') }}
       </v-list-item-title>
       <v-list-item-subtitle class="font-weight-black">
-        {{ $t('ZakatPage.Calculator.title2') }}
+        {{ $t('zakat.calculator.subtitle') }}
       </v-list-item-subtitle>
     </v-list-item-content>
     <v-list-item-content>
       <v-text-field
         v-model="inputSum"
-        label="Сумма ваших денег ₽"
+        :label="$t('zakat.calculator.input_label')"
         filled
         rounded
         type="Number"
@@ -20,25 +20,25 @@
       />
     </v-list-item-content>
     <v-list-item>
-      <v-list-item-title class="font-weight-black">
-        {{ $t('ZakatPage.Calculator.nisabtoday') }} {{ updatedate }}
+      <v-list-item-title>
+        {{ $t('zakat.calculator.nisab_for') }} {{ updatedate }}
       </v-list-item-title>
-      <v-list-item-title class="text-right font-weight-black">
+      <v-list-item-title class="text-right">
         {{ nisabSum }} ₽
       </v-list-item-title>
     </v-list-item>
     <v-list-item>
       <v-list-item-title class="green--text">
-        {{ $t('ZakatPage.Calculator.bank') }}
+        {{ $t('zakat.calculator.acording_to') }}
       </v-list-item-title>
       <v-list-item-subtitle class="text-right">
-        {{ $t('ZakatPage.Calculator.gold') }}
+        {{ $t('zakat.calculator.gold') }}
       </v-list-item-subtitle>
     </v-list-item>
     <div v-if="nisabSum<=inputSum">
       <v-list-item>
         <v-list-item-title class="font-weight-black">
-          {{ $t('ZakatPage.Calculator.yourzakat') }}
+          {{ $t('zakat.calculator.yuor_zakat') }}
         </v-list-item-title>
         <v-list-item-title class="text-right font-weight-black">
           {{ 0.025*inputSum }} ₽
@@ -46,24 +46,24 @@
       </v-list-item>
       <v-list-item>
         <v-list-item-subtitle>
-          {{ $t('ZakatPage.Calculator.description') }}
+          {{ $t('zakat.calculator.taxable_amount') }}
         </v-list-item-subtitle>
       </v-list-item>
       <v-btn rounded block color="primary">
-        {{ $t('ZakatPage.Calculator.pay') }}
+        {{ $t('zakat.calculator.donate') }}
       </v-btn>
     </div>
     <div v-else>
       <v-list-item>
         <v-list-item-title class="font-weight-black">
-          {{ $t('ZakatPage.Calculator.nopay') }}
+          {{ $t('zakat.calculator.not_taxable_amount') }}
         </v-list-item-title>
       </v-list-item>
       <v-btn rounded disabled block color="primary">
-        {{ $t('ZakatPage.Calculator.pay') }}
+        {{ $t('zakat.calculator.donate') }}
       </v-btn>
     </div>
-  </div>
+  </v-list>
 </template>
 
 <script lang="ts">
@@ -71,28 +71,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
   data () {
-    return { goldPrice: 0, nisabSum: 0, inputSum: null, updatedate: '' };
-  },
-  async mounted () {
-    let now = new Date();
-    const dayOfWeek = now.getDay();
-    if (dayOfWeek === 6) { // weekend service is not available
-      now = new Date(Date.now() - 86400000);
-    }
-    if (dayOfWeek === 0) { // weekend service is not available
-      now = new Date(Date.now() - 86400000 * 2);
-    }
-    const day = now.getDate();
-    const month = now.getMonth() + 1;
-    const year = now.getFullYear();
-    const today = `${day.toString().padStart(2, '0')}/${month.toString().padStart(2, '0')}/${year}`;
-    const url = ` https://cors-anywhere.herokuapp.com/http://www.cbr.ru/scripts/xml_metall.asp?date_req1=${today}&date_req2=${today}`;
-    const result = await fetch(url)
-      .then(x => x.text());
-    const parser = new DOMParser().parseFromString(result, 'text/xml');
-    this.goldPrice = Number.parseFloat(parser.evaluate('//Metall/Record[@Code=1]/Sell', parser, null, XPathResult.STRING_TYPE, null).stringValue.replace(',', '.'));
-    this.nisabSum = 84.8 * this.goldPrice;
-    this.updatedate = today;
+    return { goldPrice: 3848.83, nisabSum: 326380.784, inputSum: null, updatedate: '12.06.20' };
   },
 });
 </script>

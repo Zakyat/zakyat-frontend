@@ -1,6 +1,6 @@
 <template>
   <v-container class="grey lighten-5">
-    <h1> {{ $t('ZakatPage.title') }} </h1>
+    <h1> {{ $t('zakat.title') }} </h1>
     <v-row no-gutters>
       <v-col
         cols="12"
