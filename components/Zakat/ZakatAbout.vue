@@ -25,18 +25,20 @@
       <p>{{ $t('zakat.about.what_is_zakat.paragraps_3_end') }} </p>
       <h3>{{ $t('zakat.about.required_to_pay.question') }}</h3>
       <h4>{{ $t('zakat.about.required_to_pay.should_be') }}</h4>
-      <p>{{ $t('zakat.about.required_to_pay.paragraph_1') }}</p>
-      <p>{{ $t('zakat.about.required_to_pay.paragraph_2') }}</p>
-      <p>{{ $t('zakat.about.required_to_pay.paragraph_3') }}</p>
-      <p>{{ $t('zakat.about.required_to_pay.paragraph_4') }}</p>
-      <p>
-        <MyTooltip :word="$t('zakat.about.required_to_pay.tooltip_1.text')" :description="$t('zakat.about.required_to_pay.tooltip_1.description')" />
-      </p>
-      <p>
-        {{ $t('zakat.about.required_to_pay.paragraph_5_start') }}
-        <MyTooltip :word="$t('zakat.about.required_to_pay.paragraps_5_tooltip.text')" :description="$t('zakat.about.required_to_pay.paragraps_5_tooltip.description')" />
-        {{ $t('zakat.about.required_to_pay.paragraps_5_end') }}
-      </p>
+      <ul style="list-style-type:none;">
+        <li>{{ $t('zakat.about.required_to_pay.paragraph_1') }}</li>
+        <li>{{ $t('zakat.about.required_to_pay.paragraph_2') }}</li>
+        <li>{{ $t('zakat.about.required_to_pay.paragraph_3') }}</li>
+        <li>{{ $t('zakat.about.required_to_pay.paragraph_4') }}</li>
+        <li>
+          <MyTooltip :word="$t('zakat.about.required_to_pay.tooltip_1.text')" :description="$t('zakat.about.required_to_pay.tooltip_1.description')" />
+        </li>
+        <li>
+          {{ $t('zakat.about.required_to_pay.paragraph_5_start') }}
+          <MyTooltip :word="$t('zakat.about.required_to_pay.paragraps_5_tooltip.text')" :description="$t('zakat.about.required_to_pay.paragraps_5_tooltip.description')" />
+          {{ $t('zakat.about.required_to_pay.paragraps_5_end') }}
+        </li>
+      </ul>
       <p>{{ $t('zakat.about.required_to_pay.paragraps_6') }}</p>
     </div>
   </div>
