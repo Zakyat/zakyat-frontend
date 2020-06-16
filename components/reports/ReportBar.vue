@@ -2,11 +2,18 @@
   <v-container class="reports grey lighten-5">
     <v-layout justify-space-between>
       <div class="section-title__container">
-        <v-select
-          class="section-title__content pt-0"
-          :items="[sectionTitles[0].title, sectionTitles[1].title]"
-          placeholder="Поступления"
-        />
+        <v-layout>
+          <h2
+            class="section-title__content pt-0"
+            @click="haveSubsectionsShown = !haveSubsectionsShown"
+          >
+            <span v-if="!haveSubsectionsShown">Поступления</span>
+            <span v-else>Оказанная помощь</span>
+          </h2>
+          <v-icon>
+            mdi-chevron-down
+          </v-icon>
+        </v-layout>
       </div>
       <v-layout justify-end>
         <div class="reports__select">
@@ -28,6 +35,27 @@
           />
         </div>
       </v-layout>
+    </v-layout>
+    <v-layout
+      v-show="haveSubsectionsShown"
+      justify-center
+      class="mb-5"
+    >
+      <v-btn-toggle
+        color="green darken-1"
+        mandatory
+        rounded
+        dense
+      >
+        <v-btn
+          class="reports__subsection--button"
+        >
+          Для нуждающихся
+        </v-btn>
+        <v-btn class="reports__subsection--button">
+          Иные расходы
+        </v-btn>
+      </v-btn-toggle>
     </v-layout>
     <v-layout justify-space-between>
       <div>
@@ -89,7 +117,9 @@ export default Vue.extend({
       items: this.$t('reports.table.data'),
       months: this.$t('reports.interval.months'),
       years: this.$t('reports.interval.years'),
+
       total: 0,
+      haveSubsectionsShown: false,
     };
   },
 });
@@ -104,6 +134,10 @@ export default Vue.extend({
     font-size: 24px;
   }
 
+  .section-title__content:hover {
+    cursor: pointer;
+  }
+
   .reports {
     padding-top: 50px;
     padding-bottom: 105px;
@@ -111,5 +145,9 @@ export default Vue.extend({
 
   .reports__select {
     width: 150px;
+  }
+
+  .reports__subsection--button {
+    width: 40vw;
   }
 </style>
