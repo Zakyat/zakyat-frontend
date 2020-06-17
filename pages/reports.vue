@@ -5,18 +5,18 @@
     justify-center
     align-center
   >
-    <ReportBar />
+    <Reports />
   </v-layout>
 </template>
 
 <script>
 import Vue from 'vue';
 
-import ReportBar from '@/components/reports/ReportBar.vue';
+import Reports from '~/components/reports/Reports.vue';
 
 export default Vue.extend({
   components: {
-    ReportBar,
+    Reports,
   },
 });
 </script>

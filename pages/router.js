@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 
-import ParameterBar from '../components/reports/ReportBar.vue';
+import ParameterBar from '../components/reports/Reports.vue';
 
 Vue.use(Router);
 
