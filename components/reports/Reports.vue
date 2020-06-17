@@ -1,6 +1,5 @@
 <template>
   <v-container class="reports grey lighten-5">
-
     <!-- Report management panel -->
     <v-layout justify-space-between>
       <div class="section__title--container">
@@ -10,10 +9,10 @@
             @click="isMainFeesSection = !isMainFeesSection"
           >
             <span v-if="isMainFeesSection">
-              {{ fees }}
+              {{ feesTitle }}
             </span>
             <span v-else>
-              {{ realisedSupport }}
+              {{ realisedSupportTitle }}
             </span>
           </h2>
           <v-icon>
@@ -55,11 +54,17 @@
         rounded
         dense
       >
-        <v-btn class="reports__subsection--button">
-          {{ forDestitute }}
+        <v-btn
+          class="reports__subsection--button"
+          @click="handleClickOnForDestitute"
+        >
+          {{ forDestituteTitle }}
         </v-btn>
-        <v-btn class="reports__subsection--button">
-          {{ otherCosts }}
+        <v-btn
+          class="reports__subsection--button"
+          @click="handleClickOnOtherCosts"
+        >
+          {{ otherCostsTitle }}
         </v-btn>
       </v-btn-toggle>
     </v-layout>
@@ -73,14 +78,18 @@
         </h3>
       </div>
       <div>
-        <h3 onload="items.forEach(item => total + item.size)">
-          {{ rubles(total) }}
+        <h3>
+          0
         </h3>
       </div>
     </v-layout>
 
     <!-- Table column names -->
-    <v-layout v-show="isMainFeesSection" row class="mt-5 pr-3">
+    <v-layout
+      v-show="isMainFeesSection"
+      class="mt-5 pr-3"
+      row
+    >
       <v-flex lg2 class="pl-3 text--secondary">
         {{ feeColumnNames[0] }}
       </v-flex>
@@ -97,21 +106,46 @@
         {{ feeColumnNames[4] }}
       </v-flex>
     </v-layout>
-    <v-layout v-show="!isMainFeesSection" row class="mt-5 pr-3">
+    <v-layout
+      v-show="!isMainFeesSection && isMainForDestituteSubsection"
+      class="mt-5 pr-3"
+      row
+    >
       <v-flex lg2 class="pl-3 text--secondary">
-        {{ realisedSupportColumnNames[0] }}
+        {{ forDestituteColumnNames[0] }}
       </v-flex>
       <v-flex lg2 class="pl-2 text--secondary">
-        {{ realisedSupportColumnNames[1] }}
+        {{ forDestituteColumnNames[1] }}
       </v-flex>
       <v-flex lg2 class="pl-2 text--secondary">
-        {{ realisedSupportColumnNames[2] }}
+        {{ forDestituteColumnNames[2] }}
       </v-flex>
       <v-flex lg4 class="pl-1 text--secondary">
-        {{ realisedSupportColumnNames[3] }}
+        {{ forDestituteColumnNames[3] }}
       </v-flex>
       <v-flex lg2 class="text--secondary text-right">
-        {{ realisedSupportColumnNames[4] }}
+        {{ forDestituteColumnNames[4] }}
+      </v-flex>
+    </v-layout>
+    <v-layout
+      v-show="!isMainFeesSection && !isMainForDestituteSubsection && isOtherCostsButtonActive"
+      class="mt-5 pr-3"
+      row
+    >
+      <v-flex lg2 class="pl-3 text--secondary">
+        {{ otherCostsColumnNames[0] }}
+      </v-flex>
+      <v-flex lg2 class="pl-2 text--secondary">
+        {{ otherCostsColumnNames[1] }}
+      </v-flex>
+      <v-flex lg2 class="pl-2 text--secondary">
+        {{ otherCostsColumnNames[2] }}
+      </v-flex>
+      <v-flex lg4 class="pl-1 text--secondary">
+        {{ otherCostsColumnNames[3] }}
+      </v-flex>
+      <v-flex lg2 class="text--secondary text-right">
+        {{ otherCostsColumnNames[4] }}
       </v-flex>
     </v-layout>
 
@@ -119,30 +153,31 @@
     <v-card
       v-for="(item, index) of feeSectionItems"
       v-show="isMainFeesSection"
-      :key="'fees-' + index.toString()"
+      :key="'feesTitle-' + index.toString()"
       elevation="0"
     >
       <v-layout row class="mt-4 pr-3 pl-3">
         <v-flex lg2 class="mt-4 mb-4 pl-5">
-          {{ item.date }}
+          {{ item.helpDate }}
         </v-flex>
         <v-flex lg3 class="mt-4 mb-4">
           {{ item.helper }}
         </v-flex>
         <v-flex lg3 class="mt-4 mb-4">
-          {{ item.object }}
+          {{ item.helpObject }}
         </v-flex>
         <v-flex lg3 class="mt-4 mb-4">
-          {{ item.type }}
+          {{ item.helpType }}
         </v-flex>
         <v-flex lg1 class="mt-4 mb-4 pr-5 text-right">
-          {{ rubles(item.size) }}
+          {{ rubles(item.helpSize) }}
         </v-flex>
       </v-layout>
     </v-card>
     <v-card
-      v-for="(item, index) of realisedSupportSectionItems"
-      v-show="!isMainFeesSection"
+      v-for="(item, index) of forDestituteItems"
+      v-show="
+        !isMainFeesSection && isMainForDestituteSubsection"
       :key="'realised-support-' + index.toString()"
       elevation="0"
     >
@@ -164,6 +199,30 @@
         </v-flex>
       </v-layout>
     </v-card>
+    <v-card
+      v-for="(item, index) of otherCostsItems"
+      v-show="!isMainFeesSection && !isMainForDestituteSubsection && isOtherCostsButtonActive"
+      :key="'realised-support-' + index.toString()"
+      elevation="0"
+    >
+      <v-layout row class="mt-4 pr-3 pl-3">
+        <v-flex lg2 class="mt-4 mb-4 pl-5">
+          {{ item.documentNumber }}
+        </v-flex>
+        <v-flex lg2 class="mt-4 mb-4">
+          {{ item.documentDate }}
+        </v-flex>
+        <v-flex lg2 class="mt-4 mb-4">
+          {{ item.target }}
+        </v-flex>
+        <v-flex lg4 class="mt-4 mb-4">
+          {{ item.targetDescription }}
+        </v-flex>
+        <v-flex lg2 class="mt-4 mb-4 pr-5 text-right">
+          {{ rubles(item.summary.done) }} / {{ rubles(item.summary.needed) }}
+        </v-flex>
+      </v-layout>
+    </v-card>
   </v-container>
 </template>
 
@@ -178,28 +237,51 @@ export default Vue.extend({
       // Global data for both sections
       months: this.$t('reports.interval.months'),
       years: this.$t('reports.interval.years'),
-      total: 0,
 
       // Data for Fees section
-      fees: this.$t('reports.section[0].title'),
+      feesTitle: this.$t('reports.section[0].title'),
       feesDescription: this.$t('reports.section[0].description'),
       feeColumnNames: this.$t('reports.section[0].table.title'),
       feeSectionItems: this.$t('reports.section[0].table.data'),
 
       // Data for Realised Support section
-      realisedSupport: this.$t('reports.section[1].title'),
+      realisedSupportTitle: this.$t('reports.section[1].title'),
       realisedSupportDescription: this.$t('reports.section[1].description'),
-      forDestitute: this.$t('reports.section[1].subsection[0]'),
-      otherCosts: this.$t('reports.section[1].subsection[1]'),
-      realisedSupportColumnNames: this.$t('reports.section[1].table.title'),
-      realisedSupportSectionItems: this.$t('reports.section[1].table.data'),
+
+      // For Destitute subsection's data
+      forDestituteTitle: this.$t('reports.section[1].subsection[0].title'),
+      forDestituteColumnNames: this.$t('reports.section[1].subsection[0].table.title'),
+      forDestituteItems: this.$t('reports.section[1].subsection[0].table.data'),
+
+      // Other Costs subsection's data
+      otherCostsTitle: this.$t('reports.section[1].subsection[1].title'),
+      otherCostsColumnNames: this.$t('reports.section[1].subsection[1].table.title'),
+      otherCostsItems: this.$t('reports.section[1].subsection[1].table.data'),
 
       // Data for managing sections and subsections
       isMainFeesSection: true,
+      isMainForDestituteSubsection: true,
+      isOtherCostsButtonActive: false,
     };
   },
   methods: {
     rubles,
+
+    handleClickOnForDestitute () {
+      if (!this.isMainForDestituteSubsection) {
+        this.isMainForDestituteSubsection = !this.isMainForDestituteSubsection;
+      }
+    },
+
+    handleClickOnOtherCosts () {
+      if (this.isMainForDestituteSubsection) {
+        this.isMainForDestituteSubsection = !this.isMainForDestituteSubsection;
+      }
+
+      if (!this.isOtherCostsButtonActive) {
+        this.isOtherCostsButtonActive = !this.isOtherCostsButtonActive;
+      }
+    },
   },
 });
 </script>
