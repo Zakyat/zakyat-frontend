@@ -23,11 +23,13 @@
       <v-layout justify-end>
         <div class="reports__select">
           <v-select
+            ref="selectedMonth"
             :items="months"
             :placeholder="months[new Date().getMonth()]"
             dense
             rounded
             outlined
+            @change="handleSelectedMonth"
           />
         </div>
         <div class="reports__select ml-5">
@@ -280,6 +282,26 @@ export default Vue.extend({
 
       if (!this.isOtherCostsButtonActive) {
         this.isOtherCostsButtonActive = !this.isOtherCostsButtonActive;
+      }
+    },
+
+    handleSelectedMonth (month: string) {
+      const january = this.$t('reports.interval.months[0]');
+      const december = this.$t('reports.interval.months[1]');
+
+      const showMonthName = () => alert(JSON.stringify(month));
+      const showMonthData = () => alert(JSON.stringify(this.feeSectionItems.filter(item => item.helpDate === '24.01.2020')));
+      const changeTableData = () => this.feeSectionItems = this.feeSectionItems.filter(item => item.helpDate === '24.01.2020');
+
+      switch (month) {
+        case january:
+          showMonthName();
+          showMonthData();
+          changeTableData();
+          break;
+        case december:
+          alert(JSON.stringify(month));
+          break;
       }
     },
   },
