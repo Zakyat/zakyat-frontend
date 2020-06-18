@@ -21,9 +21,8 @@
         </v-layout>
       </div>
       <v-layout justify-end>
-        <div class="reports__select">
+        <div class="reports__data-manager">
           <v-select
-            ref="selectedMonth"
             :items="months"
             :placeholder="months[new Date().getMonth()]"
             dense
@@ -32,13 +31,14 @@
             @change="handleSelectedMonth"
           />
         </div>
-        <div class="reports__select ml-5">
+        <div class="reports__data-manager ml-5">
           <v-select
             :items="years"
             :placeholder="new Date().getFullYear().toString()"
             dense
             rounded
             outlined
+            @change="handleSelectedYear"
           />
         </div>
       </v-layout>
@@ -160,7 +160,7 @@
     >
       <v-layout row class="mt-4 pr-3 pl-3">
         <v-flex lg2 class="mt-4 mb-4 pl-5">
-          {{ item.helpDate }}
+          {{ item.helpDate.day }}.{{ item.helpDate.month | normalizeNumber }}.{{ item.helpDate.year }}
         </v-flex>
         <v-flex lg3 class="mt-4 mb-4">
           {{ item.helper }}
@@ -178,8 +178,7 @@
     </v-card>
     <v-card
       v-for="(item, index) of forDestituteItems"
-      v-show="
-        !isMainFeesSection && isMainForDestituteSubsection"
+      v-show="!isMainFeesSection && isMainForDestituteSubsection"
       :key="'realised-support-' + index.toString()"
       elevation="0"
     >
@@ -188,7 +187,7 @@
           {{ item.documentNumber }}
         </v-flex>
         <v-flex lg2 class="mt-4 mb-4">
-          {{ item.documentDate }}
+          {{ item.documentDate.day }}.{{ item.documentDate.month | normalizeNumber }}.{{ item.documentDate.year }}
         </v-flex>
         <v-flex lg2 class="mt-4 mb-4">
           {{ item.helpObject }}
@@ -212,7 +211,7 @@
           {{ item.documentNumber }}
         </v-flex>
         <v-flex lg2 class="mt-4 mb-4">
-          {{ item.documentDate }}
+          {{ item.documentDate.day }}.{{ item.documentDate.month | normalizeNumber }}.{{ item.documentDate.year }}
         </v-flex>
         <v-flex lg2 class="mt-4 mb-4">
           {{ item.target }}
@@ -234,6 +233,13 @@ import { rubles } from '@/plugins/currency';
 
 export default Vue.extend({
   name: 'Reports',
+  filters: {
+    normalizeNumber (month: number) {
+      if (0 < month && month < 10) {
+        return '0' + month.toString();
+      }
+    },
+  },
   data () {
     return {
       // Global data for both sections
@@ -285,23 +291,106 @@ export default Vue.extend({
       }
     },
 
-    handleSelectedMonth (month: string) {
-      const january = this.$t('reports.interval.months[0]');
-      const december = this.$t('reports.interval.months[1]');
+    handleSelectedMonth (selectedMonth: string) {
 
-      const showMonthName = () => alert(JSON.stringify(month));
-      const showMonthData = () => alert(JSON.stringify(this.feeSectionItems.filter(item => item.helpDate === '24.01.2020')));
-      const changeTableData = () => this.feeSectionItems = this.feeSectionItems.filter(item => item.helpDate === '24.01.2020');
+      // Initialisation variables
+      const allMonthsSelect: string = this.$t('reports.interval.months[0]');
+      let counter: number = 0;
 
-      switch (month) {
-        case january:
-          showMonthName();
-          showMonthData();
-          changeTableData();
-          break;
-        case december:
-          alert(JSON.stringify(month));
-          break;
+      const isFeesSection: boolean = this.isMainFeesSection;
+      const isForDestituteSubsection: boolean = !this.isMainFeesSection && this.isMainForDestituteSubsection;
+      const isOtherCostsSubsection: boolean = !this.isMainFeesSection && !this.isMainForDestituteSubsection && this.isOtherCostsButtonActive;
+
+      // Recovering table data by default after defining of a current section
+      if (isFeesSection) {
+        this.feeSectionItems = this.$t('reports.section[0].table.data');
+      } else if (isForDestituteSubsection) {
+        this.forDestituteItems = this.$t('reports.section[1].subsection[0].table.data');
+      } else if (isOtherCostsSubsection) {
+        this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
+      }
+
+      // Handling table data by month
+      for (let month of this.months) {
+        counter++;
+
+        // Handling the case when a user chose All months
+        if (selectedMonth === allMonthsSelect) {
+          if (isFeesSection) {
+            return this.feeSectionItems;
+          } else if (isForDestituteSubsection) {
+            return this.forDestituteItems;
+          } else if (isOtherCostsSubsection) {
+            return this.otherCostsItems;
+          }
+        }
+
+        // Handling the cases when a user chose one of other months
+        if (selectedMonth === month) {
+          if (isFeesSection) {
+            this.feeSectionItems = this.feeSectionItems.filter(item => {
+              return item.helpDate.month === counter - 1;
+            });
+          } else if (isForDestituteSubsection) {
+            this.forDestituteItems = this.forDestituteItems.filter(item => {
+              return item.documentDate.month === counter - 1;
+            });
+          } else if (isOtherCostsSubsection) {
+            this.otherCostsItems = this.otherCostsItems.filter(item => {
+              return item.documentDate.month === counter - 1;
+            });
+          }
+        }
+      }
+    },
+
+    handleSelectedYear (selectedYear: string) {
+      // Initialisation variables
+      const allYearsSelect: string = this.$t('reports.interval.years[0]');
+
+      const isFeesSection: boolean = this.isMainFeesSection;
+      const isForDestituteSubsection: boolean = !this.isMainFeesSection && this.isMainForDestituteSubsection;
+      const isOtherCostsSubsection: boolean = !this.isMainFeesSection && !this.isMainForDestituteSubsection && this.isOtherCostsButtonActive;
+
+      // Recovering table data by default after defining of a current section
+      if (isFeesSection) {
+        this.feeSectionItems = this.$t('reports.section[0].table.data');
+      } else if (isForDestituteSubsection) {
+        this.forDestituteItems = this.$t('reports.section[1].subsection[0].table.data');
+      } else if (isOtherCostsSubsection) {
+        this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
+      }
+
+      // Handling table data by year
+      for (let year of this.years) {
+
+        // Handling the case when a user chose All years
+        if (selectedYear === allYearsSelect) {
+          if (isFeesSection) {
+            return this.feeSectionItems;
+          } else if (isForDestituteSubsection) {
+            return this.forDestituteItems;
+          } else if (isOtherCostsSubsection) {
+            return this.otherCostsItems;
+          }
+        }
+
+        // Handling the cases when a user chose one of other years
+        if (selectedYear === year) {
+          if (isFeesSection) {
+            this.feeSectionItems = this.feeSectionItems.filter(item => {
+              return item.helpDate.year === parseInt(selectedYear, 10);
+            });
+          } else if (isForDestituteSubsection) {
+            this.forDestituteItems = this.forDestituteItems.filter(item => {
+              return item.documentDate.year === parseInt(selectedYear, 10);
+            });
+          } else if (isOtherCostsSubsection) {
+            this.otherCostsItems = this.otherCostsItems.filter(item => {
+              return item.documentDate.year === parseInt(selectedYear, 10);
+            });
+          }
+        }
       }
     },
   },
@@ -330,8 +419,8 @@ export default Vue.extend({
     padding-bottom: 105px;
   }
 
-  .reports__select {
-    width: 150px;
+  .reports__data-manager {
+    width: 200px;
   }
 
   .reports__subsection--button {
