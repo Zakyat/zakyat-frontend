@@ -1,12 +1,14 @@
 <template>
-  <v-card class="about-container">
+  <v-card class="about-container" elevation="0">
     <video height="340px" controls style="border-radius: 10px">
       <source
         :src="require('@/assets/videos/aboutUs.mp4')"
         type="video/mp4"
       >Your browser does not support HTML5 video.
     </video>
-    <h2>{{ $t('zakat.about.what_is_zakat.question') }}</h2>
+    <h2 class="my-4">
+      {{ $t('zakat.about.what_is_zakat.question') }}
+    </h2>
     <p>
       {{ $t('zakat.about.what_is_zakat.paragraph_1_start') }}
       <MyTooltip :word="$t('zakat.about.what_is_zakat.paragraps_1_tooltip.text')" :description="$t('zakat.about.what_is_zakat.paragraps_1_tooltip.description')" />
@@ -54,7 +56,6 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .about-container {
   padding: 25px;
-  margin: 8px 0px 8px 0;
   border-radius: 10px !important;
   }
 </style>

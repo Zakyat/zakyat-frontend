@@ -5,6 +5,7 @@
       <v-col
         cols="12"
         md="8"
+        class="pt-2 pr-2"
       >
         <ZakatAbout />
         <QuestionList />
@@ -12,6 +13,7 @@
       <v-col
         cols="6"
         md="4"
+        class="pt-2 pl-5"
       >
         <ZakatCalculator />
       </v-col>

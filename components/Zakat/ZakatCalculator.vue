@@ -1,21 +1,20 @@
 <template>
   <v-card
     class="calculator-container"
+    elevation="0"
   >
-    <v-card-title>
+    <v-card-title class="font-weight-black">
       {{ $t('zakat.calculator.title') }}
     </v-card-title>
-    <v-card-subtitle>
+    <v-card-subtitle class="font-weight-bold">
       {{ $t('zakat.calculator.subtitle') }}
     </v-card-subtitle>
-    <v-card-text>
+    <v-card-text class="mt-3">
       <v-text-field
-        v-model="inputSum"
+        v-model.number="inputSum"
         :label="$t('zakat.calculator.input_label')"
         rounded
         outlined
-        type="Number"
-        class="mt-3"
         @input="flag=inputSum>=nisabSum"
       />
     </v-card-text>
@@ -30,7 +29,7 @@
       </v-list-item-content>
       <v-list-item-action>
         <v-list-item-title class="font-weight-medium">
-          {{ nisabSum }} ₽
+          {{ nisabSum | rubles }}
         </v-list-item-title>
         <v-list-item-subtitle>
           {{ $t('zakat.calculator.gold') }}
@@ -50,8 +49,8 @@
         </v-list-item-subtitle>
       </v-list-item-content>
       <v-list-item-action>
-        <v-list-item-title>
-          {{ (0.025*inputSum).toFixed(2) }} ₽
+        <v-list-item-title class="font-weight-black">
+          {{ 0.025*inputSum | rubles }}
         </v-list-item-title>
       </v-list-item-action>
     </v-list-item>
@@ -85,7 +84,6 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .calculator-container {
-  margin: 8px 0px 0px 22px;
   border-radius: 10px !important;
   }
 </style>
