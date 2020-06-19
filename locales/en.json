@@ -1,6 +1,17 @@
 {
   "collected": "Collected {0} for the disabled",
-  "search": "Search",
+  "search": {
+    "buttonName": "Search",
+    "placeholder": "Insert a phrase to search",
+    "noDataText": "No results. Try to change.",
+    "suggestions": [
+      "Sabirzyanova Rimma Minzagitovna (Reports)",
+      "Donation (Main)",
+      "The 1500$ Has Taken as a Donation for 10 Days... (News)",
+      "Sadykov Amirkhan (Donations)",
+      "Sadykov Amirkhan (Reports)"
+    ]
+  },
   "VK": "VKontakte",
   "instagram": "Instagram",
   "login": "Log in",

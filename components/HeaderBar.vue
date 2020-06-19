@@ -1,35 +1,49 @@
 <template>
   <v-system-bar dark height="50" style="padding: 0 5%;">
     <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
-    {{ $t('collected', [rubles(amount)]) }}
+    <span class="white--text">{{ $t('collected', [rubles(amount)]) }}</span>
     <v-spacer />
-    <v-btn text small>
-      <v-icon size="20">
+    <v-btn text small @click="isSearcherOpen = !isSearcherOpen">
+      <v-icon color="white" size="20">
         mdi-magnify
       </v-icon>
-      {{ $t('search') }}
+      {{ $t('search.buttonName') }}
     </v-btn>
     <v-btn text small>
-      <v-icon size="20">
+      <v-icon color="white" size="20">
         mdi-vk
       </v-icon>
       {{ $t('VK') }}
     </v-btn>
     <v-btn text small>
-      <v-icon size="20">
+      <v-icon color="white" size="20">
         mdi-instagram
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
     <v-btn text small>
-      <v-icon size="20" color="white">
+      <v-icon color="white" size="20">
         mdi-account-circle
       </v-icon>
       {{ $t('login') }}
     </v-btn>
     <v-flex lg1 md2 xs4>
-      <LanguageSelector />
+      <LanguageSelector class="icon" />
     </v-flex>
+    <v-autocomplete
+      v-show="isSearcherOpen"
+      class="searcher mx-auto"
+      :items="items"
+      :placeholder="$t('search.placeholder')"
+      :no-data-text="$t('search.noDataText')"
+      append-icon=""
+      height="60"
+      light
+      solo
+      rounded
+      shaped
+      clearable
+    />
   </v-system-bar>
 </template>
 
@@ -45,6 +59,8 @@ export default Vue.extend({
   data () {
     return {
       amount: 6234234,
+      items: this.$t('search.suggestions'),
+      isSearcherOpen: false,
     };
   },
   methods: {
@@ -52,3 +68,14 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.searcher {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-top: 65px;
+  width: 600px;
+  z-index: 2;
+}
+</style>
