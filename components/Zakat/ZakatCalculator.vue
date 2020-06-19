@@ -14,11 +14,12 @@
         v-model.number="inputSum"
         :label="$t('zakat.calculator.input_label')"
         rounded
+        type="number"
         outlined
         @input="flag=inputSum>=nisabSum"
       />
     </v-card-text>
-    <v-list-item>
+    <v-list-item class="mt-n8">
       <v-list-item-content>
         <v-list-item-title class="font-weight-medium">
           {{ $t('zakat.calculator.nisab_for') }} {{ updatedate }}
@@ -64,7 +65,7 @@
         {{ $t('zakat.calculator.donate') }}
       </v-btn>
     </v-card-text>
-    <v-card-text v-else>
+    <v-card-text v-else class="mt-n4">
       <v-btn rounded disabled block color="primary" large>
         {{ $t('zakat.calculator.donate') }}
       </v-btn>
