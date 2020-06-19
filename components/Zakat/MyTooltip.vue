@@ -1,7 +1,7 @@
 <template>
   <v-tooltip top max-width="400px">
     <template v-slot:activator="{ on }">
-      <span style="background-color: rgba(224, 246, 224, 1) border: 1px solid rgba(86, 61, 124,.15)" v-on="on">
+      <span class="word" v-on="on">
         {{ word }}
       </span>
     </template>
@@ -25,3 +25,12 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+.word {
+  background-color: rgba(224, 246, 224, 1);
+  border-radius: 10px;
+  padding: 3px;
+  padding-right: 0;
+}
+</style>
