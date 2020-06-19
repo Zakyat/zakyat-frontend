@@ -1,6 +1,6 @@
 <template>
-  <v-card class="about-container" elevation="0">
-    <video height="340px" controls style="border-radius: 10px">
+  <v-card class="pa-6" flat>
+    <video height="340px" controls style="border-radius: 10px;">
       <source
         :src="require('@/assets/videos/aboutUs.mp4')"
         type="video/mp4"
@@ -39,10 +39,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style lang="scss" scoped>
-.about-container {
-  padding: 25px;
-  border-radius: 10px !important;
-}
-</style>
