@@ -1,5 +1,5 @@
 <template>
-  <v-layout class="zakat-container" column>
+  <v-container class="zakat-container" fluid>
     <h1>{{ $t('zakat.title') }}</h1>
     <v-row no-gutters>
       <v-col
@@ -12,13 +12,13 @@
       </v-col>
       <v-col
         cols="6"
-        md="4"
+        md="3"
         class="pt-2 pl-5"
       >
         <ZakatCalculator />
       </v-col>
     </v-row>
-  </v-layout>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -39,7 +39,6 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .zakat-container {
   background-color: #f2f2f2;
-  width: 100%;
   padding: 2% 6%;
-  }
+}
 </style>
