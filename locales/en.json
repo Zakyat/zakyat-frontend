@@ -1,6 +1,17 @@
 {
   "collected": "Collected {0} for the disabled",
-  "search": "Search",
+  "search": {
+    "buttonName": "Search",
+    "placeholder": "Insert a phrase to search",
+    "noDataText": "No results. Try to change.",
+    "suggestions": [
+      "Sabirzyanova Rimma Minzagitovna (Reports)",
+      "Donation (Main)",
+      "The 1500$ Has Taken as a Donation for 10 Days... (News)",
+      "Sadykov Amirkhan (Donations)",
+      "Sadykov Amirkhan (Reports)"
+    ]
+  },
   "VK": "VKontakte",
   "instagram": "Instagram",
   "login": "Log in",
@@ -19,7 +30,7 @@
   "home": {
     "about": {
       "title": "About Us",
-      "paragraph1": "Zakat Charity Foundation established by the Central Religious Organization of the Spiritual Administration of Muslims in the Republic of Tatarstan in 1998. Charity Fund “Zakat” collects and distributes Zakat and Sadak in the Republic Tatarstan The collection of Zakat and Sadak is carried out by the foundation’s specialists. Distribution of Zakat and Sadak is carried out by decision of the commission. Consultations The Fund’s Council for the implementation of the Fund’s activities is the Ulema Council of the CRO-DUM RT.",
+      "paragraph1": "Zakat Charity Foundation was established by the Central Religious Organization of the Spiritual Administration of Muslims in the Republic of Tatarstan in 1998. Charity Fund “Zakat” collects and distributes Zakat and Sadak in the Republic Tatarstan The collection of Zakat and Sadak is carried out by the foundation’s specialists. Distribution of Zakat and Sadak is carried out by decision of the commission. Consultations The Fund’s Council for the implementation of the Fund’s activities is the Ulema Council of the CRO-DUM RT.",
       "paragraph2": "Zakat Charity Fund Helps Help the Most Unprotected strata of the population: large families, low-income families who find themselves in difficult lifethe situation; orphans and single elderly people. The fund also collects funds and helps in paying for treatment of seriously ill children and adults.",
       "learn_more": "Learn more"
     },
@@ -44,7 +55,7 @@
       "pay": "Pay zakat"
     },
     "volunteer": {
-      "title": "Become a volunteer",
+      "title": "Become a volunteer friend of the foundation",
       "description": "If you want to cheer up the needy and make their life better, we will gladly accept you into our friendly team of like-minded people. Leave your contact details and tell us how you want to help. We will contact you as soon as we consider your offer!",
       "join": "Become a volunteer"
     },

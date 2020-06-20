@@ -1,6 +1,6 @@
-# zakat
+# Zakyat
 
-> Frontend of Zakat charity foundation
+> Frontend of Zakyat charity foundation
 
 ## Build Setup
 

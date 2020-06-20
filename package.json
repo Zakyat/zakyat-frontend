@@ -1,7 +1,7 @@
 {
-  "name": "zakat",
+  "name": "zakyat",
   "version": "1.0.0",
-  "description": "Frontend of Zakat charity foundation",
+  "description": "Frontend of Zakyat charity foundation",
   "author": "Abdelrahman Aly Abounegm",
   "private": true,
   "scripts": {

@@ -50,12 +50,14 @@ export default {
       'nuxt-i18n',
       {
         locales: [
-          { code: 'en', file: 'en.json', name: 'English', shortName: 'Eng' },
-          { code: 'ru', file: 'ru.json', name: 'Русский', shortName: 'Рус' },
+          { code: 'en', file: 'en.json', name: 'English', shortName: 'Eng', rtl: false },
+          { code: 'ru', file: 'ru.json', name: 'Русский', shortName: 'Рус', rtl: false },
+          { code: 'ar', file: 'ar.json', name: 'العربية', shortName: 'عربي', rtl: true },
         ],
         lazy: true,
         langDir: 'locales/',
         defaultLocale: 'ru',
+        fallbackLocale: 'en',
         strategy: 'no_prefix',
       },
     ],
