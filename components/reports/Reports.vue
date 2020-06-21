@@ -152,6 +152,18 @@
         {{ otherCostsColumnNames[4] }}
       </v-flex>
     </v-layout>
+    <v-layout v-show="!haveDataFounded" column align-center class="search-error__container mt-5 pt-3">
+      <img
+        src="@/assets/images/errors/seach-error.svg"
+        style="height: 350px; width: 350px"
+        class="search-error__image"
+      >
+      <h2 class="mt-5 text-center">
+        {{ $t('reports.errorText.description') }}
+        <br>
+        {{ $t('reports.errorText.suggestion') }}
+      </h2>
+    </v-layout>
 
     <!-- Table data -->
     <v-card
@@ -280,6 +292,9 @@ export default Vue.extend({
         month: 0,
         year: '',
       },
+
+      // Handling search errors
+      haveDataFounded: true,
     };
   },
   methods: {
@@ -321,13 +336,41 @@ export default Vue.extend({
       }
 
       // Resetting selection counters
-      if (this.hasMonthSelected && this.hasYearSelected) {
-        this.feeSectionItems = this.$t('reports.section[0].table.data');
-        this.feeSectionItems = this.feeSectionItems.filter(item => {
-          return item.helpDate.year === parseInt(this.timeInterval.year, 10);
-        });
-      }
       this.hasMonthSelected = true;
+
+      if (this.hasMonthSelected && this.hasYearSelected) {
+        if (isFeesSection) {
+          this.feeSectionItems = this.$t('reports.section[0].table.data');
+
+          this.feeSectionItems = this.feeSectionItems.filter(item => {
+            if (this.timeInterval.year === this.years[0]) {
+              return this.feeSectionItems;
+            }
+
+            return item.helpDate.year === parseInt(this.timeInterval.year, 10);
+          });
+        } else if (isForDestituteSubsection) {
+          this.forDestituteItems = this.$t('reports.section[1].subsection[0].table.data');
+
+          this.forDestituteItems = this.forDestituteItems.filter(item => {
+            if (this.timeInterval.year === this.years[0]) {
+              return this.forDestituteItems;
+            }
+
+            return item.helpDate.year === parseInt(this.timeInterval.year, 10);
+          });
+        } else if (isOtherCostsSubsection) {
+          this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
+
+          this.otherCostsItems = this.otherCostsItems.filter(item => {
+            if (this.timeInterval.year === this.years[0]) {
+              return this.otherCostsItems;
+            }
+
+            return item.helpDate.year === parseInt(this.timeInterval.year, 10);
+          });
+        }
+      }
 
       // Handling table data by month
       for (let month of this.months) {
@@ -335,6 +378,8 @@ export default Vue.extend({
 
         // Handling the case when a user chose All months
         if (selectedMonth === allMonthsSelect) {
+          this.haveDataFounded = true;
+
           if (isFeesSection) {
             return this.feeSectionItems;
           } else if (isForDestituteSubsection) {
@@ -346,19 +391,35 @@ export default Vue.extend({
 
         // Handling the cases when a user chose one of other months
         if (selectedMonth === month) {
+          let errorCounter: number = 0;
+
           if (isFeesSection) {
             this.feeSectionItems = this.feeSectionItems.filter(item => {
+              if (item.helpDate.month === counter - 1) {
+                errorCounter++;
+              }
+
               return item.helpDate.month === counter - 1;
             });
           } else if (isForDestituteSubsection) {
             this.forDestituteItems = this.forDestituteItems.filter(item => {
+              if (item.documentDate.month === counter - 1) {
+                errorCounter++;
+              }
+
               return item.documentDate.month === counter - 1;
             });
           } else if (isOtherCostsSubsection) {
             this.otherCostsItems = this.otherCostsItems.filter(item => {
+              if (item.documentDate.month === counter - 1) {
+                errorCounter++;
+              }
+
               return item.documentDate.month === counter - 1;
             });
           }
+
+          this.haveDataFounded = errorCounter !== 0;
         }
       }
     },
@@ -372,29 +433,55 @@ export default Vue.extend({
       const isForDestituteSubsection: boolean = !this.isMainFeesSection && this.isMainForDestituteSubsection;
       const isOtherCostsSubsection: boolean = !this.isMainFeesSection && !this.isMainForDestituteSubsection && this.isOtherCostsButtonActive;
 
-      // Recovering table data by default after defining of a current section
-      if (isFeesSection) {
-        this.feeSectionItems = this.$t('reports.section[0].table.data');
-      } else if (isForDestituteSubsection) {
-        this.forDestituteItems = this.$t('reports.section[1].subsection[0].table.data');
-      } else if (isOtherCostsSubsection) {
-        this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
-      }
-
       // Resetting selection counters
-      if (this.hasMonthSelected && this.hasYearSelected) {
-        this.feeSectionItems = this.$t('reports.section[0].table.data');
-        this.feeSectionItems = this.feeSectionItems.filter(item => {
-          return item.helpDate.month === currentHumanMonthNumber;
-        });
-      }
       this.hasYearSelected = true;
+      if (this.hasMonthSelected && this.hasYearSelected) {
+        if (isFeesSection) {
+          this.feeSectionItems = this.$t('reports.section[0].table.data');
+
+          if (selectedYear !== this.months[0]) {
+            this.feeSectionItems = this.feeSectionItems.filter(item => {
+              if (this.timeInterval.month === this.months[0]) {
+                return this.$t('reports.section[0].table.data');
+              }
+
+              return item.helpDate.month === currentHumanMonthNumber;
+            });
+          }
+        } else if (isForDestituteSubsection) {
+          this.forDestituteItems = this.$t('reports.section[1].subsection[0].table.data');
+
+          if (selectedYear !== this.months[0]) {
+            this.forDestituteItems = this.forDestituteItems.filter(item => {
+              if (this.timeInterval.month === this.months[0]) {
+                return this.$t('reports.section[1].subsection[0].table.data');
+              }
+
+              return item.helpDate.month === currentHumanMonthNumber;
+            });
+          }
+        } else if (isOtherCostsSubsection) {
+          this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
+
+          if (selectedYear !== this.months[0]) {
+            this.otherCostsItems = this.otherCostsItems.filter(item => {
+              if (this.timeInterval.month === this.months[0]) {
+                return this.$t('reports.section[1].subsection[1].table.data');
+              }
+
+              return item.helpDate.month === currentHumanMonthNumber;
+            });
+          }
+        }
+      }
 
       // Handling table data by year
       for (let year of this.years) {
 
         // Handling the case when a user chose All years
         if (selectedYear === allYearsSelect) {
+          this.haveDataFounded = true;
+
           if (isFeesSection) {
             return this.feeSectionItems;
           } else if (isForDestituteSubsection) {
@@ -406,19 +493,35 @@ export default Vue.extend({
 
         // Handling the cases when a user chose one of other years
         if (selectedYear === year) {
+          let errorCounter: number = 0;
+
           if (isFeesSection) {
             this.feeSectionItems = this.feeSectionItems.filter(item => {
+              if (item.helpDate.year === parseInt(selectedYear, 10)) {
+                errorCounter++;
+              }
+
               return item.helpDate.year === parseInt(selectedYear, 10);
             });
           } else if (isForDestituteSubsection) {
             this.forDestituteItems = this.forDestituteItems.filter(item => {
+              if (item.documentDate.year === parseInt(selectedYear, 10)) {
+                errorCounter++;
+              }
+
               return item.documentDate.year === parseInt(selectedYear, 10);
             });
           } else if (isOtherCostsSubsection) {
             this.otherCostsItems = this.otherCostsItems.filter(item => {
+              if (item.documentDate.year === parseInt(selectedYear, 10)) {
+                errorCounter++;
+              }
+
               return item.documentDate.year === parseInt(selectedYear, 10);
             });
           }
+
+          this.haveDataFounded = errorCounter !== 0;
         }
       }
     },
@@ -455,5 +558,11 @@ export default Vue.extend({
   .reports__subsection--button {
     text-transform: none;
     width: 40vw;
+  }
+
+  .search-error__container {
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
   }
 </style>
