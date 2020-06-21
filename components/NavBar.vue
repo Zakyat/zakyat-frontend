@@ -8,6 +8,7 @@
       :to="page.link"
       text
       nuxt
+      class="text-capitalize"
     >
       {{ page.text }}
     </v-btn>
