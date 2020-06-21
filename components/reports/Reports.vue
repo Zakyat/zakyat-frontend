@@ -23,6 +23,7 @@
       <v-layout justify-end>
         <div class="reports__data-manager">
           <v-select
+            v-model="timeInterval.month"
             :items="months"
             :placeholder="months[new Date().getMonth()]"
             dense
@@ -33,6 +34,7 @@
         </div>
         <div class="reports__data-manager ml-5">
           <v-select
+            v-model="timeInterval.year"
             :items="years"
             :placeholder="new Date().getFullYear().toString()"
             dense
@@ -153,9 +155,9 @@
 
     <!-- Table data -->
     <v-card
-      v-for="(item, index) of feeSectionItems"
+      v-for="item of feeSectionItems"
       v-show="isMainFeesSection"
-      :key="'feesTitle-' + index.toString()"
+      :key="'feesTitle-' + Math.floor((Math.random() * 10000)).toString()"
       elevation="0"
     >
       <v-layout row class="mt-4 pr-3 pl-3">
@@ -177,9 +179,9 @@
       </v-layout>
     </v-card>
     <v-card
-      v-for="(item, index) of forDestituteItems"
+      v-for="item of forDestituteItems"
       v-show="!isMainFeesSection && isMainForDestituteSubsection"
-      :key="'realised-support-' + index.toString()"
+      :key="'realised-support-' + Math.floor((Math.random() * 10000)).toString()"
       elevation="0"
     >
       <v-layout row class="mt-4 pr-3 pl-3">
@@ -201,9 +203,9 @@
       </v-layout>
     </v-card>
     <v-card
-      v-for="(item, index) of otherCostsItems"
+      v-for="item of otherCostsItems"
       v-show="!isMainFeesSection && !isMainForDestituteSubsection && isOtherCostsButtonActive"
-      :key="'realised-support-' + index.toString()"
+      :key="'realised-support-' + Math.floor((Math.random() * 10000)).toString()"
       elevation="0"
     >
       <v-layout row class="mt-4 pr-3 pl-3">
@@ -266,10 +268,18 @@ export default Vue.extend({
       otherCostsColumnNames: this.$t('reports.section[1].subsection[1].table.title'),
       otherCostsItems: this.$t('reports.section[1].subsection[1].table.data'),
 
-      // Data for managing sections and subsections
+      // Managing sections and subsections
       isMainFeesSection: true,
       isMainForDestituteSubsection: true,
       isOtherCostsButtonActive: false,
+
+      // Resetting selection counters
+      hasMonthSelected: false,
+      hasYearSelected: false,
+      timeInterval: {
+        month: 0,
+        year: '',
+      },
     };
   },
   methods: {
@@ -310,6 +320,15 @@ export default Vue.extend({
         this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
       }
 
+      // Resetting selection counters
+      if (this.hasMonthSelected && this.hasYearSelected) {
+        this.feeSectionItems = this.$t('reports.section[0].table.data');
+        this.feeSectionItems = this.feeSectionItems.filter(item => {
+          return item.helpDate.year === parseInt(this.timeInterval.year, 10);
+        });
+      }
+      this.hasMonthSelected = true;
+
       // Handling table data by month
       for (let month of this.months) {
         counter++;
@@ -347,6 +366,7 @@ export default Vue.extend({
     handleSelectedYear (selectedYear: string) {
       // Initialisation variables
       const allYearsSelect: string = this.$t('reports.interval.years[0]');
+      const currentHumanMonthNumber = this.$t(`reports.interval.months`).indexOf(this.timeInterval.month);
 
       const isFeesSection: boolean = this.isMainFeesSection;
       const isForDestituteSubsection: boolean = !this.isMainFeesSection && this.isMainForDestituteSubsection;
@@ -360,6 +380,15 @@ export default Vue.extend({
       } else if (isOtherCostsSubsection) {
         this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
       }
+
+      // Resetting selection counters
+      if (this.hasMonthSelected && this.hasYearSelected) {
+        this.feeSectionItems = this.$t('reports.section[0].table.data');
+        this.feeSectionItems = this.feeSectionItems.filter(item => {
+          return item.helpDate.month === currentHumanMonthNumber;
+        });
+      }
+      this.hasYearSelected = true;
 
       // Handling table data by year
       for (let year of this.years) {
