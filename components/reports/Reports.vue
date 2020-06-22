@@ -1,244 +1,246 @@
 <template>
-  <v-container class="reports grey lighten-5">
-    <!-- Report management panel -->
-    <v-layout justify-space-between>
-      <div class="section__title--container">
-        <v-layout>
-          <h2
-            class="section__title--content pt-0"
-            @click="isMainFeesSection = !isMainFeesSection"
-          >
-            <span v-if="isMainFeesSection">
-              {{ feesTitle }}
-            </span>
-            <span v-else>
-              {{ realisedSupportTitle }}
-            </span>
-          </h2>
-          <v-icon>
-            mdi-chevron-down
-          </v-icon>
+  <div class="reports grey lighten-5">
+    <v-container>
+      <!-- Report management panel -->
+      <v-layout justify-space-between>
+        <div class="section__title--container">
+          <v-layout>
+            <h2
+              class="section__title--content pt-0"
+              @click="handleClickOnSection"
+            >
+              <span v-if="isMainFeesSection">
+                {{ feesTitle }}
+              </span>
+              <span v-else>
+                {{ realisedSupportTitle }}
+              </span>
+            </h2>
+            <v-icon>
+              mdi-chevron-down
+            </v-icon>
+          </v-layout>
+        </div>
+        <v-layout justify-end>
+          <div class="reports__data-manager">
+            <v-select
+              v-model="timeInterval.month"
+              :items="months"
+              dense
+              rounded
+              outlined
+              @change="handleSelectedMonth"
+            />
+          </div>
+          <div class="reports__data-manager ml-5">
+            <v-select
+              v-model="timeInterval.year"
+              :items="years"
+              dense
+              rounded
+              outlined
+              @change="handleSelectedYear"
+            />
+          </div>
         </v-layout>
-      </div>
-      <v-layout justify-end>
-        <div class="reports__data-manager">
-          <v-select
-            v-model="timeInterval.month"
-            :items="months"
-            :placeholder="months[new Date().getMonth()]"
-            dense
-            rounded
-            outlined
-            @change="handleSelectedMonth"
-          />
-        </div>
-        <div class="reports__data-manager ml-5">
-          <v-select
-            v-model="timeInterval.year"
-            :items="years"
-            :placeholder="new Date().getFullYear().toString()"
-            dense
-            rounded
-            outlined
-            @change="handleSelectedYear"
-          />
-        </div>
       </v-layout>
-    </v-layout>
 
-    <!-- Table subsection panel and total -->
-    <v-layout
-      v-show="!isMainFeesSection"
-      justify-center
-      class="mb-5"
-    >
-      <v-btn-toggle
-        color="green darken-1"
-        mandatory
-        rounded
-        dense
+      <!-- Table subsection panel and total -->
+      <v-layout
+        v-show="!isMainFeesSection"
+        justify-center
+        class="mb-5"
       >
-        <v-btn
-          class="reports__subsection--button"
-          @click="handleClickOnForDestitute"
+        <v-btn-toggle
+          color="green darken-1"
+          mandatory
+          rounded
+          dense
         >
-          {{ forDestituteTitle }}
-        </v-btn>
-        <v-btn
-          class="reports__subsection--button"
-          @click="handleClickOnOtherCosts"
-        >
-          {{ otherCostsTitle }}
-        </v-btn>
-      </v-btn-toggle>
-    </v-layout>
-    <v-layout justify-space-between>
-      <div class="section__description">
-        <h3 v-if="isMainFeesSection">
-          {{ feesDescription }}
-        </h3>
-        <h3 v-else>
-          {{ realisedSupportDescription }}
-        </h3>
-      </div>
-      <div>
-        <h3>
-          0
-        </h3>
-      </div>
-    </v-layout>
+          <v-btn
+            class="reports__subsection--button"
+            @click="handleClickOnForDestitute"
+          >
+            {{ forDestituteTitle }}
+          </v-btn>
+          <v-btn
+            class="reports__subsection--button"
+            @click="handleClickOnOtherCosts"
+          >
+            {{ otherCostsTitle }}
+          </v-btn>
+        </v-btn-toggle>
+      </v-layout>
+      <v-layout justify-space-between>
+        <div class="section__description">
+          <h3 v-if="isMainFeesSection">
+            {{ feesDescription }}
+          </h3>
+          <h3 v-else>
+            {{ realisedSupportDescription }}
+          </h3>
+        </div>
+        <div>
+          <h3>
+            0
+          </h3>
+        </div>
+      </v-layout>
 
-    <!-- Table column names -->
-    <v-layout
-      v-show="isMainFeesSection"
-      class="mt-5 pr-3"
-      row
-    >
-      <v-flex lg2 class="pl-3 text--secondary">
-        {{ feeColumnNames[0] }}
-      </v-flex>
-      <v-flex lg3 class="pl-2 text--secondary">
-        {{ feeColumnNames[1] }}
-      </v-flex>
-      <v-flex lg3 class="pl-2 text--secondary">
-        {{ feeColumnNames[2] }}
-      </v-flex>
-      <v-flex lg3 class="pl-1 text--secondary">
-        {{ feeColumnNames[3] }}
-      </v-flex>
-      <v-flex lg1 class="text--secondary text-right">
-        {{ feeColumnNames[4] }}
-      </v-flex>
-    </v-layout>
-    <v-layout
-      v-show="!isMainFeesSection && isMainForDestituteSubsection"
-      class="mt-5 pr-3"
-      row
-    >
-      <v-flex lg2 class="pl-3 text--secondary">
-        {{ forDestituteColumnNames[0] }}
-      </v-flex>
-      <v-flex lg2 class="pl-2 text--secondary">
-        {{ forDestituteColumnNames[1] }}
-      </v-flex>
-      <v-flex lg2 class="pl-2 text--secondary">
-        {{ forDestituteColumnNames[2] }}
-      </v-flex>
-      <v-flex lg4 class="pl-1 text--secondary">
-        {{ forDestituteColumnNames[3] }}
-      </v-flex>
-      <v-flex lg2 class="text--secondary text-right">
-        {{ forDestituteColumnNames[4] }}
-      </v-flex>
-    </v-layout>
-    <v-layout
-      v-show="!isMainFeesSection && !isMainForDestituteSubsection && isOtherCostsButtonActive"
-      class="mt-5 pr-3"
-      row
-    >
-      <v-flex lg2 class="pl-3 text--secondary">
-        {{ otherCostsColumnNames[0] }}
-      </v-flex>
-      <v-flex lg2 class="pl-2 text--secondary">
-        {{ otherCostsColumnNames[1] }}
-      </v-flex>
-      <v-flex lg2 class="pl-2 text--secondary">
-        {{ otherCostsColumnNames[2] }}
-      </v-flex>
-      <v-flex lg4 class="pl-1 text--secondary">
-        {{ otherCostsColumnNames[3] }}
-      </v-flex>
-      <v-flex lg2 class="text--secondary text-right">
-        {{ otherCostsColumnNames[4] }}
-      </v-flex>
-    </v-layout>
-    <v-layout v-show="!haveDataFounded" column align-center class="search-error__container mt-5 pt-3">
-      <img
-        src="@/assets/images/errors/seach-error.svg"
-        style="height: 350px; width: 350px"
-        class="search-error__image"
+      <!-- Table column names -->
+      <v-layout
+        v-show="isMainFeesSection"
+        class="mt-5 pr-3"
+        row
       >
-      <h2 class="mt-5 text-center">
-        {{ $t('reports.errorText.description') }}
-        <br>
-        {{ $t('reports.errorText.suggestion') }}
-      </h2>
-    </v-layout>
+        <v-flex lg2 class="pl-3 text--secondary">
+          {{ feeColumnNames[0] }}
+        </v-flex>
+        <v-flex lg3 class="pl-2 text--secondary">
+          {{ feeColumnNames[1] }}
+        </v-flex>
+        <v-flex lg3 class="pl-2 text--secondary">
+          {{ feeColumnNames[2] }}
+        </v-flex>
+        <v-flex lg3 class="pl-1 text--secondary">
+          {{ feeColumnNames[3] }}
+        </v-flex>
+        <v-flex lg1 class="text--secondary text-right">
+          {{ feeColumnNames[4] }}
+        </v-flex>
+      </v-layout>
+      <v-layout
+        v-show="!isMainFeesSection && isMainForDestituteSubsection"
+        class="mt-5 pr-3"
+        row
+      >
+        <v-flex lg2 class="pl-3 text--secondary">
+          {{ forDestituteColumnNames[0] }}
+        </v-flex>
+        <v-flex lg2 class="pl-2 text--secondary">
+          {{ forDestituteColumnNames[1] }}
+        </v-flex>
+        <v-flex lg2 class="pl-2 text--secondary">
+          {{ forDestituteColumnNames[2] }}
+        </v-flex>
+        <v-flex lg4 class="pl-1 text--secondary">
+          {{ forDestituteColumnNames[3] }}
+        </v-flex>
+        <v-flex lg2 class="text--secondary text-right">
+          {{ forDestituteColumnNames[4] }}
+        </v-flex>
+      </v-layout>
+      <v-layout
+        v-show="!isMainFeesSection && !isMainForDestituteSubsection && isOtherCostsButtonActive"
+        class="mt-5 pr-3"
+        row
+      >
+        <v-flex lg2 class="pl-3 text--secondary">
+          {{ otherCostsColumnNames[0] }}
+        </v-flex>
+        <v-flex lg2 class="pl-2 text--secondary">
+          {{ otherCostsColumnNames[1] }}
+        </v-flex>
+        <v-flex lg2 class="pl-2 text--secondary">
+          {{ otherCostsColumnNames[2] }}
+        </v-flex>
+        <v-flex lg4 class="pl-1 text--secondary">
+          {{ otherCostsColumnNames[3] }}
+        </v-flex>
+        <v-flex lg2 class="text--secondary text-right">
+          {{ otherCostsColumnNames[4] }}
+        </v-flex>
+      </v-layout>
+      <v-layout v-show="!haveDataFounded" column align-center class="search-error__container mt-5 pt-3">
+        <img
+          src="@/assets/images/errors/seach-error.svg"
+          style="height: 350px; width: 350px"
+          class="search-error__image"
+        >
+        <h2 class="mt-5 text-center">
+          {{ $t('reports.errorText.description') }}
+          <br>
+          {{ $t('reports.errorText.suggestion') }}
+        </h2>
+      </v-layout>
 
-    <!-- Table data -->
-    <v-card
-      v-for="item of feeSectionItems"
-      v-show="isMainFeesSection"
-      :key="'feesTitle-' + Math.floor((Math.random() * 10000)).toString()"
-      elevation="0"
-    >
-      <v-layout row class="mt-4 pr-3 pl-3">
-        <v-flex lg2 class="mt-4 mb-4 pl-5">
-          {{ item.helpDate.day }}.{{ item.helpDate.month | normalizeNumber }}.{{ item.helpDate.year }}
-        </v-flex>
-        <v-flex lg3 class="mt-4 mb-4">
-          {{ item.helper }}
-        </v-flex>
-        <v-flex lg3 class="mt-4 mb-4">
-          {{ item.helpObject }}
-        </v-flex>
-        <v-flex lg3 class="mt-4 mb-4">
-          {{ item.helpType }}
-        </v-flex>
-        <v-flex lg1 class="mt-4 mb-4 pr-5 text-right">
-          {{ rubles(item.helpSize) }}
-        </v-flex>
-      </v-layout>
-    </v-card>
-    <v-card
-      v-for="item of forDestituteItems"
-      v-show="!isMainFeesSection && isMainForDestituteSubsection"
-      :key="'realised-support-' + Math.floor((Math.random() * 10000)).toString()"
-      elevation="0"
-    >
-      <v-layout row class="mt-4 pr-3 pl-3">
-        <v-flex lg2 class="mt-4 mb-4 pl-5">
-          {{ item.documentNumber }}
-        </v-flex>
-        <v-flex lg2 class="mt-4 mb-4">
-          {{ item.documentDate.day }}.{{ item.documentDate.month | normalizeNumber }}.{{ item.documentDate.year }}
-        </v-flex>
-        <v-flex lg2 class="mt-4 mb-4">
-          {{ item.helpObject }}
-        </v-flex>
-        <v-flex lg4 class="mt-4 mb-4">
-          {{ item.situationDescription }}
-        </v-flex>
-        <v-flex lg2 class="mt-4 mb-4 pr-5 text-right">
-          {{ rubles(item.summary.done) }} / {{ rubles(item.summary.needed) }}
-        </v-flex>
-      </v-layout>
-    </v-card>
-    <v-card
-      v-for="item of otherCostsItems"
-      v-show="!isMainFeesSection && !isMainForDestituteSubsection && isOtherCostsButtonActive"
-      :key="'realised-support-' + Math.floor((Math.random() * 10000)).toString()"
-      elevation="0"
-    >
-      <v-layout row class="mt-4 pr-3 pl-3">
-        <v-flex lg2 class="mt-4 mb-4 pl-5">
-          {{ item.documentNumber }}
-        </v-flex>
-        <v-flex lg2 class="mt-4 mb-4">
-          {{ item.documentDate.day }}.{{ item.documentDate.month | normalizeNumber }}.{{ item.documentDate.year }}
-        </v-flex>
-        <v-flex lg2 class="mt-4 mb-4">
-          {{ item.target }}
-        </v-flex>
-        <v-flex lg4 class="mt-4 mb-4">
-          {{ item.targetDescription }}
-        </v-flex>
-        <v-flex lg2 class="mt-4 mb-4 pr-5 text-right">
-          {{ rubles(item.summary.done) }} / {{ rubles(item.summary.needed) }}
-        </v-flex>
-      </v-layout>
-    </v-card>
-  </v-container>
+      <!-- Table data -->
+      <div class="reports__table--padding">
+        <v-card
+          v-for="item of feeSectionItems"
+          v-show="isMainFeesSection"
+          :key="'feesTitle-' + Math.floor((Math.random() * 10000)).toString()"
+          elevation="0"
+        >
+          <v-layout row class="mt-4 pr-3 pl-3">
+            <v-flex lg2 class="mt-4 mb-4 pl-5">
+              {{ item.helpDate.day }}.{{ item.helpDate.month | normalizeNumber }}.{{ item.helpDate.year }}
+            </v-flex>
+            <v-flex lg3 class="mt-4 mb-4">
+              {{ item.helper }}
+            </v-flex>
+            <v-flex lg3 class="mt-4 mb-4">
+              {{ item.helpObject }}
+            </v-flex>
+            <v-flex lg3 class="mt-4 mb-4">
+              {{ item.helpType }}
+            </v-flex>
+            <v-flex lg1 class="mt-4 mb-4 pr-5 text-right">
+              {{ rubles(item.helpSize) }}
+            </v-flex>
+          </v-layout>
+        </v-card>
+        <v-card
+          v-for="item of forDestituteItems"
+          v-show="!isMainFeesSection && isMainForDestituteSubsection"
+          :key="'realised-support-' + Math.floor((Math.random() * 10000)).toString()"
+          elevation="0"
+        >
+          <v-layout row class="mt-4 pr-3 pl-3">
+            <v-flex lg2 class="mt-4 mb-4 pl-5">
+              {{ item.documentNumber }}
+            </v-flex>
+            <v-flex lg2 class="mt-4 mb-4">
+              {{ item.documentDate.day }}.{{ item.documentDate.month | normalizeNumber }}.{{ item.documentDate.year }}
+            </v-flex>
+            <v-flex lg2 class="mt-4 mb-4">
+              {{ item.helpObject }}
+            </v-flex>
+            <v-flex lg4 class="mt-4 mb-4">
+              {{ item.situationDescription }}
+            </v-flex>
+            <v-flex lg2 class="mt-4 mb-4 pr-5 text-right">
+              {{ rubles(item.summary.done) }} / {{ rubles(item.summary.needed) }}
+            </v-flex>
+          </v-layout>
+        </v-card>
+        <v-card
+          v-for="item of otherCostsItems"
+          v-show="!isMainFeesSection && !isMainForDestituteSubsection && isOtherCostsButtonActive"
+          :key="'realised-support-' + Math.floor((Math.random() * 10000)).toString()"
+          elevation="0"
+        >
+          <v-layout row class="mt-4 pr-3 pl-3">
+            <v-flex lg2 class="mt-4 mb-4 pl-5">
+              {{ item.documentNumber }}
+            </v-flex>
+            <v-flex lg2 class="mt-4 mb-4">
+              {{ item.documentDate.day }}.{{ item.documentDate.month | normalizeNumber }}.{{ item.documentDate.year }}
+            </v-flex>
+            <v-flex lg2 class="mt-4 mb-4">
+              {{ item.target }}
+            </v-flex>
+            <v-flex lg4 class="mt-4 mb-4">
+              {{ item.targetDescription }}
+            </v-flex>
+            <v-flex lg2 class="mt-4 mb-4 pr-5 text-right">
+              {{ rubles(item.summary.done) }} / {{ rubles(item.summary.needed) }}
+            </v-flex>
+          </v-layout>
+        </v-card>
+      </div>
+    </v-container>
+  </div>
 </template>
 
 <script lang="ts">
@@ -258,6 +260,7 @@ export default Vue.extend({
     return {
       // Global data for both sections
       months: this.$t('reports.interval.months'),
+      allMonthsSelect: this.$t('reports.interval.months[0]'),
       years: this.$t('reports.interval.years'),
 
       // Data for Fees section
@@ -282,15 +285,16 @@ export default Vue.extend({
 
       // Managing sections and subsections
       isMainFeesSection: true,
-      isMainForDestituteSubsection: true,
+      isMainForDestituteSubsection: false,
       isOtherCostsButtonActive: false,
 
       // Resetting selection counters
-      hasMonthSelected: false,
-      hasYearSelected: false,
+      // hasMonthSelected: false,
+      // hasYearSelected: false,
+      // selectedItem: '2013-2020',
       timeInterval: {
-        month: 0,
-        year: '',
+        month: 'Все месяца',
+        year: '2013-2020',
       },
 
       // Handling search errors
@@ -299,6 +303,11 @@ export default Vue.extend({
   },
   methods: {
     rubles,
+
+    handleClickOnSection () {
+      this.isMainFeesSection = !this.isMainFeesSection;
+      this.isMainForDestituteSubsection = !this.isMainForDestituteSubsection;
+    },
 
     handleClickOnForDestitute () {
       if (!this.isMainForDestituteSubsection) {
@@ -318,6 +327,8 @@ export default Vue.extend({
 
     handleSelectedMonth (selectedMonth: string) {
 
+      console.log(this.timeInterval.year);
+
       // Initialisation variables
       const allMonthsSelect: string = this.$t('reports.interval.months[0]');
       let counter: number = 0;
@@ -336,41 +347,41 @@ export default Vue.extend({
       }
 
       // Resetting selection counters
-      this.hasMonthSelected = true;
+      // this.hasMonthSelected = true;
 
-      if (this.hasMonthSelected && this.hasYearSelected) {
-        if (isFeesSection) {
-          this.feeSectionItems = this.$t('reports.section[0].table.data');
+      // if (this.hasMonthSelected && this.hasYearSelected) {
+      if (isFeesSection) {
+        this.feeSectionItems = this.$t('reports.section[0].table.data');
 
-          this.feeSectionItems = this.feeSectionItems.filter(item => {
-            if (this.timeInterval.year === this.years[0]) {
-              return this.feeSectionItems;
-            }
+        this.feeSectionItems = this.feeSectionItems.filter(item => {
+          if (this.timeInterval.year === this.years[0]) {
+            return this.feeSectionItems;
+          }
 
-            return item.helpDate.year === parseInt(this.timeInterval.year, 10);
-          });
-        } else if (isForDestituteSubsection) {
-          this.forDestituteItems = this.$t('reports.section[1].subsection[0].table.data');
+          return item.helpDate.year === parseInt(this.timeInterval.year, 10);
+        });
+      } else if (isForDestituteSubsection) {
+        this.forDestituteItems = this.$t('reports.section[1].subsection[0].table.data');
 
-          this.forDestituteItems = this.forDestituteItems.filter(item => {
-            if (this.timeInterval.year === this.years[0]) {
-              return this.forDestituteItems;
-            }
+        this.forDestituteItems = this.forDestituteItems.filter(item => {
+          if (this.timeInterval.year === this.years[0]) {
+            return this.forDestituteItems;
+          }
 
-            return item.helpDate.year === parseInt(this.timeInterval.year, 10);
-          });
-        } else if (isOtherCostsSubsection) {
-          this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
+          return item.helpDate.year === parseInt(this.timeInterval.year, 10);
+        });
+      } else if (isOtherCostsSubsection) {
+        this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
 
-          this.otherCostsItems = this.otherCostsItems.filter(item => {
-            if (this.timeInterval.year === this.years[0]) {
-              return this.otherCostsItems;
-            }
+        this.otherCostsItems = this.otherCostsItems.filter(item => {
+          if (this.timeInterval.year === this.years[0]) {
+            return this.otherCostsItems;
+          }
 
-            return item.helpDate.year === parseInt(this.timeInterval.year, 10);
-          });
-        }
+          return item.helpDate.year === parseInt(this.timeInterval.year, 10);
+        });
       }
+      // }
 
       // Handling table data by month
       for (let month of this.months) {
@@ -425,55 +436,57 @@ export default Vue.extend({
     },
 
     handleSelectedYear (selectedYear: string) {
+
       // Initialisation variables
       const allYearsSelect: string = this.$t('reports.interval.years[0]');
-      const currentHumanMonthNumber = this.$t(`reports.interval.months`).indexOf(this.timeInterval.month);
+      const currentHumanMonthNumber = this.$t('reports.interval.months').indexOf(this.timeInterval.month);
 
       const isFeesSection: boolean = this.isMainFeesSection;
       const isForDestituteSubsection: boolean = !this.isMainFeesSection && this.isMainForDestituteSubsection;
       const isOtherCostsSubsection: boolean = !this.isMainFeesSection && !this.isMainForDestituteSubsection && this.isOtherCostsButtonActive;
 
       // Resetting selection counters
-      this.hasYearSelected = true;
-      if (this.hasMonthSelected && this.hasYearSelected) {
-        if (isFeesSection) {
-          this.feeSectionItems = this.$t('reports.section[0].table.data');
+      // this.hasYearSelected = true;
 
-          if (selectedYear !== this.months[0]) {
-            this.feeSectionItems = this.feeSectionItems.filter(item => {
-              if (this.timeInterval.month === this.months[0]) {
-                return this.$t('reports.section[0].table.data');
-              }
+      // if (this.hasMonthSelected && this.hasYearSelected) {
+      if (isFeesSection) {
+        this.feeSectionItems = this.$t('reports.section[0].table.data');
 
-              return item.helpDate.month === currentHumanMonthNumber;
-            });
-          }
-        } else if (isForDestituteSubsection) {
-          this.forDestituteItems = this.$t('reports.section[1].subsection[0].table.data');
+        if (selectedYear !== this.months[0]) {
+          this.feeSectionItems = this.feeSectionItems.filter(item => {
+            if (this.timeInterval.month === this.months[0]) {
+              return this.$t('reports.section[0].table.data');
+            }
 
-          if (selectedYear !== this.months[0]) {
-            this.forDestituteItems = this.forDestituteItems.filter(item => {
-              if (this.timeInterval.month === this.months[0]) {
-                return this.$t('reports.section[1].subsection[0].table.data');
-              }
+            return item.helpDate.month === currentHumanMonthNumber;
+          });
+        }
+      } else if (isForDestituteSubsection) {
+        this.forDestituteItems = this.$t('reports.section[1].subsection[0].table.data');
 
-              return item.helpDate.month === currentHumanMonthNumber;
-            });
-          }
-        } else if (isOtherCostsSubsection) {
-          this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
+        if (selectedYear !== this.months[0]) {
+          this.forDestituteItems = this.forDestituteItems.filter(item => {
+            if (this.timeInterval.month === this.months[0]) {
+              return this.$t('reports.section[1].subsection[0].table.data');
+            }
 
-          if (selectedYear !== this.months[0]) {
-            this.otherCostsItems = this.otherCostsItems.filter(item => {
-              if (this.timeInterval.month === this.months[0]) {
-                return this.$t('reports.section[1].subsection[1].table.data');
-              }
+            return item.helpDate.month === currentHumanMonthNumber;
+          });
+        }
+      } else if (isOtherCostsSubsection) {
+        this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
 
-              return item.helpDate.month === currentHumanMonthNumber;
-            });
-          }
+        if (selectedYear !== this.months[0]) {
+          this.otherCostsItems = this.otherCostsItems.filter(item => {
+            if (this.timeInterval.month === this.months[0]) {
+              return this.$t('reports.section[1].subsection[1].table.data');
+            }
+
+            return item.helpDate.month === currentHumanMonthNumber;
+          });
         }
       }
+      // }
 
       // Handling table data by year
       for (let year of this.years) {
@@ -547,8 +560,8 @@ export default Vue.extend({
   }
 
   .reports {
+    min-height: calc(100vh - 400px);
     padding-top: 50px;
-    padding-bottom: 105px;
   }
 
   .reports__data-manager {
@@ -564,5 +577,9 @@ export default Vue.extend({
     display: flex;
     justify-content: center;
     min-width: 100%;
+  }
+
+  .reports__table--padding {
+    padding-bottom: 105px;
   }
 </style>

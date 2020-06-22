@@ -1,12 +1,7 @@
 <template>
-  <v-layout
-    class="grey lighten-5"
-    column
-    justify-center
-    align-center
-  >
+  <div class="reports grey lighten-5">
     <Reports />
-  </v-layout>
+  </div>
 </template>
 
 <script>
@@ -20,3 +15,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss" scoped>
+  .reports {
+    min-height: calc(100vh - 290px);
+  }
+</style>
