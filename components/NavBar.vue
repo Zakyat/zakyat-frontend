@@ -8,11 +8,12 @@
       :to="page.link"
       text
       nuxt
-      class="text-capitalize font-weight-bold"
+      active-class="green--text"
+      class="text-capitalize font-weight-bold mx-n2"
     >
       {{ page.text }}
     </v-btn>
-    <v-btn rounded dark color="primary">
+    <v-btn rounded dark color="primary" class="mx-2">
       {{ $t('give_help') }}
     </v-btn>
     <v-btn rounded dark color="accent">
