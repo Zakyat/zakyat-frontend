@@ -9,7 +9,7 @@
       text
       nuxt
       active-class="green--text"
-      class="text-capitalize font-weight-bold mx-n2"
+      class="font-weight-bold mx-n2"
     >
       {{ page.text }}
     </v-btn>
