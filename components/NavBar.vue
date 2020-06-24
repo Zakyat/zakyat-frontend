@@ -25,7 +25,7 @@
       rounded
       dark
       color="primary"
-      class="mx-4"
+      class="mx-2"
       height="50px"
     >
       {{ $t('give_help') }}
