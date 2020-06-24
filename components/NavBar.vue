@@ -9,6 +9,7 @@
       :to="page.link"
       text
       nuxt
+      small
       class="font-weight-bold black--text"
     >
       {{ page.text }}
@@ -17,6 +18,7 @@
       to="/zakat"
       text
       nuxt
+      small
       class="font-weight-bold green--text"
     >
       {{ $t('links.pay') }}
@@ -24,18 +26,20 @@
     <v-btn
       rounded
       dark
+      small
       color="primary"
-      class="mx-2"
-      height="50px"
+      class="ml-4"
+      height="40px"
     >
       {{ $t('give_help') }}
     </v-btn>
     <v-btn
       rounded
       dark
+      small
       color="accent"
       class="mx-2"
-      height="50px"
+      height="40px"
     >
       {{ $t('get_help') }}
     </v-btn>
