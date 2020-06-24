@@ -28,7 +28,7 @@
       dark
       small
       color="primary"
-      class="ml-4"
+      class="ml-6"
       height="40px"
     >
       {{ $t('give_help') }}
