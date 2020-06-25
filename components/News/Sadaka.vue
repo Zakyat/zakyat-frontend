@@ -1,5 +1,5 @@
 <template>
-
+  <h2>Sadaka</h2>
 </template>
 
 <script>
