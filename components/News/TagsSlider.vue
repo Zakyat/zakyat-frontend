@@ -4,15 +4,28 @@
     justify-space-between
     class="tags-container"
   >
-    <v-chip
-      outlined
-      close
-      color="primary"
-      class="tag-item"
-      @click:close="remove(item)"
+    <v-sheet
+      class="mx-5"
+      max-width="700"
+      style="background-color: #f2f2f2;"
     >
-      <strong>#zakat</strong>&nbsp;
-    </v-chip>
+      <v-slide-group>
+        <v-slide-item
+          v-for="n in 25"
+          :key="n"
+        >
+          <v-chip
+            class="mx-3 tag-item"
+            outlined
+            close
+            color="primary"
+            @click:close="remove(item)"
+          >
+            <strong>#zakat {{ n }}</strong>&nbsp;
+          </v-chip>
+        </v-slide-item>
+      </v-slide-group>
+    </v-sheet>
     <div>
       <v-menu
         transition="slide-y-transition"
