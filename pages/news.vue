@@ -1,7 +1,7 @@
 <template>
   <div class="news-container">
     <div style="padding: 0 10%;">
-      <v-layout>
+      <v-layout class="heading-and-tags">
         <h1>Новости</h1>
         <TagsSlider />
       </v-layout>
@@ -49,5 +49,9 @@ export default Vue.extend({
   }
   .news-main-content {
     margin-bottom: 10px;
+  }
+  .heading-and-tags {
+    padding-top: 30px;
+    padding-bottom: 20px;
   }
 </style>
