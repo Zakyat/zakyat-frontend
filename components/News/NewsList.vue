@@ -12,7 +12,7 @@
           class="card-img-col"
         >
           <v-img
-            src="https://cdn.vuetifyjs.com/images/cards/store.jpg"
+            :src="require('@/assets/images/news/1.png')"
             width="300px"
             style="border-radius: 10px;"
           ></v-img>
@@ -126,7 +126,6 @@
 <style scoped>
   .news-card {
     padding: 10px 20px 10px 20px;
-    margin-top: 10px;
     margin-bottom: 10px;
   }
 

@@ -21,6 +21,7 @@
       </v-row>
       <v-row
         no-gutters
+        class="news-main-content"
       >
         <v-col
           cols="12"
@@ -60,5 +61,9 @@ export default Vue.extend({
 <style scoped>
   .news-container {
     background-color: #f2f2f2;
+  }
+  .news-main-content {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 </style>
