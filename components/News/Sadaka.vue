@@ -64,7 +64,7 @@ export default {
   .sadaka-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-end;
   }
   .sadaka-card {
     width: 310px;

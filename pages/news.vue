@@ -1,38 +1,24 @@
 <template>
   <div class="news-container">
-    <div style="padding: 0 5%;">
-      <v-row
-        no-gutters
-      >
-        <v-col
-          cols="6"
-          md="2"
-          class="news-list-col"
-        >
-          <h2>Новости</h2>
-        </v-col>
-        <v-col
-          cols="12"
-          md="10"
-          class="sadaka-col"
-        >
-          <Tags />
-        </v-col>
-      </v-row>
+    <div style="padding: 0 10%;">
+      <v-layout>
+        <h1>Новости</h1>
+        <TagsSlider />
+      </v-layout>
       <v-row
         no-gutters
         class="news-main-content"
       >
         <v-col
           cols="12"
-          md="8"
+          md="9"
           class="news-list-col"
         >
           <NewsList />
         </v-col>
         <v-col
           cols="6"
-          md="4"
+          md="3"
           class="sadaka-col"
         >
           <Sadaka />
@@ -44,7 +30,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Tags from '@/components/News/Tags.vue';
+import TagsSlider from '~/components/News/TagsSlider.vue';
 import NewsList from '~/components/News/NewsList.vue';
 import Sadaka from '~/components/News/Sadaka.vue';
 
@@ -52,8 +38,7 @@ export default Vue.extend({
   components: {
     Sadaka,
     NewsList,
-    Tags,
-
+    TagsSlider,
   },
 });
 </script>
@@ -63,7 +48,6 @@ export default Vue.extend({
     background-color: #f2f2f2;
   }
   .news-main-content {
-    margin-top: 10px;
     margin-bottom: 10px;
   }
 </style>
