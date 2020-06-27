@@ -110,11 +110,10 @@ export default {
 </script>
 
 <style scoped>
-.tags-container {
-}
 .tag-item {
   border-color: black;
 }
+
 .select-tags {
   padding: 20px;
 }
