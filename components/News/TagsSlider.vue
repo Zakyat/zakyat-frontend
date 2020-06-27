@@ -11,7 +11,7 @@
     >
       <v-slide-group>
         <v-slide-item
-          v-for="tag in tags"
+          v-for="tag in selected_tags"
           :key="tag"
         >
           <v-chip
@@ -47,19 +47,11 @@
           </v-btn>
         </template>
         <v-list class="select-tags">
-<!--          <v-text-field-->
-<!--            placeholder="Введите тэг"-->
-<!--            type="text"-->
-<!--            rounded-->
-<!--            outlined-->
-<!--            hide-details-->
-<!--            color="black"-->
-<!--            class="search-tag"-->
-<!--          />-->
           <v-checkbox
             v-for="tag in tags"
             :key="tag"
             :label="'#'+tag"
+            @click="change(tag)"
           />
         </v-list>
       </v-menu>
@@ -72,13 +64,22 @@ export default {
   data () {
     return {
       tags: ['Programming', 'Playing video games', 'Watching movies', 'Sleeping', 'Streaming', 'Eating'],
+      selected_tags: [],
     };
   },
 
   methods: {
     remove (item) {
-      this.tags.splice(this.tags.indexOf(item), 1);
-      this.tags = [...this.tags];
+      this.selected_tags.splice(this.selected_tags.indexOf(item), 1);
+      this.selected_tags = [...this.selected_tags];
+    },
+    change (item) {
+      if (this.selected_tags.includes(item)) {
+        this.selected_tags.splice(this.selected_tags.indexOf(item), 1);
+        this.selected_tags = [...this.selected_tags];
+      } else {
+        this.selected_tags.push(item);
+      }
     },
   },
 };
