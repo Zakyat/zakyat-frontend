@@ -47,12 +47,33 @@
           </v-btn>
         </template>
         <v-list class="select-tags">
+          <v-text-field
+            v-model.number="input"
+            placeholder="Введите тэг"
+            type="text"
+            min="0"
+            rounded
+            outlined
+            hide-details
+            color="black"
+            class="sadaka-input"
+          />
           <v-checkbox
             v-for="tag in tags"
             :key="tag"
             :label="'#'+tag"
             @click="change(tag)"
           />
+          <div class="">
+            <v-btn
+              text
+              color="red"
+              @click="remove_all()"
+            >
+              <v-icon small class="mr-1">mdi-delete</v-icon>
+              Очистить
+            </v-btn>
+          </div>
         </v-list>
       </v-menu>
     </div>
@@ -73,6 +94,9 @@ export default {
       this.selected_tags.splice(this.selected_tags.indexOf(item), 1);
       this.selected_tags = [...this.selected_tags];
     },
+    remove_all () {
+      this.selected_tags = [];
+    },
     change (item) {
       if (this.selected_tags.includes(item)) {
         this.selected_tags.splice(this.selected_tags.indexOf(item), 1);
@@ -86,16 +110,12 @@ export default {
 </script>
 
 <style scoped>
-  .tags-container {
-  }
-  .tag-item {
-    border-color: black;
-  }
-  .search-tag {
-    padding: 10px;
-    width: 300px;
-  }
-  .select-tags {
-    padding: 10px;
-  }
+.tags-container {
+}
+.tag-item {
+  border-color: black;
+}
+.select-tags {
+  padding: 20px;
+}
 </style>
