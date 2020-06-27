@@ -10,7 +10,7 @@
       <v-card-text class="mt-3">
         <v-text-field
           v-model.number="input"
-          label="Сумма садака, $"
+          label="Сумма садака, ₽"
           type="number"
           min="0"
           rounded
