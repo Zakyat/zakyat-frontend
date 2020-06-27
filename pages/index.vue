@@ -42,5 +42,6 @@ export default Vue.extend({
     FundedProjectBar,
     SliderBar,
   },
+  layout: 'whitelayout',
 });
 </script>
