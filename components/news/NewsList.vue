@@ -4,7 +4,7 @@
       v-for="n in 5"
       :key="n"
       flat
-      class="news-card"
+      class="mb-5 pl-5 pr-5 pt-3 pb-2"
       style="border-radius: 10px;"
     >
       <v-row>
@@ -29,16 +29,15 @@
             class="flex-column"
           >
             <v-col class="news-card-desc flex-column flex-end" style="padding: 0;">
-              <v-card-title class="news-card-title">
+              <v-card-title class="news-card-title pt-0">
                 Вкусности для бездомных
               </v-card-title>
-              <v-card-text class="news-card-text">
+              <v-card-text class="pb-0">
                 Какие же настали морозные дни в нашей Казани. Особенно это чувствуют
                 бездомные люди. Не всегда удается найти теплый ночлег. Единственным спасением становятся горячие
-                бесплатные обеды. Добрый фудтрак и сотрудники «Закята» были встречены в сквере на Б.Шахиди с большой
-                радостью в глазах.
+                бесплатные обеды.
               </v-card-text>
-              <v-card-text class="news-card-text" style="color: #9da3a6;">
+              <v-card-text class="pb-0" style="color: #9da3a6;">
                 21 февраля 2020 <b>*</b> Майя Бурганова
               </v-card-text>
             </v-col>
@@ -56,21 +55,7 @@ export default {
 </script>
 
 <style scoped>
-.news-card {
-  padding: 10px 20px 10px 20px;
-  margin-bottom: 10px;
-}
-
 .news-card-title {
   font-size: 24px;
-  padding-top: 0;
-}
-
-.news-card-text {
-  padding-bottom: 0;
-}
-
-p {
-  padding: 0;
 }
 </style>

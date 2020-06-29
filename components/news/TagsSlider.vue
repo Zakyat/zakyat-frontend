@@ -46,7 +46,7 @@
             Показать по тегам
           </v-btn>
         </template>
-        <v-list class="select-tags">
+        <v-list class="pa-5">
           <v-text-field
             v-model.number="input"
             placeholder="Введите тэг"
@@ -112,9 +112,5 @@ export default {
 <style scoped>
 .tag-item {
   border-color: black;
-}
-
-.select-tags {
-  padding: 20px;
 }
 </style>

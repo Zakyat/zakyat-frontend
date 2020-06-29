@@ -1,13 +1,12 @@
 <template>
   <div class="news-background">
     <v-container>
-      <v-layout class="heading-and-tags">
+      <v-layout class="pt-8 pb-5">
         <h1>Новости</h1>
         <TagsSlider />
       </v-layout>
       <v-row
         no-gutters
-        class="news-main-content"
       >
         <v-col
           cols="12"
@@ -16,7 +15,6 @@
         >
           <NewsList />
         </v-col>
-<!--        <v-spacer></v-spacer>-->
         <v-col
           cols="6"
           md="3"
@@ -47,14 +45,5 @@ export default Vue.extend({
 <style scoped>
 .news-background {
   background-color: #f2f2f2;
-}
-
-.news-main-content {
-  margin-bottom: 10px;
-}
-
-.heading-and-tags {
-  padding-top: 30px;
-  padding-bottom: 20px;
 }
 </style>

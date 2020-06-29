@@ -2,12 +2,12 @@
   <div class="sadaka-container pl-2">
     <v-card
       flat
-      class="sadaka-card"
+      class="pa-5 sadaka-card"
       style="border-radius: 10px;"
     >
-      <v-card-title>Совершите садака</v-card-title>
-      <v-card-text>Любое ваше благодеяние, совершенное искренне, мы распределим между нуждающимися</v-card-text>
-      <v-card-text class="mt-3">
+      <v-card-title class="pa-0 ma-0">Совершите садака</v-card-title>
+      <v-card-text class="pa-0 ma-0">Любое ваше благодеяние, совершенное искренне, мы распределим между нуждающимися</v-card-text>
+      <v-card-text class="mt-3 pa-0 ma-0">
         <v-text-field
           v-model.number="input"
           label="Сумма садака, ₽"
@@ -17,18 +17,17 @@
           outlined
           hide-details
           color="black"
-          class="sadaka-input"
         />
       </v-card-text>
-      <v-flex xs12 md12 class="donate-selector">
+      <v-flex xs12 md12>
         <v-radio-group
           v-model="amount"
           row
           hide-details
-          class="amounts"
+          class="amounts pa-2"
         >
           <v-radio
-            class="radio-font"
+            class="pa-0 mr-2"
             v-for="a in amounts"
             :key="a"
             :label="`${a} ₽`"
@@ -70,35 +69,10 @@ export default {
 
 .sadaka-card {
   width: 310px;
-  padding: 20px;
-}
-
-.sadaka-input {
-  margin: 0;
-  padding: 0;
-}
-
-.donate-selector {
-  margin: 0 auto;
-  width: 100%;
-}
-
-.v-card__title,
-.v-card__text
-{
-  padding: 0;
-  margin: 0;
 }
 
 .amounts {
   border: 1px solid black;
   border-radius: 25px;
-  padding: 10px 10px 10px 10px;
-}
-
-.radio-font {
-  padding: 0;
-  margin-right: 8px !important;
-  color: black !important;
 }
 </style>
