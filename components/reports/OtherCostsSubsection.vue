@@ -1,5 +1,5 @@
 <template>
-  <div class="reports grey lighten-5">
+  <div v-if="!isFeesSection" class="reports grey lighten-5">
     <v-container>
       <!-- Report management panel -->
       <v-layout justify-space-between>
@@ -7,12 +7,9 @@
           <v-layout>
             <h2
               class="section__title--content pt-0"
-              @click="handleClickOnSection"
+              @click="isFeesSection = !isFeesSection"
             >
-              <span v-if="isMainFeesSection">
-                {{ feesTitle }}
-              </span>
-              <span v-else>
+              <span>
                 {{ realisedSupportTitle }}
               </span>
             </h2>
@@ -24,22 +21,22 @@
         <v-layout justify-end>
           <div class="reports__data-manager">
             <v-select
-              v-model="timeInterval.month"
+              v-model="userIntervals.month"
               :items="months"
               dense
               rounded
               outlined
-              @change="handleSelectedMonth"
+              @change="handleSelectedInterval"
             />
           </div>
           <div class="reports__data-manager ml-5">
             <v-select
-              v-model="timeInterval.year"
+              v-model="userIntervals.year"
               :items="years"
               dense
               rounded
               outlined
-              @change="handleSelectedYear"
+              @change="handleSelectedInterval"
             />
           </div>
         </v-layout>
@@ -47,7 +44,45 @@
 
       <!-- Table subsection panel and total -->
       <v-layout
-        v-show="!isMainFeesSection && !isMainForDestituteSubsection && isOtherCostsButtonActive"
+        justify-center
+        class="mb-5"
+      >
+        <v-btn-toggle
+          color="green darken-1"
+          mandatory
+          rounded
+          dense
+        >
+          <v-btn
+            class="reports__subsection--button"
+          >
+            {{ forDestituteTitle }}
+          </v-btn>
+          <v-btn
+            class="reports__subsection--button"
+          >
+            {{ otherCostsTitle }}
+          </v-btn>
+        </v-btn-toggle>
+      </v-layout>
+      <v-layout justify-space-between>
+        <div class="section__description">
+          <h3 v-if="isMainFeesSection">
+            {{ feesDescription }}
+          </h3>
+          <h3 v-else>
+            {{ realisedSupportDescription }}
+          </h3>
+        </div>
+        <div>
+          <h3>
+            0
+          </h3>
+        </div>
+      </v-layout>
+
+      <!-- Table column names -->
+      <v-layout
         class="mt-5 pr-3"
         row
       >
@@ -79,51 +114,12 @@
           {{ $t('reports.errorText.suggestion') }}
         </h2>
       </v-layout>
-      <v-layout justify-space-between>
-        <div class="section__description">
-          <h3 v-if="isMainFeesSection">
-            {{ feesDescription }}
-          </h3>
-          <h3 v-else>
-            {{ realisedSupportDescription }}
-          </h3>
-        </div>
-        <div>
-          <h3>
-            0
-          </h3>
-        </div>
-      </v-layout>
-
-      <!-- Table column names -->
-      <v-layout
-        v-show="!isMainFeesSection && isMainForDestituteSubsection"
-        class="mt-5 pr-3"
-        row
-      >
-        <v-flex lg2 class="pl-3 text--secondary">
-          {{ forDestituteColumnNames[0] }}
-        </v-flex>
-        <v-flex lg2 class="pl-2 text--secondary">
-          {{ forDestituteColumnNames[1] }}
-        </v-flex>
-        <v-flex lg2 class="pl-2 text--secondary">
-          {{ forDestituteColumnNames[2] }}
-        </v-flex>
-        <v-flex lg4 class="pl-1 text--secondary">
-          {{ forDestituteColumnNames[3] }}
-        </v-flex>
-        <v-flex lg2 class="text--secondary text-right">
-          {{ forDestituteColumnNames[4] }}
-        </v-flex>
-      </v-layout>
 
       <!-- Table data -->
       <div class="reports__table--padding">
         <v-card
           v-for="item of otherCostsItems"
-          v-show="!isMainFeesSection && !isMainForDestituteSubsection && isOtherCostsButtonActive"
-          :key="'realised-support-' + Math.floor((Math.random() * 10000)).toString()"
+          :key="'feesTitle-' + Math.floor((Math.random() * 10000)).toString()"
           elevation="0"
         >
           <v-layout row class="mt-4 pr-3 pl-3">
@@ -147,17 +143,132 @@
       </div>
     </v-container>
   </div>
+  <div v-else>
+    <FeesSection />
+  </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 import { rubles } from '@/plugins/currency';
+import FeesSection from '@/components/reports/FeesSection.vue';
 
-export default {
-  name: 'OtherCostsSubsection',
-};
+export default Vue.extend({
+  name: 'ForDestituteSubsection',
+  components: {
+    FeesSection,
+  },
+  filters: {
+    normalizeNumber (month: number) {
+      if (0 < month && month < 10) {
+        return '0' + month.toString();
+      }
+    },
+  },
+  data () {
+    return {
+      // Global data for both sections
+      months: this.$t('reports.interval.months'),
+      years: this.$t('reports.interval.years'),
+
+      // Data for Realised Support section
+      realisedSupportTitle: this.$t('reports.section[1].title'),
+      realisedSupportDescription: this.$t('reports.section[1].description'),
+
+      // For Destitute subsection's data
+      forDestituteTitle: this.$t('reports.section[1].subsection[0].title'),
+
+      // Other Costs subsection's data
+      otherCostsTitle: this.$t('reports.section[1].subsection[1].title'),
+      otherCostsColumnNames: this.$t('reports.section[1].subsection[1].table.title'),
+      otherCostsItems: this.$t('reports.section[1].subsection[1].table.data'),
+
+      // User's selections
+      userIntervals: {
+        month: 'Все месяца',
+        year: '2013-2020',
+      },
+
+      // Moving between sub- or sections
+      isFeesSection: false,
+
+      // Handling search errors
+      haveDataFounded: true,
+    };
+  },
+  methods: {
+    rubles,
+
+    handleSelectedInterval () {
+      // Initializing variables
+      const userMonth: number = this.months.indexOf(this.userIntervals.month);
+      const userYear: number = parseInt(this.userIntervals.year, 10);
+
+      const onlyAllMonths: boolean = userMonth === 0;
+      const onlyAllYears: boolean = this.userIntervals.year.indexOf(this.$t('reports.interval.years[0]')) === 0;
+      const allMonthsAndYears: boolean = onlyAllMonths && onlyAllYears;
+
+      // Recovering table data by default
+      this.otherCostsItems = this.$t('reports.section[1].subsection[1].table.data');
+
+      // Handling user's selects
+      this.otherCostsItems = this.otherCostsItems.filter((item: object) => {
+        if (allMonthsAndYears) {
+          return this.otherCostsItems;
+        } else if (onlyAllMonths) {
+          return item.documentDate.year === userYear;
+        } else if (onlyAllYears) {
+          return item.documentDate.month === userMonth;
+        } else {
+          return (item.documentDate.month === userMonth) && (item.documentDate.year === userYear);
+        }
+      });
+
+      // Handling the error of non-existing data
+      (this.otherCostsItems.length === 0) ? this.haveDataFounded = false : this.haveDataFounded = true;
+    },
+  },
+});
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+  .section__title--container {
+    width: 400px;
+  }
 
+  .section__title--content {
+    font-size: 30px;
+  }
+
+  .section__title--content:hover {
+    cursor: pointer;
+  }
+
+  .section__description {
+    font-size: 18px;
+  }
+
+  .reports {
+    min-height: calc(100vh - 400px);
+    padding-top: 50px;
+  }
+
+  .reports__data-manager {
+    width: 200px;
+  }
+
+  .reports__subsection--button {
+    text-transform: none;
+    width: 40vw;
+  }
+
+  .search-error__container {
+    display: flex;
+    justify-content: center;
+    min-width: 100%;
+  }
+
+  .reports__table--padding {
+    padding-bottom: 105px;
+  }
 </style>

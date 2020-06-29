@@ -152,17 +152,13 @@ export default Vue.extend({
       feeColumnNames: this.$t('reports.section[0].table.title'),
       feeSectionItems: this.$t('reports.section[0].table.data'),
 
-      // Data for Realised Support section
-      realisedSupportTitle: this.$t('reports.section[1].title'),
-      realisedSupportDescription: this.$t('reports.section[1].description'),
-
       // User's selections
       userIntervals: {
         month: 'Все месяца',
         year: '2013-2020',
       },
 
-      // Moving to subsections
+      // Moving between sub- or sections
       isFeesSection: true,
 
       // Handling search errors
