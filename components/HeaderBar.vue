@@ -1,6 +1,6 @@
 <template>
   <div style="background-color: black">
-    <v-system-bar dark height="50" class="headerstyle">
+    <v-system-bar dark height="50" class="header_style">
       <img src="@/assets/images/heart.svg" class="ml-12 mr-3">
       <span class="white--text">{{ $t('collected', [rubles(amount)]) }}</span>
       <v-spacer />
@@ -72,7 +72,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.headerstyle {
+.header_style {
   padding: 0 5%;
   max-width: 1440px;
   min-width: 1000px;
