@@ -18,22 +18,20 @@
           color="black"
         />
       </v-card-text>
-      <v-flex xs12 md12>
-        <v-radio-group
-          v-model="amount"
-          row
-          hide-details
-          class="amounts pa-2"
-        >
-          <v-radio
-            class="pa-0 mr-2"
-            v-for="a in amounts"
-            :key="a"
-            :label="`${a} ₽`"
-            :value="a"
-          />
-        </v-radio-group>
-      </v-flex>
+      <v-radio-group
+        v-model="amount"
+        row
+        hide-details
+        class="amounts pa-2"
+      >
+        <v-radio
+          class="pa-0 mr-2"
+          v-for="a in amounts"
+          :key="a"
+          :label="`${a} ₽`"
+          :value="a"
+        />
+      </v-radio-group>
       <v-btn
         rounded
         dark
