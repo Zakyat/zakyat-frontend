@@ -3,7 +3,7 @@
     <HeaderBar />
     <NavBar />
     <v-divider />
-    <v-content class="contentcontainer">
+    <v-content class="content_container">
       <nuxt />
     </v-content>
     <FooterBar />
@@ -30,7 +30,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.contentcontainer {
+.content_container {
   max-width: 1440px;
   min-width: 1000px;
   margin: 0 auto;
