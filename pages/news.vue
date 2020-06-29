@@ -44,14 +44,16 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-  .news-container {
-    background-color: #f2f2f2;
-  }
-  .news-main-content {
-    margin-bottom: 10px;
-  }
-  .heading-and-tags {
-    padding-top: 30px;
-    padding-bottom: 20px;
-  }
+.news-container {
+  background-color: #f2f2f2;
+}
+
+.news-main-content {
+  margin-bottom: 10px;
+}
+
+.heading-and-tags {
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
 </style>

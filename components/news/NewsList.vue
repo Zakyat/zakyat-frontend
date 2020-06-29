@@ -56,21 +56,21 @@ export default {
 </script>
 
 <style scoped>
-  .news-card {
-    padding: 10px 20px 10px 20px;
-    margin-bottom: 10px;
-  }
+.news-card {
+  padding: 10px 20px 10px 20px;
+  margin-bottom: 10px;
+}
 
-  .news-card-title {
-    font-size: 24px;
-    padding-top: 0;
-  }
+.news-card-title {
+  font-size: 24px;
+  padding-top: 0;
+}
 
-  .news-card-text {
-    padding-bottom: 0;
-  }
+.news-card-text {
+  padding-bottom: 0;
+}
 
-  p {
-    padding: 0;
-  }
+p {
+  padding: 0;
+}
 </style>

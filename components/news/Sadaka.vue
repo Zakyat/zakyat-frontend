@@ -61,37 +61,30 @@ export default {
 </script>
 
 <style scoped>
-  .sadaka-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-  }
-  .sadaka-card {
-    width: 310px;
-    padding: 20px;
-  }
-  .sadaka-input {
-    margin: 0;
-    padding: 0;
-  }
-  .donate-selector {
-    margin: 0 auto;
-    width: 100%;
-  }
-  .v-card__title,
-  .v-card__text
-  {
-    padding: 0;
-    margin: 0;
-  }
+.sadaka-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
 
-  .amounts {
-    border: 1px solid black;
-    border-radius: 25px;
-    padding: 10px 10px 10px 10px;
-  }
+.sadaka-card {
+  width: 310px;
+  padding: 20px;
+}
 
-  .amount {
-    border: thin solid;
-  }
+.sadaka-input {
+  margin: 0;
+  padding: 0;
+}
+
+.donate-selector {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.amounts {
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 10px 10px 10px 10px;
+}
 </style>
