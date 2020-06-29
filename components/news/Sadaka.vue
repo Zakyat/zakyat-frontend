@@ -82,6 +82,13 @@ export default {
   width: 100%;
 }
 
+.v-card__title,
+.v-card__text
+{
+  padding: 0;
+  margin: 0;
+}
+
 .amounts {
   border: 1px solid black;
   border-radius: 25px;
