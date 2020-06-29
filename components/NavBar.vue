@@ -1,6 +1,6 @@
 <template>
   <div style="background-color: white;">
-    <v-app-bar flat color="white" height="120" class="navbarstyle">
+    <v-app-bar flat color="white" height="120" class="navbar_style">
       <router-link to="/">
         <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
       </router-link>
@@ -66,7 +66,7 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-.navbarstyle {
+.navbar_style {
   padding: 0 5%;
   max-width: 1440px;
   min-width: 1000px;
