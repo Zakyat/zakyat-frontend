@@ -1,6 +1,6 @@
 <template>
-  <div class="news-container">
-    <div style="padding: 0 10%;">
+  <div class="news-background">
+    <v-container>
       <v-layout class="heading-and-tags">
         <h1>Новости</h1>
         <TagsSlider />
@@ -16,6 +16,7 @@
         >
           <NewsList />
         </v-col>
+<!--        <v-spacer></v-spacer>-->
         <v-col
           cols="6"
           md="3"
@@ -24,7 +25,7 @@
           <Sadaka />
         </v-col>
       </v-row>
-    </div>
+    </v-container>
   </div>
 </template>
 
@@ -44,7 +45,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.news-container {
+.news-background {
   background-color: #f2f2f2;
 }
 

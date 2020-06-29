@@ -1,5 +1,5 @@
 <template>
-  <div class="sadaka-container">
+  <div class="sadaka-container pl-2">
     <v-card
       flat
       class="sadaka-card"
@@ -28,6 +28,7 @@
           class="amounts"
         >
           <v-radio
+            class="radio-font"
             v-for="a in amounts"
             :key="a"
             :label="`${a} ₽`"
@@ -93,5 +94,11 @@ export default {
   border: 1px solid black;
   border-radius: 25px;
   padding: 10px 10px 10px 10px;
+}
+
+.radio-font {
+  padding: 0;
+  margin-right: 8px !important;
+  color: black !important;
 }
 </style>
