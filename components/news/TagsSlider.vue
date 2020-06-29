@@ -11,7 +11,7 @@
     >
       <v-slide-group>
         <v-slide-item
-          v-for="tag in selected_tags"
+          v-for="tag in selectedTags"
           :key="tag"
         >
           <v-chip
@@ -66,7 +66,7 @@
             <v-btn
               text
               color="red"
-              @click="remove_all()"
+              @click="removeAll"
             >
               <v-icon small class="mr-1">mdi-delete</v-icon>
               Очистить
@@ -84,24 +84,24 @@ export default Vue.extend({
   data () {
     return {
       tags: ['Programming', 'Playing video games', 'Watching movies', 'Sleeping', 'Streaming', 'Eating'],
-      selected_tags: [],
+      selectedTags: [],
     };
   },
 
   methods: {
     remove (item) {
-      this.selected_tags.splice(this.selected_tags.indexOf(item), 1);
-      this.selected_tags = [...this.selected_tags];
+      this.selectedTags.splice(this.selectedTags.indexOf(item), 1);
+      this.selectedTags = [...this.selectedTags];
     },
-    remove_all () {
-      this.selected_tags = [];
+    removeAll () {
+      this.selectedTags = [];
     },
     change (item) {
-      if (this.selected_tags.includes(item)) {
-        this.selected_tags.splice(this.selected_tags.indexOf(item), 1);
-        this.selected_tags = [...this.selected_tags];
+      if (this.selectedTags.includes(item)) {
+        this.selectedTags.splice(this.selectedTags.indexOf(item), 1);
+        this.selectedTags = [...this.selectedTags];
       } else {
-        this.selected_tags.push(item);
+        this.selectedTags.push(item);
       }
     },
   },
