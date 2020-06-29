@@ -30,9 +30,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import TagsSlider from '~/components/News/TagsSlider.vue';
-import NewsList from '~/components/News/NewsList.vue';
-import Sadaka from '~/components/News/Sadaka.vue';
+import TagsSlider from '~/components/news/TagsSlider.vue';
+import NewsList from '~/components/news/NewsList.vue';
+import Sadaka from '~/components/news/Sadaka.vue';
 
 export default Vue.extend({
   components: {
