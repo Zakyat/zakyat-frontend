@@ -35,7 +35,6 @@
       >
         <template v-slot:activator="{ on, attrs }">
           <v-btn
-            class=""
             outlined
             rounded
             color="black"
@@ -48,7 +47,6 @@
         </template>
         <v-list class="pa-5">
           <v-text-field
-            v-model.number="input"
             placeholder="Введите тэг"
             type="text"
             min="0"
@@ -64,7 +62,7 @@
             :label="'#'+tag"
             @click="change(tag)"
           />
-          <div class="">
+          <div>
             <v-btn
               text
               color="red"

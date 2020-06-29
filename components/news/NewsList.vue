@@ -23,12 +23,9 @@
         <v-col
           cols="8"
           md="8"
-          class=""
         >
-          <v-row
-            class="flex-column"
-          >
-            <v-col class="news-card-desc flex-column flex-end" style="padding: 0;">
+          <v-row>
+            <v-col class="pa-0">
               <v-card-title class="news-card-title pt-0">
                 Вкусности для бездомных
               </v-card-title>
@@ -38,7 +35,7 @@
                 бесплатные обеды.
               </v-card-text>
               <v-card-text class="pb-0" style="color: #9da3a6;">
-                21 февраля 2020 <b>*</b> Майя Бурганова
+                21 февраля 2020 <b>&bull;</b> Майя Бурганова
               </v-card-text>
             </v-col>
           </v-row>

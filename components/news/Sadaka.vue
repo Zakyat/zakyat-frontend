@@ -1,5 +1,5 @@
 <template>
-  <div class="sadaka-container pl-2">
+  <div class="pl-2">
     <v-card
       flat
       class="pa-5 sadaka-card"
@@ -9,7 +9,6 @@
       <v-card-text class="pa-0 ma-0">Любое ваше благодеяние, совершенное искренне, мы распределим между нуждающимися</v-card-text>
       <v-card-text class="mt-3 pa-0 ma-0">
         <v-text-field
-          v-model.number="input"
           label="Сумма садака, ₽"
           type="number"
           min="0"
@@ -38,8 +37,8 @@
       <v-btn
         rounded
         dark
+        block
         color="primary"
-        width="100%"
         class="mt-4"
       >
         Пожертвовать
@@ -62,12 +61,6 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.sadaka-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
 .sadaka-card {
   width: 310px;
 }
