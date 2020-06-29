@@ -53,7 +53,7 @@
         </div>
         <div>
           <h3>
-            0
+            {{ calculateTotal() }}
           </h3>
         </div>
       </v-layout>
@@ -103,7 +103,7 @@
             <v-flex lg2 class="mt-4 mb-4 pl-5">
               {{ item.helpDate.day }}.{{ item.helpDate.month | normalizeNumber }}.{{ item.helpDate.year }}
             </v-flex>
-            <v-flex lg3 class="mt-4 mb-4">
+            <v-flex lg3 class="mt-4 mb-4 font-weight-bold">
               {{ item.helper }}
             </v-flex>
             <v-flex lg3 class="mt-4 mb-4">
@@ -112,7 +112,7 @@
             <v-flex lg3 class="mt-4 mb-4">
               {{ item.helpType }}
             </v-flex>
-            <v-flex lg1 class="mt-4 mb-4 pr-5 text-right">
+            <v-flex lg1 class="mt-4 mb-4 pr-5 text-right font-weight-bold">
               {{ rubles(item.helpSize) }}
             </v-flex>
           </v-layout>
@@ -125,13 +125,9 @@
 <script lang="ts">
 import Vue from 'vue';
 import { rubles } from '@/plugins/currency';
-import ForDestituteSubsection from '@/components/reports/ForDestituteSubsection.vue';
 
 export default Vue.extend({
   name: 'FeesSection',
-  components: {
-    ForDestituteSubsection,
-  },
   filters: {
     normalizeNumber (month: number) {
       if (0 < month && month < 10) {
@@ -164,10 +160,20 @@ export default Vue.extend({
   methods: {
     rubles,
 
+    calculateTotal () {
+      let total: number = 0;
+
+      for (let item of this.feeSectionItems) {
+        total += parseInt(item.helpSize, 10);
+      }
+
+      return this.rubles(total);
+    },
+
     handleSelectedInterval () {
       // Initializing variables
       const userMonth: number = this.months.indexOf(this.userIntervals.month);
-      const userYear: number = parseInt(this.userIntervals.year, 10);
+      const userYear: number = parseInt(`${this.userIntervals.year}`, 10);
 
       const onlyAllMonths: boolean = userMonth === 0;
       const onlyAllYears: boolean = this.userIntervals.year.indexOf(this.$t('reports.interval.years[0]')) === 0;

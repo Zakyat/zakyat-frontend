@@ -70,16 +70,13 @@
       </v-layout>
       <v-layout justify-space-between>
         <div class="section__description">
-          <h3 v-if="isMainFeesSection">
-            {{ feesDescription }}
-          </h3>
-          <h3 v-else>
+          <h3>
             {{ realisedSupportDescription }}
           </h3>
         </div>
         <div>
           <h3>
-            0
+            {{ calculateTotal() }}
           </h3>
         </div>
       </v-layout>
@@ -132,14 +129,14 @@
             <v-flex lg2 class="mt-4 mb-4">
               {{ item.documentDate.day }}.{{ item.documentDate.month | normalizeNumber }}.{{ item.documentDate.year }}
             </v-flex>
-            <v-flex lg2 class="mt-4 mb-4">
+            <v-flex lg2 class="mt-4 mb-4 font-weight-bold">
               {{ item.helpObject }}
             </v-flex>
             <v-flex lg4 class="mt-4 mb-4">
               {{ item.situationDescription }}
             </v-flex>
             <v-flex lg2 class="mt-4 mb-4 pr-5 text-right">
-              {{ rubles(item.summary.done) }} / {{ rubles(item.summary.needed) }}
+              <span class="font-weight-bold">{{ rubles(item.summary.done) }}</span> / {{ rubles(item.summary.needed) }}
             </v-flex>
           </v-layout>
         </v-card>
@@ -192,10 +189,20 @@ export default Vue.extend({
   methods: {
     rubles,
 
+    calculateTotal () {
+      let total: number = 0;
+
+      for (let item of this.forDestituteItems) {
+        total += parseInt(item.summary.done, 10);
+      }
+
+      return this.rubles(total);
+    },
+
     handleSelectedInterval () {
       // Initializing variables
       const userMonth: number = this.months.indexOf(this.userIntervals.month);
-      const userYear: number = parseInt(this.userIntervals.year, 10);
+      const userYear: number = parseInt(`${this.userIntervals.year}`, 10);
 
       const onlyAllMonths: boolean = userMonth === 0;
       const onlyAllYears: boolean = this.userIntervals.year.indexOf(this.$t('reports.interval.years[0]')) === 0;
