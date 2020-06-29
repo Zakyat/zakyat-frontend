@@ -3,9 +3,9 @@
     <HeaderBar />
     <NavBar />
     <v-divider />
-    <v-main>
+    <v-content>
       <nuxt />
-    </v-main>
+    </v-content>
     <FooterBar />
   </v-app>
 </template>

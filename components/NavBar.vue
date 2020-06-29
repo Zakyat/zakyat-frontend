@@ -1,6 +1,6 @@
 <template>
   <v-app-bar flat color="white" height="100" style="padding: 0 5%; max-height: 100px;">
-    <router-link to="/"><img :src="require(`@/assets/logo/${$i18n.locale}.svg`)"></router-link>
+    <nuxt-link to="/"><img :src="require(`@/assets/logo/${$i18n.locale}.svg`)"></nuxt-link>
     <v-spacer />
     <v-btn
       v-for="(page, i) in pages"

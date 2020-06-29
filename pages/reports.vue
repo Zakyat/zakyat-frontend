@@ -1,17 +1,17 @@
 <template>
   <div class="reports grey lighten-5">
-    <Reports />
+    <FeesSection />
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
 
-import Reports from '~/components/reports/Reports.vue';
+import FeesSection from '@/components/reports/FeesSection.vue';
 
 export default Vue.extend({
   components: {
-    Reports,
+    FeesSection,
   },
 });
 </script>
