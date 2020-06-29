@@ -1,18 +1,20 @@
 <template>
-  <div v-if="isFeesSection" class="reports grey lighten-5">
+  <div class="reports grey lighten-5">
     <v-container>
       <!-- Report management panel -->
       <v-layout justify-space-between>
         <div class="section__title--container">
           <v-layout>
-            <h2
-              class="section__title--content pt-0"
-              @click="isFeesSection = !isFeesSection"
+            <nuxt-link
+              to="/for-destitute"
+              class="section__title--link"
             >
-              <span>
-                {{ feesTitle }}
-              </span>
-            </h2>
+              <h2 class="section__title--content pt-0">
+                <span>
+                  {{ feesTitle }}
+                </span>
+              </h2>
+            </nuxt-link>
             <v-icon>
               mdi-chevron-down
             </v-icon>
@@ -80,7 +82,7 @@
       <v-layout v-show="!haveDataFounded" column align-center class="search-error__container mt-5 pt-3">
         <img
           src="@/assets/images/errors/search-error.svg"
-          style="height: 350px; width: 350px"
+          style="height: 350px; width: 350px;"
           class="search-error__image"
         >
         <h2 class="mt-5 text-center">
@@ -118,9 +120,6 @@
       </div>
     </v-container>
   </div>
-  <div v-else>
-    <ForDestituteSubsection />
-  </div>
 </template>
 
 <script lang="ts">
@@ -154,12 +153,9 @@ export default Vue.extend({
 
       // User's selections
       userIntervals: {
-        month: 'Все месяца',
-        year: '2013-2020',
+        month: this.$t('reports.interval.months[0]'),
+        year: this.$t('reports.interval.years[0]'),
       },
-
-      // Moving between sub- or sections
-      isFeesSection: true,
 
       // Handling search errors
       haveDataFounded: true,
@@ -205,8 +201,13 @@ export default Vue.extend({
     width: 400px;
   }
 
+  .section__title--link {
+    text-decoration: none;
+  }
+
   .section__title--content {
     font-size: 30px;
+    color: black;
   }
 
   .section__title--content:hover {

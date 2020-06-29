@@ -1,17 +1,20 @@
 <template>
-  <div v-if="isForDestituteSubsection" class="reports grey lighten-5">
+  <div class="reports grey lighten-5">
     <v-container>
       <!-- Report management panel -->
       <v-layout justify-space-between>
         <div class="section__title--container">
           <v-layout>
-            <h2
-              class="section__title--content pt-0"
+            <nuxt-link
+              to="/reports"
+              class="section__title--link"
             >
-              <span>
-                {{ realisedSupportTitle }}
-              </span>
-            </h2>
+              <h2 class="section__title--content pt-0">
+                <span>
+                  {{ realisedSupportTitle }}
+                </span>
+              </h2>
+            </nuxt-link>
             <v-icon>
               mdi-chevron-down
             </v-icon>
@@ -47,19 +50,19 @@
         class="mb-5"
       >
         <v-btn-toggle
-          color="green darken-1"
-          mandatory
           rounded
           dense
         >
           <v-btn
             class="reports__subsection--button"
+            color="green lighten-3"
           >
             {{ forDestituteTitle }}
           </v-btn>
           <v-btn
             class="reports__subsection--button"
-            @click="isForDestituteSubsection = !isForDestituteSubsection"
+            to="/other-costs"
+            nuxt
           >
             {{ otherCostsTitle }}
           </v-btn>
@@ -105,7 +108,7 @@
       <v-layout v-show="!haveDataFounded" column align-center class="search-error__container mt-5 pt-3">
         <img
           src="@/assets/images/errors/search-error.svg"
-          style="height: 350px; width: 350px"
+          style="height: 350px; width: 350px;"
           class="search-error__image"
         >
         <h2 class="mt-5 text-center">
@@ -143,21 +146,14 @@
       </div>
     </v-container>
   </div>
-  <div v-else>
-    <OtherCostsSubsection />
-  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import { rubles } from '@/plugins/currency';
-import OtherCostsSubsection from '@/components/reports/OtherCostsSubsection.vue';
 
 export default Vue.extend({
   name: 'ForDestituteSubsection',
-  components: {
-    OtherCostsSubsection,
-  },
   filters: {
     normalizeNumber (month: number) {
       if (0 < month && month < 10) {
@@ -185,12 +181,9 @@ export default Vue.extend({
 
       // User's selections
       userIntervals: {
-        month: 'Все месяца',
-        year: '2013-2020',
+        month: this.$t('reports.interval.months[0]'),
+        year: this.$t('reports.interval.years[0]'),
       },
-
-      // Moving between sub- or sections
-      isForDestituteSubsection: true,
 
       // Handling search errors
       haveDataFounded: true,
@@ -236,8 +229,13 @@ export default Vue.extend({
     width: 400px;
   }
 
+  .section__title--link {
+    text-decoration: none;
+  }
+
   .section__title--content {
     font-size: 30px;
+    color: black;
   }
 
   .section__title--content:hover {
