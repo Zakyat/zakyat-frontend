@@ -2,7 +2,7 @@
   <div class="news-background">
     <v-container>
       <v-row class="pt-8 pb-5 px-2">
-        <h1>Новости</h1>
+        <h1>{{ $t('news.title') }}</h1>
         <TagsSlider />
       </v-row>
       <v-row>

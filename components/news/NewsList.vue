@@ -18,9 +18,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style scoped>
-.news-card-title {
-  font-size: 24px;
-}
-</style>
