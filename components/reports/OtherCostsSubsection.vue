@@ -9,7 +9,7 @@
               to="/reports"
               class="section__title--link"
             >
-              <h2 class="section__title--content pt-0">
+              <h2 class="section__title--content pt-0 mr-3">
                 <span>
                   {{ realisedSupportTitle }}
                 </span>
@@ -21,21 +21,19 @@
           </v-layout>
         </div>
         <v-layout justify-end>
-          <div class="reports__data-manager">
+          <div class="reports__container--date-manager">
             <v-select
               v-model="userIntervals.month"
               :items="months"
-              dense
               rounded
               outlined
               @change="handleSelectedInterval"
             />
           </div>
-          <div class="reports__data-manager ml-5">
+          <div class="reports__container--date-manager ml-5">
             <v-select
               v-model="userIntervals.year"
               :items="years"
-              dense
               rounded
               outlined
               @change="handleSelectedInterval"
@@ -47,7 +45,7 @@
       <!-- Table subsection panel and total -->
       <v-layout
         justify-center
-        class="mb-5"
+        class="mb-5 pb-3"
       >
         <v-btn-toggle
           rounded
@@ -75,7 +73,7 @@
           </h3>
         </div>
         <div>
-          <h3>
+          <h3 class="section__total">
             {{ calculateTotal() }}
           </h3>
         </div>
@@ -232,6 +230,19 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+  .reports {
+    min-height: calc(100vh - 400px);
+    padding-top: 50px;
+  }
+
+  .reports__container--date-manager {
+    width: 185px;
+  }
+
+  .reports__table--padding {
+    padding-bottom: 105px;
+  }
+
   .section__title--container {
     width: 400px;
   }
@@ -241,7 +252,7 @@ export default Vue.extend({
   }
 
   .section__title--content {
-    font-size: 30px;
+    font-size: 36px;
     color: black;
   }
 
@@ -249,17 +260,9 @@ export default Vue.extend({
     cursor: pointer;
   }
 
-  .section__description {
-    font-size: 18px;
-  }
-
-  .reports {
-    min-height: calc(100vh - 400px);
-    padding-top: 50px;
-  }
-
-  .reports__data-manager {
-    width: 200px;
+  .section__description,
+  .section__total {
+    font-size: 24px;
   }
 
   .reports__subsection--button {
@@ -271,9 +274,5 @@ export default Vue.extend({
     display: flex;
     justify-content: center;
     min-width: 100%;
-  }
-
-  .reports__table--padding {
-    padding-bottom: 105px;
   }
 </style>
