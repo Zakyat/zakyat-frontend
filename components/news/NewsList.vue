@@ -4,7 +4,11 @@
     md="9"
     class="news-list-col px-2"
   >
-    <SingleNews />
+    <SingleNews
+      v-for="news in $t('news.news')"
+      :key="news.title"
+      :news="news"
+    />
   </v-col>
 </template>
 
