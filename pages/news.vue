@@ -6,20 +6,8 @@
         <TagsSlider />
       </v-row>
       <v-row>
-        <v-col
-          cols="12"
-          md="9"
-          class="news-list-col px-2"
-        >
-          <NewsList />
-        </v-col>
-        <v-col
-          cols="6"
-          md="3"
-          class="sadaka-col px-2"
-        >
-          <Sadaka />
-        </v-col>
+        <NewsList />
+        <Sadaka />
       </v-row>
     </v-container>
   </div>
