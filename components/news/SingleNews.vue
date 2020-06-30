@@ -38,7 +38,7 @@
             class="pb-0"
             style="color: #9da3a6;"
           >
-            21 февраля 2020 <b>&bull;</b> Майя Бурганова
+            {{ Date() }} <b>&bull;</b> Майя Бурганова
           </v-card-text>
         </v-row>
       </v-col>
