@@ -114,7 +114,14 @@
       </v-layout>
 
       <!-- Table data -->
-      <div class="reports__table--padding">
+      <v-data-iterator
+        class="reports__table--padding"
+        :items="otherCostsItems"
+        loading-text=""
+        no-data-text=""
+        no-results-text=""
+        hide-default-footer
+      >
         <v-card
           v-for="item of otherCostsItems"
           :key="'feesTitle-' + Math.floor((Math.random() * 10000)).toString()"
@@ -138,7 +145,7 @@
             </v-flex>
           </v-layout>
         </v-card>
-      </div>
+      </v-data-iterator>
     </v-container>
   </div>
 </template>
@@ -151,9 +158,7 @@ export default Vue.extend({
   name: 'ForDestituteSubsection',
   filters: {
     normalizeNumber (month: number) {
-      if (0 < month && month < 10) {
-        return '0' + month.toString();
-      }
+      return month.toString().padStart(2, '0');
     },
   },
   data () {

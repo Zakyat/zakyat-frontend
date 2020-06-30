@@ -3,23 +3,21 @@
     <v-container>
       <!-- Report management panel -->
       <v-layout justify-space-between>
-        <div class="section__title--container">
-          <v-layout>
-            <nuxt-link
-              to="/reports"
-              class="section__title--link"
-            >
-              <h2 class="section__title--content pt-0 mr-3">
-                <span>
-                  {{ realisedSupportTitle }}
-                </span>
-              </h2>
-            </nuxt-link>
-            <v-icon>
-              mdi-chevron-down
-            </v-icon>
-          </v-layout>
-        </div>
+        <v-layout class="section__title--container">
+          <nuxt-link
+            to="/reports"
+            class="section__title--link"
+          >
+            <h2 class="section__title--content pt-0 mr-3">
+              <span>
+                {{ realisedSupportTitle }}
+              </span>
+            </h2>
+          </nuxt-link>
+          <v-icon>
+            mdi-chevron-down
+          </v-icon>
+        </v-layout>
         <v-layout justify-end>
           <div class="reports__container--date-manager">
             <v-select
@@ -114,7 +112,14 @@
       </v-layout>
 
       <!-- Table data -->
-      <div class="reports__table--padding">
+      <v-data-iterator
+        class="reports__table--padding"
+        :items="forDestituteItems"
+        loading-text=""
+        no-data-text=""
+        no-results-text=""
+        hide-default-footer
+      >
         <v-card
           v-for="item of forDestituteItems"
           :key="'feesTitle-' + Math.floor((Math.random() * 10000)).toString()"
@@ -138,7 +143,7 @@
             </v-flex>
           </v-layout>
         </v-card>
-      </div>
+      </v-data-iterator>
     </v-container>
   </div>
 </template>
@@ -151,9 +156,7 @@ export default Vue.extend({
   name: 'ForDestituteSubsection',
   filters: {
     normalizeNumber (month: number) {
-      if (0 < month && month < 10) {
-        return '0' + month.toString();
-      }
+      return month.toString().padStart(2, '0');
     },
   },
   data () {

@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat color="white" height="100" style="padding: 0 5%; max-height: 100px;">
+  <v-app-bar flat color="white" height="100" style="padding: 0 5%;">
     <nuxt-link to="/"><img :src="require(`@/assets/logo/${$i18n.locale}.svg`)"></nuxt-link>
     <v-spacer />
     <v-btn

@@ -43,17 +43,13 @@
       </v-layout>
 
       <!-- Table subsection panel and total -->
-      <v-layout justify-space-between>
-        <div class="section__description">
-          <h3>
-            {{ feesDescription }}
-          </h3>
-        </div>
-        <div>
-          <h3 class="section__total">
-            {{ calculateTotal() }}
-          </h3>
-        </div>
+      <v-layout class="section__description" justify-space-between>
+        <h3>
+          {{ feesDescription }}
+        </h3>
+        <h3 class="section__total">
+          {{ calculateTotal() }}
+        </h3>
       </v-layout>
 
       <!-- Table column names -->
@@ -91,7 +87,14 @@
       </v-layout>
 
       <!-- Table data -->
-      <div class="reports__table--padding">
+      <v-data-iterator
+        class="reports__table--padding"
+        :items="feeSectionItems"
+        loading-text=""
+        no-data-text=""
+        no-results-text=""
+        hide-default-footer
+      >
         <v-card
           v-for="item of feeSectionItems"
           :key="'feesTitle-' + Math.floor((Math.random() * 10000)).toString()"
@@ -115,7 +118,7 @@
             </v-flex>
           </v-layout>
         </v-card>
-      </div>
+      </v-data-iterator>
     </v-container>
   </div>
 </template>
@@ -128,7 +131,7 @@ export default Vue.extend({
   name: 'FeesSection',
   filters: {
     normalizeNumber (month: number) {
-      return month.toString().padStart(2, '0')
+      return month.toString().padStart(2, '0');
     },
   },
   data () {
@@ -209,7 +212,7 @@ export default Vue.extend({
   }
 
   .reports__table--padding {
-    padding-bottom: 105px;
+    padding-bottom: 95px;
   }
 
   .section__title--container {
