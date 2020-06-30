@@ -39,7 +39,7 @@
         dark
         small
         color="accent"
-        class="mx-3"
+        class="ml-3"
         height="40px"
       >
         {{ $t('get_help') }}
