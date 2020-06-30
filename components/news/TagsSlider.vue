@@ -89,14 +89,14 @@ export default Vue.extend({
   },
 
   methods: {
-    remove (item) {
+    remove (item: never) {
       this.selectedTags.splice(this.selectedTags.indexOf(item), 1);
       this.selectedTags = [...this.selectedTags];
     },
     removeAll () {
       this.selectedTags = [];
     },
-    change (item) {
+    change (item: never) {
       if (this.selectedTags.includes(item)) {
         this.selectedTags.splice(this.selectedTags.indexOf(item), 1);
         this.selectedTags = [...this.selectedTags];
