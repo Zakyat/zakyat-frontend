@@ -9,11 +9,11 @@
       class="pa-5 sadaka-card"
       style="border-radius: 10px;"
     >
-      <v-card-title class="pa-0 ma-0">Совершите садака</v-card-title>
-      <v-card-text class="pa-0 ma-0">Любое ваше благодеяние, совершенное искренне, мы распределим между нуждающимися</v-card-text>
+      <v-card-title class="pa-0 ma-0">{{ $t('news.sadaka.title') }}</v-card-title>
+      <v-card-text class="pa-0 ma-0">{{ $t('news.sadaka.description') }}</v-card-text>
       <v-card-text class="mt-3 pa-0 ma-0">
         <v-text-field
-          label="Сумма садака, ₽"
+          :label="$t('news.sadaka.money_amount_input')"
           type="number"
           min="0"
           rounded

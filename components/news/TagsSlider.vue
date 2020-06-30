@@ -42,12 +42,12 @@
             v-bind="attrs"
             v-on="on"
           >
-            Показать по тегам
+            {{ $t('news.tags.show_tags_button') }}
           </v-btn>
         </template>
         <v-list class="pa-5">
           <v-text-field
-            placeholder="Введите тэг"
+            :placeholder="$t('news.tags.search_tags_input')"
             type="text"
             min="0"
             rounded
@@ -69,7 +69,7 @@
               @click="removeAll"
             >
               <v-icon small class="mr-1">mdi-delete</v-icon>
-              Очистить
+              {{ $t('news.tags.clear_tags_button') }}
             </v-btn>
           </div>
         </v-list>

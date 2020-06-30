@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-card
-      v-for="({title, description}) in $t('news.newses')"
+      v-for="({title, description}) in $t('news.news')"
       :key="title"
       flat
       class="mb-5 pl-5 pr-5 pt-3 pb-2"
