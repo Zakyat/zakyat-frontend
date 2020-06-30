@@ -21,18 +21,25 @@
         cols="8"
         md="8"
       >
-        <v-row>
-          <v-col class="pa-0">
+        <v-row style="min-height: 155px;">
+          <v-col
+            class="pa-0"
+          >
             <v-card-title class="news-card-title pt-0">
               {{ news.title }}
             </v-card-title>
             <v-card-text class="pb-0">
               {{ news.description }}
             </v-card-text>
-            <v-card-text class="pb-0" style="color: #9da3a6;">
-              21 февраля 2020 <b>&bull;</b> Майя Бурганова
-            </v-card-text>
           </v-col>
+        </v-row>
+        <v-row align="end">
+          <v-card-text
+            class="pb-0"
+            style="color: #9da3a6;"
+          >
+            21 февраля 2020 <b>&bull;</b> Майя Бурганова
+          </v-card-text>
         </v-row>
       </v-col>
     </v-row>
