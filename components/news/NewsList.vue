@@ -1,5 +1,5 @@
 <template>
-  <div class="pr-2">
+  <div>
     <v-card
       v-for="n in 5"
       :key="n"

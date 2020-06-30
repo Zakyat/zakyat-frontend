@@ -1,24 +1,22 @@
 <template>
   <div class="news-background">
     <v-container>
-      <v-layout class="pt-8 pb-5">
+      <v-row class="pt-8 pb-5 px-2">
         <h1>Новости</h1>
         <TagsSlider />
-      </v-layout>
-      <v-row
-        no-gutters
-      >
+      </v-row>
+      <v-row>
         <v-col
           cols="12"
           md="9"
-          class="news-list-col"
+          class="news-list-col px-2"
         >
           <NewsList />
         </v-col>
         <v-col
           cols="6"
           md="3"
-          class="sadaka-col"
+          class="sadaka-col px-2"
         >
           <Sadaka />
         </v-col>
