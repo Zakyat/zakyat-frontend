@@ -4,6 +4,7 @@
       <router-link to="/">
         <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
       </router-link>
+      <v-spacer />
       <v-btn
         v-for="(page, i) in pages"
         :key="i"
@@ -34,12 +35,12 @@
       >
         {{ $t('give_help') }}
       </v-btn>
+      <v-spacer />
       <v-btn
         rounded
         dark
         small
         color="accent"
-        class="ml-3"
         height="40px"
       >
         {{ $t('get_help') }}
