@@ -38,7 +38,7 @@
             class="pb-0"
             style="color: #9da3a6;"
           >
-            {{ Date() }} <b>&bull;</b> {{ news.author }}
+            {{ Date() }} <v-icon class="px-1" style="color: inherit;">mdi-circle-small</v-icon> {{ news.author }}
           </v-card-text>
         </v-row>
       </v-col>
