@@ -9,7 +9,11 @@
       max-width="700"
       style="background-color: #f2f2f2;"
     >
-      <v-slide-group>
+      <v-slide-group
+        prev-icon="mdi-chevron-left-circle-outline"
+        next-icon="mdi-chevron-right-circle-outline"
+        show-arrows="true"
+      >
         <v-slide-item
           v-for="tag in selectedTags"
           :key="tag"
