@@ -43,6 +43,7 @@
             v-on="on"
           >
             {{ $t('news.tags.show_tags_button') }}
+            <v-icon class="mr-1">mdi-chevron-down</v-icon>
           </v-btn>
         </template>
         <v-list class="pa-5">
