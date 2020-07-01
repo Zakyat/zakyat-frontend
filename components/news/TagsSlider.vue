@@ -49,6 +49,7 @@
         <v-list class="pa-5">
           <v-text-field
             :placeholder="$t('news.tags.search_tags_input')"
+            append-icon="mdi-magnify"
             type="text"
             min="0"
             rounded
