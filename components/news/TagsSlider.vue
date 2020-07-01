@@ -12,7 +12,7 @@
       <v-slide-group
         prev-icon="mdi-chevron-left-circle-outline"
         next-icon="mdi-chevron-right-circle-outline"
-        show-arrows="true"
+        show-arrows
       >
         <v-slide-item
           v-for="tag in selectedTags"
@@ -68,7 +68,8 @@
               v-for="tag in tags"
               :key="tag"
               :label="'#'+tag"
-              @click="change(tag)"
+              color="primary"
+              on-icon="mdi-check-box-outline"
               class="ma-0 pa-0"
             />
           </div>
