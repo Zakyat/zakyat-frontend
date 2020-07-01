@@ -63,17 +63,22 @@
             :label="'#'+tag"
             @click="change(tag)"
           />
-          <div>
-            <v-btn
-              text
-              color="red"
-              @click="removeAll"
-            >
-              <v-icon small class="mr-1">mdi-delete</v-icon>
-              {{ $t('news.tags.clear_tags_button') }}
-            </v-btn>
-          </div>
         </v-list>
+        <v-divider></v-divider>
+        <div
+          class="px-5 py-2"
+          style="background-color: white;"
+        >
+          <v-btn
+            text
+            color="primary"
+            @click="removeAll"
+            class="pa-0"
+          >
+            <v-icon class="mr-1">mdi-close</v-icon>
+            {{ $t('news.tags.clear_tags_button') }}
+          </v-btn>
+        </div>
       </v-menu>
     </div>
   </v-layout>
