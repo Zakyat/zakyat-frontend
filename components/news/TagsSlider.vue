@@ -19,7 +19,7 @@
             outlined
             close
             close-icon="mdi-close"
-            color="primary"
+            text-color="primary"
             @click:close="remove(tag)"
           >
             <strong>#{{ tag }}</strong>&nbsp;
