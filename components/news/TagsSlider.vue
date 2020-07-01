@@ -18,6 +18,7 @@
             class="mx-3 tag-item"
             outlined
             close
+            close-icon="mdi-close"
             color="primary"
             @click:close="remove(tag)"
           >
@@ -58,12 +59,15 @@
             color="black"
             class="sadaka-input"
           />
-          <v-checkbox
-            v-for="tag in tags"
-            :key="tag"
-            :label="'#'+tag"
-            @click="change(tag)"
-          />
+          <div class="mt-5">
+            <v-checkbox
+              v-for="tag in tags"
+              :key="tag"
+              :label="'#'+tag"
+              @click="change(tag)"
+              class="ma-0 pa-0"
+            />
+          </div>
         </v-list>
         <v-divider></v-divider>
         <div
@@ -90,7 +94,7 @@ import Vue from 'vue';
 export default Vue.extend({
   data () {
     return {
-      tags: ['Programming', 'Playing video games', 'Watching movies', 'Sleeping', 'Streaming', 'Eating'],
+      tags: ['курбан_байрам', 'священныйпост', 'ураза_байрам', 'ураза_байрам2', 'ураза_байрам3', 'ураза_байрам4'],
       selectedTags: [],
     };
   },
