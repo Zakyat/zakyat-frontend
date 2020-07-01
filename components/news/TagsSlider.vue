@@ -36,7 +36,7 @@
         offset-y
         transition="slide-y-transition"
         bottom
-        :close-on-content-click='false'
+        :close-on-content-click="false"
       >
         <template v-slot:activator="{ on, attrs }">
           <v-btn
@@ -48,7 +48,9 @@
             v-on="on"
           >
             {{ $t('news.tags.show_tags_button') }}
-            <v-icon class="mr-1">mdi-chevron-down</v-icon>
+            <v-icon class="mr-1">
+              mdi-chevron-down
+            </v-icon>
           </v-btn>
         </template>
         <v-list class="pa-5">
@@ -70,12 +72,12 @@
               :label="'#'+tag"
               color="primary"
               on-icon="mdi-check-box-outline"
+              class="ma-0 pa-0 black--text"
               @click="change(tag)"
-              class="ma-0 pa-0"
             />
           </div>
         </v-list>
-        <v-divider></v-divider>
+        <v-divider />
         <div
           class="px-5 py-2"
           style="background-color: white;"
@@ -83,10 +85,12 @@
           <v-btn
             text
             color="primary"
-            @click="removeAll"
             class="pa-0"
+            @click="removeAll"
           >
-            <v-icon class="mr-1">mdi-close</v-icon>
+            <v-icon class="mr-1">
+              mdi-close
+            </v-icon>
             {{ $t('news.tags.clear_tags_button') }}
           </v-btn>
         </div>
@@ -126,5 +130,9 @@ export default Vue.extend({
 <style scoped>
 .tag-item {
   border-color: black;
+}
+
+.black--text /deep/ label {
+  color: black;
 }
 </style>
