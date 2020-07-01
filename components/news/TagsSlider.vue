@@ -70,6 +70,7 @@
               :label="'#'+tag"
               color="primary"
               on-icon="mdi-check-box-outline"
+              @click="change(tag)"
               class="ma-0 pa-0"
             />
           </div>
