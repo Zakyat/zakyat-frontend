@@ -66,7 +66,7 @@
               </v-row>
               <v-row justify="end">
                 <v-col cols="auto">
-                  <v-btn rounded depressed color="primary">
+                  <v-btn rounded depressed to="/charity" color="primary">
                     {{ $t('home.slideshow.donate') }}
                   </v-btn>
                 </v-col>
