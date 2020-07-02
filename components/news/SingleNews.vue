@@ -38,7 +38,11 @@
             class="pb-0"
             style="color: #9da3a6;"
           >
-            {{ localeDate() }} <v-icon class="px-1" style="color: inherit;">mdi-circle-small</v-icon> {{ news.author }}
+            {{ localeDate() }}
+            <v-icon class="px-1" style="color: inherit;">
+              mdi-circle-small
+            </v-icon>
+            {{ news.author }}
           </v-card-text>
         </v-row>
       </v-col>
@@ -48,6 +52,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+
 export default Vue.extend({
   name: 'SingleNews',
   props: {
@@ -64,14 +69,14 @@ export default Vue.extend({
   },
   methods: {
     localeDate () {
-      return this.d.toLocaleDateString(undefined, this.options);
+      return this.d.toLocaleDateString(this.$i18n.locale, this.options);
     },
   },
 });
 </script>
 
-<style scoped>
-  .news-card-title {
-    font-size: 24px;
-  }
+<style lang="scss" scoped>
+.news-card-title {
+  font-size: 24px;
+}
 </style>
