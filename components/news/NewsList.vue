@@ -4,9 +4,9 @@
     md="9"
     class="news-list-col px-2"
   >
-    <SingleNews
-      v-for="news in $t('news.news')"
-      :key="news.title"
+    <NewsCard
+      v-for="newsItem in news"
+      :key="newsItem.title"
       :news="news"
     />
   </v-col>
@@ -14,11 +14,30 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import SingleNews from '~/components/news/SingleNews.vue';
+import NewsCard from '~/components/news/NewsCard.vue';
+
 export default Vue.extend({
   name: 'NewsList',
   components: {
-    SingleNews,
+    NewsCard,
+  },
+  data () {
+    return {
+      news: [
+        {
+          title: 'Вкусности для бездомных',
+          description: 'Какие же настали морозные дни в нашей Казани. Особенно это чувствуют бездомные люди. Не всегда удается найти теплый ночлег. Единственным спасением становятся горячие бесплатные обеды. Добрый фудтрак и сотрудники «Закята» были встречены в сквере на Б.Шахиди с большой радостью в глазах.',
+          date: new Date(),
+          author: 'Майя Бурганова',
+        },
+        {
+          title: 'Назер — курбан для малоимущих',
+          description: 'В фонд «Закят» принесли мясо барана назер-курбана. Сотрудники Закята распределили его подопечным семьям фонда «Закята». Среди благополучателей — многодетные матери, малоимущие, одинокие старики. Все подопечные благодарят за мясную продукцию и воздают дуа за благотворителей. Пусть Аллах одарит их барактом и дарует Рай. Амин.',
+          date: new Date(),
+          author: 'Ринат Гарипов',
+        },
+      ],
+    };
   },
 });
 </script>
