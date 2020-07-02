@@ -38,7 +38,7 @@
             class="pb-0"
             style="color: #9da3a6;"
           >
-            {{ Date() }} <v-icon class="px-1" style="color: inherit;">mdi-circle-small</v-icon> {{ news.author }}
+            {{ localeDate() }} <v-icon class="px-1" style="color: inherit;">mdi-circle-small</v-icon> {{ news.author }}
           </v-card-text>
         </v-row>
       </v-col>
@@ -54,6 +54,17 @@ export default Vue.extend({
     news: {
       type: Object,
       required: true,
+    },
+  },
+  data () {
+    return {
+      d: new Date(2020, 6, 2, 10),
+      options: { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' },
+    };
+  },
+  methods: {
+    localeDate () {
+      return this.d.toLocaleDateString(undefined, this.options);
     },
   },
 });
