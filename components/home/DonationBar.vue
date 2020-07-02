@@ -2,10 +2,12 @@
   <v-layout class="donation-container" column>
     <v-flex xs11 md8>
       <h1>{{ $t('home.sadaka.title') }}</h1>
-      <p>{{ $t('home.sadaka.description') }}</p>
+      <p class="my-4">
+        {{ $t('home.sadaka.description') }}
+      </p>
     </v-flex>
-    <v-flex xs11>
-      <v-layout row wrap align-center justify-space-between>
+    <v-flex xs11 class="mt-4">
+      <v-layout row wrap align-center>
         <v-flex xs10 md3>
           <v-text-field
             v-model.number="amount"
@@ -19,6 +21,7 @@
             dark
             type="number"
             min="1"
+            height="50"
           />
         </v-flex>
         <v-flex xs8 md7>
@@ -28,7 +31,8 @@
             dark
             dense
             hide-details
-            class="amounts"
+            class="amounts ml-5"
+            height="30"
           >
             <v-radio
               v-for="a in amounts"
@@ -39,7 +43,7 @@
           </v-radio-group>
         </v-flex>
         <v-flex xs1>
-          <v-btn rounded>
+          <v-btn height="50" class="black--text mx-6" rounded>
             {{ $t('home.sadaka.donate') }}
           </v-btn>
         </v-flex>
@@ -64,7 +68,7 @@ export default Vue.extend({
 .donation-container {
   background-color: #00ac00;
   width: 100%;
-  padding: 2% 7% 2% 7%;
+  padding: 3% 6%;
   color: #fff;
 
   h1 {

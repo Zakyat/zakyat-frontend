@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container style="padding: 3% 0;">
     <v-row>
-      <span>{{ $t('links.news') }}
+      <span class="ma-4">{{ $t('links.news') }}
       </span>
     </v-row>
     <v-layout row>

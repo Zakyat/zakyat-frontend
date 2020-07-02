@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container style="padding: 4% 0;">
     <v-row>
-      <span>{{ $t('home.funded_project.title') }}
+      <span class="mx-4 mb-4">{{ $t('home.funded_project.title') }}
       </span>
     </v-row>
     <v-layout row>
