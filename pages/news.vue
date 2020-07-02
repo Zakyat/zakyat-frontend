@@ -1,16 +1,14 @@
 <template>
-  <div class="news-background">
-    <v-container>
-      <v-row class="pt-8 pb-5 px-2">
-        <h1>{{ $t('news.title') }}</h1>
-        <TagsSlider />
-      </v-row>
-      <v-row>
-        <NewsList />
-        <Sadaka />
-      </v-row>
-    </v-container>
-  </div>
+  <v-container>
+    <v-row class="pt-8 pb-5 px-2">
+      <h1>{{ $t('news.title') }}</h1>
+      <TagsSlider />
+    </v-row>
+    <v-row>
+      <NewsList />
+      <Sadaka />
+    </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -27,9 +25,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style scoped>
-.news-background {
-  background-color: #f2f2f2;
-}
-</style>
