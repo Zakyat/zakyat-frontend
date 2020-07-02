@@ -13,7 +13,7 @@
         <v-card-title
           class="charity-banner-text"
         >
-          Вместе мы спасаем жизни детей и взрослых, помогаем им стать здоровыми и счастливыми!
+          {{ $t('charity.banner.title') }}
         </v-card-title>
       </v-col>
       <v-col
