@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container style="padding: 2% 1%;">
     <v-row>
       <span>{{ $t('home.about.title') }}</span>
     </v-row>
@@ -8,7 +8,7 @@
         <div class="py-6">
           <p>{{ $t('home.about.paragraph1') }}</p>
           <p>{{ $t('home.about.paragraph2') }}</p>
-          <v-btn rounded dark color="accent">
+          <v-btn height="40" rounded dark color="accent">
             {{ $t('home.about.learn_more') }}
           </v-btn>
         </div>
@@ -32,6 +32,12 @@ span {
   font-weight: bold;
   font-size: 36px;
   line-height: 43px;
+  color: #000;
+}
+
+p {
+  font-style: normal;
+  font-weight: normal;
   color: #000;
 }
 </style>
