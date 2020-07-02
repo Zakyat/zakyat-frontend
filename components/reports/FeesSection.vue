@@ -5,19 +5,14 @@
       <v-layout justify-space-between>
         <div class="section__title--container">
           <v-layout>
-            <nuxt-link
-              to="/for-destitute"
-              class="section__title--link"
-            >
-              <h2 class="section__title--content pt-0 mr-3">
-                <span>
-                  {{ feesTitle }}
-                </span>
-              </h2>
-            </nuxt-link>
-            <v-icon>
-              mdi-chevron-down
-            </v-icon>
+            <v-select
+              v-model="selectedSection"
+              :items="sectionTitles"
+              nuxt
+              rounded
+              outlined
+              @change="handleClickOnSection"
+            />
           </v-layout>
         </div>
         <v-layout justify-end>
@@ -139,6 +134,13 @@ export default Vue.extend({
       // Global data for both sections
       months: this.$t('reports.interval.months'),
       years: this.$t('reports.interval.years'),
+      sectionLinks: ['/reports', '/for-destitute'],
+      selectedSection: this.$t('reports.section[0].title'),
+      reportsSection: this.$t('reports.section[0].title'),
+      sectionTitles: [
+        this.$t('reports.section[0].title'),
+        this.$t('reports.section[1].title'),
+      ],
 
       // Data for Fees section
       feesTitle: this.$t('reports.section[0].title'),
@@ -159,10 +161,18 @@ export default Vue.extend({
   methods: {
     rubles,
 
+    handleClickOnSection () {
+      if (this.selectedSection === this.reportsSection) {
+        location.pathname = '/reports';
+      } else {
+        location.pathname = '/for-destitute';
+      }
+    },
+
     calculateTotal () {
       let total: number = 0;
 
-      for (let item of this.feeSectionItems) {
+      for (const item of this.feeSectionItems) {
         total += parseInt(item.helpSize, 10);
       }
 
