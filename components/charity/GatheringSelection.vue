@@ -1,4 +1,10 @@
 <template>
+  <v-row
+    justify="space-between"
+    class="mt-12 px-3"
+  >
+    
+  </v-row>
 </template>
 
 <script lang="ts">
