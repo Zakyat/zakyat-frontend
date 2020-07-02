@@ -24,7 +24,7 @@
             close
             close-icon="mdi-close"
             text-color="primary"
-            @click:close="remove(tag)"
+            @click:close="removeTag(tag)"
           >
             <strong>#{{ tag }}</strong>&nbsp;
           </v-chip>
@@ -70,10 +70,11 @@
               v-for="tag in tags"
               :key="tag"
               :label="'#'+tag"
+              :value="tag"
+              v-model="selectedTags"
               color="primary"
               on-icon="mdi-check-box-outline"
               class="ma-0 pa-0 black--text"
-              @click="change(tag)"
             />
           </div>
         </v-list>
@@ -86,7 +87,7 @@
             text
             color="primary"
             class="pa-0"
-            @click="removeAll"
+            @click="removeAllTags"
           >
             <v-icon class="mr-1">
               mdi-close
@@ -110,18 +111,11 @@ export default Vue.extend({
   },
 
   methods: {
-    remove (item: never) {
+    removeTag (item: never) {
       this.selectedTags.splice(item);
     },
-    removeAll () {
+    removeAllTags () {
       this.selectedTags = [];
-    },
-    change (item: never) {
-      if (this.selectedTags.includes(item)) {
-        this.selectedTags.splice(item);
-      } else {
-        this.selectedTags.push(item);
-      }
     },
   },
 });
