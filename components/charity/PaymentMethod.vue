@@ -22,19 +22,45 @@
         </v-tab>
       </v-tabs>
     </v-row>
-    <v-card flat>
-      <v-card-text>
-        Все деньги с данного сбора перейдут на счет нуждающегося
-      </v-card-text>
-    </v-card>
+    <v-tabs-items v-model="tab">
+      <v-tab-item
+        v-for="item in paymentTabs"
+        :key="item"
+      >
+        <v-card
+          v-if="item.payment === 'Банковская карта'"
+          flat
+        >
+          <v-card-text>
+            Все деньги с данного сбора перейдут на счет нуждающегося
+          </v-card-text>
+          <DonationAmountSelection />
+          <Contacts />
+        </v-card>
+        <v-card
+          v-else
+          flat
+        >
+          <v-card-text>
+            Вы можете отправить деньги по номеру 8888 с текстом АЛЬФИЯ
+          </v-card-text>
+        </v-card>
+      </v-tab-item>
+    </v-tabs-items>
   </v-row>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import DonationAmountSelection from '~/components/charity/DonationAmountSelection.vue';
+import Contacts from '~/components/charity/Contacts.vue';
 
 export default Vue.extend({
-  name: 'DonationAmountSelection',
+  name: 'PaymentSelection',
+  components: {
+    DonationAmountSelection,
+    Contacts,
+  },
   data () {
     return {
       tab: null,
