@@ -42,7 +42,7 @@
           rounded
           dense
           hide-details
-          placeholder="Введите сумму, ₽"
+          :placeholder="$t('charity.donationAmountSelection.amountInput.')"
           outlined
           type="number"
           min="1"
@@ -100,23 +100,23 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-  .amounts {
-    border: 1px solid grey;
-    border-radius: 25px;
-  }
+.amounts {
+  border: 1px solid grey;
+  border-radius: 25px;
+}
 
-  .donation-tabs {
-    border: 1px solid grey;
-    border-radius: 30px;
-  }
+.donation-tabs {
+  border: 1px solid grey;
+  border-radius: 30px;
+}
 
-  .donation-tab
-  {
-    border-radius: 30px !important;
-  }
+.donation-tab
+{
+  border-radius: 30px !important;
+}
 
-  .donation-tab-primary {
-    background-color: #00ac00;
-    color: white;
-  }
+.donation-tab-primary {
+  background-color: #00ac00;
+  color: white;
+}
 </style>

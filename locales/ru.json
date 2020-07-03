@@ -313,6 +313,31 @@
     "title": "Пожертвование в пользу",
     "banner": {
       "title": "Вместе мы спасаем жизни детей и взрослых, помогаем им стать здоровыми и счастливыми!"
+    },
+    "gathering": {
+      "gatheringSelection": "Выберите сбор",
+      "anonymous": "Анонимно",
+      "charityCard": {
+        "collected": "Собрано",
+        "left": "Осталось",
+        "total": "Необходимо",
+        "seeGatherings": "Посмотреть пожертвования"
+      }
+    },
+    "paymentMethod": {
+      "title": "Способ оплаты",
+      "bankDonationText": "Все деньги с данного сбора перейдут на счет нуждающегося",
+      "defaultText": "Все деньги с данного сбора перейдут на счет нуждающегося"
+    },
+    "donationAmountSelection": {
+      "amountInput": "Введите сумму, ₽"
+    },
+    "contacts": {
+      "title": "Ваши контактные данные",
+      "name": "Имя",
+      "email": "Email",
+      "lastName": "Фамилия",
+      "phone": "Телефон"
     }
   }
 }

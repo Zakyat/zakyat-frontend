@@ -7,7 +7,7 @@
       <v-col
         cols="12"
         md="4"
-        class="pa-0 ma-0 mr-auto"
+        class="pa-0 ma-0"
       >
         <v-select
           append-icon="mdi-chevron-down"
@@ -15,8 +15,9 @@
           rounded
           flat
           solo
-          placeholder="Выберите сбор"
+          :placeholder="$t('charity.gathering.gatheringSelection')"
           :items="items"
+          :value="items[0]"
           class="pa-0 ma-0"
         >
         </v-select>
@@ -28,12 +29,12 @@
       >
         <v-checkbox
           class="pa-0 md-0"
-          label="Анонимно"
+          :label="$t('charity.gathering.anonymous')"
         >
         </v-checkbox>
       </v-col>
     </v-row>
-    <CharityCard/>
+    <CharityCard />
   </div>
 </template>
 

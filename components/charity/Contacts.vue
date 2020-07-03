@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h3 class="mt-12">Ваши контактные данные</h3>
+    <h3 class="mt-12">{{ $t('charity.contacts.title') }}</h3>
     <v-row>
       <v-col
         cols="12"
         md="6"
       >
         <v-text-field
-          placeholder="Имя"
+          :placeholder="$t('charity.contacts.name')"
           rounded
           flat
           outlined
@@ -17,7 +17,7 @@
         >
         </v-text-field>
         <v-text-field
-          placeholder="Email"
+          :placeholder="$t('charity.contacts.email')"
           rounded
           flat
           outlined
@@ -33,7 +33,7 @@
         md="6"
       >
         <v-text-field
-          placeholder="Фамилия"
+          :placeholder="$t('charity.contacts.lastName')"
           rounded
           flat
           outlined
@@ -43,7 +43,7 @@
         >
         </v-text-field>
         <v-text-field
-          placeholder="Телефон"
+          :placeholder="$t('charity.contacts.phone')"
           rounded
           flat
           outlined

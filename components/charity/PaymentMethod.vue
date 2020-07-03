@@ -3,7 +3,7 @@
     class="mt-12"
   >
     <v-col cols="12">
-      <h3>Способ оплаты</h3>
+      <h3>{{ $t('charity.paymentMethod.title') }}</h3>
     </v-col>
     <v-col cols="12" class="mt-3">
       <v-tabs
@@ -35,9 +35,7 @@
             v-if="item.payment === 'Банковская карта'"
             flat
           >
-            <v-card-text>
-              Все деньги с данного сбора перейдут на счет нуждающегося
-            </v-card-text>
+            <v-card-text>{{ $t('charity.paymentMethod.bankDonationText') }}</v-card-text>
             <DonationAmountSelection />
             <Contacts />
           </v-card>
@@ -46,7 +44,7 @@
             flat
           >
             <v-card-text>
-              Вы можете отправить деньги по номеру 8888 с текстом АЛЬФИЯ
+              {{ $t('charity.paymentMethod.defaultText') }}
             </v-card-text>
           </v-card>
         </v-tab-item>
