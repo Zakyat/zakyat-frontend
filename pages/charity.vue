@@ -5,6 +5,7 @@
       {{ $t('charity.title') }}
     </h1>
     <GatheringSelection />
+    <PaymentMethod />
     <DonationAmountSelection />
     <Contacts />
   </v-container>
@@ -16,6 +17,7 @@ import CharityBanner from '@/components/charity/CharityBanner.vue';
 import GatheringSelection from '@/components/charity/GatheringSelection.vue';
 import Contacts from '~/components/charity/Contacts.vue';
 import DonationAmountSelection from '~/components/charity/DonationAmountSelection.vue';
+import PaymentMethod from '~/components/charity/PaymentMethod.vue';
 
 export default Vue.extend({
   components: {
@@ -23,6 +25,7 @@ export default Vue.extend({
     GatheringSelection,
     Contacts,
     DonationAmountSelection,
+    PaymentMethod,
   },
 });
 </script>
