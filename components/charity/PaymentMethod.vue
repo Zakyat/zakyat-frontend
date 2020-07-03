@@ -80,7 +80,10 @@ export default Vue.extend({
           payment: 'Мобильный телефон',
         },
         {
-          payment: 'SMS',
+          payment: 'Яндекс деньги',
+        },
+        {
+          payment: 'Paypal',
         },
       ],
     };
