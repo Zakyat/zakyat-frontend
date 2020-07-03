@@ -3,7 +3,7 @@
     <v-col
       cols="12"
       md="auto"
-      class="py-0"
+      class="py-0 pl-0"
     >
       <v-img
         width="250"

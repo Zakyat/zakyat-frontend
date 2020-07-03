@@ -2,7 +2,7 @@
   <v-row
     class="mt-12"
   >
-    <v-row>
+    <v-row class="px-6">
       <v-tabs
         v-model="tab"
         centered
@@ -33,7 +33,7 @@
         </v-tab-item>
       </v-tabs-items>
     </v-row>
-    <v-row>
+    <v-row class="px-3">
       <v-col
         cols="12"
         md="3"

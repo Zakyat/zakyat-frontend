@@ -1,8 +1,8 @@
 <template>
-  <div>
+  <div class="px-3">
     <v-row
       justify="space-between"
-      class="mt-12 px-3"
+      class="mt-12"
     >
       <v-col
         cols="12"
