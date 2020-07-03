@@ -67,6 +67,42 @@
       "help": "Хочу помочь"
     }
   },
+  "access": {
+    "global": {
+      "emailPlaceholder": "Эл. почта",
+      "passwordPlaceholder": "Пароль"
+    },
+    "registration": {
+      "title": "Регистрация",
+      "linkAndButtonName": "Зарегистрироваться",
+      "description": "Зарегистрируйтесь через социальные сети или электронную почту",
+      "agreements": {
+        "textFirstPart": "Я ознакомился с",
+        "textSecondPart": "принимаю его и даю",
+        "userAgreementName": "Пользовательским соглашением",
+        "confidentialAgreementName": "Согласие на обработку персональных данных"
+      },
+      "errors": {
+        "weekPassword": "Короткий пароль. Используйте хотя бы 6 символов.",
+        "averagePassword": "Средний пароль.",
+        "goodPassword": "Хороший пароль."
+      }
+    },
+    "login": {
+      "title": "Вход",
+      "linkAndButtonName": "Войти",
+      "description": "Войдите через социальные сети или электронную почту",
+      "reminder": "Забыли пароль?",
+      "errors": "Такого аккаунта нет.",
+      "recoveryPassword": {
+        "title": "Восстановление пароля",
+        "description": "Мы отправим на указанную электронную почту письмо для восстановления пароля.",
+        "buttonName": "Отправить письмо",
+        "redirectionName": "Вернуться ко входу",
+        "success": "Письмо для восстановления пароля успешно отправлено. Проверьте вашу почту."
+      }
+    }
+  },
   "reports": {
     "section": [
       {

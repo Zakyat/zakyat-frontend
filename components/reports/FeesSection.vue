@@ -162,11 +162,7 @@ export default Vue.extend({
     rubles,
 
     handleClickOnSection () {
-      if (this.selectedSection === this.reportsSection) {
-        location.pathname = '/reports';
-      } else {
-        location.pathname = '/for-destitute';
-      }
+      (this.selectedSection === this.reportsSection) ? location.pathname = '/reports' : location.pathname = '/for-destitute';
     },
 
     calculateTotal () {

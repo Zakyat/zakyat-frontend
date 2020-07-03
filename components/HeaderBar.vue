@@ -21,12 +21,25 @@
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
-    <v-btn text small>
-      <v-icon color="white" size="20">
-        mdi-account-circle
-      </v-icon>
-      {{ $t('login') }}
-    </v-btn>
+    <v-dialog
+      v-model="dialog"
+      width="440"
+    >
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          text
+          small
+          v-bind="attrs"
+          v-on="on"
+        >
+          <v-icon color="white" size="20">
+            mdi-account-circle
+          </v-icon>
+          {{ $t('login') }}
+        </v-btn>
+      </template>
+      <RegistrationDialog />
+    </v-dialog>
     <v-flex lg1 md2 xs4>
       <LanguageSelector />
     </v-flex>
@@ -51,17 +64,20 @@
 <script lang="ts">
 import Vue from 'vue';
 import LanguageSelector from '@/components/LanguageSelector.vue';
+import RegistrationDialog from '@/components/access/RegistrationDialog.vue';
 import { rubles } from '@/plugins/currency';
 
 export default Vue.extend({
   components: {
     LanguageSelector,
+    RegistrationDialog,
   },
   data () {
     return {
       amount: 6234234,
       items: this.$t('search.suggestions'),
       isSearcherOpen: false,
+      dialog: false,
     };
   },
   methods: {

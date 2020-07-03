@@ -1,0 +1,26 @@
+<svg width="25" height="25" viewBox="0 0 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="13" y="10" width="11" height="11">
+<path d="M23.56 12.2506C23.56 15.5994 22.3598 18.4203 20.2796 20.3356H16.7253V17.5746C17.8901 16.7948 18.665 15.63 18.9204 14.255H13V10.0004H23.3596C23.4903 10.7203 23.56 11.4696 23.56 12.2506Z" fill="white"/>
+</mask>
+<g mask="url(#mask0)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12.9746 20.4578H23.6813V9.89778H12.9746V20.4578Z" fill="#318AF5"/>
+</g>
+<mask id="mask1" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="14" width="18" height="9">
+<path d="M13.0003 23C8.70048 23 4.98003 20.5348 3.16992 16.9402V14.09H6.84514C7.71048 16.6897 10.1354 18.6244 13.0003 18.6244C14.4804 18.6244 15.7405 18.2346 16.7256 17.5746L20.2798 20.3356C18.4599 22.0149 15.9703 23 13.0003 23Z" fill="white"/>
+</mask>
+<g mask="url(#mask1)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.14844 23.0978H20.3084V14.0044H3.14844V23.0978Z" fill="#3DA751"/>
+</g>
+<mask id="mask2" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="7" width="5" height="10">
+<path d="M6.84489 14.09L3.16967 16.9402C2.42533 15.4552 2 13.7747 2 12C2 10.2253 2.42533 8.54478 3.16967 7.05978H6.84489V9.91C6.62489 10.57 6.50022 11.2752 6.50022 12C6.50022 12.7248 6.62489 13.43 6.84489 14.09Z" fill="white"/>
+</mask>
+<g mask="url(#mask2)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M1.97461 17.0844H6.96128V6.96444H1.97461V17.0844Z" fill="#FDB900"/>
+</g>
+<mask id="mask3" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="1" width="18" height="9">
+<path d="M13.0003 5.37556C10.1354 5.37556 7.71048 7.31033 6.84514 9.91L3.16992 7.05978C4.98003 3.46522 8.70048 1 13.0003 1C15.9654 1 18.455 2.09022 20.3605 3.86489L17.2047 7.01944C16.0656 5.93044 14.6148 5.37556 13.0003 5.37556Z" fill="white"/>
+</mask>
+<g mask="url(#mask3)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M3.14844 10.0444H20.4551V0.951111H3.14844V10.0444Z" fill="#EA3E36"/>
+</g>
+</svg>
