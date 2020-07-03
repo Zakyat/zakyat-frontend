@@ -2,13 +2,16 @@
   <v-row
     class="mt-12"
   >
-    <h3>Способ оплаты</h3>
-    <v-row class="mt-3">
+    <v-col cols="12">
+      <h3>Способ оплаты</h3>
+    </v-col>
+    <v-col cols="12" class="mt-3">
       <v-tabs
         v-model="tab"
         hide-slider
         grow
         centered
+        center-active
         show-arrows
         class="payment-tabs pa-1"
       >
@@ -21,32 +24,34 @@
           {{ item.payment }}
         </v-tab>
       </v-tabs>
-    </v-row>
-    <v-tabs-items v-model="tab">
-      <v-tab-item
-        v-for="item in paymentTabs"
-        :key="item"
-      >
-        <v-card
-          v-if="item.payment === 'Банковская карта'"
-          flat
+    </v-col>
+    <v-col cols="12">
+      <v-tabs-items v-model="tab">
+        <v-tab-item
+          v-for="item in paymentTabs"
+          :key="item"
         >
-          <v-card-text>
-            Все деньги с данного сбора перейдут на счет нуждающегося
-          </v-card-text>
-          <DonationAmountSelection />
-          <Contacts />
-        </v-card>
-        <v-card
-          v-else
-          flat
-        >
-          <v-card-text>
-            Вы можете отправить деньги по номеру 8888 с текстом АЛЬФИЯ
-          </v-card-text>
-        </v-card>
-      </v-tab-item>
-    </v-tabs-items>
+          <v-card
+            v-if="item.payment === 'Банковская карта'"
+            flat
+          >
+            <v-card-text>
+              Все деньги с данного сбора перейдут на счет нуждающегося
+            </v-card-text>
+            <DonationAmountSelection />
+            <Contacts />
+          </v-card>
+          <v-card
+            v-else
+            flat
+          >
+            <v-card-text>
+              Вы можете отправить деньги по номеру 8888 с текстом АЛЬФИЯ
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+      </v-tabs-items>
+    </v-col>
   </v-row>
 </template>
 
@@ -75,28 +80,7 @@ export default Vue.extend({
           payment: 'Мобильный телефон',
         },
         {
-          payment: 'Яндекс деньги',
-        },
-        {
-          payment: 'PayPal',
-        },
-        {
-          payment: 'PayPal',
-        },
-        {
-          payment: 'PayPal',
-        },
-        {
-          payment: 'PayPal',
-        },
-        {
-          payment: 'PayPal',
-        },
-        {
-          payment: 'PayPal',
-        },
-        {
-          payment: 'PayPal',
+          payment: 'SMS',
         },
       ],
     };
@@ -112,6 +96,7 @@ export default Vue.extend({
 
 .payment-tab
 {
+  width: 300px;
   border-radius: 30px !important;
 }
 
