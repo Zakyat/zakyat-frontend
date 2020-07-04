@@ -42,7 +42,7 @@
           rounded
           dense
           hide-details
-          :placeholder="$t('charity.donationAmountSelection.amountInput.')"
+          :placeholder="$t('charity.donationAmountSelection.amountInput')"
           outlined
           type="number"
           min="1"
