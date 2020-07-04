@@ -65,7 +65,7 @@
         <v-checkbox
           label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
           class="my-0 py-0"
-          style="font-size: 10px;"
+          on-icon="mdi-check-box-outline"
         >
         </v-checkbox>
       </v-col>

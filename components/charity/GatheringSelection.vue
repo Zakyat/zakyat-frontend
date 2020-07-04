@@ -30,6 +30,7 @@
         <v-checkbox
           class="pa-0 md-0"
           :label="$t('charity.gathering.anonymous')"
+          on-icon="mdi-check-box-outline"
         >
         </v-checkbox>
       </v-col>
