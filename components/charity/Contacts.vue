@@ -1,7 +1,9 @@
 <template>
   <div>
-    <h3 class="mt-12">{{ $t('charity.contacts.title') }}</h3>
-    <v-row>
+    <h3 v-if="userLogin" class="mt-12">{{ $t('charity.contacts.title') }}</h3>
+    <v-row
+      v-if="userLogin"
+    >
       <v-col
         cols="12"
         md="6"
@@ -77,7 +79,7 @@
           rounded
           color="primary"
           flat
-        >Продолжить</v-btn>
+        >{{ $t('charity.contacts.resumeBtn') }}</v-btn>
       </v-col>
     </v-row>
   </div>
@@ -88,6 +90,11 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'Contacts',
+  data () {
+    return {
+      userLogin: true,
+    };
+  },
 });
 </script>
 
