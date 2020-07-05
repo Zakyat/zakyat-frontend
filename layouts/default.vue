@@ -1,9 +1,9 @@
 <template>
-  <v-app style="background-color: #f2f2f2">
+  <v-app class="app-wrapper">
     <HeaderBar />
     <NavBar />
     <v-divider />
-    <v-content class="content_container">
+    <v-content>
       <nuxt />
     </v-content>
     <FooterBar />
@@ -29,10 +29,10 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
-.content_container {
+<style lang="scss" scoped>
+.app-wrapper {
   max-width: 1440px;
-  min-width: 1000px;
+  background-color: #f2f2f2;
   margin: 0 auto;
 }
 </style>
