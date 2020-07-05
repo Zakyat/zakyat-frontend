@@ -2,7 +2,9 @@
   <v-layout class="volunteer-container" row>
     <v-flex xs12 md6>
       <h1>{{ $t('home.volunteer.title') }}</h1>
-      <p class="my-5">{{ $t('home.volunteer.description') }}</p>
+      <p class="my-5">
+        {{ $t('home.volunteer.description') }}
+      </p>
       <v-btn height="40" rounded>
         {{ $t('home.volunteer.join') }}
       </v-btn>
