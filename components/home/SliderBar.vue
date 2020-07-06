@@ -66,7 +66,7 @@
               </v-row>
               <v-row justify="end">
                 <v-col cols="auto">
-                  <v-btn rounded depressed to="/charity" color="primary">
+                  <v-btn rounded depressed :to="{name: 'charity', params: { slideId: slide.id }}" color="primary">
                     {{ $t('home.slideshow.donate') }}
                   </v-btn>
                 </v-col>
@@ -105,6 +105,7 @@ export default Vue.extend({
     return {
       slides: [
         {
+          id: 'Бурганова Альфия, сбор 309',
           src: require('@/assets/images/slideshow1.jpg'),
           title: 'Бурганова Альфия, 16 лет',
           description: 'Идиопатический прогрессирующий сколиоз 4-й степени, спасет операция',
@@ -112,6 +113,7 @@ export default Vue.extend({
           collected: 65_065,
         },
         {
+          id: 'Садыков Амирхан, сбор 400',
           src: require('@/assets/images/slideshow2.jpg'),
           title: 'Садыков Амирхан, 11 лет',
           description: 'ДЦП',

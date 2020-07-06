@@ -4,7 +4,9 @@
     <h1 class="mt-12">
       {{ $t('charity.title') }}
     </h1>
-    <GatheringSelection />
+    <GatheringSelection
+      :gatheringId="gatheringId"
+    />
     <PaymentMethod />
   </v-container>
 </template>
@@ -20,6 +22,14 @@ export default Vue.extend({
     CharityBanner,
     GatheringSelection,
     PaymentMethod,
+  },
+  props: [
+    'slideId',
+  ],
+  data () {
+    return {
+      gatheringId: this.$route.params.slideId,
+    };
   },
 });
 </script>

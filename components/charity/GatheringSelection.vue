@@ -36,8 +36,8 @@
       </v-col>
     </v-row>
     <CharityCard
-      :selectedGathering="selectedGathering"
-      :gathering="gathering"
+      v-if="selectedGathering"
+      :gatherings="gatherings"
       :id="items.indexOf(selectedGathering)"
     />
   </div>
@@ -52,10 +52,16 @@ export default Vue.extend({
   components: {
     CharityCard,
   },
+  props: [
+    'gatheringId',
+  ],
   data () {
     return {
-      items: ['Бурганова Альфия, сбор 309', 'Садыков Амирхан, сбор 400'],
-      gathering: [
+      items: [
+        'Бурганова Альфия, сбор 309',
+        'Садыков Амирхан, сбор 400',
+      ],
+      gatherings: [
         {
           name: 'Бурганова Альфия',
           age: 16,
@@ -87,7 +93,7 @@ export default Vue.extend({
           collectedPercent: 60,
         },
       ],
-      selectedGathering: 'Бурганова Альфия, сбор 309',
+      selectedGathering: this.gatheringId,
     };
   },
 });

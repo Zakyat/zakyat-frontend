@@ -31,6 +31,7 @@
       small
       color="primary"
       height="40px"
+      :to="{name: 'charity'}"
     >
       {{ $t('give_help') }}
     </v-btn>
