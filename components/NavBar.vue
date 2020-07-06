@@ -1,6 +1,8 @@
 <template>
-  <v-app-bar flat color="white" height="100" style="padding: 0 5%;">
-    <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
+  <v-app-bar flat color="white" height="120" style="padding: 0 5%;">
+    <router-link to="/">
+      <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
+    </router-link>
     <v-spacer />
     <v-btn
       v-for="(page, i) in pages"
@@ -8,13 +10,38 @@
       :to="page.link"
       text
       nuxt
+      small
+      class="black--text"
     >
       {{ page.text }}
     </v-btn>
-    <v-btn rounded dark color="primary">
+    <v-btn
+      to="/zakat"
+      text
+      nuxt
+      small
+      class="green--text"
+    >
+      {{ $t('links.pay') }}
+    </v-btn>
+    <v-spacer />
+    <v-btn
+      rounded
+      dark
+      small
+      color="primary"
+      height="40px"
+    >
       {{ $t('give_help') }}
     </v-btn>
-    <v-btn rounded dark color="accent">
+    <v-spacer />
+    <v-btn
+      rounded
+      dark
+      small
+      color="accent"
+      height="40px"
+    >
       {{ $t('get_help') }}
     </v-btn>
   </v-app-bar>
@@ -31,7 +58,6 @@ export default Vue.extend({
         { text: this.$t('links.reports'), link: '/' },
         { text: this.$t('links.news'), link: '/news' },
         { text: this.$t('links.about'), link: '/' },
-        { text: this.$t('links.pay'), link: '/zakat' },
       ],
     };
   },

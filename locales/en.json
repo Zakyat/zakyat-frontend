@@ -52,7 +52,8 @@
     "zakat": {
       "title": "Make zakat",
       "description": "Zakat is an obligatory annual tax paid from various types of income by all capable and adult Muslims in favor of needy co-religionists.",
-      "pay": "Pay zakat"
+      "pay": "Pay zakat",
+      "for_pay": "To find out the size of your zakat, calculate it using a calculator."
     },
     "volunteer": {
       "title": "Become a volunteer friend of the foundation",
