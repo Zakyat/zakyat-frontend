@@ -1,59 +1,64 @@
 <template>
-  <v-layout class="donation-container" column>
-    <v-flex xs11 md8>
-      <h1>{{ $t('home.sadaka.title') }}</h1>
-      <p>{{ $t('home.sadaka.description') }}</p>
-    </v-flex>
-    <v-flex xs11>
-      <v-layout row wrap align-center justify-space-between>
-        <v-flex xs10 md3>
-          <v-text-field
-            v-model.number="amount"
-            rounded
-            dense
-            single-line
-            hide-details
-            class="amount"
-            :placeholder="`${$t('home.sadaka.enter_amount')}, ₽`"
-            outlined
-            dark
-            type="number"
-            min="1"
+  <v-container class="donation-container">
+    <v-row>
+      <v-col cols="11">
+        <h1>{{ $t('home.sadaka.title') }}</h1>
+        <p class="my-4">
+          {{ $t('home.sadaka.description') }}
+        </p>
+      </v-col>
+    </v-row>
+    <v-row class="mt-4">
+      <v-col cols="3">
+        <v-text-field
+          v-model.number="amount"
+          rounded
+          dense
+          single-line
+          hide-details
+          class="amount"
+          :placeholder="`${$t('home.sadaka.enter_amount')}, ₽`"
+          outlined
+          dark
+          type="number"
+          min="1"
+          height="50"
+        />
+      </v-col>
+      <v-col cols="7">
+        <v-radio-group
+          v-model="amount"
+          row
+          dark
+          dense
+          hide-details
+          class="amounts ml-5"
+          height="30"
+        >
+          <v-radio
+            v-for="a in amounts"
+            :key="a"
+            :label="`${a} ₽`"
+            :value="a"
           />
-        </v-flex>
-        <v-flex xs8 md7>
-          <v-radio-group
-            v-model="amount"
-            row
-            dark
-            dense
-            hide-details
-            class="amounts"
-          >
-            <v-radio
-              v-for="a in amounts"
-              :key="a"
-              :label="`${a} ₽`"
-              :value="a"
-            />
-          </v-radio-group>
-        </v-flex>
-        <v-flex xs1>
-          <v-btn rounded>
-            {{ $t('home.sadaka.donate') }}
-          </v-btn>
-        </v-flex>
-      </v-layout>
-    </v-flex>
-  </v-layout>
+        </v-radio-group>
+      </v-col>
+      <v-col cols="2">
+        <v-btn height="50" class="black--text mx-6" rounded>
+          {{ $t('home.sadaka.donate') }}
+        </v-btn>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
+
 <script lang="ts">
 import Vue from 'vue';
 
 export default Vue.extend({
   data () {
     return {
-      amounts: [1, 5, 10, 50, 100, 200, 300, 500],
+      amounts: [1, 5, 10, 50, 100, 200, 300],
       amount: null,
     };
   },
@@ -63,8 +68,8 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .donation-container {
   background-color: #00ac00;
-  width: 100%;
-  padding: 2% 7% 2% 7%;
+  max-width: 100%;
+  padding: 3% 6%;
   color: #fff;
 
   h1 {

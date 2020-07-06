@@ -136,7 +136,6 @@ export default Vue.extend({
 .swiper-container {
   width: 88%;
   min-height: 200px;
-  padding: 0 5%;
 
   .swiper-slide {
     width: 75%;
