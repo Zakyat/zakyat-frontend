@@ -5,7 +5,7 @@
     <v-col cols="12">
       <h3>{{ $t('charity.paymentMethod.title') }}</h3>
     </v-col>
-    <v-col cols="12" class="mt-0">
+    <v-col cols="12" class="mt-n2">
       <v-tabs
         v-model="tab"
         hide-slider
