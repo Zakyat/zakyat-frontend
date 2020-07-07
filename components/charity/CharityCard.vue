@@ -75,6 +75,7 @@
             :value="gatherings[id].collectedPercent"
             height="8"
             rounded
+            background-color="#DADADA"
           >
           </v-progress-linear>
         </v-col>
