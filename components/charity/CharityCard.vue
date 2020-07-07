@@ -30,17 +30,17 @@
           <v-progress-circular
             color="primary"
             :value="gatherings[id].collectedPercent"
-            size="55"
+            size="70"
             rotate="-90"
           >
-            <b>{{ gatherings[id].collectedPercent }}%</b>
+            <b class="percent-text">{{ gatherings[id].collectedPercent }}%</b>
           </v-progress-circular>
         </v-col>
       </v-row>
-      <p class="description">
+      <p class="description mt-3">
         {{ gatherings[id].text }}
       </p>
-      <v-row justify="space-between" class="px-3 mt-11">
+      <v-row justify="space-between" class="px-3 mt-8">
         <v-col
           cols="12"
           md="8"
@@ -113,6 +113,10 @@ export default Vue.extend({
 <style scoped>
 .charity-card-img {
   border-radius: 10px !important;
+}
+
+.percent-text {
+  font-size: 24px;
 }
 
 .description {
