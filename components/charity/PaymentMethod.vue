@@ -1,11 +1,11 @@
 <template>
   <v-row
-    class="mt-12"
+    class="mt-5"
   >
     <v-col cols="12">
       <h3>{{ $t('charity.paymentMethod.title') }}</h3>
     </v-col>
-    <v-col cols="12" class="mt-3">
+    <v-col cols="12" class="mt-0">
       <v-tabs
         v-model="tab"
         hide-slider
@@ -35,7 +35,7 @@
             v-if="item.payment === 'Банковская карта'"
             flat
           >
-            <v-card-text>{{ $t('charity.paymentMethod.bankDonationText') }}</v-card-text>
+            <v-card-text class="pa-0 ma-0 mt-n4">{{ $t('charity.paymentMethod.bankDonationText') }}</v-card-text>
             <DonationAmountSelection />
             <Contacts />
           </v-card>
@@ -43,7 +43,9 @@
             v-else
             flat
           >
-            <v-card-text>
+            <v-card-text
+              class="pa-0 ma-0 mt-n5"
+            >
               {{ $t('charity.paymentMethod.defaultText') }}
             </v-card-text>
           </v-card>
@@ -95,8 +97,7 @@ export default Vue.extend({
   border-radius: 30px;
 }
 
-.payment-tab
-{
+.payment-tab {
   width: 300px;
   border-radius: 30px !important;
 }

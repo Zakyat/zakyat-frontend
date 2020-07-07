@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <h3 v-if="userLogin" class="mt-12">{{ $t('charity.contacts.title') }}</h3>
+  <div class="mt-n6 mb-10">
+    <h3 v-if="userLogin" class="mt-12 mb-2">{{ $t('charity.contacts.title') }}</h3>
     <v-row
       v-if="userLogin"
     >

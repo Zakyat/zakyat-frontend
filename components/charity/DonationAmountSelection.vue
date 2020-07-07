@@ -1,6 +1,6 @@
 <template>
   <v-row
-    class="mt-12"
+    class="mt-8"
   >
     <v-row class="px-6">
       <v-tabs
@@ -26,14 +26,16 @@
           :key="item"
         >
           <v-card flat>
-            <v-card-text>
+            <v-card-text
+              class="pa-0 ma-0 mt-3"
+            >
               {{ item.content }}
             </v-card-text>
           </v-card>
         </v-tab-item>
       </v-tabs-items>
     </v-row>
-    <v-row class="px-3">
+    <v-row class="px-3 mt-2">
       <v-col
         cols="12"
         md="3"
@@ -110,8 +112,7 @@ export default Vue.extend({
   border-radius: 30px;
 }
 
-.donation-tab
-{
+.donation-tab {
   border-radius: 30px !important;
 }
 
