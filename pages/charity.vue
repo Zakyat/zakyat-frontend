@@ -1,7 +1,9 @@
 <template>
   <div class="white-background">
     <v-container>
-      <CharityBanner />
+      <CharityBanner
+        class="mt-5"
+      />
       <h1 class="mt-12">
         {{ $t('charity.title') }}
       </h1>

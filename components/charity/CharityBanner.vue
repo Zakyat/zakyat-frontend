@@ -4,7 +4,7 @@
     color="#F5B820"
     class="pa-0 ma-0 charity-banner"
   >
-    <v-row>
+    <v-row  class="px-4">
       <v-col
         cols="12"
         md="8"

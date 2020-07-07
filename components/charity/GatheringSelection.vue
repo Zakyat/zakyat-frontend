@@ -2,7 +2,7 @@
   <div class="px-3">
     <v-row
       justify="space-between"
-      class="mt-12"
+      class="mt-5"
     >
       <v-col
         cols="12"
