@@ -1,14 +1,16 @@
 <template>
-  <v-container>
-    <CharityBanner />
-    <h1 class="mt-12">
-      {{ $t('charity.title') }}
-    </h1>
-    <GatheringSelection
-      :gatheringId="gatheringId"
-    />
-    <PaymentMethod />
-  </v-container>
+  <div class="white-background">
+    <v-container>
+      <CharityBanner />
+      <h1 class="mt-12">
+        {{ $t('charity.title') }}
+      </h1>
+      <GatheringSelection
+        :gatheringId="gatheringId"
+      />
+      <PaymentMethod />
+    </v-container>
+  </div>
 </template>
 
 <script lang="ts">
@@ -35,4 +37,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+  .white-background {
+    background-color: white;
+  }
 </style>
