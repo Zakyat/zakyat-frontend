@@ -66,6 +66,9 @@
     "projects": {
       "title": "Projects",
       "help": "I want to help"
+    },
+    "news": {
+      "all": "See all"
     }
   },
   "zakat": {

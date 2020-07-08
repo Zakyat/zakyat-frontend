@@ -4,6 +4,13 @@
       <span class="ma-4">
         {{ $t('links.news') }}
       </span>
+      <v-spacer />
+      <span>
+        <v-btn class="mt-5 black--text" text>
+          {{ $t('home.news.all') }}
+          <v-icon>mdi-chevron-right</v-icon>
+        </v-btn>
+      </span>
     </v-row>
     <v-layout row>
       <v-flex
