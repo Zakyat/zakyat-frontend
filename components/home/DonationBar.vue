@@ -3,12 +3,12 @@
     <v-row>
       <v-col cols="11">
         <h1>{{ $t('home.sadaka.title') }}</h1>
-        <p class="my-4">
+        <p class="my-3">
           {{ $t('home.sadaka.description') }}
         </p>
       </v-col>
     </v-row>
-    <v-row class="mt-4">
+    <v-row>
       <v-col cols="3">
         <v-text-field
           v-model.number="amount"
