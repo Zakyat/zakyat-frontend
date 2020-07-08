@@ -309,5 +309,18 @@
       }
     ],
     "title": "Pay zakat"
+  },
+  "news": {
+    "sadaka": {
+      "description": "Sincerely, we will distribute any of your good deeds among those in need.",
+      "money_amount_input": "Amount of Sadaka, ₽",
+      "title": "Make a sadaka"
+    },
+    "tags": {
+      "clear_tags_button": "Clear",
+      "search_tags_input": "Enter tag",
+      "show_tags_button": "Show by tags"
+    },
+    "title": "news"
   }
 }
