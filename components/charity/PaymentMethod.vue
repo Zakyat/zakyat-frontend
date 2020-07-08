@@ -20,6 +20,7 @@
           :key="item"
           class="payment-tab"
           active-class="payment-tab-primary"
+          style="text-transform: inherit; font-size: 15px;"
         >
           {{ item.payment }}
         </v-tab>

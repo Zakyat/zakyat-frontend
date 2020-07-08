@@ -15,6 +15,7 @@
           :key="item"
           class="donation-tab"
           active-class="donation-tab-primary"
+          style="text-transform: inherit; font-size: 15px;"
         >
           {{ item.donation }}
         </v-tab>
