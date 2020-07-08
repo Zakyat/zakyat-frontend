@@ -21,14 +21,14 @@
         </v-tab>
       </v-tabs>
 
-      <v-tabs-items v-model="tab">
+      <v-tabs-items class="mt-3" v-model="tab">
         <v-tab-item
           v-for="item in donationTabs"
           :key="item"
         >
           <v-card flat>
             <v-card-text
-              class="pa-0 ma-0 mt-3"
+              class="pa-0 ma-0"
               style="color: black;"
             >
               {{ item.content }}

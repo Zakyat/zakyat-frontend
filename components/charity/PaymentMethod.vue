@@ -27,7 +27,7 @@
       </v-tabs>
     </v-col>
     <v-col cols="12">
-      <v-tabs-items v-model="tab">
+      <v-tabs-items class="mt-n4" v-model="tab">
         <v-tab-item
           v-for="item in paymentTabs"
           :key="item"
@@ -37,7 +37,7 @@
             flat
           >
             <v-card-text
-              class="pa-0 ma-0 mt-n4"
+              class="pa-0 ma-0"
               style="color: black;"
             >
               {{ $t('charity.paymentMethod.bankDonationText') }}
@@ -50,7 +50,7 @@
             flat
           >
             <v-card-text
-              class="pa-0 ma-0 mt-n5"
+              class="pa-0 ma-0"
               style="color: black;"
             >
               {{ $t('charity.paymentMethod.defaultText') }}
