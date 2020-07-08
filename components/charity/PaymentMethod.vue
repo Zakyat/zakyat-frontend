@@ -20,7 +20,6 @@
           :key="item"
           class="payment-tab"
           active-class="payment-tab-primary"
-          style="text-transform: inherit; font-size: 15px;"
         >
           {{ item.payment }}
         </v-tab>
@@ -107,6 +106,8 @@ export default Vue.extend({
 .payment-tab {
   width: 300px;
   border-radius: 30px !important;
+  text-transform: inherit;
+  font-size: 15px;
 }
 
 .payment-tab-primary {

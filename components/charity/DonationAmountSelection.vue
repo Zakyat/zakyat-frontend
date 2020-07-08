@@ -15,7 +15,6 @@
           :key="item"
           class="donation-tab"
           active-class="donation-tab-primary"
-          style="text-transform: inherit; font-size: 15px;"
         >
           {{ item.donation }}
         </v-tab>
@@ -116,6 +115,8 @@ export default Vue.extend({
 
 .donation-tab {
   border-radius: 30px !important;
+  text-transform: inherit;
+  font-size: 15px;
 }
 
 .donation-tab-primary {
