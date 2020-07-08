@@ -8,13 +8,10 @@
         centered
         grow
         hide-slider
-        class="donation-tabs pa-1"
       >
         <v-tab
           v-for="item in donationTabs"
           :key="item"
-          class="donation-tab"
-          active-class="donation-tab-primary"
         >
           {{ item.donation }}
         </v-tab>
@@ -106,22 +103,6 @@ export default Vue.extend({
 .amounts {
   border: 1px solid black;
   border-radius: 25px;
-}
-
-.donation-tabs {
-  border: 1px solid black;
-  border-radius: 30px;
-}
-
-.donation-tab {
-  border-radius: 30px !important;
-  text-transform: inherit;
-  font-size: 15px;
-}
-
-.donation-tab-primary {
-  background-color: #00ac00;
-  color: white;
 }
 
 .black-label /deep/ label {

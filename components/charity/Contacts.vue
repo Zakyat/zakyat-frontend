@@ -65,10 +65,10 @@
         md="auto"
       >
         <v-checkbox
-          label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
           class="my-0 py-0 black-label"
           on-icon="mdi-check-box-outline"
         >
+          <span slot="label">Я принимаю <n-link color="primary" to="/">условия публичной оферты</n-link> и даю согласие на <n-link color="primary" to="/">обработку персональных данных</n-link></span>
         </v-checkbox>
       </v-col>
       <v-col
