@@ -9,8 +9,9 @@
         sm6
         md4
         lg3
+        class="d-flex"
       >
-        <v-card class="ma-4 project" outlined color="#F2F2F2" min-height="350">
+        <v-card class="ma-4 project flex" outlined color="#F2F2F2" min-height="350">
           <v-card-title>{{ item.title }}</v-card-title>
           <v-card-text class="text-center">
             <img v-if="item.src" :src="item.src" style="max-width: 100%;">
