@@ -28,7 +28,7 @@
         class="pa-0 md-0"
       >
         <v-checkbox
-          class="pa-0 md-0"
+          class="pa-0 md-0 black-label"
           :label="$t('charity.gathering.anonymous')"
           on-icon="mdi-check-box-outline"
         >
@@ -100,4 +100,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+  .black-label /deep/ label {
+    color: black;
+  }
 </style>

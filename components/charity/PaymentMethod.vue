@@ -36,7 +36,12 @@
             v-if="item.payment === 'Банковская карта'"
             flat
           >
-            <v-card-text class="pa-0 ma-0 mt-n4">{{ $t('charity.paymentMethod.bankDonationText') }}</v-card-text>
+            <v-card-text
+              class="pa-0 ma-0 mt-n4"
+              style="color: black;"
+            >
+              {{ $t('charity.paymentMethod.bankDonationText') }}
+            </v-card-text>
             <DonationAmountSelection />
             <Contacts />
           </v-card>
@@ -46,6 +51,7 @@
           >
             <v-card-text
               class="pa-0 ma-0 mt-n5"
+              style="color: black;"
             >
               {{ $t('charity.paymentMethod.defaultText') }}
             </v-card-text>
@@ -94,7 +100,7 @@ export default Vue.extend({
 
 <style scoped>
 .payment-tabs {
-  border: 1px solid grey;
+  border: 1px solid black;
   border-radius: 30px;
 }
 

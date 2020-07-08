@@ -66,7 +66,7 @@
       >
         <v-checkbox
           label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
-          class="my-0 py-0"
+          class="my-0 py-0 black-label"
           on-icon="mdi-check-box-outline"
         >
         </v-checkbox>
@@ -99,4 +99,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+  .black-label /deep/ label {
+    color: black;
+  }
 </style>

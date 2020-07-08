@@ -29,6 +29,7 @@
           <v-card flat>
             <v-card-text
               class="pa-0 ma-0 mt-3"
+              style="color: black;"
             >
               {{ item.content }}
             </v-card-text>
@@ -66,7 +67,7 @@
             :key="a"
             :label="`${a} ₽`"
             :value="a"
-            class="pa-2"
+            class="pa-2 black-label"
           />
         </v-radio-group>
       </v-col>
@@ -104,12 +105,12 @@ export default Vue.extend({
 
 <style scoped>
 .amounts {
-  border: 1px solid grey;
+  border: 1px solid black;
   border-radius: 25px;
 }
 
 .donation-tabs {
-  border: 1px solid grey;
+  border: 1px solid black;
   border-radius: 30px;
 }
 
@@ -120,5 +121,9 @@ export default Vue.extend({
 .donation-tab-primary {
   background-color: #00ac00;
   color: white;
+}
+
+.black-label /deep/ label {
+  color: black;
 }
 </style>
