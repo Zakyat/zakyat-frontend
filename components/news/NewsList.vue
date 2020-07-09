@@ -5,9 +5,10 @@
     class="px-2"
   >
     <NewsCard
-      v-for="newsItem in news"
+      v-for="(newsItem, id) in news"
       :key="newsItem.title"
       v-bind="newsItem"
+      :id="id"
     />
   </v-col>
 </template>

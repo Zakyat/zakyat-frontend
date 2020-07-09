@@ -7,8 +7,7 @@
         cols="auto"
       >
         <h2 class="">
-<!--          {{ $t('links.news') }}-->
-          Другие новости
+          {{ $t('about_news.other_news') }}
         </h2>
       </v-col>
       <v-col
@@ -17,7 +16,7 @@
         <v-btn
           text
         >
-          Смотреть все <v-icon>mdi-chevron-right</v-icon>
+          {{ $t('about_news.see_all') }} <v-icon>mdi-chevron-right</v-icon>
         </v-btn>
       </v-col>
     </v-row>
