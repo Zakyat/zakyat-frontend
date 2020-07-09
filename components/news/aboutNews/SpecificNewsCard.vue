@@ -27,20 +27,19 @@
       {{ news[id-1].author }}
     </v-card-text>
     <v-row
+      style="width: 80%;"
     >
       <v-col
-        cols="auto"
-        v-for="tag in 15"
+        v-for="tag in news[id-1].tags"
         :key="tag"
+        cols="auto"
         class="py-0"
       >
         <v-card-text
           class="pa-0"
           style="color: #00ac00;"
-          v-for="tag in news[id-1].tags"
-          :key="tag"
         >
-<!--          {{ tag }}-->
+          {{ tag }}
         </v-card-text>
       </v-col>
     </v-row>
