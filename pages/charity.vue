@@ -10,7 +10,7 @@
       <GatheringSelection
         :gatheringId="gatheringId"
       />
-      <PaymentMethod />
+      <PaymentMethod class="mb-12" />
     </v-container>
   </div>
 </template>
