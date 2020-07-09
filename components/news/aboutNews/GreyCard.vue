@@ -3,6 +3,7 @@
     flat
     height="400"
     color="#dadada"
+    style="border-radius: 10px;"
   >
   </v-card>
 </template>
