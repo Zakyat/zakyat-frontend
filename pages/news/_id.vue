@@ -23,9 +23,9 @@
 
 <script>
 import Vue from 'vue';
-import SpecificNewsCard from '~/components/news/aboutNews/SpecificNewsCard';
-import GreyCard from '~/components/news/aboutNews/GreyCard';
-import OtherNews from '~/components/news/aboutNews/OtherNews';
+import SpecificNewsCard from '~/components/aboutNews/SpecificNewsCard';
+import GreyCard from '~/components/aboutNews/GreyCard';
+import OtherNews from '~/components/aboutNews/OtherNews';
 
 export default Vue.extend({
   components: {
