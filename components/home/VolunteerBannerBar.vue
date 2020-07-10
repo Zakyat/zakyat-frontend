@@ -2,8 +2,10 @@
   <v-layout class="volunteer-container" row>
     <v-flex xs12 md6>
       <h1>{{ $t('home.volunteer.title') }}</h1>
-      <p>{{ $t('home.volunteer.description') }}</p>
-      <v-btn rounded>
+      <p class="my-5">
+        {{ $t('home.volunteer.description') }}
+      </p>
+      <v-btn height="40" rounded>
         {{ $t('home.volunteer.join') }}
       </v-btn>
     </v-flex>
@@ -26,7 +28,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .volunteer-container {
   background-color: #3840f1;
-  padding: 2% 7% 2% 7%;
+  padding: 7% 7% 5% 7%;
   color: #fff;
 
   h1 {

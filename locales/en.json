@@ -30,7 +30,7 @@
   "home": {
     "about": {
       "title": "About Us",
-      "paragraph1": "Zakat Charity Foundation established by the Central Religious Organization of the Spiritual Administration of Muslims in the Republic of Tatarstan in 1998. Charity Fund “Zakat” collects and distributes Zakat and Sadak in the Republic Tatarstan The collection of Zakat and Sadak is carried out by the foundation’s specialists. Distribution of Zakat and Sadak is carried out by decision of the commission. Consultations The Fund’s Council for the implementation of the Fund’s activities is the Ulema Council of the CRO-DUM RT.",
+      "paragraph1": "Zakat Charity Foundation was established by the Central Religious Organization of the Spiritual Administration of Muslims in the Republic of Tatarstan in 1998. Charity Fund “Zakat” collects and distributes Zakat and Sadak in the Republic Tatarstan The collection of Zakat and Sadak is carried out by the foundation’s specialists. Distribution of Zakat and Sadak is carried out by decision of the commission. Consultations The Fund’s Council for the implementation of the Fund’s activities is the Ulema Council of the CRO-DUM RT.",
       "paragraph2": "Zakat Charity Fund Helps Help the Most Unprotected strata of the population: large families, low-income families who find themselves in difficult lifethe situation; orphans and single elderly people. The fund also collects funds and helps in paying for treatment of seriously ill children and adults.",
       "learn_more": "Learn more"
     },
@@ -52,10 +52,11 @@
     "zakat": {
       "title": "Make zakat",
       "description": "Zakat is an obligatory annual tax paid from various types of income by all capable and adult Muslims in favor of needy co-religionists.",
-      "pay": "Pay zakat"
+      "pay": "Pay zakat",
+      "for_pay": "To find out the size of your zakat, calculate it using a calculator."
     },
     "volunteer": {
-      "title": "Become a volunteer",
+      "title": "Become a volunteer friend of the foundation",
       "description": "If you want to cheer up the needy and make their life better, we will gladly accept you into our friendly team of like-minded people. Leave your contact details and tell us how you want to help. We will contact you as soon as we consider your offer!",
       "join": "Become a volunteer"
     },
@@ -66,5 +67,260 @@
       "title": "Projects",
       "help": "I want to help"
     }
+  },
+  "zakat": {
+    "about": {
+      "required_to_pay": {
+        "conditions": "As for the conditions of validity of zakat, first of all is obligatory nyat (intention). Zakat cannot be declared valid without intention, since its payment is an act of worship. In addition, the condition is “tamlik”, meaning “transfer of property to property”. Zakat will not be counted if you simply allow it to eat by preparing food and feeding it to the poor, without observing the rest of the conditions.",
+        "list": [
+          [
+            "Muslim"
+          ],
+          [
+            "competent"
+          ],
+          [
+            "religion-related adults"
+          ],
+          [
+            "free."
+          ],
+          [
+            "the owner",
+            {
+              "description": "the size of the nisab, actual or potentially growing, that is, generating profit, and exceeding its debts and expenses for basic needs. By “growing” is meant the provision of property with income, profit and benefit for its owner, or its inherent property to grow and increase.",
+              "text": "property in the amount of nisab."
+            }
+          ],
+          [
+            "preservation of property that has reached the size of nisab after a year",
+            {
+              "description": "Islamic calendar, ends with the month of Suhl-Hijjah",
+              "text": "according to the lunar calendar"
+            },
+            ". In this case, zakat may be paid before the deadline."
+          ]
+        ],
+        "question": "Who is required to pay zakat?",
+        "should_be": "For zakat to be obligatory for a person, it must be:"
+      },
+      "what_is_zakat": {
+        "paragraphs": [
+          [
+            "\"Zakat\" means a fixed amount of funds that a person possessing property in the amount accepted in religion as a sign of wealth -",
+            {
+              "description": "Nisab is a criterion of wealth, taken as a basis for a person to be obliged to pay zakat. The size of nisab is equal to 20 miscals of gold (85 gr.), 5 camels, 30 cows or bulls, 40 sheep or goats.",
+              "text": "nisab"
+            },
+            ", must convey to certain people for the sake of the satisfaction of Allah."
+          ],
+          [
+            "Noble Kurjan explains in detail to whom it is intended",
+            {
+              "description": "Sura at-Taub, ayat 60",
+              "text": "zakat"
+            },
+            ", and the volume of nisab is reported in",
+            {
+              "description": "Bukhari, Zakat, 32, 36, 38, 43",
+              "text": "hadithah"
+            },
+            ". In accordance with which, a person who has property in the amount of nisab minus expenses for basic needs, subject to other conditions, must pay zakat from this property."
+          ],
+          [
+            "The conditions regarding worship in the form of payment of zakat are considered under two separate headings: the conditions under which zakat is obligatory for anyone, and the conditions of validity of zakat."
+          ]
+        ],
+        "question": "What is zakat?"
+      }
+    },
+    "calculator": {
+      "acording_to": "According to the CBRF",
+      "donate": "To pay",
+      "gold": "84.4 g gold",
+      "input_label": "Amount of your money, ₽",
+      "nisab_for": "Nisab on",
+      "subtitle": "Calculate zakat from your state",
+      "taxable_amount": "0.025 x taxable",
+      "taxable_amount2": "Zakay sum",
+      "title": "Pay zakat",
+      "your_zakat": "Your zakat"
+    },
+    "questions": [
+      {
+        "answer": "In order for someone to be obliged to pay zakat, he must be rational and adult in terms of religion. According to the Hanafi madhhab, there is no need to pay zakat from the property of minor children, even if they are wealthy. However, the osher from the harvest collected from the land belonging to these children must be paid.",
+        "question": "Is it necessary to pay zakat from the property of wealthy children under the age of religion (puberty)?"
+      },
+      {
+        "answer": "In Islam, the basis is the individuality of property. According to which, if a person possesses property corresponding to nisab, he is obliged to pay zakat, even if he lives with his father. However, if such a person did not distribute the property with his father, they earn and spend together, the obligation to pay zakat rests on the shoulders of the person who disposes of this property.",
+        "question": "Is a person living with his father obligated to pay zakat?"
+      },
+      {
+        "answer": "In Islam, in the case of the payment of zakat, as in other cases related to bodily and property obligations, the person has an adequate and lifting responsibility, taking into account his situation. For this reason, Islamic scholars have made the condition of encumbrance with zakat and sadak al-fitr possession of property in the amount of nisab remaining after spending a person on his own basic needs and the needs of family members, which he is obliged to support. Basic needs are things that a person needs in order to preserve his life and freedom. These things include housing, nafaka (food, drink, health costs), transportation, education, furniture, tools and equipment necessary for creativity and the profession, books, safety equipment, electricity, water, fuel, rent and others operating expenses, as well as cash allocated to meet these basic needs.",
+        "question": "What are the basic necessities of life (al-hawaij al-asliya)?"
+      },
+      {
+        "answer": "Tools, equipment and objects necessary for the realization of creativity and profession are part of the basic needs (al-hawaij al-asliyya). Therefore, they do not need to pay zakat. However, it is necessary to pay zakat with tools, equipment and items that are produced or purchased for further sale, and not for the person to conduct his profession.",
+        "question": "Is it necessary to pay zakat from the tools and means used in the work?"
+      },
+      {
+        "answer": "Property resold for profit is called property held for sale. A person possessing such property in the amount equivalent to 85 grams of gold, and provided that it remains after the lunar year, is obligated to pay zakat from it in the amount of one fortieth part (2.5%). Zakat is paid on property that is actually or potentially (existing debt to a person) owned, which remains after the lunar year and subject to other conditions. When calculating zakat, the predicted (expected) increase in the value of property is not taken into account. The same principle applies to property held for sale. In this regard, when paying zakat from property intended for sale, the estimated future profit from this property is not taken into account, but only its financial value (market value) at the time of sale is taken into account.",
+        "question": "How is zakat calculated on property held for sale?"
+      },
+      {
+        "answer": "Zakat from property intended for sale may be paid both in cash or as part of this property.",
+        "question": "Can zakat from property held for sale be paid by the same property?"
+      },
+      {
+        "answer": "Zakat from livestock can be paid both as part of this livestock and in cash. However, it is preferable to choose what will be more useful for the needy.",
+        "question": "Is it possible to pay zakat for cattle with money?"
+      },
+      {
+        "answer": "Jewelry made of gold and silver, subject to the remaining conditions, according to the scholars of the Hanafi madhhab, fall under the influence of zakat. In this connection, if these jewelry reached or exceeded 85 grams in gold or 600 grams in silver equivalent, and survived after the lunar year, then zakat is paid from them in the amount of one fortieth part. For jewelry made from precious stones or precious metals other than gold and silver, zakat is not paid.",
+        "question": "Are jewelry the property from which zakat is paid?"
+      },
+      {
+        "answer": "The difference in the gold sample does not matter in terms of nisab formation. After all, no matter what sample is gold, in the end it remains gold. In accordance with this, if the total weight of all gold items, even if they have different samples, reaches 85 grams, and the remaining conditions are met, they will be paid zakat. However, in this case, the calculation of the amount of payment of zakat in monetary terms is made taking into account the fact that each product has a different value, and not based on one fortieth part of the total weight of these products.",
+        "question": "How is the amount of paid zakat calculated for a person holding gold having different samples?"
+      },
+      {
+        "answer": "Property owned for resale is subject to the payment of zakat. In accordance with this, from real estate owned by people not for their intended purpose, but for further sale, provided that it is stored for a year according to the lunar calendar and its price, net of debts, has reached nisab, zakat is paid in the amount of 2.5% of their market value at the time of payment. Zakat from real estate acquired as an investment or for the purpose of further resale, that is, in order to sell it later, when it grows in value, is paid annually based on its market value. Zakat is not paid from land plots bought with the intention of building a house, a shop, a garden, a garden on them.",
+        "question": "Is it necessary to pay zakat from real estate acquired as an investment or for resale?"
+      },
+      {
+        "answer": "Real estate acquired by agents for the purpose of sale is subject to the payment of zakat. According to this, real estate owned by agents for the purpose of selling, subject to preservation after a year and achieving the size of nisab minus debts, is subject to payment of zakat in the amount of 2.5% of the market value at the time of payment. It is not necessary that during the year each property is maintained separately. Therefore, after zakat becomes mandatory, the cost of the real estate transferred to the property and the rest of the movable and immovable property is calculated, and zakat is paid. When paying zakat from real estate that falls under these conditions, their market value at the time of payment is taken as a basis.",
+        "question": "Is a real estate agent obligated to pay zakat from the property that is in his possession?"
+      },
+      {
+        "answer": "Since the company is a legal entity, it is not the company itself that pays the zakat, but its co-owners, if their share individually or together with the rest of their property, if any, reaches the size of a nisab. According to this, a person who has a nisab, in addition to basic necessities and money for basic needs, provided that the nisab is saved after a year, must pay zakat. Stationary equipment (machines, tools, etc.) of companies operating in industrial sector exempted from zakat. Working capital (semi-finished products, manufactured products, raw materials, cash, checks, etc.), together with net profit, is taxed with a 2.5% zakat after the financial value of obligations, expenses for materials, production, sales, is deducted management, financing. Consequently, the co-owner of such a company must pay zakat if the size of the nisab reaches its share in current assets and remains after a year, and not its share in fixed assets (offices, transport, office equipment). The same is true for companies operating in the field of trade. If shareholders delegate responsibilities for paying zakat to management, management can pay zakat from their share by proxy. In this case, the calculation of the value of zakat occurs as if the payer is an individual (the aggregate property of all co-owners is taken as the property of one person). If the company has not paid zakat with a share, the co-owners must do it themselves. Each year, according to the lunar calendar, a balance sheet is drawn up and an inventory is made. The cost of working capital, checks, obligations to the company is calculated, all this is summed up, the obligations of the company itself, if any, are deducted, and 2.5% of this amount is paid in the form of a zakat.",
+        "question": "How do co-owners of companies pay zakat?"
+      },
+      {
+        "answer": "A person who has acquired shares in a company becomes a co-owner of the buildings, equipment and inventory of this company in proportion to the number of shares held by him. In this case, the shareholder also shares the profit and loss that the company may receive. If the dividends accruing to the shareholder in the event of making a profit, individually or together with the rest of his property, reach the size of nisab and remain after the end of the year, then zakat applies in the amount of 2.5%. If these shares were not acquired for the purpose of becoming their holder and receiving dividends, but for resale, they are regarded as property held for sale. If their price individually or together with the rest of the property to which zakat extends reaches nisab, then zakat is paid from them in the amount of 2.5% of their market value.",
+        "question": "Is it necessary to pay zakat from stocks?"
+      },
+      {
+        "answer": "A person who is obligated to pay zakat deducts debts affecting the rights of other people from property previously covered by payments on it. According to the more common view of the Hanafi madhhab on this issue, debts whose payment day has come and not come fall under a single legal assessment. However, according to some Hanafi scholars, only those debts whose due date has arrived and the payment of which has already begun to be demanded are deducted from the value of the property subject to the payment of zakat; debts whose return day has not yet arrived are not deductible. The full amount of such modern types of debt as credit, mortgage, contributions to housing cooperatives, etc., which are repaid over many years, is also deducted from the payment of zakat.",
+        "question": "What debts are deducted from the value of the property subject to the payment of zakat?"
+      },
+      {
+        "answer": "From the standpoint of distribution or non-distribution of zakat payments to them, obligations to the lender are divided into three categories: 1. Reliable / strong debt. This is the money that the lender transferred to others as a debt or a debt formed as a result of the sale of goods on credit. If this debt is recognized by the debtor or there is a categorical argument confirming its existence, then the lender is obliged to pay zakat from it annually (subject to the remaining conditions of zakat). If zakat has not been paid over the past years, it will be reimbursed after receiving the debt. 2. Debt of medium reliability / average debt. This is a debt formed from income from property not intended for sale. Such as rent for an apartment. In the case of this debt, a refund for past unpaid zakat is also realized. However, in order for their repayment to become mandatory, the amount of the already repaid debt must reach the size of the nisab. 3. Unreliable debt / weak debt. This category includes probate payments, mahra, diya. Debts of this kind were not formed as a result of the exchange of goods. Their availability does not require reimbursement of unpaid zakat over the past years. Zakat from these debts is paid in a year from the moment of their repayment. There is no need for the annual payment of zakat from debt that is not recognized by the debtor, and debt, the probability of return of which is extremely small. If such a seemingly hopeless debt is nevertheless repaid, zakat is paid only for one year from the date of repayment. There is no need to pay zakat over the past years.",
+        "question": "Is it necessary for the lender to pay zakat with the debt owed to him?"
+      },
+      {
+        "answer": "The transfer of money or property into the property of the poor (tamlik) is a condition for the validity of zakat. Which in turn is carried out by real transfer of zakat to this person. Moreover, the person will not make the transfer / Tamilik by preparing food and announcing that the poor can feed it, or by feeding them. However, if the same food is prepared and handed over to the poor with the intention of paying zakat, tamlik will be implemented, that is, zakat will be paid. According to which, in the case when a person, giving money in debt, does not intend to pay zakat thereby, and later decides to do so, tamlik is not carried out, since the money itself is not available at that moment. Therefore, payment of zakat will not take place in that in the case when someone, having loaned money, later decides to forgive this debt with the intention of paying off zakat in this way. Scientists of all four madhhabs adhere to this opinion.",
+        "question": "Can debts to the lender be counted as his zakat?"
+      },
+      {
+        "answer": "Zakat can be paid on property such as food and clothing as part of this property, the same provision applies to money, currency and gold. A check or a receipt is a document informing that a property or money belongs to a specific person, drawn up between two or more persons. Consequently, they represent property or money in the amount prescribed in them. For this reason, a rich person who is under the obligation to pay zakat can transfer a check or receipt that is reliable in his conviction to the poor on account of this payment. However, the responsibility is removed from this person only after the poor have received the money. If payment by receipt does not occur, payment of zakat will need to be repeated.",
+        "question": "Can a check or receipt be given instead of zakat?"
+      },
+      {
+        "answer": "Zakat extends to agricultural products. “Ushr”, lexically meaning “one-tenth,” as a religious term means zakat, paid from agricultural products. This decision was approved by Kurjan and Sunna. Allah Almighty says: “O believers! Spend from the goods you have obtained and from what We have grown for you from the earth! Do not try to spend (for good purposes) bad things that you yourself would not take, unless with your eyes closed. And know that Allah is the One who does not need anyone and needs nothing, Praised ”(surah al-Bakar, ayat 267); “And He is the One who created gardens (with plants) spreading on the earth (like a watermelon) and not spreading (rising above the surface of the earth, like trees and shrubs), date palms and (all kinds of) cereals with different tastes, olives and pomegranates, having (some) similarities (in color and taste) and differences (in color, taste, size and smell). Eat (all) these fruits when they ripen, and pay tribute ('ushr and zakat) on the harvest day. But do not be wasteful (giving too much and leaving your families in need), because He does not like the wasteful ”(sura al-An'am, verse 141). The zakat size of these products is determined directly by the Prophet Muhammad ﷺ. One noble hadeeth says: “Those lands that are irrigated by rains, underground water or other natural means should be tithed, and half that is required from lands requiring artificial irrigation” (Bukhari, Zakat, 55).",
+        "question": "Does zakat apply to agricultural products?"
+      },
+      {
+        "answer": "As a rule, it has been established that one tenth of the price is paid for products received from land whose irrigation did not bring any costs; at the same time, one twentieth part is given from products received from lands whose irrigation required certain efforts and expenditures. The size of nisab in such agricultural products suitable for long-term storage as wheat, barley, corn, rice is five vaskas. In modern units of measurement, this value ranges between 653 and 1000 kg. For example, this corresponds to 653 kg. wheat. In the remaining products, nisab is equal to their amount equivalent to the cheapest five vaskas of the above products. The same rules apply to products grown in greenhouses.",
+        "question": "Are 'crop costs' taken into account when paying 'oats?'"
+      },
+      {
+        "answer": "'Ushr from the land leased, according to the majority in the Hanafi madhhab, including Imam Abu Yusuf and Muhammad, remains with the tenant. Because 'ushr is the right of farmed products, not land. And since all the products go to the tenant, he is obliged to pay the 'usher. At the same time, 'land from the land leased under the partnership agreement will be paid by the lessor and tenant in direct proportion to their shares. Each of them will pay ushr with the products he has got. Gratuitous transfer of land for use to the poor or relatives with the intention of doing a good deed, maintaining family ties and for other reasons, is an act to which our religion calls. 'Ushr from the land transferred for temporary use in this way rests with the one who uses it. There is no liability on the land owner.",
+        "question": "Who pays tithing from leased land?"
+      },
+      {
+        "answer": "The agricultural products from which 'ushr has already been paid are not re-paid, no matter how much they are in warehouses until they are converted into cash. However, if these products are sold and converted into money, then they will be considered with the rest of the Zakat property.",
+        "question": "Is it necessary to repay 'ushr and zakat from agricultural products from which' ushr has already been paid, but they still remain in the hands of the owner after a year?"
+      },
+      {
+        "answer": "If money acquired illegally has a master and he is known, then they must be returned to him. If the owner of this money is unknown, it is necessary to get rid of it by distributing it to the poor or charitable organizations, without expecting any reward for it (savaba). Thus, zakat does not apply to money received illegally, because they are discarded from themselves by returning to the true owner or wasting to charity.",
+        "question": "Is it necessary to pay zakat from profits made illegally?"
+      },
+      {
+        "answer": "People on whom zakat is spent are indicated in Noble Kurjan. “(Mandatory) donations (called zakat) are given only to the poor (who don’t have enough money) and the poor (those who don’t have the means to live), to those who collect them (and also distribute and keep records of zakat), and whose hearts (and disposition) they want to win, (for ransom) slaves (working for their liberation - mukatab), debtors, (for expenses) on the path of Allah and travelers (who have no means to continue their journey). So Allah established. And Allah is Knowing, Wise ”(Sura al-Tauba, ayat 60). The poor (those who live in poverty) and the poor (those who have nothing) are those who do not have a nisab besides their basic needs. Zakat cannot be paid to a person who has any property in the amount of nisab, minus expenses for basic needs, regardless of whether it is subject to growth or not, since it does not fit the definition of a poor or a beggar. A debtor is one who has property from which it is necessary to pay a debt and does not have a nisab. The traveler, unable to continue the journey. This is someone who was left without funds during his travels and does not have access to funds, even if they have them in his homeland. In other words, this one who is stuck on the road and cannot return home due to the fact that he has no money. Such a person may be paid zakat sufficient for him to be able to return to where he has property. This rule does not apply to the modern traveler if he has access to funds at home through bank cards or other tools. The phrase \"fi sabilllah\" means \"in the way of Allah.\" According to some commentators, this fragment of the ayah refers to real people who have dedicated themselves to the Almighty and Islam, and who have advanced on the path to perform the hajj, military service or gain knowledge.",
+        "question": "Who is paid zakat?"
+      },
+      {
+        "answer": "According to the Hanafis, Zakat and Sadak al-Fitr are not paid to the following categories of people: 1. Mothers, fathers, grandparents; 2. sons, daughters, grandchildren and great-grandchildren; 3. to wives; 4. non-Muslims 5. rich, that is, those who, in addition to basic necessities and money for these needs, have property in the amount of nisab; 6. children under the age of majority with rich fathers.",
+        "question": "Who should not pay zakat?"
+      },
+      {
+        "answer": "Zakat can be paid to foster fathers, foster mothers, and foster children if they are poor. Since there is no connection between us who pay zakat and usul (heirs of ascending kinship) and furu (heirs of descending kinship).",
+        "question": "Is Zakat paid to foster fathers, foster mothers (guardians) and foster children?"
+      },
+      {
+        "answer": "It is acceptable to pay zakat to sons-in-law and daughters-in-law who are poor. Indeed, between those who pay zakat and they have no connection between usul (heirs of an ascending kinship) and a wagon '(heirs of a descending kinship).",
+        "question": "Is it possible to pay zakat to my son-in-law and daughter-in-law?"
+      },
+      {
+        "answer": "Zakat can be paid to father-in-law and mother-in-law / mother-in-law if they are poor. Indeed, between those who pay zakat and they have no connection between usul (heirs of an ascending kinship) and a wagon '(heirs of a descending kinship).",
+        "question": "Is it permissible to pay zakat to father-in-law / father-in-law and mother-in-law / mother-in-law?"
+      },
+      {
+        "answer": "Dairy mothers and fathers can become the recipients of zakat, because there is no connection between us who pay zakat and usul (heirs of ascending kinship) and furu (heirs of descending kinship).",
+        "question": "Is zakat paid to the milk mother and the milk father?"
+      },
+      {
+        "answer": "In Islam, the categories of people for whom zakat is intended or not intended are defined without regard to the nature of their activity. Therefore, zakat can be paid to people who have an income, but they are not able to satisfy their basic needs with this income, or after satisfying them they do not have 85 grams of gold or equivalent property in their hands. It makes no difference whether these people are salary officials, artisans or unemployed. However, since there are scholars who are of the opinion that those who are able to satisfy their own basic needs and the needs of those they are required to support should not receive zakat, even if they do not have property equivalent to nisab, when paying zakat it will be more correct to give preference to the poorer to people.",
+        "question": "Is it possible to pay zakat to those who live on wages or salaries?"
+      },
+      {
+        "answer": "In order for the material assistance provided by the company to be classified as zakat, the following conditions must be met: 1. aid must be provided with the intention of zakat, 2. recipients of assistance must fall into the category of people who have zakat, 3. if it is the company, its co-owners must give managers the power of attorney to pay zakat, 4. assistance should not be part of the promotion, or prescribed in the contract payments.",
+        "question": "Can a firm consider the material aid it provides to its employees a zakat?"
+      },
+      {
+        "answer": "The recipients of zakat are registered in the 60th verse of Sura al-Taub. According to which, zakat is basically the right of the poor and needy people. Therefore, according to the Hanafites, it is not acceptable to donate zakat and sadak al-fitr for such charitable purposes as the construction and maintenance of mosques, bridges, roads, schools, springs. Payments made with nyakah zakat, however, without taking into account these principles, are not counted as having taken place. Zakat can be transferred to people who are allowed to receive it, either directly or through intermediaries. There is no difference between whether the intermediary is a natural or legal person. Accordingly, if a charity and public organization delivers the zakat it has collected to the recipients agreed upon in Kurjan, the poor and needy, zakat can be entrusted to these organizations, which are in the status of an intermediary. At the same time, zakat cannot be transferred to organizations that do not deliver these funds to those for whom they are intended, but spend them on construction, lighting, office maintenance, etc. It is important to support organizations serving the public so that they can continue to exist.",
+        "question": "Is it possible to pay zakat to charities and public organizations?"
+      },
+      {
+        "answer": "One of the groups that receive zakat is the poor (sura al-Tauba, verse 60). A person can pay zakat both as part of the property to which zakat applies and as part of other equivalent property. Therefore, zakat can be paid to a poor person who marries with the things he needs. The cost of circumcising a child whose guardian is a beggar may also be paid with the intention of zakat. However, it is preferable to give zakat to those in need and leave them the right to spend these funds.",
+        "question": "Do zakat replace money spent on a wedding or a circumcision for the poor?"
+      },
+      {
+        "answer": "One of the conditions for acceptable Zakat and Sadak al-Fitr is Tamlik. The term “tamlik” means the transfer of property rights to another person. Zakat and sadaka al-fitr can be transferred to associations and institutions run by people who are reliable from all points of view, who concentrate the zakat and sadaka al-fitr gathered for the transfer to the poor in separate funds. These associations and foundations can collect zakat on behalf of people who fall into the category of those who are allowed to receive it, in order to treat them, in case they receive a power of attorney from them. In order to collect money for the treatment of minor children in the same way, they must receive a power of attorney from their parents. These institutions and waqfs cannot spend the funds collected as part of the payment of zakat, sadaka al-fitr and fiidya on people who are not classified as poor or poor.",
+        "question": "Can Zakat be given to institutions providing treatment to the poor and poor, such as waqfs, associations?"
+      },
+      {
+        "answer": "Iftar organized by city halls, associations and waqfs cannot be counted as zakat. Since there is no full Tamilik in this presentation, and among the guests there may be a large number of those who are not supposed to receive zakat.",
+        "question": "Are zakat and sadaka al-fitr iftar replaced in the month of Ramadan by the mayor’s office, various associations, social canteens?"
+      },
+      {
+        "answer": "Paying tax is a civil duty, and paying zakat is religious. In addition, zakat and state tax differ from each other in terms of who they apply to, in terms of their main purpose, proportion, size and recipients (Sura al-Taub, ayat 60). Therefore, taxes paid to the state cannot replace zakat. Zakat must be paid separately.",
+        "question": "Does paying state tax replace zakat?"
+      },
+      {
+        "answer": "The person who is charged with paying zakat should search for people to whom he will pay it. If he pays zakat to a person as a result of a certain analysis and the conclusion that the person meets the criteria for the recipient of zakat, but then it turns out that this person is not one of those to whom zakat is intended, then zakat will be counted. Also, zakat will be counted if a person pays it without searching and analyzing, but then it turns out that the recipient still met the relevant criteria. However, if it becomes clear that the recipient is not suitable, then his zakat will not be accepted, the payment will need to be repeated.",
+        "question": "What needs to be done if it turns out that a person who has received zakat is actually rich?"
+      },
+      {
+        "answer": "There is no specific time for paying zakat. On the issue of preserving property in the amount of nisab, a lunar calendar is practiced after a year, as in the case of fasting and Hajj. Zakat must be paid, starting from the moment when it becomes mandatory (fard). For this, you do not need to wait for the onset of a certain month according to the Muslim calendar or the month of Ramadan. Those who are under the obligation to pay zakat should pay it as soon as possible. Since this is the debt of the slave of the Almighty, and the debt should be repaid as soon as possible.",
+        "question": "Is there a specific time for paying zakat?"
+      },
+      {
+        "answer": "A person can transfer zakat either directly from hand to hand, or through a power of attorney or a bank transfer. The main thing here is that zakat reaches its recipient.",
+        "question": "Can zakat be paid through bank transfer, by proxy and in other ways?"
+      },
+      {
+        "answer": "The basis in this matter is the speedy payment of the resulting zakat. However, in cases where there is no possibility of a lump sum payment, you can pay zakat in installments during the year.",
+        "question": "Can I pay zakat by installments?"
+      },
+      {
+        "answer": "On the issue of paying zakat, as in the case of worship in the form of fasting and pilgrimage, the lunar calendar is practiced. In order for zakat to become mandatory (fard), a year must pass from the moment the property appeared in the amount of nisab. Despite this, if the owner of the property wishes, zakat can be paid before the expiration of 12 months.",
+        "question": "Is it allowed to pay zakat in advance?"
+      }
+    ],
+    "title": "Pay zakat"
+  },
+  "news": {
+    "sadaka": {
+      "description": "Sincerely, we will distribute any of your good deeds among those in need.",
+      "money_amount_input": "Amount of Sadaka, ₽",
+      "title": "Make a sadaka"
+    },
+    "tags": {
+      "clear_tags_button": "Clear",
+      "search_tags_input": "Enter tag",
+      "show_tags_button": "Show by tags"
+    },
+    "title": "news"
   }
 }

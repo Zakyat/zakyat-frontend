@@ -1,7 +1,7 @@
 <template>
-  <v-container>
+  <v-container style="padding: 5% 0px;">
     <span>{{ $t('home.projects.title') }}</span>
-    <v-layout row>
+    <v-layout class="mt-4" row>
       <v-flex
         v-for="(item, j) in projects"
         :key="j"

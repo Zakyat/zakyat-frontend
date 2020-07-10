@@ -1,40 +1,27 @@
 <template>
   <v-container>
-    <v-row>
-      <span>{{ $t('home.about.title') }}</span>
+    <v-row no-gutters>
+      <v-col cols="12">
+        <h1 class="display-1 font-weight-bold">
+          {{ $t('home.about.title') }}
+        </h1>
+      </v-col>
     </v-row>
-    <v-layout row>
-      <v-flex xs12 md6>
-        <div class="py-6">
+    <v-row no-gutters>
+      <v-col cols="12" md="6">
+        <div class="py-6 black--text">
           <p>{{ $t('home.about.paragraph1') }}</p>
           <p>{{ $t('home.about.paragraph2') }}</p>
-          <v-btn rounded dark color="accent">
+          <v-btn height="40" rounded dark color="accent">
             {{ $t('home.about.learn_more') }}
           </v-btn>
         </div>
-      </v-flex>
-      <v-flex xs12 md6 class="text-center">
-        <video rounded height="340px" controls>
-          <source
-            :src="require('@/assets/videos/aboutUs.mp4')"
-            type="video/mp4"
-          >Your browser does not support HTML5 video.
+      </v-col>
+      <v-col cols="12" md="6" class="text-center">
+        <video height="340px" controls>
+          <source :src="require('@/assets/videos/aboutUs.mp4')" type="video/mp4">
         </video>
-      </v-flex>
-    </v-layout>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({});
-</script>
-<style scoped>
-span {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 36px;
-  line-height: 43px;
-  color: #000;
-}
-</style>

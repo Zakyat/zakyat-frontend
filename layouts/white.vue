@@ -3,9 +3,9 @@
     <HeaderBar />
     <NavBar />
     <v-divider />
-    <v-main>
+    <v-content>
       <nuxt />
-    </v-main>
+    </v-content>
     <FooterBar />
   </v-app>
 </template>
@@ -32,7 +32,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .app-wrapper {
   max-width: 1440px;
-  background-color: #f2f2f2;
+  background-color: white;
   margin: 0 auto;
 }
 </style>
