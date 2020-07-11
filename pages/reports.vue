@@ -195,7 +195,7 @@ interface DonationItem {
 type ExpenseItem = Omit<DonationItem, 'beneficiary'> & { target: string };
 
 export default Vue.extend({
-  name: 'FeesSection',
+  name: 'Reports',
   data () {
     return {
       incomeHeaders: [
