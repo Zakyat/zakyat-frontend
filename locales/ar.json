@@ -55,5 +55,42 @@
     "volunteers": "متطوعو الموقع"
   },
   "login": "تسجيل الدخول",
-  "search": "البحث"
+  "search": "البحث",
+  "reports": {
+    "donations": {
+      "headers": {
+        "application_date": "تاريخ التطبيق",
+        "amounts": "مقدم / مطلوب",
+        "application_number": "رقم الطلب",
+        "beneficiary_name": "اسم المحتاج",
+        "situation_description": "وصف الوضع"
+      },
+      "title": "للمحتاجين"
+    },
+    "income": {
+      "description": "جمعت للفترة المختارة",
+      "headers": {
+        "amount": "كمية",
+        "benfactor_name": "اسم المحسن",
+        "donation_target": "الغرض من التبرع",
+        "date": "تاريخ",
+        "donation_type": "نوع التبرع"
+      },
+      "title": "الإيرادات"
+    },
+    "other_expenses": {
+      "headers": {
+        "amounts": "مقدم / مطلوب",
+        "application_date": "تاريخ التطبيق",
+        "application_number": "رقم الطلب",
+        "goal_title": "استهداف",
+        "situation_description": "وصف الوضع"
+      },
+      "title": "نفقات أخرى"
+    },
+    "provided_assistance": {
+      "description": "تم تحويله للمحتاجين للفترة المختارة",
+      "title": "قدمت المساعدة"
+    }
+  }
 }
