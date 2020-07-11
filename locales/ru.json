@@ -69,342 +69,40 @@
     }
   },
   "reports": {
-    "section": [
-      {
-        "title": "Поступления",
-        "description": "Собрано за выбранный период",
-        "subsection": [],
-        "table": {
-          "title": [
-            "Дата",
-            "ФИО благотворителя",
-            "Назначение пожертвования",
-            "Вид пожертвования",
-            "Сумма"
-          ],
-          "data": [
-            {
-              "helpDate": {
-                "day": 24,
-                "month": 1,
-                "year": 2020
-              },
-              "helper": "Фатхуллина Алия Мударисовна",
-              "helpObject": "Бурганова Альфия, сбор 309",
-              "helpType": "Разовое пожертвование",
-              "helpSize": 20000
-            },
-            {
-              "helpDate": {
-                "day": 23,
-                "month": 2,
-                "year": 2020
-              },
-              "helper": "Ибрагимов Марат",
-              "helpObject": "Садака",
-              "helpType": "Ежедневное пожертвование",
-              "helpSize": 10
-            },
-            {
-              "helpDate": {
-                "day": 22,
-                "month": 3,
-                "year": 2020
-              },
-              "helper": "Анонимно",
-              "helpObject": "Садака",
-              "helpType": "Разовое пожертвование",
-              "helpSize": 1000
-            },
-            {
-              "helpDate": {
-                "day": 24,
-                "month": 1,
-                "year": 2019
-              },
-              "helper": "Фатхуллина Алия Мударисовна",
-              "helpObject": "Бурганова Альфия, сбор 309",
-              "helpType": "Разовое пожертвование",
-              "helpSize": 20000
-            },
-            {
-              "helpDate": {
-                "day": 23,
-                "month": 2,
-                "year": 2019
-              },
-              "helper": "Ибрагимов Марат",
-              "helpObject": "Садака",
-              "helpType": "Ежедневное пожертвование",
-              "helpSize": 10
-            },
-            {
-              "helpDate": {
-                "day": 22,
-                "month": 3,
-                "year": 2019
-              },
-              "helper": "Анонимно",
-              "helpObject": "Садака",
-              "helpType": "Разовое пожертвование",
-              "helpSize": 1000
-            },
-            {
-              "helpDate": {
-                "day": 24,
-                "month": 1,
-                "year": 2018
-              },
-              "helper": "Фатхуллина Алия Мударисовна",
-              "helpObject": "Бурганова Альфия, сбор 309",
-              "helpType": "Разовое пожертвование",
-              "helpSize": 20000
-            },
-            {
-              "helpDate": {
-                "day": 23,
-                "month": 2,
-                "year": 2018
-              },
-              "helper": "Ибрагимов Марат",
-              "helpObject": "Садака",
-              "helpType": "Ежедневное пожертвование",
-              "helpSize": 10
-            },
-            {
-              "helpDate": {
-                "day": 22,
-                "month": 3,
-                "year": 2018
-              },
-              "helper": "Анонимно",
-              "helpObject": "Садака",
-              "helpType": "Разовое пожертвование",
-              "helpSize": 1000
-            }
-          ]
-        }
-      },
-      {
-        "title": "Оказанная помощь",
-        "description": "Передано нуждающимся за выбранный период",
-        "subsection": [
-          {
-            "title": "Для нуждающихся",
-            "table": {
-              "title": [
-                "Номер заявления",
-                "Дата заявления",
-                "ФИО нуждающегося",
-                "Описание ситуации",
-                "Передано/Необходимо"
-              ],
-              "data": [
-                {
-                  "documentNumber": 1587,
-                  "documentDate": {
-                    "day": 24,
-                    "month": 1,
-                    "year": 2020
-                  },
-                  "helpObject": "Раджабов Ильес Исламович",
-                  "situationDescription": "Сыну требуется дорогостоящяя операция. Недостающая сумма 20000 рублей.",
-                  "summary": {
-                    "done": 20000,
-                    "needed": 25000
-                  }
-                },
-                {
-                  "documentNumber": 1417,
-                  "documentDate": {
-                    "day": 23,
-                    "month": 2,
-                    "year": 2020
-                  },
-                  "helpObject": "Сабирзянова Римма Минзагитовна",
-                  "situationDescription": "Сын с диагнозом ДЦП. Требуется беговая дорожка.",
-                  "summary": {
-                    "done": 270000,
-                    "needed": 300000
-                  }
-                },
-                {
-                  "documentNumber": 1595,
-                  "documentDate": {
-                    "day": 22,
-                    "month": 3,
-                    "year": 2020
-                  },
-                  "helpObject": "Туголукова Резеда Альбертовна",
-                  "situationDescription": "Сын с диагнозом патология головного мозга. Требуется лечение.",
-                  "summary": {
-                    "done": 20000,
-                    "needed": 20000
-                  }
-                },
-                {
-                  "documentNumber": 1587,
-                  "documentDate": {
-                    "day": 24,
-                    "month": 1,
-                    "year": 2019
-                  },
-                  "helpObject": "Раджабов Ильес Исламович",
-                  "situationDescription": "Сыну требуется дорогостоящяя операция. Недостающая сумма 20000 рублей.",
-                  "summary": {
-                    "done": 15000,
-                    "needed": 200000
-                  }
-                },
-                {
-                  "documentNumber": 1417,
-                  "documentDate": {
-                    "day": 23,
-                    "month": 2,
-                    "year": 2019
-                  },
-                  "helpObject": "Сабирзянова Римма Минзагитовна",
-                  "situationDescription": "Сын с диагнозом ДЦП. Требуется беговая дорожка.",
-                  "summary": {
-                    "done": 27000,
-                    "needed": 420000
-                  }
-                },
-                {
-                  "documentNumber": 1595,
-                  "documentDate": {
-                    "day": 22,
-                    "month": 3,
-                    "year": 2019
-                  },
-                  "helpObject": "Туголукова Резеда Альбертовна",
-                  "situationDescription": "Сын с диагнозом патология головного мозга. Требуется лечение.",
-                  "summary": {
-                    "done": 20000,
-                    "needed": 20000
-                  }
-                },
-                {
-                  "documentNumber": 1587,
-                  "documentDate": {
-                    "day": 24,
-                    "month": 1,
-                    "year": 2018
-                  },
-                  "helpObject": "Раджабов Ильес Исламович",
-                  "situationDescription": "Сыну требуется дорогостоящяя операция. Недостающая сумма 20000 рублей.",
-                  "summary": {
-                    "done": 20000,
-                    "needed": 20000
-                  }
-                },
-                {
-                  "documentNumber": 1417,
-                  "documentDate": {
-                    "day": 23,
-                    "month": 2,
-                    "year": 2018
-                  },
-                  "helpObject": "Сабирзянова Римма Минзагитовна",
-                  "situationDescription": "Сын с диагнозом ДЦП. Требуется беговая дорожка.",
-                  "summary": {
-                    "done": 20000,
-                    "needed": 20000
-                  }
-                },
-                {
-                  "documentNumber": 1595,
-                  "documentDate": {
-                    "day": 22,
-                    "month": 3,
-                    "year": 2018
-                  },
-                  "helpObject": "Туголукова Резеда Альбертовна",
-                  "situationDescription": "Сын с диагнозом патология головного мозга. Требуется лечение.",
-                  "summary": {
-                    "done": 20000,
-                    "needed": 20000
-                  }
-                }
-              ]
-            }
-          },
-          {
-            "title": "Иные расходы",
-            "table": {
-              "title": [
-                "Номер заявления",
-                "Дата заявления",
-                "Цель",
-                "Описание цели",
-                "Собрано/Необходимо"
-              ],
-              "data": [
-                {
-                  "documentNumber": 1587,
-                  "documentDate": {
-                    "day": 24,
-                    "month": 1,
-                    "year": 2020
-                  },
-                  "target": "Фитр-садака",
-                  "targetDescription": "Все собранные деньги будут потращены на покупку еды для бедняков.",
-                  "summary": {
-                    "done": 20000,
-                    "needed": "Нет ограничения"
-                  }
-                },
-                {
-                  "documentNumber": 1417,
-                  "documentDate": {
-                    "day": 23,
-                    "month": 2,
-                    "year": 2019
-                  },
-                  "target": "Покупка книг для школы",
-                  "targetDescription": "Закупаем книги для Школы №XXX.",
-                  "summary": {
-                    "done": 46000,
-                    "needed": 46000
-                  }
-                }
-              ]
-            }
-          }
-        ]
+    "income": {
+      "title": "Поступления",
+      "description": "Собрано за выбранный период",
+      "headers": {
+        "date": "Дата",
+        "benfactor_name": "ФИО благотворителя",
+        "donation_target": "Назначение пожертвования",
+        "donation_type": "Вид пожертвования",
+        "amount": "Сумма"
       }
-    ],
-    "interval": {
-      "months": [
-        "Все месяцы",
-        "Январь",
-        "Февраль",
-        "Март",
-        "Апрель",
-        "Май",
-        "Июнь",
-        "Июль",
-        "Август",
-        "Сентябрь",
-        "Октябрь",
-        "Ноябрь",
-        "Декабрь"
-      ],
-      "years": [
-        "2013-2020",
-        "2020",
-        "2019",
-        "2018",
-        "2017",
-        "2016",
-        "2015",
-        "2014",
-        "2013"
-      ]
     },
-    "errorText": {
-      "description": "К сожалению, данных за этот период не найдено.",
-      "suggestion": "Попробуйте изменить запрос."
+    "provided_assistance": {
+      "title": "Оказанная помощь",
+      "description": "Передано нуждающимся за выбранный период"
+    },
+    "donations": {
+      "title": "Для нуждающихся",
+      "headers": {
+        "application_number": "Номер заявления",
+        "application_date": "Дата заявления",
+        "beneficiary_name": "ФИО нуждающегося",
+        "situation_description": "Описание ситуации",
+        "amounts": "Передано/Необходимо"
+      }
+    },
+    "other_expenses": {
+      "title": "Иные расходы",
+      "headers": {
+        "application_number": "Номер заявления",
+        "application_date": "Дата заявления",
+        "goal_title": "Target",
+        "situation_description": "Описание ситуации",
+        "amounts": "Передано/Необходимо"
+      }
     }
   },
   "zakat": {
