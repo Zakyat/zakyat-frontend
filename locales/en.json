@@ -322,5 +322,42 @@
       "show_tags_button": "Show by tags"
     },
     "title": "news"
+  },
+  "reports": {
+    "donations": {
+      "headers": {
+        "amounts": "Collected / Required",
+        "application_date": "Date of application",
+        "application_number": "Application number",
+        "beneficiary_name": "Name of the needy",
+        "situation_description": "Situation description"
+      },
+      "title": "For those in need"
+    },
+    "income": {
+      "description": "Collected for the selected period",
+      "headers": {
+        "amount": "Amount",
+        "benfactor_name": "Name of benefactor",
+        "date": "date",
+        "donation_target": "Purpose of Donation",
+        "donation_type": "Type of donation"
+      },
+      "title": "Income"
+    },
+    "other_expenses": {
+      "headers": {
+        "amounts": "Submitted / Required",
+        "application_date": "Date of application",
+        "application_number": "Application Number",
+        "goal_title": "Target",
+        "situation_description": "Situation description"
+      },
+      "title": "Other expenses"
+    },
+    "provided_assistance": {
+      "description": "Transferred to the needy for the selected period",
+      "title": "Help provided"
+    }
   }
 }
