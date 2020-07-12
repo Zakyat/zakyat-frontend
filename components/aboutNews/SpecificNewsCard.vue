@@ -5,7 +5,7 @@
     style="border-radius: 10px;"
   >
     <v-img
-      :src="require('~/assets/images/news/1.png')"
+      :src="require('@/assets/images/news/1.png')"
       height = "300px"
       style="border-radius: 10px;"
     >

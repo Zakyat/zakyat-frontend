@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import NewsCard from '~/components/news/NewsCard.vue';
+import NewsCard from '@/components/news/NewsCard.vue';
 
 export default Vue.extend({
   name: 'NewsList',
