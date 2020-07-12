@@ -14,8 +14,7 @@
     >
       {{ specificNews.title }}
     </h1>
-    <p class="mt-3 mb-2">{{ specificNews.content_1 }}</p>
-    <p class="mt-3 mb-2">{{ specificNews.content_2 }}</p>
+    <p class="mt-3 mb-2">{{ specificNews.content }}</p>
     <v-card-text
       class="pa-0 mb-5"
       style="color: #9da3a6;"
