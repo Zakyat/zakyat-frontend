@@ -5,16 +5,17 @@
   >
     <v-img
       :src="require('@/assets/images/news/1.png')"
-      height = "300px"
+      height="300px"
       style="border-radius: 10px;"
-    >
-    </v-img>
+    />
     <h1
       class="pa-0 mt-5"
     >
       {{ specificNews.title }}
     </h1>
-    <p class="mt-3 mb-2 news-content">{{ specificNews.content }}</p>
+    <p class="mt-3 mb-2 news-content">
+      {{ specificNews.content }}
+    </p>
     <v-card-text
       class="pa-0 mb-5"
       style="color: #9da3a6;"

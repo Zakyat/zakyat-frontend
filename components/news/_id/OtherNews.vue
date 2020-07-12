@@ -20,8 +20,7 @@
         </v-btn>
       </v-col>
     </v-row>
-    <v-row
-    >
+    <v-row>
       <v-col
         v-for="(item, j) in otherNews"
         :key="j"

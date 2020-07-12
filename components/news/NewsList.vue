@@ -6,9 +6,9 @@
   >
     <NewsCard
       v-for="newsItem in news"
+      :id="newsItem.id"
       :key="newsItem.id"
       v-bind="newsItem"
-      :id="newsItem.id"
     />
   </v-col>
 </template>

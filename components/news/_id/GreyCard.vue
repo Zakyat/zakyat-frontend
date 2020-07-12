@@ -3,9 +3,7 @@
     flat
     height="400"
     color="#dadada"
-    class=""
-  >
-  </v-card>
+  />
 </template>
 
 <script lang="ts">

@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     :to="`news/${id}`"
-    style = "text-decoration: none;"
+    style="text-decoration: none;"
   >
     <v-card
       flat

@@ -1,13 +1,12 @@
 <template>
   <v-container>
-    <v-row
-    >
+    <v-row>
       <v-col
         cols="12"
         md="9"
       >
         <SpecificNewsCard
-          :specificNews="news[this.$route.params.id - 1]"
+          :specific-news="news[this.$route.params.id - 1]"
         />
       </v-col>
       <v-col
@@ -19,7 +18,7 @@
     </v-row>
     <OtherNews
       class="my-10 mx-0"
-      :otherNews="otherNews"
+      :other-news="otherNews"
     />
   </v-container>
 </template>
