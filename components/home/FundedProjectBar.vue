@@ -12,7 +12,7 @@
         :cols="item.flex"
       >
         <v-card rounded outlined solo color="#F2F2F2" height="250px">
-          <v-card-title>{{ item.title }}</v-card-title>
+          <v-card-title style="word-break: normal;">{{ item.title }}</v-card-title>
           <v-card-text v-if="item.src">
             <v-img :src="item.src" contain height="155" style="position:absolute; right:0;" />
           </v-card-text>
