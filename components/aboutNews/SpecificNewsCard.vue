@@ -2,7 +2,6 @@
   <v-card
     flat
     class="pa-5"
-    style="border-radius: 10px;"
   >
     <v-img
       :src="require('@/assets/images/news/1.png')"

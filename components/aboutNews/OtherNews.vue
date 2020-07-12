@@ -31,7 +31,6 @@
         <v-card
           rounded
           flat
-          style="border-radius: 10px;"
         >
           <v-img
             height="200px"
