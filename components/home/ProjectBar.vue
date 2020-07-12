@@ -11,17 +11,25 @@
         lg3
         class="d-flex"
       >
-        <v-card class="ma-4 project flex" outlined color="#F2F2F2" min-height="350">
-          <v-card-title>{{ item.title }}</v-card-title>
-          <v-card-text class="text-center">
-            <img v-if="item.src" :src="item.src" style="max-width: 100%;">
+        <v-card class="ma-4 project flex" outlined color="#F2F2F2">
+          <v-card-title>
+            {{ item.title }}
+          </v-card-title>
+          <v-card-text class="text-center" style="position:absolute; bottom:0;">
+            <v-img
+              v-if="item.src"
+              :src="item.src"
+              contain
+              height="155"
+              width="250"
+            />
+
+            <v-card-actions style="position:absolute; bottom:5px;">
+              <v-btn rounded dark color="primary">
+                {{ $t('home.projects.help') }}
+              </v-btn>
+            </v-card-actions>
           </v-card-text>
-          <v-spacer />
-          <v-card-actions style="padding: 15px;">
-            <v-btn rounded dark color="primary">
-              {{ $t('home.projects.help') }}
-            </v-btn>
-          </v-card-actions>
         </v-card>
       </v-flex>
     </v-layout>
@@ -35,14 +43,14 @@ export default Vue.extend({
   data () {
     return {
       projects: [
-        { title: 'Пункт приема и раздачи одежды' },
         { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/2.png') },
+        { title: 'Центр помощи', src: require('@/assets/images/projects/2.png') },
         { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/3.png') },
-        { title: 'Пункт приема и раздачи одежды' },
-        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/4.png') },
+        { title: 'Работа с нуждающимися', src: require('@/assets/images/projects/2.png') },
+        { title: 'Духовная поддержка', src: require('@/assets/images/projects/4.png') },
         { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/5.png') },
-        { title: 'Пункт приема и раздачи одежды' },
-        { title: 'Пункт приема и раздачи одежды' },
+        { title: 'Стать волонтером', src: require('@/assets/images/projects/2.png') },
+        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/2.png') },
       ],
     };
   },
@@ -54,6 +62,8 @@ export default Vue.extend({
   display: flex;
   flex-direction: column;
   border-radius: 10px !important;
+  height: 250px;
+  width: 270px;
 }
 
 span {
