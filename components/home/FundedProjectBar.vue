@@ -5,14 +5,22 @@
         {{ $t('home.funded_project.title') }}
       </span>
     </v-row>
-    <v-layout row>
+    <v-row style="min-width:1000px">
       <v-col
         v-for="(item, j) in projects"
         :key="j"
         :cols="item.flex"
       >
-        <v-card rounded outlined solo color="#F2F2F2" height="250px">
-          <v-card-title style="word-break: normal;">{{ item.title }}</v-card-title>
+        <v-card
+          rounded
+          outlined
+          solo
+          color="#F2F2F2"
+          height="250px"
+        >
+          <v-card-title style="word-break: normal;">
+            {{ item.title }}
+          </v-card-title>
           <v-card-text v-if="item.src">
             <v-img :src="item.src" contain height="155" style="position:absolute; right:0;" />
           </v-card-text>
@@ -23,7 +31,7 @@
           </v-card-actions>
         </v-card>
       </v-col>
-    </v-layout>
+    </v-row>
   </v-container>
 </template>
 
