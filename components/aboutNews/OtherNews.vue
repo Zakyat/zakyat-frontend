@@ -7,7 +7,7 @@
         cols="auto"
       >
         <h2 class="">
-          {{ $t('about_news.other_news') }}
+          {{ $t('news.specific_news.other_news') }}
         </h2>
       </v-col>
       <v-col
@@ -16,7 +16,7 @@
         <v-btn
           text
         >
-          {{ $t('about_news.see_all') }} <v-icon>mdi-chevron-right</v-icon>
+          {{ $t('news.specific_news.see_all') }} <v-icon>mdi-chevron-right</v-icon>
         </v-btn>
       </v-col>
     </v-row>
