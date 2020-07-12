@@ -27,21 +27,9 @@
         cols="12"
         md="3"
       >
-        <v-card
-          rounded
-          flat
-          class="pb-3"
-        >
-          <v-img
-            height="200px"
-            :src="item.src"
-          />
-          <v-card-title>{{ item.title }}</v-card-title>
-
-          <v-card-text class="text--primary description">
-            {{ item.desc }}
-          </v-card-text>
-        </v-card>
+        <OtherNewsCard
+          :item="item"
+        />
       </v-col>
     </v-row>
   </v-row>
@@ -49,8 +37,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import OtherNewsCard from '~/components/news/_id/OtherNewsCard.vue';
 
 export default Vue.extend({
+  components: {
+    OtherNewsCard,
+  },
   props: {
     otherNews: {
       type: Array,
@@ -59,13 +51,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style scoped>
-.description {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  height: 70px;
-}
-</style>
