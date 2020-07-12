@@ -4,6 +4,8 @@
       <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
     </router-link>
     <v-spacer />
+    <v-spacer />
+    <v-spacer />
     <v-btn
       v-for="(page, i) in pages"
       :key="i"
