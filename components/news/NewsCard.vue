@@ -1,6 +1,6 @@
 <template>
   <n-link
-    :to="'news/' + (id+1)"
+    :to="'news/' + id"
     style = "text-decoration: none;"
   >
     <v-card
