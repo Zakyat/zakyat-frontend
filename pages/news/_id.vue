@@ -17,7 +17,7 @@
         <GreyCard />
       </v-col>
     </v-row>
-    <OtherNews class="mt-10 mx-0 mb-10" />
+    <OtherNews class="my-10 mx-0" />
   </v-container>
 </template>
 
