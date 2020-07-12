@@ -6,30 +6,23 @@
       </span>
     </v-row>
     <v-layout row>
-      <v-flex
+      <v-col
         v-for="(item, j) in projects"
         :key="j"
-        xs6
-        md6
+        :cols="item.flex"
       >
-        <v-card class="ma-4" rounded solo color="#F2F2F2" min-height="350">
+        <v-card rounded outlined solo color="#F2F2F2" height="250px">
           <v-card-title>{{ item.title }}</v-card-title>
-          <div v-if="item.src">
-            <center>
-              <img :src="item.src">
-            </center>
-          </div>
-          <div v-else>
-            <br><br><br> <br>
-          </div>
-          <center>
-            <v-btn rounded dark color="primary">
+          <v-card-text v-if="item.src">
+            <v-img :src="item.src" contain height="155" style="position:absolute; right:0;" />
+          </v-card-text>
+          <v-card-actions>
+            <v-btn rounded dark color="primary" class="mx-4" style="position:absolute; bottom:15px;">
               {{ item.button }}
             </v-btn>
-            <br>
-          </center>
+          </v-card-actions>
         </v-card>
-      </v-flex>
+      </v-col>
     </v-layout>
   </v-container>
 </template>
@@ -41,12 +34,12 @@ export default Vue.extend({
   data () {
     return {
       projects: [
-        { title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
-        { title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь', src: require('@/assets/images/projects/funded/1.png') },
-        { title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
-        { title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь', src: require('@/assets/images/projects/funded/3.png') },
-        { title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь' },
-        { title: 'Пункт приема и раздачи одежды', button: 'Хочу помочь', src: require('@/assets/images/projects/funded/2.png') },
+        { title: 'Собрали 6 234 234 ₽ для инвалидов за 2019 год ', button: 'Хочу помочь', flex: 6, src: require('@/assets/images/projects/funded/3.png') },
+        { title: '327 занятий провели с детьми за последний год', button: 'Хочу помочь', flex: 3 },
+        { title: '653 человека накормили за месяц', button: 'Хочу помочь', flex: 3, src: require('@/assets/images/projects/funded/1.png') },
+        { title: '234 волонтера присоединились к нам за год', button: 'Хочу помочь', flex: 3 },
+        { title: '2 345 семьям раздали одежды благодаря вам', button: 'Хочу помочь', flex: 3 },
+        { title: 'Собрали 456 234 ₽ на лекарства всем нуждающимся за 2019 год ', button: 'Хочу помочь', flex: 6, src: require('@/assets/images/projects/funded/2.png') },
       ],
     };
   },
