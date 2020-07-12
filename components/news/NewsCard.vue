@@ -1,6 +1,6 @@
 <template>
-  <n-link
-    :to="'news/' + id"
+  <nuxt-link
+    :to="`news/${id}`"
     style = "text-decoration: none;"
   >
     <v-card
@@ -44,7 +44,7 @@
         </v-col>
       </v-row>
     </v-card>
-  </n-link>
+  </nuxt-link>
 </template>
 
 <script lang="ts">
