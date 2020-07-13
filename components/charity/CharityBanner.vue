@@ -10,11 +10,11 @@
         md="8"
         align-self="center"
       >
-        <v-card-title
-          class="charity-banner-text"
+        <h2
+          class="pl-5 charity-banner-text white--text font-weight-bold"
         >
           {{ $t('charity.banner.title') }}
-        </v-card-title>
+        </h2>
       </v-col>
       <v-col
         cols="12"
@@ -41,12 +41,5 @@ export default Vue.extend({
 <style scoped>
 .charity-banner {
   border-radius: 15px !important;
-}
-
-.charity-banner-text {
-  color: white;
-  font-weight: bold;
-  font-size: 26px;
-  line-height: 36px;
 }
 </style>

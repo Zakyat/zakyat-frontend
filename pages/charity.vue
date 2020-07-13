@@ -38,6 +38,7 @@ export default Vue.extend({
       ],
       gatherings: [
         {
+          id: 'Бурганова Альфия, сбор 309',
           name: 'Бурганова Альфия',
           age: 16,
           gatheringNo: 309,
@@ -49,6 +50,7 @@ export default Vue.extend({
           collectedPercent: 13,
         },
         {
+          id: 'Садыков Амирхан, сбор 400',
           name: 'Садыков Амирхан',
           age: 12,
           gatheringNo: 400,
