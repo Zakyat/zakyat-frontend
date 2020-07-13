@@ -54,19 +54,19 @@
               <v-card-text class="pa-0 ma-0 progress-text">
                 {{ $t('charity.gathering.charityCard.collected') }}
               </v-card-text>
-              <b>{{ gathering.collected }} ₽</b>
+              <b>{{ gathering.collected | rubles }}</b>
             </div>
             <div>
               <v-card-text class="pa-0 ma-0 progress-text">
                 {{ $t('charity.gathering.charityCard.left') }}
               </v-card-text>
-              <b>{{ gathering.left }} ₽</b>
+              <b>{{ gathering.left | rubles}}</b>
             </div>
             <div>
               <v-card-text class="pa-0 ma-0 progress-text">
                 {{ $t('charity.gathering.charityCard.total') }}
               </v-card-text>
-              <b>{{ gathering.total }} ₽</b>
+              <b>{{ gathering.total | rubles }}</b>
             </div>
           </v-row>
           <v-progress-linear

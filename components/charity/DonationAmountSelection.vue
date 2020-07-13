@@ -1,8 +1,8 @@
 <template>
-  <v-row
+  <v-container
     class="mt-8"
   >
-    <v-row class="px-6">
+    <v-row>
       <v-tabs
         v-model="tab"
         centered
@@ -33,10 +33,11 @@
         </v-tab-item>
       </v-tabs-items>
     </v-row>
-    <v-row class="px-3 mt-2">
+    <v-row class="mt-2">
       <v-col
         cols="12"
         md="3"
+        class="pl-0"
       >
         <v-text-field
           rounded
@@ -51,6 +52,7 @@
       <v-col
         cols="12"
         md="9"
+        class="pr-0"
       >
         <v-radio-group
           row
@@ -68,7 +70,7 @@
         </v-radio-group>
       </v-col>
     </v-row>
-  </v-row>
+  </v-container>
 </template>
 
 <script lang="ts">
