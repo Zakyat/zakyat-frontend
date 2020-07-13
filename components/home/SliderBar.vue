@@ -66,7 +66,7 @@
               </v-row>
               <v-row justify="end">
                 <v-col cols="auto">
-                  <v-btn rounded depressed :to="{name: 'charity', params: { slideId: slide.id }}" color="primary">
+                  <v-btn rounded depressed nuxt :to="`/charity?id=${slide.id}`" color="primary">
                     {{ $t('home.slideshow.donate') }}
                   </v-btn>
                 </v-col>
