@@ -29,7 +29,7 @@
       <v-tabs-items class="mt-n4" v-model="tab">
         <v-tab-item
           v-for="item in paymentTabs"
-          :key="item"
+          :key="item.payment"
         >
           <v-card
             v-if="item.payment === 'Банковская карта'"
