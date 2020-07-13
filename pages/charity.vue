@@ -1,5 +1,5 @@
 <template>
-  <div class="white-background">
+  <v-layout white>
     <v-container>
       <CharityBanner
         class="mt-5"
@@ -12,7 +12,7 @@
       />
       <PaymentMethod class="mb-12" />
     </v-container>
-  </div>
+  </v-layout>
 </template>
 
 <script lang="ts">
