@@ -1,5 +1,5 @@
 <template>
-  <v-container style="padding: 5% 0px;">
+  <v-container style="max-width: 100%;padding: 5% 6%;">
     <span>{{ $t('home.projects.title') }}</span>
     <v-layout class="mt-4" row>
       <v-flex

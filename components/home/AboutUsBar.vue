@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container style="padding: 3% 6%; max-width: 100%;">
     <v-row no-gutters>
       <v-col cols="12">
         <h1 class="display-1 font-weight-bold">

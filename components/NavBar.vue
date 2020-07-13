@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat color="white" height="120" style="padding: 0 5%;">
+  <v-app-bar flat color="white" height="120" style="padding: 0 5%;max-width: 100%;">
     <router-link to="/">
       <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
     </router-link>

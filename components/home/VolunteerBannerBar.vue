@@ -28,8 +28,9 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .volunteer-container {
   background-color: #3840f1;
-  padding: 7% 7% 5% 7%;
+  padding: 7% 6% 5% 6%;
   color: #fff;
+  max-width: 100%;
 
   h1 {
     font: bold 36px;

@@ -1,5 +1,5 @@
 <template>
-  <v-container style="padding: 3% 0;">
+  <v-container style="padding: 3% 6%;max-width: 100%;">
     <v-row>
       <span class="ma-4">
         {{ $t('links.news') }}
@@ -25,7 +25,9 @@
             height="200px"
             :src="item.src"
           />
-          <v-card-title>{{ item.title }}</v-card-title>
+          <v-card-title style="word-break: normal;">
+            {{ item.title }}
+          </v-card-title>
 
           <v-card-text class="text--primary">
             <div> {{ item.desc }}</div>
