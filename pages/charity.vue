@@ -19,7 +19,7 @@
 import Vue from 'vue';
 import CharityBanner from '@/components/charity/CharityBanner.vue';
 import GatheringSelection from '@/components/charity/GatheringSelection.vue';
-import PaymentMethod from '~/components/charity/PaymentMethod.vue';
+import PaymentMethod from '@/components/charity/PaymentMethod.vue';
 
 export default Vue.extend({
   components: {

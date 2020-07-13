@@ -63,8 +63,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import DonationAmountSelection from '~/components/charity/DonationAmountSelection.vue';
-import Contacts from '~/components/charity/Contacts.vue';
+import DonationAmountSelection from '@/components/charity/DonationAmountSelection.vue';
+import Contacts from '@/components/charity/Contacts.vue';
 
 export default Vue.extend({
   name: 'PaymentSelection',

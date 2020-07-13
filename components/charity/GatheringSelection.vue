@@ -45,7 +45,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import CharityCard from '~/components/charity/CharityCard.vue';
+import CharityCard from '@/components/charity/CharityCard.vue';
 
 export default Vue.extend({
   name: 'GatheringSelection',
