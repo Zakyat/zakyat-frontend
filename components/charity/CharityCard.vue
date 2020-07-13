@@ -113,7 +113,7 @@ export default Vue.extend({
 
 <style scoped>
 .charity-card-img {
-  border-radius: 10px !important;
+  border-radius: 10px;
 }
 
 .percent-text {
