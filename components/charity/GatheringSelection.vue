@@ -28,10 +28,10 @@
         class="pa-0 md-0"
       >
         <v-checkbox
-          class="pa-0 md-0 black-label"
-          :label="$t('charity.gathering.anonymous')"
+          class="pa-0 md-0"
           on-icon="mdi-check-box-outline"
         >
+          <span slot="label" class="black-label"> {{ $t('charity.gathering.anonymous') }} </span>
         </v-checkbox>
       </v-col>
     </v-row>
@@ -100,7 +100,7 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-  .black-label /deep/ label {
-    color: black;
-  }
+.black-label {
+  color: black;
+}
 </style>
