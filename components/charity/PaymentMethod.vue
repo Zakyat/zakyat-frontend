@@ -17,7 +17,7 @@
       >
         <v-tab
           v-for="item in paymentTabs"
-          :key="item"
+          :key="item.payment"
           class="payment-tab"
           active-class="payment-tab-primary"
         >

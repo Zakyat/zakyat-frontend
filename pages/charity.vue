@@ -27,12 +27,9 @@ export default Vue.extend({
     GatheringSelection,
     PaymentMethod,
   },
-  props: [
-    'slideId',
-  ],
   data () {
     return {
-      gatheringId: this.$route.params.slideId,
+      gatheringId: this.$route.query.id,
     };
   },
 });
