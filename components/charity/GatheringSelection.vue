@@ -37,8 +37,7 @@
     </v-row>
     <CharityCard
       v-if="selectedGathering"
-      :gatherings="gatherings"
-      :id="items.indexOf(selectedGathering)"
+      :gathering="gatherings[items.indexOf(selectedGathering)]"
     />
   </div>
 </template>

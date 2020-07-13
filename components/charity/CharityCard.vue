@@ -20,8 +20,8 @@
         <v-col
           class="py-0"
         >
-          <h2>{{ gatherings[id].name }}, {{ gatherings[id].age }} лет</h2>
-          <p>{{ gatherings[id].problem }}</p>
+          <h2>{{ gathering.name }}, {{ gathering.age }} лет</h2>
+          <p>{{ gathering.problem }}</p>
         </v-col>
         <v-col
           class="py-0"
@@ -29,16 +29,16 @@
         >
           <v-progress-circular
             color="primary"
-            :value="gatherings[id].collectedPercent"
+            :value="gathering.collectedPercent"
             size="70"
             rotate="-90"
           >
-            <b class="percent-text">{{ gatherings[id].collectedPercent }}%</b>
+            <b class="percent-text">{{ gathering.collectedPercent }}%</b>
           </v-progress-circular>
         </v-col>
       </v-row>
       <p class="description mt-3">
-        {{ gatherings[id].text }}
+        {{ gathering.text }}
       </p>
       <v-row justify="space-between" class="px-3 mt-8">
         <v-col
@@ -54,25 +54,25 @@
               <v-card-text class="pa-0 ma-0 progress-text">
                 {{ $t('charity.gathering.charityCard.collected') }}
               </v-card-text>
-              <b>{{ gatherings[id].collected }} ₽</b>
+              <b>{{ gathering.collected }} ₽</b>
             </div>
             <div>
               <v-card-text class="pa-0 ma-0 progress-text">
                 {{ $t('charity.gathering.charityCard.left') }}
               </v-card-text>
-              <b>{{ gatherings[id].left }} ₽</b>
+              <b>{{ gathering.left }} ₽</b>
             </div>
             <div>
               <v-card-text class="pa-0 ma-0 progress-text">
                 {{ $t('charity.gathering.charityCard.total') }}
               </v-card-text>
-              <b>{{ gatherings[id].total }} ₽</b>
+              <b>{{ gathering.total }} ₽</b>
             </div>
           </v-row>
           <v-progress-linear
             class="pa-0"
             color="primary"
-            :value="gatherings[id].collectedPercent"
+            :value="gathering.collectedPercent"
             height="8"
             rounded
             background-color="#DADADA"
@@ -100,14 +100,8 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'CharityCard',
   props: [
-    'gatherings',
-    'id',
+    'gathering',
   ],
-  data () {
-    return {
-      tab: null,
-    };
-  },
 });
 </script>
 
