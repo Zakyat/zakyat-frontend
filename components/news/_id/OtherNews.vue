@@ -6,7 +6,7 @@
       <v-col
         cols="auto"
       >
-        <h2 class="">
+        <h2>
           {{ $t('news.specific_news.other_news') }}
         </h2>
       </v-col>
