@@ -17,8 +17,8 @@
           </v-btn>
         </div>
       </v-col>
-      <v-col cols="12" md="6" class="text-center">
-        <video height="340px" controls>
+      <v-col cols="12" md="6" class="text-right">
+        <video height="340px" controls style="border-radius: 10px;">
           <source :src="require('@/assets/videos/aboutUs.mp4')" type="video/mp4">
         </video>
       </v-col>
