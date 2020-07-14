@@ -15,6 +15,8 @@
       >
         <v-btn
           text
+          nuxt
+          to="/news"
         >
           {{ $t('news.specific_news.see_all') }} <v-icon>mdi-chevron-right</v-icon>
         </v-btn>
