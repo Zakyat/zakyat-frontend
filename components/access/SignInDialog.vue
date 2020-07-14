@@ -1,18 +1,18 @@
 <template>
-  <div class="registration">
-    <v-container class="registration__container rounded">
+  <div class="sign-up">
+    <v-container class="sign-in__container rounded">
       <v-row justify="space-between ml-0 mr-0">
         <h2>
-          {{ $t('access.registration.title') }}
+          {{ $t('access.login.title') }}
         </h2>
-        <nuxt-link to="/" class="pt-1">
-          <span>
-            {{ $t('access.login.linkAndButtonName') }}
-          </span>
+        <nuxt-link to="/" class="pt-1" @click="">
+            <span>
+              {{ $t('access.registration.linkAndButtonName') }}
+            </span>
         </nuxt-link>
       </v-row>
       <p class="pt-4">
-        {{ $t('access.registration.description') }}
+        {{ $t('access.login.description') }}
       </p>
       <div class="d-flex justify-space-between">
         <v-btn
@@ -54,45 +54,33 @@
         rounded
         outlined
       />
-      <v-checkbox
-        class="agreement text-12 mt-n4 mb-4"
-        :v-model="selected"
-        :label="$t('access.registration.agreements.textFirstPart') + ' ' + $t('access.registration.agreements.userAgreementName') + ' '
-          + $t('access.registration.agreements.textSecondPart') + ' ' + $t('access.registration.agreements.confidentialAgreementName')"
-        color="success"
-        :value="selected"
-        hide-details
-      />
       <v-btn
         color="success"
         block
         dense
         rounded
       >
-        {{ $t('access.registration.linkAndButtonName') }}
+        {{ $t('access.login.linkAndButtonName') }}
       </v-btn>
+      <div class="link-wrapper text-center mt-7">
+        <nuxt-link to="/">
+            <span>
+              {{ $t('access.login.reminder') }}
+            </span>
+        </nuxt-link>
+      </div>
     </v-container>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
-  name: 'FeesSection',
-  data () {
-    return {
-      selected: true,
-    };
-  },
-  methods: {
-
-  },
-});
+<script>
+export default {
+  name: 'SignInDialog',
+};
 </script>
 
 <style lang="scss" scoped>
-  .registration__container {
+  .sign-in__container {
     padding: 10px 50px 50px 50px;
     background-color: white;
   }

@@ -22,7 +22,7 @@
       {{ $t('instagram') }}
     </v-btn>
     <v-dialog
-      v-model="dialog"
+      v-model="dialog.registration"
       width="440"
     >
       <template v-slot:activator="{ on, attrs }">
@@ -38,7 +38,41 @@
           {{ $t('login') }}
         </v-btn>
       </template>
-      <RegistrationDialog />
+      <div class="button-wrapper white" align="right">
+        <v-btn
+          icon
+          color="black"
+          @click="dialog.registration = !dialog.registration"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </div>
+
+<!--      <v-card>-->
+<!--        <v-tabs>-->
+<!--          <v-tab>Registration</v-tab>-->
+<!--          <v-tab>SignIn</v-tab>-->
+<!--          <v-tab>RecoveryPas</v-tab>-->
+<!--        </v-tabs>-->
+<!--        <v-tabs-items>-->
+<!--          <v-tab-item>-->
+<!--            <v-card>-->
+<!--              <RegistrationDialog/>-->
+<!--            </v-card>-->
+<!--          </v-tab-item>-->
+<!--          <v-tab-item>-->
+<!--            <v-card>-->
+<!--              <SignInDialog/>-->
+<!--            </v-card>-->
+<!--          </v-tab-item>-->
+<!--          <v-tab-item>-->
+<!--            <v-card>-->
+<!--              <RecoveryPasDialog/>-->
+<!--            </v-card>-->
+<!--          </v-tab-item>-->
+<!--        </v-tabs-items>-->
+<!--      </v-card>-->
+     <RegistrationDialog/>
     </v-dialog>
     <v-flex lg1 md2 xs4>
       <LanguageSelector />
@@ -64,11 +98,17 @@
 <script lang="ts">
 import Vue from 'vue';
 import LanguageSelector from '@/components/LanguageSelector.vue';
-import RegistrationDialog from '@/components/access/RegistrationDialog.vue';
 import { rubles } from '@/plugins/currency';
+import RegistrationDialog from '@/components/access/RegistrationDialog.vue';
+import RecoveryPasDialog from "~/components/access/RecoveryPasDialog.vue";
+import SignInDialog from "~/components/access/SignInDialog.vue";
+import SuccessDialog from "~/components/access/SuccessDialog.vue";
 
 export default Vue.extend({
   components: {
+    SuccessDialog,
+    RecoveryPasDialog,
+    SignInDialog,
     LanguageSelector,
     RegistrationDialog,
   },
@@ -77,7 +117,12 @@ export default Vue.extend({
       amount: 6234234,
       items: this.$t('search.suggestions'),
       isSearcherOpen: false,
-      dialog: false,
+      dialog: {
+        registration: false,
+        recovery: false,
+        signin: false,
+        success: false,
+      }
     };
   },
   methods: {
