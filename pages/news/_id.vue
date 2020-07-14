@@ -6,7 +6,7 @@
         md="9"
       >
         <SpecificNewsCard
-          :specific-news="news[this.$route.params.id - 1]"
+          v-bind="news[this.$route.params.id - 1]"
         />
       </v-col>
       <v-col
