@@ -30,7 +30,7 @@
         md="3"
       >
         <OtherNewsCard
-          :item="item"
+          v-bind="item"
         />
       </v-col>
     </v-row>

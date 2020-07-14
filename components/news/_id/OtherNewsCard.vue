@@ -6,12 +6,12 @@
   >
     <v-img
       height="200px"
-      :src="item.src"
+      :src="src"
     />
-    <v-card-title>{{ item.title }}</v-card-title>
+    <v-card-title>{{ title }}</v-card-title>
 
     <v-card-text class="text--primary description">
-      {{ item.desc }}
+      {{ desc }}
     </v-card-text>
   </v-card>
 </template>
@@ -21,8 +21,16 @@ import Vue from 'vue';
 
 export default Vue.extend({
   props: {
-    item: {
-      type: Object,
+    src: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    desc: {
+      type: String,
       required: true,
     },
   },
