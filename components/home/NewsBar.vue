@@ -25,12 +25,14 @@
             height="200px"
             :src="item.src"
           />
-          <v-card-title style="word-break: normal;">
+          <v-card-title style="word-break: normal; line-height: 25px; font-weight: bold;">
             {{ item.title }}
           </v-card-title>
 
           <v-card-text class="text--primary">
-            <div> {{ item.desc }}</div>
+            <div style="line-height: 20px;">
+              {{ item.desc }}
+            </div>
           </v-card-text>
         </v-card>
       </v-flex>
