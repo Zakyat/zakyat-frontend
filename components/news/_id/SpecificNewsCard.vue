@@ -8,13 +8,14 @@
       height="300px"
       style="border-radius: 10px;"
     />
-    <h1
+    <v-card-title
       class="pa-0 mt-5"
+      style="font-size: 27px;"
     >
       {{ title }}
-    </h1>
-    <p class="my-3 pa-0 news-content">{{ content }}</p>
-    <v-card-text
+    </v-card-title>
+    <v-card-text class="my-3 pa-0 news-content black--text">{{ content }}</v-card-text>
+    <v-card-subtitle
       class="pa-0 mb-5"
       style="color: #9da3a6;"
     >
@@ -23,7 +24,7 @@
         mdi-circle-small
       </v-icon>
       {{ author }}
-    </v-card-text>
+    </v-card-subtitle>
     <v-row
       style="width: 80%;"
     >
@@ -91,5 +92,6 @@ export default Vue.extend({
 <style scoped>
 .news-content {
   white-space: pre-wrap;
+  font-size: 15px;
 }
 </style>
