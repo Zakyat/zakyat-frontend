@@ -16,9 +16,11 @@
         <v-btn
           text
           nuxt
+          exact
           to="/news"
         >
-          {{ $t('news.specific_news.see_all') }} <v-icon>mdi-chevron-right</v-icon>
+          {{ $t('news.specific_news.see_all') }}
+          <v-icon>mdi-chevron-right</v-icon>
         </v-btn>
       </v-col>
     </v-row>
@@ -39,7 +41,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import OtherNewsCard from '~/components/news/_id/OtherNewsCard.vue';
+import OtherNewsCard from '@/components/news/_id/OtherNewsCard.vue';
 
 export default Vue.extend({
   components: {
