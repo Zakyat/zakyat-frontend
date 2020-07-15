@@ -78,7 +78,7 @@ export default Vue.extend({
   }
 
   p {
-    width: 80%;
+    width: 85%;
   }
 
   .amounts {
