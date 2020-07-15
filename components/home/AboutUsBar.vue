@@ -37,7 +37,7 @@
   max-width: 100%;
 
   p {
-    width: 97%;
+    width: 95%;
   }
 }
 </style>
