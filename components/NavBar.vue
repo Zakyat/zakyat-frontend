@@ -10,7 +10,7 @@
       v-for="(page, i) in pages"
       :key="i"
       :to="page.link"
-      class="mx-2"
+      class="mx-3"
     >
       <span style="color:black;">
         {{ page.text }}
@@ -18,7 +18,7 @@
     </router-link>
     <router-link
       to="/zakat"
-      class="mx-2"
+      class="mx-3"
     >
       <span style="color:#00ac00;">
         {{ $t('links.pay') }}
