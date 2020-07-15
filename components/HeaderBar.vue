@@ -22,7 +22,7 @@
       {{ $t('instagram') }}
     </v-btn>
     <v-dialog
-      v-model="dialog.registration"
+      v-model="dialog"
       width="440"
     >
       <template v-slot:activator="{ on, attrs }">
@@ -31,6 +31,7 @@
           small
           v-bind="attrs"
           v-on="on"
+          @click="dialog = !dialog"
         >
           <v-icon color="white" size="20">
             mdi-account-circle
@@ -42,37 +43,14 @@
         <v-btn
           icon
           color="black"
-          @click="dialog.registration = !dialog.registration"
+          @click="dialog = !dialog"
         >
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </div>
 
-<!--      <v-card>-->
-<!--        <v-tabs>-->
-<!--          <v-tab>Registration</v-tab>-->
-<!--          <v-tab>SignIn</v-tab>-->
-<!--          <v-tab>RecoveryPas</v-tab>-->
-<!--        </v-tabs>-->
-<!--        <v-tabs-items>-->
-<!--          <v-tab-item>-->
-<!--            <v-card>-->
-<!--              <RegistrationDialog/>-->
-<!--            </v-card>-->
-<!--          </v-tab-item>-->
-<!--          <v-tab-item>-->
-<!--            <v-card>-->
-<!--              <SignInDialog/>-->
-<!--            </v-card>-->
-<!--          </v-tab-item>-->
-<!--          <v-tab-item>-->
-<!--            <v-card>-->
-<!--              <RecoveryPasDialog/>-->
-<!--            </v-card>-->
-<!--          </v-tab-item>-->
-<!--        </v-tabs-items>-->
-<!--      </v-card>-->
-     <RegistrationDialog/>
+      <DialogWrapper/>
+
     </v-dialog>
     <v-flex lg1 md2 xs4>
       <LanguageSelector />
@@ -99,30 +77,19 @@
 import Vue from 'vue';
 import LanguageSelector from '@/components/LanguageSelector.vue';
 import { rubles } from '@/plugins/currency';
-import RegistrationDialog from '@/components/access/RegistrationDialog.vue';
-import RecoveryPasDialog from "~/components/access/RecoveryPasDialog.vue";
-import SignInDialog from "~/components/access/SignInDialog.vue";
-import SuccessDialog from "~/components/access/SuccessDialog.vue";
+import DialogWrapper from '@/components/access/DialogWrapper.vue';
 
 export default Vue.extend({
   components: {
-    SuccessDialog,
-    RecoveryPasDialog,
-    SignInDialog,
+    DialogWrapper,
     LanguageSelector,
-    RegistrationDialog,
   },
   data () {
     return {
       amount: 6234234,
       items: this.$t('search.suggestions'),
       isSearcherOpen: false,
-      dialog: {
-        registration: false,
-        recovery: false,
-        signin: false,
-        success: false,
-      }
+      dialog: false,
     };
   },
   methods: {

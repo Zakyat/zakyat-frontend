@@ -5,11 +5,11 @@
         <h2>
           {{ $t('access.registration.title') }}
         </h2>
-        <nuxt-link to="/" class="pt-1">
+        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="success" @click="toSignInDialog">
           <span>
             {{ $t('access.login.linkAndButtonName') }}
           </span>
-        </nuxt-link>
+        </v-btn>
       </v-row>
       <p class="pt-4">
         {{ $t('access.registration.description') }}
@@ -21,7 +21,7 @@
           outlined
           rounded
         >
-          <img src="@/assets/images/social-icons/vk.svg" />
+          <img src="@/assets/images/social-icons/vk.svg">
         </v-btn>
         <v-btn
           width="31%"
@@ -29,7 +29,7 @@
           outlined
           rounded
         >
-          <img src="@/assets/images/social-icons/instagram.svg" />
+          <img src="@/assets/images/social-icons/instagram.svg">
         </v-btn>
         <v-btn
           width="31%"
@@ -37,7 +37,7 @@
           outlined
           rounded
         >
-          <img src="@/assets/images/social-icons/google.svg" />
+          <img src="@/assets/images/social-icons/google.svg">
         </v-btn>
       </div>
       <v-text-field
@@ -79,14 +79,11 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'FeesSection',
-  data () {
-    return {
-      selected: true,
-    };
-  },
+  name: 'RegistrationDialog',
   methods: {
-
+    toSignInDialog () : void {
+      this.$emit('set-dialog', 'SignInDialog');
+    },
   },
 });
 </script>
@@ -99,5 +96,10 @@ export default Vue.extend({
 
   a {
     text-decoration: none;
+  }
+
+  .buttonTo {
+    letter-spacing: normal;
+    font-weight: normal;
   }
 </style>

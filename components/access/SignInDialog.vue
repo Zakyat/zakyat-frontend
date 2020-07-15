@@ -5,11 +5,11 @@
         <h2>
           {{ $t('access.login.title') }}
         </h2>
-        <nuxt-link to="/" class="pt-1" @click="">
-            <span>
-              {{ $t('access.registration.linkAndButtonName') }}
-            </span>
-        </nuxt-link>
+        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="success" @click="toRegistrationDialog">
+          <span>
+            {{ $t('access.registration.linkAndButtonName') }}
+          </span>
+        </v-btn>
       </v-row>
       <p class="pt-4">
         {{ $t('access.login.description') }}
@@ -21,7 +21,7 @@
           outlined
           rounded
         >
-          <img src="@/assets/images/social-icons/vk.svg" />
+          <img src="@/assets/images/social-icons/vk.svg">
         </v-btn>
         <v-btn
           width="31%"
@@ -29,7 +29,7 @@
           outlined
           rounded
         >
-          <img src="@/assets/images/social-icons/instagram.svg" />
+          <img src="@/assets/images/social-icons/instagram.svg">
         </v-btn>
         <v-btn
           width="31%"
@@ -37,7 +37,7 @@
           outlined
           rounded
         >
-          <img src="@/assets/images/social-icons/google.svg" />
+          <img src="@/assets/images/social-icons/google.svg">
         </v-btn>
       </div>
       <v-text-field
@@ -63,20 +63,30 @@
         {{ $t('access.login.linkAndButtonName') }}
       </v-btn>
       <div class="link-wrapper text-center mt-7">
-        <nuxt-link to="/">
-            <span>
+        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="success" @click="toRecoveryDialog">
+          <span>
               {{ $t('access.login.reminder') }}
-            </span>
-        </nuxt-link>
+          </span>
+        </v-btn>
       </div>
     </v-container>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'SignInDialog',
-};
+  methods: {
+    toRegistrationDialog () : void {
+      this.$emit('set-dialog', 'RegistrationDialog');
+    },
+    toRecoveryDialog () : void {
+      this.$emit('set-dialog', 'RecoveryDialog');
+    },
+  },
+});
 </script>
 
 <style lang="scss" scoped>
@@ -87,5 +97,10 @@ export default {
 
   a {
     text-decoration: none;
+  }
+
+  .buttonTo {
+    letter-spacing: normal;
+    font-weight: normal;
   }
 </style>
