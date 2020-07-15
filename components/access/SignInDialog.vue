@@ -59,6 +59,7 @@
         block
         dense
         rounded
+        class="custom-transform-class text-none buttonTo"
       >
         {{ $t('access.login.linkAndButtonName') }}
       </v-btn>

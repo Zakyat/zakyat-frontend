@@ -19,6 +19,7 @@
         block
         dense
         rounded
+        class="custom-transform-class text-none buttonTo"
       >
         {{ $t('access.login.recoveryPassword.buttonName') }}
       </v-btn>
@@ -46,7 +47,7 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .recovery__container {
     padding: 10px 50px 50px 50px;
     background-color: white;

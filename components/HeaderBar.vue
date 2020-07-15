@@ -24,6 +24,7 @@
     <v-dialog
       v-model="dialog"
       width="440"
+      class="rounded-lg"
     >
       <template v-slot:activator="{ on, attrs }">
         <v-btn

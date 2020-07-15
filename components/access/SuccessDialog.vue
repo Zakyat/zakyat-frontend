@@ -28,7 +28,7 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .success__container {
     padding: 10px 50px 50px 50px;
     background-color: white;
