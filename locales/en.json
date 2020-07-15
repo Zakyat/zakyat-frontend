@@ -321,6 +321,10 @@
       "search_tags_input": "Enter tag",
       "show_tags_button": "Show by tags"
     },
-    "title": "news"
+    "title": "news",
+    "specific_news": {
+      "other_news": "Other news",
+      "see_all": "See all"
+    }
   }
 }

@@ -55,5 +55,13 @@
     "volunteers": "متطوعو الموقع"
   },
   "login": "تسجيل الدخول",
-  "search": "البحث"
+  "news": {
+    "specific_news": {
+      "other_news": "أخبار أخرى",
+      "see_all": "اظهار الكل"
+    }
+  },
+  "search": {
+    "buttonName": "بحث"
+  }
 }
