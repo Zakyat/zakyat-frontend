@@ -14,7 +14,9 @@
     >
       {{ title }}
     </v-card-title>
-    <v-card-text class="my-3 pa-0 news-content black--text">{{ content }}</v-card-text>
+    <v-card-text class="my-3 pa-0 news-content black--text">
+      {{ content }}
+    </v-card-text>
     <v-card-subtitle
       class="pa-0 mb-5"
       style="color: #9da3a6;"
