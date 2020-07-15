@@ -20,11 +20,12 @@
       <v-col cols="12" md="6" class="text-right">
         <iframe
           width="97%"
-          height="370"
+          height="100%"
           src="https://www.youtube.com/embed/PNwRFQDfoD8"
           frameborder="0"
           allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
+          class="py-6"
         />
       </v-col>
     </v-row>
