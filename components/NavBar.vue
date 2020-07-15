@@ -6,31 +6,28 @@
     <v-spacer />
     <v-spacer />
     <v-spacer />
-    <v-btn
+    <router-link
       v-for="(page, i) in pages"
       :key="i"
       :to="page.link"
-      text
-      nuxt
-      small
-      class="black--text"
+      class="mx-2"
     >
-      {{ page.text }}
-    </v-btn>
-    <v-btn
+      <span style="color:black;">
+        {{ page.text }}
+      </span>
+    </router-link>
+    <router-link
       to="/zakat"
-      text
-      nuxt
-      small
-      class="green--text"
+      class="mx-2"
     >
-      {{ $t('links.pay') }}
-    </v-btn>
+      <span style="color:#00ac00;">
+        {{ $t('links.pay') }}
+      </span>
+    </router-link>
     <v-spacer />
     <v-btn
       rounded
       dark
-      small
       color="primary"
       height="40px"
     >
@@ -40,7 +37,6 @@
     <v-btn
       rounded
       dark
-      small
       color="accent"
       height="40px"
     >
@@ -69,5 +65,16 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .v-btn--active::before {
   opacity: 0;
+}
+
+span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+a {
+  text-decoration: none;
 }
 </style>
