@@ -67,7 +67,7 @@ import DonationAmountSelection from '@/components/charity/DonationAmountSelectio
 import Contacts from '@/components/charity/Contacts.vue';
 
 export default Vue.extend({
-  name: 'PaymentSelection',
+  name: 'PaymentMethod',
   components: {
     DonationAmountSelection,
     Contacts,
@@ -105,7 +105,7 @@ export default Vue.extend({
 
 .payment-tab {
   width: 300px;
-  border-radius: 30px !important;
+  border-radius: 30px;
   text-transform: inherit;
   font-size: 15px;
 }

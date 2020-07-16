@@ -5,13 +5,18 @@
     <v-row>
       <v-tabs
         v-model="tab"
-        centered
-        grow
         hide-slider
+        grow
+        centered
+        center-active
+        show-arrows
+        class="payment-tabs pa-1"
       >
         <v-tab
           v-for="item in donationTabs"
           :key="item"
+          class="payment-tab"
+          active-class="payment-tab-primary"
         >
           {{ item.donation }}
         </v-tab>
@@ -109,5 +114,22 @@ export default Vue.extend({
 
 .black-label /deep/ label {
   color: black;
+}
+
+.payment-tabs {
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+.payment-tab {
+  width: 300px;
+  border-radius: 30px;
+  text-transform: inherit;
+  font-size: 15px;
+}
+
+.payment-tab-primary {
+  background-color: #00ac00;
+  color: white;
 }
 </style>
