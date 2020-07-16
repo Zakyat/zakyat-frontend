@@ -41,14 +41,17 @@
         </v-btn>
       </div>
       <v-text-field
+        v-model="email"
         class="mt-5"
-        :label="$t('access.global.emailPlaceholder')"
+        :rules="[rules.email]"
+        :placeholder="$t('access.global.emailPlaceholder')"
         dense
         rounded
         outlined
+        color="black"
       />
       <v-text-field
-        class="mt-n4"
+        class="mt-1"
         :label="$t('access.global.passwordPlaceholder')"
         dense
         rounded
@@ -79,6 +82,17 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'SignInDialog',
+  data () {
+    return {
+      email: '',
+      rules: {
+        email: (value : string) => {
+          const emailRegexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          return emailRegexp.test(value) || this.$t('access.login.errors');
+},
+      },
+    };
+  },
   methods: {
     toRegistrationDialog () : void {
       this.$emit('set-dialog', 'RegistrationDialog');
