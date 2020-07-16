@@ -1,5 +1,5 @@
 <template>
-  <v-container style="padding: 80px 6%; max-width: 100%;">
+  <v-container style="padding: 80px 6% 70px; max-width: 100%;">
     <v-row>
       <span class="mx-4 mb-4">
         {{ $t('home.funded_project.title') }}

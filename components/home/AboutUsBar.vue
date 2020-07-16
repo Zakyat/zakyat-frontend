@@ -34,7 +34,7 @@
 
 <style lang="scss" scoped>
 .about-container {
-  padding: 0 6% 80px;
+  padding: 0 6% 56px;
   max-width: 100%;
 
   p {
