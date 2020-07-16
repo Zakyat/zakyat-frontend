@@ -11,7 +11,7 @@
     </v-flex>
     <v-flex xs12 md5>
       <v-img
-        max-width="507px"
+        max-width="506px"
         width="100%"
         :src="require('@/assets/images/banners/2.png')"
       />
@@ -28,7 +28,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .volunteer-container {
   background-color: #3840f1;
-  padding: 7% 6% 5% 6%;
+  padding: 80px 6% 30px 6%;
   color: #fff;
   max-width: 100%;
 

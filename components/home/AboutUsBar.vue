@@ -19,7 +19,7 @@
       </v-col>
       <v-col cols="12" md="6" class="text-right">
         <iframe
-          width="97%"
+          width="98%"
           height="100%"
           src="https://www.youtube.com/embed/PNwRFQDfoD8"
           frameborder="0"
@@ -34,7 +34,7 @@
 
 <style lang="scss" scoped>
 .about-container {
-  padding: 1% 6%;
+  padding: 0 6% 80px;
   max-width: 100%;
 
   p {
