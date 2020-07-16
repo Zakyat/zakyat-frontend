@@ -1,6 +1,8 @@
 <template>
   <v-card
     flat
+    nuxt
+    :to="`news/${id}`"
     class="mb-5 px-5 pt-3 pb-2"
   >
     <v-row>
@@ -48,6 +50,10 @@ import Vue, { PropType } from 'vue';
 export default Vue.extend({
   name: 'SingleNewsCard',
   props: {
+    id: {
+      type: Number,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
