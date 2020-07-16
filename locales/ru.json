@@ -353,6 +353,10 @@
       "show_tags_button": "Показать по тегам",
       "search_tags_input": "Введите тэг",
       "clear_tags_button": "Очистить"
+    },
+    "specific_news": {
+      "other_news": "Другие новости",
+      "see_all": "Смотреть все"
     }
   }
 }

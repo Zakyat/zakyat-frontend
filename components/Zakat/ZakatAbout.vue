@@ -1,11 +1,13 @@
 <template>
   <v-card class="pa-6" flat>
-    <video height="340px" controls style="border-radius: 10px;">
-      <source
-        :src="require('@/assets/videos/aboutUs.mp4')"
-        type="video/mp4"
-      >Your browser does not support HTML5 video.
-    </video>
+    <iframe
+      width="560"
+      height="315"
+      src="https://www.youtube.com/embed/PNwRFQDfoD8"
+      frameborder="0"
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    />
     <h2 class="my-4">
       {{ $t('zakat.about.what_is_zakat.question') }}
     </h2>
