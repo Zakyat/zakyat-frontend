@@ -22,7 +22,7 @@
         </v-tab>
       </v-tabs>
 
-      <v-tabs-items class="mt-3" v-model="tab">
+      <v-tabs-items v-model="tab" class="mt-3">
         <v-tab-item
           v-for="item in donationTabs"
           :key="item"
@@ -130,6 +130,6 @@ export default Vue.extend({
 
 .payment-tab-primary {
   background-color: #00ac00;
-  color: white;
+  color: white !important;
 }
 </style>
