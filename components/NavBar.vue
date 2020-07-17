@@ -1,12 +1,12 @@
 <template>
   <v-app-bar flat color="white" height="120" style="padding: 0 5%;">
-    <router-link to="/">
+    <nuxt-link to="/">
       <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
-    </router-link>
+    </nuxt-link>
     <v-spacer />
     <v-spacer />
     <v-spacer />
-    <router-link
+    <nuxt-link
       v-for="(page, i) in pages"
       :key="i"
       :to="page.link"
@@ -15,15 +15,15 @@
       <span style="color: black;">
         {{ page.text }}
       </span>
-    </router-link>
-    <router-link
+    </nuxt-link>
+    <nuxt-link
       to="/zakat"
       class="mx-3"
     >
       <span style="color: #00ac00;">
         {{ $t('links.pay') }}
       </span>
-    </router-link>
+    </nuxt-link>
     <v-spacer />
     <v-btn
       rounded
