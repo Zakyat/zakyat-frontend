@@ -5,7 +5,7 @@
         {{ $t('home.funded_project.title') }}
       </span>
     </v-row>
-    <v-row style="min-width:1000px">
+    <v-row style="min-width: 1000px;">
       <v-col
         v-for="(item, j) in projects"
         :key="j"
@@ -22,10 +22,10 @@
             {{ item.title }}
           </v-card-title>
           <v-card-text v-if="item.src">
-            <v-img :src="item.src" contain height="155" style="position:absolute; right:0;" />
+            <v-img :src="item.src" contain height="155" style="position: absolute; right: 0;" />
           </v-card-text>
           <v-card-actions>
-            <v-btn rounded dark color="primary" class="mx-4" style="position:absolute; bottom:15px;">
+            <v-btn rounded dark color="primary" class="mx-4" style="position: absolute; bottom: 15px;">
               {{ item.button }}
             </v-btn>
           </v-card-actions>

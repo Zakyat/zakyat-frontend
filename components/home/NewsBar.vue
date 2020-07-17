@@ -1,5 +1,5 @@
 <template>
-  <v-container style="padding: 80px 6% 64px;max-width: 100%;">
+  <v-container style="padding: 80px 6% 64px; max-width: 100%;">
     <v-row>
       <span class="mx-4">
         {{ $t('links.news') }}

@@ -2,7 +2,7 @@
   <v-layout class="volunteer-container" row>
     <v-flex xs12 md7>
       <h1>{{ $t('home.volunteer.title') }}</h1>
-      <p class="my-5" style="width: 88%">
+      <p class="my-5" style="width: 88%;">
         {{ $t('home.volunteer.description') }}
       </p>
       <v-btn height="40" rounded>

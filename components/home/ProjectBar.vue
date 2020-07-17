@@ -1,5 +1,5 @@
 <template>
-  <v-container style="max-width: 100%;padding: 80px 6% 64px;">
+  <v-container style="max-width: 100%; padding: 80px 6% 64px;">
     <span>{{ $t('home.projects.title') }}</span>
     <v-layout class="mt-4" row>
       <v-flex
@@ -15,7 +15,7 @@
           <v-card-title style="word-break: normal;">
             {{ item.title }}
           </v-card-title>
-          <v-card-text class="text-center" style="position:absolute; bottom:0;">
+          <v-card-text class="text-center" style="position: absolute; bottom: 0;">
             <v-img
               v-if="item.src"
               :src="item.src"
@@ -24,7 +24,7 @@
               width="250"
             />
 
-            <v-card-actions style="position:absolute; bottom:5px;">
+            <v-card-actions style="position: absolute; bottom: 5px;">
               <v-btn rounded dark color="primary">
                 {{ $t('home.projects.help') }}
               </v-btn>
