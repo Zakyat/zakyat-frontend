@@ -4,7 +4,7 @@
       <h2>
         {{ $t('access.login.recoveryPassword.title') }}
       </h2>
-      <p class="pt-4">
+      <p class="pt-4 description">
         {{ $t('access.login.recoveryPassword.description') }}
       </p>
       <v-text-field
@@ -64,5 +64,9 @@ export default Vue.extend({
   .buttonTo {
     letter-spacing: normal;
     font-weight: normal;
+  }
+
+  .description {
+    font-size: 14px;
   }
 </style>

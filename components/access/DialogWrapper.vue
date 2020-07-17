@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="dialog-wrapper">
     <template v-if="currentDialog === 'SignInDialog'">
       <SignInDialog @set-dialog="changeDialog" />
     </template>

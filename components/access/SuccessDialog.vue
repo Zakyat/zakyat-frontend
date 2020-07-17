@@ -5,7 +5,7 @@
         <v-icon right size="60px" color="success p-2">
           mdi-checkbox-marked-circle
         </v-icon>
-        <p class="pt-4">
+        <p class="pt-4 description">
           {{ $t('access.login.recoveryPassword.success') }}
         </p>
         <div class="link-wrapper mt-7">
@@ -46,5 +46,9 @@ export default Vue.extend({
   .buttonTo {
     letter-spacing: normal;
     font-weight: normal;
+  }
+
+  .description {
+    font-size: 14px;
   }
 </style>

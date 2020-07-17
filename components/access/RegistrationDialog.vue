@@ -11,7 +11,7 @@
           </span>
         </v-btn>
       </v-row>
-      <p class="pt-4">
+      <p class="pt-4 description">
         {{ $t('access.registration.description') }}
       </p>
       <div class="d-flex justify-space-between">
@@ -83,13 +83,11 @@
         </p>
       </template>
       <v-checkbox
-        class="agreement text-12 mt-n4 mb-4"
+        class="mt-n4 mb-4"
         :v-model="selected"
-        :label="$t('access.registration.agreements.textFirstPart') + ' ' + $t('access.registration.agreements.userAgreementName') + ' '
-          + $t('access.registration.agreements.textSecondPart') + ' ' + $t('access.registration.agreements.confidentialAgreementName')"
+        :label='label'
         color="success"
-        :value="selected"
-        hide-details
+        @click="selected = !selected"
       />
       <v-btn
         color="success"
@@ -114,6 +112,9 @@ export default Vue.extend({
       password: '',
       passwordRegexp: /[0-9]/,
       showPassword: false,
+      selected: false,
+      label: this.$t('access.registration.agreements.textFirstPart') + ' ' + this.$t('access.registration.agreements.userAgreementName') + ' '
+        + this.$t('access.registration.agreements.textSecondPart') + ' ' + this.$t('access.registration.agreements.confidentialAgreementName'),
     };
   },
   methods: {
@@ -158,4 +159,9 @@ export default Vue.extend({
   .progress-result {
     font-size: 13px;
   }
+
+  .description {
+    font-size: 14px;
+  }
+
 </style>
