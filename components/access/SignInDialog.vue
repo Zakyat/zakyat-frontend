@@ -48,7 +48,6 @@
         dense
         rounded
         outlined
-        color="black"
       />
       <v-text-field
         v-model="password"
@@ -57,40 +56,18 @@
         dense
         rounded
         outlined
-        loading
-        color="black"
+        class="mt-n2"
         :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
         :type="showPassword ? 'text' : 'password'"
-        class="validation v-application"
         @click:append="showPassword = !showPassword"
       >
-        <template v-slot:progress>
-          <v-progress-linear
-            :value="progress"
-            :color="color"
-            absolute
-            height="7"
-            class="mt-3 rounded progress-bar"
-          />
-        </template>
       </v-text-field>
-      <template v-if="progress">
-        <p v-if="progress === 34" class="progress-result">
-          {{ $t('access.registration.errors.weekPassword') }}
-        </p>
-        <p v-if="progress === 68" class="progress-result">
-          {{ $t('access.registration.errors.averagePassword') }}
-        </p>
-        <p v-if="progress === 100" class="progress-result">
-          {{ $t('access.registration.errors.goodPassword') }}
-        </p>
-      </template>
       <v-btn
         color="success"
         block
         dense
         rounded
-        class="custom-transform-class text-none buttonTo"
+        class="custom-transform-class text-none buttonTo mt-n2"
       >
         {{ $t('access.login.linkAndButtonName') }}
       </v-btn>
@@ -116,24 +93,12 @@ export default Vue.extend({
       rules: {
         email: (value : string) => {
           const emailRegexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-          return emailRegexp.test(value) || this.$t('access.login.errors');
+          return (emailRegexp.test(value)) || this.$t('access.login.errors');
         },
       },
       password: '',
-      passwordRegexp: /[0-9]/,
-      showPassword: true,
+      showPassword: false,
     };
-  },
-  computed: {
-    progress () {
-      if (this.password.length < 6 && this.password.length > 0) { return 34; }
-      if ((this.password.length >= 6 && this.password.length < 11) ||
-        (this.password.length >= 11 && !this.passwordRegexp.test(this.password))) { return 68; }
-      if (this.password.length >= 11 && this.passwordRegexp.test(this.password)) { return 100; }
-    },
-    color () {
-      return ['error', 'warning', 'success'][Math.floor(this.progress / 35)];
-    },
   },
   methods: {
     toRegistrationDialog () : void {

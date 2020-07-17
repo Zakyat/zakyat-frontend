@@ -5,7 +5,7 @@
         <h2>
           {{ $t('access.registration.title') }}
         </h2>
-        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="success" @click="toSignInDialog">
+        <v-btn text class="mt-1 text-capitalize buttonTo" color="success" @click="toSignInDialog">
           <span>
             {{ $t('access.login.linkAndButtonName') }}
           </span>
@@ -42,18 +42,46 @@
       </div>
       <v-text-field
         class="mt-5"
-        :label="$t('access.global.emailPlaceholder')"
+        :placeholder="$t('access.global.emailPlaceholder')"
         dense
         rounded
         outlined
       />
       <v-text-field
-        class="mt-n4"
-        :label="$t('access.global.passwordPlaceholder')"
+        v-model="password"
+        :placeholder="$t('access.global.passwordPlaceholder')"
+        required
         dense
         rounded
         outlined
-      />
+        loading
+        :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+        :type="showPassword ? 'text' : 'password'"
+        @click:append="showPassword = !showPassword"
+        class="mt-n2"
+      >
+        <template v-slot:progress>
+          <v-progress-linear
+            :value="progress"
+            :color="color"
+            background-color="red"
+            absolute
+            height="7"
+            class="mt-3 ml-2 rounded progress-bar"
+          />
+        </template>
+      </v-text-field>
+      <template v-if="progress">
+        <p v-if="progress === 34" class="progress-result ml-2">
+          {{ $t('access.registration.errors.weekPassword') }}
+        </p>
+        <p v-if="progress === 68" class="progress-result ml-2">
+          {{ $t('access.registration.errors.averagePassword') }}
+        </p>
+        <p v-if="progress === 100" class="progress-result ml-2">
+          {{ $t('access.registration.errors.goodPassword') }}
+        </p>
+      </template>
       <v-checkbox
         class="agreement text-12 mt-n4 mb-4"
         :v-model="selected"
@@ -68,7 +96,7 @@
         block
         dense
         rounded
-        class="custom-transform-class text-none buttonTo"
+        class="custom-transform-class text-none buttonTo mt-n2"
       >
         {{ $t('access.registration.linkAndButtonName') }}
       </v-btn>
@@ -81,9 +109,27 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'RegistrationDialog',
+  data () {
+    return {
+      password: '',
+      passwordRegexp: /[0-9]/,
+      showPassword: false,
+    };
+  },
   methods: {
     toSignInDialog () : void {
       this.$emit('set-dialog', 'SignInDialog');
+    },
+  },
+  computed: {
+    progress () {
+      if (this.password.length < 6 && this.password.length > 0) { return 34; }
+      if ((this.password.length >= 6 && this.password.length < 11) ||
+        (this.password.length >= 11 && !this.passwordRegexp.test(this.password))) { return 68; }
+      if (this.password.length >= 11 && this.passwordRegexp.test(this.password)) { return 100; }
+    },
+    color () {
+      return ['error', 'warning', 'success'][Math.floor(this.progress / 35)];
     },
   },
 });
@@ -102,5 +148,14 @@ export default Vue.extend({
   .buttonTo {
     letter-spacing: normal;
     font-weight: normal;
+  }
+
+  .progress-bar {
+    width: 320px;
+    border-radius: 10px;
+  }
+
+  .progress-result {
+    font-size: 13px;
   }
 </style>

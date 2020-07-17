@@ -20,6 +20,7 @@
         dense
         rounded
         class="custom-transform-class text-none buttonTo"
+        @click="toSuccessDialog"
       >
         {{ $t('access.login.recoveryPassword.buttonName') }}
       </v-btn>
@@ -42,6 +43,9 @@ export default Vue.extend({
   methods: {
     toSignInDialog () : void{
       this.$emit('set-dialog', 'SignInDialog');
+    },
+    toSuccessDialog () : void{
+      this.$emit('set-dialog', 'SuccessDialog');
     },
   },
 });

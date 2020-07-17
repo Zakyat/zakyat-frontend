@@ -20,15 +20,20 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 
 export default Vue.extend({
   name: 'SuccessDialog',
+  methods: {
+    toSignInDialog () : void{
+      this.$emit('set-dialog', 'SignInDialog');
+    },
+  },
 });
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
   .success__container {
     padding: 10px 50px 50px 50px;
     background-color: white;
