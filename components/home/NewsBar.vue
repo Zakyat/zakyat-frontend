@@ -1,8 +1,15 @@
 <template>
-  <v-container style="padding: 3% 0;">
+  <v-container style="padding: 80px 6% 64px; max-width: 100%;">
     <v-row>
-      <span class="ma-4">
+      <span class="mx-4">
         {{ $t('links.news') }}
+      </span>
+      <v-spacer />
+      <span>
+        <v-btn class="mt-5 black--text" text>
+          {{ $t('home.news.all') }}
+          <v-icon>mdi-chevron-right</v-icon>
+        </v-btn>
       </span>
     </v-row>
     <v-layout row>
@@ -18,10 +25,14 @@
             height="200px"
             :src="item.src"
           />
-          <v-card-title>{{ item.title }}</v-card-title>
+          <v-card-title style="word-break: normal; line-height: 25px; font-weight: bold;">
+            {{ item.title }}
+          </v-card-title>
 
           <v-card-text class="text--primary">
-            <div> {{ item.desc }}</div>
+            <div style="line-height: 20px;">
+              {{ item.desc }}
+            </div>
           </v-card-text>
         </v-card>
       </v-flex>

@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="about-container">
     <v-row no-gutters>
       <v-col cols="12">
         <h1 class="display-1 font-weight-bold">
@@ -17,11 +17,28 @@
           </v-btn>
         </div>
       </v-col>
-      <v-col cols="12" md="6" class="text-center">
-        <video height="340px" controls>
-          <source :src="require('@/assets/videos/aboutUs.mp4')" type="video/mp4">
-        </video>
+      <v-col cols="12" md="6" class="text-right">
+        <iframe
+          width="98%"
+          height="100%"
+          src="https://www.youtube.com/embed/PNwRFQDfoD8"
+          frameborder="0"
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          class="py-6"
+        />
       </v-col>
     </v-row>
   </v-container>
 </template>
+
+<style lang="scss" scoped>
+.about-container {
+  padding: 0 6% 56px;
+  max-width: 100%;
+
+  p {
+    width: 95%;
+  }
+}
+</style>

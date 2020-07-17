@@ -3,12 +3,12 @@
     <v-row>
       <v-col cols="11">
         <h1>{{ $t('home.sadaka.title') }}</h1>
-        <p class="my-4">
+        <p class="my-3">
           {{ $t('home.sadaka.description') }}
         </p>
       </v-col>
     </v-row>
-    <v-row class="mt-4">
+    <v-row>
       <v-col cols="3">
         <v-text-field
           v-model.number="amount"
@@ -43,8 +43,8 @@
           />
         </v-radio-group>
       </v-col>
-      <v-col cols="2">
-        <v-btn height="50" class="black--text mx-6" rounded>
+      <v-col cols="2" class="text-right">
+        <v-btn height="50" class="black--text ml-6" rounded>
           {{ $t('home.sadaka.donate') }}
         </v-btn>
       </v-col>
@@ -69,7 +69,7 @@ export default Vue.extend({
 .donation-container {
   background-color: #00ac00;
   max-width: 100%;
-  padding: 3% 6%;
+  padding: 30px 6% 30px;
   color: #fff;
 
   h1 {
@@ -78,7 +78,7 @@ export default Vue.extend({
   }
 
   p {
-    width: 80%;
+    width: 85%;
   }
 
   .amounts {
