@@ -10,7 +10,6 @@
       <GatheringSelection
         :gatheringId="gatheringId"
         :gatherings="gatherings"
-        :items="items"
       />
       <PaymentMethod class="mb-12" />
     </v-container>
@@ -32,10 +31,6 @@ export default Vue.extend({
   data () {
     return {
       gatheringId: this.$route.query.id,
-      items: [
-        'Бурганова Альфия, сбор 309',
-        'Садыков Амирхан, сбор 400',
-      ],
       gatherings: [
         {
           id: 'Бурганова Альфия, сбор 309',

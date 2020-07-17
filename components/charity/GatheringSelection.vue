@@ -11,13 +11,12 @@
       >
         <v-select
           v-model="selectedGathering"
-          append-icon="mdi-chevron-down"
           outlined
           rounded
           flat
-          solo
           :placeholder="$t('charity.gathering.gatheringSelection')"
-          :items="items"
+          :items="gatherings"
+          item-text="id"
           class="pa-0 ma-0"
         >
         </v-select>
@@ -37,7 +36,7 @@
     </v-row>
     <CharityCard
       v-if="selectedGathering"
-      :gathering="gatherings[items.indexOf(selectedGathering)]"
+      :gathering="gatherings.find(x => x.id === selectedGathering)"
     />
   </div>
 </template>
@@ -54,7 +53,6 @@ export default Vue.extend({
   props: [
     'gatheringId',
     'gatherings',
-    'items',
   ],
   data () {
     return {
