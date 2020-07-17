@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat color="white" height="120" style="padding: 0 5%;max-width: 100%;">
+  <v-app-bar flat color="white" height="120" style="padding: 0 5%;">
     <router-link to="/">
       <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
     </router-link>
@@ -12,7 +12,7 @@
       :to="page.link"
       class="mx-3"
     >
-      <span style="color:black;">
+      <span style="color: black;">
         {{ page.text }}
       </span>
     </router-link>
@@ -20,7 +20,7 @@
       to="/zakat"
       class="mx-3"
     >
-      <span style="color:#00ac00;">
+      <span style="color: #00ac00;">
         {{ $t('links.pay') }}
       </span>
     </router-link>
