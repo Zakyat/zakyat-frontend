@@ -18,10 +18,9 @@
           :items="gatherings"
           item-text="id"
           class="pa-0 ma-0"
-        >
-        </v-select>
+        />
       </v-col>
-      <v-spacer/>
+      <v-spacer />
       <v-col
         cols="auto"
         class="pa-0 md-0"
@@ -41,7 +40,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 import CharityCard from '@/components/charity/CharityCard.vue';
 
@@ -50,14 +49,25 @@ export default Vue.extend({
   components: {
     CharityCard,
   },
-  props: [
-    'gatheringId',
-    'gatherings',
-  ],
-  data () {
-    return {
-      selectedGathering: this.gatheringId,
-    };
+  props: {
+    gatheringId: {
+      type: String,
+      required: true,
+    },
+    gatherings: {
+      type: Object,
+      required: true,
+    },
+  },
+  computed: {
+    selectedGathering: {
+      get () {
+        return this.gatheringId;
+      },
+      set (newSelectedGathering) {
+        this.gatheringId = newSelectedGathering;
+      },
+    },
   },
 });
 </script>
