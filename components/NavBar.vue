@@ -1,20 +1,45 @@
 <template>
-  <v-app-bar flat color="white" height="100" style="padding: 0 5%;">
-    <nuxt-link to="/"><img :src="require(`@/assets/logo/${$i18n.locale}.svg`)"></nuxt-link>
+  <v-app-bar flat color="white" height="120" style="padding: 0 5%;">
+    <nuxt-link to="/">
+      <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
+    </nuxt-link>
     <v-spacer />
-    <v-btn
+    <v-spacer />
+    <v-spacer />
+    <nuxt-link
       v-for="(page, i) in pages"
       :key="i"
       :to="page.link"
-      text
-      nuxt
+      class="mx-3"
     >
-      {{ page.text }}
-    </v-btn>
-    <v-btn rounded dark color="primary">
+      <span style="color: black;">
+        {{ page.text }}
+      </span>
+    </nuxt-link>
+    <nuxt-link
+      to="/zakat"
+      class="mx-3"
+    >
+      <span style="color: #00ac00;">
+        {{ $t('links.pay') }}
+      </span>
+    </nuxt-link>
+    <v-spacer />
+    <v-btn
+      rounded
+      dark
+      color="primary"
+      height="40px"
+    >
       {{ $t('give_help') }}
     </v-btn>
-    <v-btn rounded dark color="accent">
+    <v-spacer />
+    <v-btn
+      rounded
+      dark
+      color="accent"
+      height="40px"
+    >
       {{ $t('get_help') }}
     </v-btn>
   </v-app-bar>
@@ -28,10 +53,9 @@ export default Vue.extend({
       pages: [
         { text: this.$t('links.fees'), link: '/' },
         { text: this.$t('links.projects'), link: '/' },
-        { text: this.$t('links.reports'), link: '/reports' },
-        { text: this.$t('links.news'), link: '/' },
+        { text: this.$t('links.reports'), link: '/' },
+        { text: this.$t('links.news'), link: '/news' },
         { text: this.$t('links.about'), link: '/' },
-        { text: this.$t('links.pay'), link: '/' },
       ],
     };
   },
@@ -41,5 +65,16 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .v-btn--active::before {
   opacity: 0;
+}
+
+span {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+a {
+  text-decoration: none;
 }
 </style>

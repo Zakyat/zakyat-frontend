@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container style="padding: 60px 6% 10px; max-width: 100%;">
     <v-row justify="space-between">
       <v-col align-self="center">
         <h1>
