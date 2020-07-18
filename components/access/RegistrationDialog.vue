@@ -5,7 +5,7 @@
         <h2>
           {{ $t('access.registration.title') }}
         </h2>
-        <v-btn text class="mt-1 text-capitalize buttonTo" color="success" @click="toSignInDialog">
+        <v-btn text class="mt-1 text-capitalize buttonTo" color="#00AC00" @click="toSignInDialog">
           <span>
             {{ $t('access.login.linkAndButtonName') }}
           </span>
@@ -64,7 +64,6 @@
           <v-progress-linear
             :value="progress"
             :color="color"
-            background-color="red"
             absolute
             height="7"
             class="mt-3 ml-2 rounded progress-bar"
@@ -82,21 +81,26 @@
           {{ $t('access.registration.errors.goodPassword') }}
         </p>
       </template>
-      <v-checkbox
-        class="mt-n4 mb-4"
-        :v-model="selected"
-        :label='label'
-        color="success"
-        @click="selected = !selected"
-      />
+      <v-row justify="space-between ml-0 mr-0 mb-3">
+        <v-checkbox
+          class="pt-0"
+          v-model="selected"
+          color="#00AC00"
+        ></v-checkbox>
+        <p class="assigment"> {{ $t('access.registration.agreements.textFirstPart') }}
+          <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>,
+          {{ $t('access.registration.agreements.textSecondPart') }}
+          <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a></p>
+      </v-row>
       <v-btn
-        color="success"
+        color="#00AC00"
+        dark
         block
-        dense
         rounded
-        class="custom-transform-class text-none buttonTo mt-n2"
+        height="40px"
+        class="text-none buttonTo mt-n2"
       >
-        {{ $t('access.registration.linkAndButtonName') }}
+        <span class="buttonName">{{ $t('access.registration.linkAndButtonName') }}</span>
       </v-btn>
     </v-container>
   </div>
@@ -113,8 +117,6 @@ export default Vue.extend({
       passwordRegexp: /[0-9]/,
       showPassword: false,
       selected: false,
-      label: this.$t('access.registration.agreements.textFirstPart') + ' ' + this.$t('access.registration.agreements.userAgreementName') + ' '
-        + this.$t('access.registration.agreements.textSecondPart') + ' ' + this.$t('access.registration.agreements.confidentialAgreementName'),
     };
   },
   methods: {
@@ -137,8 +139,9 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+
   .registration__container {
-    padding: 10px 50px 50px 50px;
+    padding: 0 50px 50px 50px;
     background-color: white;
   }
 
@@ -149,6 +152,10 @@ export default Vue.extend({
   .buttonTo {
     letter-spacing: normal;
     font-weight: normal;
+  }
+
+  .buttonName {
+    font-size: 16px;
   }
 
   .progress-bar {
@@ -164,4 +171,8 @@ export default Vue.extend({
     font-size: 14px;
   }
 
+  .assigment {
+    font-size: 12px;
+    width: 300px;
+  }
 </style>

@@ -15,17 +15,18 @@
         outlined
       />
       <v-btn
-        color="success"
+        color="#00AC00"
         block
         dense
         rounded
+        dark
         class="custom-transform-class text-none buttonTo"
         @click="toSuccessDialog"
       >
         {{ $t('access.login.recoveryPassword.buttonName') }}
       </v-btn>
       <div class="link-wrapper text-center mt-7">
-        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="success" @click="toSignInDialog">
+        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="toSignInDialog">
           <span>
             {{ $t('access.login.recoveryPassword.redirectionName') }}
           </span>
@@ -53,7 +54,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .recovery__container {
-    padding: 10px 50px 50px 50px;
+    padding: 0 50px 50px 50px;
     background-color: white;
   }
 

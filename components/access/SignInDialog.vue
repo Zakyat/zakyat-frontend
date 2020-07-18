@@ -5,7 +5,7 @@
         <h2>
           {{ $t('access.login.title') }}
         </h2>
-        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="success" @click="toRegistrationDialog">
+        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="toRegistrationDialog">
           <span>
             {{ $t('access.registration.linkAndButtonName') }}
           </span>
@@ -63,16 +63,25 @@
       >
       </v-text-field>
       <v-btn
-        color="success"
+        color="#00AC00"
         block
         dense
         rounded
-        class="custom-transform-class text-none buttonTo mt-n2"
+        dark
+        class="custom-transform-class text-none buttonTo mt-n2 text-12"
       >
-        {{ $t('access.login.linkAndButtonName') }}
+        <span class="buttonName">
+          {{ $t('access.login.linkAndButtonName') }}
+        </span>
       </v-btn>
       <div class="link-wrapper text-center mt-7">
-        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="success" @click="toRecoveryDialog">
+        <v-btn
+          text
+          class="mt-1 custom-transform-class text-none buttonTo"
+          color="#00AC00"
+          @click="toRecoveryDialog"
+          height="40px"
+        >
           <span>
             {{ $t('access.login.reminder') }}
           </span>
@@ -113,7 +122,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .sign-in__container {
-    padding: 10px 50px 50px 50px;
+    padding: 0 50px 50px 50px;
     background-color: white;
   }
 
@@ -124,6 +133,10 @@ export default Vue.extend({
   .buttonTo {
     letter-spacing: normal;
     font-weight: normal;
+  }
+
+  .buttonName {
+    font-size: 16px;
   }
 
   .description {

@@ -45,6 +45,7 @@
           icon
           color="black"
           @click="dialog = !dialog"
+          x-large
         >
           <v-icon>mdi-close</v-icon>
         </v-btn>
