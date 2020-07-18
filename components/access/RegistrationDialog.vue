@@ -41,7 +41,7 @@
         </v-btn>
       </div>
       <v-text-field
-        class="mt-5"
+        class="mt-5 textField"
         :placeholder="$t('access.global.emailPlaceholder')"
         dense
         rounded
@@ -58,30 +58,30 @@
         :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
         :type="showPassword ? 'text' : 'password'"
         @click:append="showPassword = !showPassword"
-        class="mt-n2"
+        class="mt-5 textField"
       >
         <template v-slot:progress>
           <v-progress-linear
             :value="progress"
             :color="color"
             absolute
-            height="7"
+            height="6"
             class="mt-3 ml-2 rounded progress-bar"
           />
         </template>
       </v-text-field>
       <template v-if="progress">
-        <p v-if="progress === 34" class="progress-result ml-2">
+        <p v-if="progress === 34" class="progress-result ml-2 mt-6">
           {{ $t('access.registration.errors.weekPassword') }}
         </p>
-        <p v-if="progress === 68" class="progress-result ml-2">
+        <p v-if="progress === 68" class="progress-result ml-2 mt-6">
           {{ $t('access.registration.errors.averagePassword') }}
         </p>
-        <p v-if="progress === 100" class="progress-result ml-2">
+        <p v-if="progress === 100" class="progress-result ml-2 mt-6">
           {{ $t('access.registration.errors.goodPassword') }}
         </p>
       </template>
-      <v-row justify="space-between ml-0 mr-0 mb-3">
+      <v-row justify="space-between ml-0 mr-0 mb-3 mt-3">
         <v-checkbox
           class="pt-0"
           v-model="selected"
@@ -174,5 +174,10 @@ export default Vue.extend({
   .assigment {
     font-size: 12px;
     width: 300px;
+  }
+
+  .textField {
+    border: 1px solid black;
+    height: 42px;
   }
 </style>

@@ -8,11 +8,12 @@
         {{ $t('access.login.recoveryPassword.description') }}
       </p>
       <v-text-field
-        class="mt-5"
-        :label="$t('access.global.emailPlaceholder')"
+        class="mt-5 textField"
+        :placeholder="$t('access.global.emailPlaceholder')"
         dense
         rounded
         outlined
+        height="40px"
       />
       <v-btn
         color="#00AC00"
@@ -20,7 +21,7 @@
         dense
         rounded
         dark
-        class="custom-transform-class text-none buttonTo"
+        class="custom-transform-class text-none buttonTo mt-5"
         @click="toSuccessDialog"
       >
         {{ $t('access.login.recoveryPassword.buttonName') }}
@@ -69,5 +70,10 @@ export default Vue.extend({
 
   .description {
     font-size: 14px;
+  }
+
+  .textField {
+    border: 1px solid black;
+    height: 42px;
   }
 </style>

@@ -42,7 +42,7 @@
       </div>
       <v-text-field
         v-model="email"
-        class="mt-5"
+        class="mt-5 mb-5 textField"
         :rules="[rules.email]"
         :placeholder="$t('access.global.emailPlaceholder')"
         dense
@@ -56,19 +56,18 @@
         dense
         rounded
         outlined
-        class="mt-n2"
+        class="textField"
         :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
         :type="showPassword ? 'text' : 'password'"
         @click:append="showPassword = !showPassword"
-      >
-      </v-text-field>
+      />
       <v-btn
         color="#00AC00"
         block
         dense
         rounded
         dark
-        class="custom-transform-class text-none buttonTo mt-n2 text-12"
+        class="custom-transform-class text-none buttonTo mt-5"
       >
         <span class="buttonName">
           {{ $t('access.login.linkAndButtonName') }}
@@ -79,8 +78,8 @@
           text
           class="mt-1 custom-transform-class text-none buttonTo"
           color="#00AC00"
-          @click="toRecoveryDialog"
           height="40px"
+          @click="toRecoveryDialog"
         >
           <span>
             {{ $t('access.login.reminder') }}
@@ -107,6 +106,7 @@ export default Vue.extend({
       },
       password: '',
       showPassword: false,
+      disabled: false,
     };
   },
   methods: {
@@ -141,5 +141,10 @@ export default Vue.extend({
 
   .description {
     font-size: 14px;
+  }
+
+  .textField {
+    border: 1px solid black;
+    height: 42px;
   }
 </style>
