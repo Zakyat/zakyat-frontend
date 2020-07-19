@@ -33,14 +33,15 @@
       class="rounded-lg"
     >
       <div class="button-wrapper white" align="right">
-        <v-btn
-          icon
-          color="black"
-          x-large
-          @click="dialog = !dialog"
-        >
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
+<!--        <v-btn-->
+<!--          icon-->
+<!--          color="black"-->
+<!--          x-large-->
+<!--          @click="dialog = !dialog"-->
+<!--        >-->
+<!--          <v-icon>mdi-close</v-icon>-->
+<!--        </v-btn>-->
+        <img src="@/assets/images/dialog-icons/close.svg" alt="close" @click="dialog = !dialog" class="mt-3 mr-3">
       </div>
       <DialogWrapper />
     </v-dialog>

@@ -2,7 +2,7 @@
   <div class="success">
     <div class="success__container rounded">
       <div class="info-wrapper" align="center">
-        <img src="@/assets/images/success-dialog/send.svg" alt="success">
+        <img src="@/assets/images/dialog-icons/success-dialog/send.svg" alt="success">
         <p class="pt-4 description">
           <!--{{ $t('access.login.recoveryPassword.success') }}-->
           Письмо для восстановления пароля успешно отправлено. Проверьте вашу почту.
@@ -35,7 +35,7 @@ export default Vue.extend({
 
 <style lang="scss">
   .success__container {
-    padding: 0 50px 50px 50px;
+    padding: 5px 50px 50px 50px;
     background-color: white;
   }
 

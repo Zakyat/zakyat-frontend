@@ -155,7 +155,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 
   .registration__container {
-    padding: 0 50px 50px 50px;
+    padding: 5px 50px 50px 50px;
     background-color: white;
   }
 
