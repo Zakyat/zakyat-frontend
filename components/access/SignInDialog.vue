@@ -21,7 +21,7 @@
           outlined
           rounded
         >
-<!--          <img src="@/assets/images/social-icons/vk.svg">-->
+          <!--<img src="@/assets/images/social-icons/vk.svg">-->
         </v-btn>
         <v-btn
           width="31%"
@@ -29,7 +29,7 @@
           outlined
           rounded
         >
-<!--          <img src="@/assets/images/social-icons/instagram.svg">-->
+          <!--<img src="@/assets/images/social-icons/instagram.svg">-->
         </v-btn>
         <v-btn
           width="31%"
@@ -37,7 +37,7 @@
           outlined
           rounded
         >
-<!--          <img src="@/assets/images/social-icons/google.svg">-->
+          <!--<img src="@/assets/images/social-icons/google.svg">-->
         </v-btn>
       </div>
       <v-text-field

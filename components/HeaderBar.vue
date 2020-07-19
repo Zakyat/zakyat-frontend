@@ -36,13 +36,13 @@
         <v-btn
           icon
           color="black"
-          @click="dialog = !dialog"
           x-large
+          @click="dialog = !dialog"
         >
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </div>
-      <DialogWrapper/>
+      <DialogWrapper />
     </v-dialog>
     <v-flex lg1 md2 xs4>
       <LanguageSelector class="icon" />

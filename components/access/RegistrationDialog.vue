@@ -21,7 +21,7 @@
           outlined
           rounded
         >
-<!--          <img src="@/assets/images/social-icons/vk.svg">-->
+          <!--<img src="@/assets/images/social-icons/vk.svg">-->
         </v-btn>
         <v-btn
           width="31%"
@@ -29,7 +29,7 @@
           outlined
           rounded
         >
-<!--          <img src="@/assets/images/social-icons/instagram.svg">-->
+          <!--<img src="@/assets/images/social-icons/instagram.svg">-->
         </v-btn>
         <v-btn
           width="31%"
@@ -37,7 +37,7 @@
           outlined
           rounded
         >
-<!--          <img src="@/assets/images/social-icons/google.svg">-->
+          <!--<img src="@/assets/images/social-icons/google.svg">-->
         </v-btn>
       </div>
       <v-text-field
@@ -50,6 +50,7 @@
       <v-text-field
         v-model="password"
         :placeholder="$t('access.global.passwordPlaceholder')"
+        class="mt-5 textField"
         required
         dense
         rounded
@@ -58,7 +59,6 @@
         :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
         :type="showPassword ? 'text' : 'password'"
         @click:append="showPassword = !showPassword"
-        class="mt-5 textField"
       >
         <template v-slot:progress>
           <v-progress-linear
@@ -83,14 +83,13 @@
       </template>
       <v-row justify="space-between ml-0 mr-0 mb-3 mt-3">
         <v-checkbox
-          class="pt-0"
           v-model="selected"
+          class="pt-0"
           color="#00AC00"
-        ></v-checkbox>
-        <p class="assigment"> {{ $t('access.registration.agreements.textFirstPart') }}
-          <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>,
-          {{ $t('access.registration.agreements.textSecondPart') }}
-          <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a></p>
+        />
+        <p class="assigment">
+          {{ $t('access.registration.agreements.textFirstPart') }} <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>, {{ $t('access.registration.agreements.textSecondPart') }} <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a>
+        </p>
       </v-row>
       <v-btn
         color="#00AC00"
@@ -119,20 +118,22 @@ export default Vue.extend({
       selected: false,
     };
   },
-  methods: {
-    toSignInDialog () : void {
-      this.$emit('set-dialog', 'SignInDialog');
-    },
-  },
   computed: {
-    progress () {
+    // eslint-disable-next-line vue/return-in-computed-property
+    progress () : number | undefined {
       if (this.password.length < 6 && this.password.length > 0) { return 34; }
       if ((this.password.length >= 6 && this.password.length < 11) ||
         (this.password.length >= 11 && !this.passwordRegexp.test(this.password))) { return 68; }
       if (this.password.length >= 11 && this.passwordRegexp.test(this.password)) { return 100; }
     },
     color () {
-      return ['error', 'warning', 'success'][Math.floor(this.progress / 35)];
+      // return ['error', 'warning', 'success'][Math.floor(this.progress / 35)];
+      return ['error', 'warning', 'success'][Math.floor(100 / 35)];
+    },
+  },
+  methods: {
+    toSignInDialog () : void {
+      this.$emit('set-dialog', 'SignInDialog');
     },
   },
 });

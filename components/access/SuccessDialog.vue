@@ -10,9 +10,9 @@
         </p>
         <div class="link-wrapper mt-7">
           <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="toSignInDialog">
-          <span>
-            {{ $t('access.login.recoveryPassword.redirectionName') }}
-          </span>
+            <span>
+              {{ $t('access.login.recoveryPassword.redirectionName') }}
+            </span>
           </v-btn>
         </div>
       </div>
