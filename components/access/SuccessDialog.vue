@@ -2,9 +2,7 @@
   <div class="success">
     <div class="success__container rounded">
       <div class="info-wrapper" align="center">
-        <v-icon right size="60px" color="success p-2">
-          mdi-checkbox-marked-circle
-        </v-icon>
+        <img src="@/assets/images/success-dialog/send.svg" alt="success">
         <p class="pt-4 description">
           <!--{{ $t('access.login.recoveryPassword.success') }}-->
           Письмо для восстановления пароля успешно отправлено. Проверьте вашу почту.

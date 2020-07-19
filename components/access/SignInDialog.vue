@@ -24,7 +24,7 @@
           outlined
           rounded
         >
-          <!--<img src="@/assets/images/social-icons/vk.svg">-->
+          <img src="@/assets/images/social-icons/vk.svg" alt="vk">
         </v-btn>
         <v-btn
           width="31%"
@@ -32,7 +32,7 @@
           outlined
           rounded
         >
-          <!--<img src="@/assets/images/social-icons/instagram.svg">-->
+          <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">
         </v-btn>
         <v-btn
           width="31%"
@@ -40,7 +40,7 @@
           outlined
           rounded
         >
-          <!--<img src="@/assets/images/social-icons/google.svg">-->
+          <img src="@/assets/images/social-icons/google.svg" alt="google">
         </v-btn>
       </div>
       <!--:placeholder="$t('access.global.emailPlaceholder')"-->
