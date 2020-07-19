@@ -153,28 +153,27 @@ export default Vue.extend({
       showPassword: false,
       selected: false,
       progressNow: 0,
-    }
+    };
   },
   computed: {
     // eslint-disable-next-line vue/return-in-computed-property
-    progress () : number | undefined {
+    progress () : number {
       if (this.password.length < 6 && this.password.length > 0) {
-        this.progressNow = 34;
-        return this.progressNow;
-      }
+        return 34;
+      } else
       if ((this.password.length >= 6 && this.password.length < 11) ||
         (this.password.length >= 11 && !this.passwordRegexp.test(this.password))) {
-        this.progressNow = 68;
-        return this.progressNow;
-      }
+        return 68;
+      } else
       if (this.password.length >= 11 && this.passwordRegexp.test(this.password)) {
-        this.progressNow = 100;
-        return this.progressNow;
+        return 100;
+      } else {
+        return 0;
       }
     },
     color () : string {
       // return ['error', 'warning', 'success'][Math.floor(this.progress / 35)];
-      return ['error', 'warning', 'success'][Math.floor(this.progressNow / 35)];
+      return ['error', 'warning', 'success'][Math.floor(this.progress / 35)];
     },
   },
   methods: {
