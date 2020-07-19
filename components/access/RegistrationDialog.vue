@@ -52,7 +52,6 @@
         outlined
         placeholder="Эл. почта"
       />
-      <!--      :placeholder="$t('access.global.passwordPlaceholder')"-->
       <v-text-field
         v-model="password"
         class="mt-5 textField"
@@ -62,7 +61,6 @@
         rounded
         outlined
         loading
-        :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
         :type="showPassword ? 'text' : 'password'"
         @click:append="showPassword = !showPassword"
       >
@@ -75,7 +73,32 @@
             class="mt-3 ml-2 rounded progress-bar"
           />
         </template>
+        <template v-slot:append>
+          <v-btn
+            v-if="showPassword"
+            fab
+            height="30px"
+            width="30px"
+            depressed
+            color="white"
+            class="mt-n1 mr-n3"
+          >
+            <img src="@/assets/images/dialog-icons/password-icons/show.svg" alt="show" class="mt-1" @click="showPassword = !showPassword">
+          </v-btn>
+          <v-btn
+            v-else
+            fab
+            height="30px"
+            width="30px"
+            depressed
+            color="white"
+            class="mt-n1 mr-n3"
+          >
+            <img src="@/assets/images/dialog-icons/password-icons/hide.svg" alt="hide" @click="showPassword = !showPassword">
+          </v-btn>
+        </template>
       </v-text-field>
+
       <template v-if="progress">
         <p v-if="progress === 34" class="progress-result ml-2 mt-6">
           <!--{{ $t('access.registration.errors.weekPassword') }}-->
@@ -129,19 +152,29 @@ export default Vue.extend({
       passwordRegexp: /[0-9]/,
       showPassword: false,
       selected: false,
-    };
+      progressNow: 0,
+    }
   },
   computed: {
     // eslint-disable-next-line vue/return-in-computed-property
     progress () : number | undefined {
-      if (this.password.length < 6 && this.password.length > 0) { return 34; }
+      if (this.password.length < 6 && this.password.length > 0) {
+        this.progressNow = 34;
+        return this.progressNow;
+      }
       if ((this.password.length >= 6 && this.password.length < 11) ||
-        (this.password.length >= 11 && !this.passwordRegexp.test(this.password))) { return 68; }
-      if (this.password.length >= 11 && this.passwordRegexp.test(this.password)) { return 100; }
+        (this.password.length >= 11 && !this.passwordRegexp.test(this.password))) {
+        this.progressNow = 68;
+        return this.progressNow;
+      }
+      if (this.password.length >= 11 && this.passwordRegexp.test(this.password)) {
+        this.progressNow = 100;
+        return this.progressNow;
+      }
     },
-    color () {
+    color () : string {
       // return ['error', 'warning', 'success'][Math.floor(this.progress / 35)];
-      return ['error', 'warning', 'success'][Math.floor(100 / 35)];
+      return ['error', 'warning', 'success'][Math.floor(this.progressNow / 35)];
     },
   },
   methods: {

@@ -62,10 +62,34 @@
         rounded
         outlined
         class="textField"
-        :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
         :type="showPassword ? 'text' : 'password'"
-        @click:append="showPassword = !showPassword"
-      />
+      >
+        <template v-slot:append>
+          <v-btn
+            v-if="showPassword"
+            fab
+            height="30px"
+            width="30px"
+            depressed
+            color="white"
+            class="mt-n1 mr-n3"
+          >
+            <img src="@/assets/images/dialog-icons/password-icons/show.svg" alt="show" class="mt-1" @click="showPassword = !showPassword">
+          </v-btn>
+          <v-btn
+            v-else
+            fab
+            height="30px"
+            width="30px"
+            depressed
+            color="white"
+            class="mt-n1 mr-n3"
+          >
+            <img src="@/assets/images/dialog-icons/password-icons/hide.svg" alt="hide" @click="showPassword = !showPassword">
+          </v-btn>
+        </template>
+      </v-text-field>
+
       <v-btn
         color="#00AC00"
         block
@@ -113,8 +137,8 @@ export default Vue.extend({
         },
       },
       password: '',
-      showPassword: false,
-      disabled: false,
+      showPassword: true,
+      disabled: true,
     };
   },
   methods: {
