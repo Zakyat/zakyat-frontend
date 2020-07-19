@@ -89,7 +89,6 @@
           </v-btn>
         </template>
       </v-text-field>
-
       <v-btn
         color="#00AC00"
         block
@@ -137,8 +136,7 @@ export default Vue.extend({
         },
       },
       password: '',
-      showPassword: true,
-      disabled: true,
+      showPassword: false,
     };
   },
   methods: {

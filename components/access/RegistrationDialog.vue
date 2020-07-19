@@ -152,7 +152,6 @@ export default Vue.extend({
       passwordRegexp: /[0-9]/,
       showPassword: false,
       selected: false,
-      progressNow: 0,
     };
   },
   computed: {
