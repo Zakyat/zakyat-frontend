@@ -3,16 +3,19 @@
     <v-container class="sign-in__container rounded">
       <v-row justify="space-between ml-0 mr-0">
         <h2>
-          {{ $t('access.login.title') }}
+          <!--{{ $t('access.login.title') }}-->
+          Вход
         </h2>
         <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="toRegistrationDialog">
           <span>
-            {{ $t('access.registration.linkAndButtonName') }}
+            <!--{{ $t('access.registration.linkAndButtonName') }}-->
+            Зарегистрироваться
           </span>
         </v-btn>
       </v-row>
       <p class="pt-4 description">
-        {{ $t('access.login.description') }}
+        <!--{{ $t('access.login.description') }}-->
+        Войдите через социальные сети или электронную почту
       </p>
       <div class="d-flex justify-space-between">
         <v-btn
@@ -40,18 +43,20 @@
           <!--<img src="@/assets/images/social-icons/google.svg">-->
         </v-btn>
       </div>
+      <!--:placeholder="$t('access.global.emailPlaceholder')"-->
       <v-text-field
         v-model="email"
         class="mt-5 mb-5 textField"
         :rules="[rules.email]"
-        :placeholder="$t('access.global.emailPlaceholder')"
+        placeholder="Эл. почта"
         dense
         rounded
         outlined
       />
+      <!--:placeholder="$t('access.global.passwordPlaceholder')"-->
       <v-text-field
         v-model="password"
-        :placeholder="$t('access.global.passwordPlaceholder')"
+        placeholder="Пароль"
         required
         dense
         rounded
@@ -70,7 +75,8 @@
         class="custom-transform-class text-none buttonTo mt-5"
       >
         <span class="buttonName">
-          {{ $t('access.login.linkAndButtonName') }}
+          <!--{{ $t('access.login.linkAndButtonName') }}-->
+          Войти
         </span>
       </v-btn>
       <div class="link-wrapper text-center mt-7">
@@ -82,7 +88,8 @@
           @click="toRecoveryDialog"
         >
           <span>
-            {{ $t('access.login.reminder') }}
+            <!--{{ $t('access.login.reminder') }}-->
+            Забыли пароль?
           </span>
         </v-btn>
       </div>
@@ -101,7 +108,8 @@ export default Vue.extend({
       rules: {
         email: (value : string) => {
           const emailRegexp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-          return (emailRegexp.test(value)) || this.$t('access.login.errors');
+          // return (emailRegexp.test(value)) || this.$t('access.login.errors');
+          return (emailRegexp.test(value)) || 'Такого аккаунта нет';
         },
       },
       password: '',

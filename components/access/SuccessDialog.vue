@@ -6,12 +6,14 @@
           mdi-checkbox-marked-circle
         </v-icon>
         <p class="pt-4 description">
-          {{ $t('access.login.recoveryPassword.success') }}
+          <!--{{ $t('access.login.recoveryPassword.success') }}-->
+          Письмо для восстановления пароля успешно отправлено. Проверьте вашу почту.
         </p>
         <div class="link-wrapper mt-7">
           <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="toSignInDialog">
             <span>
-              {{ $t('access.login.recoveryPassword.redirectionName') }}
+              <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
+              Вернуться ко входу
             </span>
           </v-btn>
         </div>
