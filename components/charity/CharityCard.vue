@@ -1,6 +1,5 @@
 <template>
-  <v-row
-  >
+  <v-row>
     <v-col
       cols="12"
       md="auto"
@@ -60,7 +59,7 @@
               <v-card-text class="pa-0 ma-0 progress-text">
                 {{ $t('charity.gathering.charityCard.left') }}
               </v-card-text>
-              <b>{{ gathering.left | rubles}}</b>
+              <b>{{ gathering.left | rubles }}</b>
             </div>
             <div>
               <v-card-text class="pa-0 ma-0 progress-text">
@@ -76,8 +75,7 @@
             height="8"
             rounded
             background-color="#DADADA"
-          >
-          </v-progress-linear>
+          />
         </v-col>
         <v-col
           cols="12"

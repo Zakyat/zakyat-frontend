@@ -8,7 +8,7 @@
         {{ $t('charity.title') }}
       </h1>
       <GatheringSelection
-        :gatheringId="gatheringId"
+        :gathering-id="gatheringId"
         :gatherings="gatherings"
       />
       <PaymentMethod class="mb-12" />

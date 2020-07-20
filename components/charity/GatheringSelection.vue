@@ -29,9 +29,9 @@
           class="pa-0 md-0"
           on-icon="mdi-check-box-outline"
         >
-          <label>
-            <span name="label" class="black--text"> {{ $t('charity.gathering.anonymous') }} </span>
-          </label>
+          <template v-slot:label>
+            <span class="black--text"> {{ $t('charity.gathering.anonymous') }} </span>
+          </template>
         </v-checkbox>
       </v-col>
     </v-row>
