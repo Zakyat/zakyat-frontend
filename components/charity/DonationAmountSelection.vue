@@ -45,6 +45,8 @@
         class="pl-0"
       >
         <v-text-field
+          v-model="selectedAmount"
+          :value="selectedAmount"
           rounded
           dense
           hide-details
@@ -60,6 +62,7 @@
         class="pr-0"
       >
         <v-radio-group
+          v-model="selectedAmount"
           row
           dense
           hide-details
@@ -101,6 +104,7 @@ export default Vue.extend({
         },
       ],
       amounts: [1, 5, 10, 50, 100, 200, 300, 500],
+      selectedAmount: null,
     };
   },
 });
