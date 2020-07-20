@@ -68,7 +68,7 @@
           class="my-0 py-0"
           on-icon="mdi-check-box-outline"
         >
-          <span slot="label" class="black-label">Я принимаю <n-link color="primary" to="/">условия публичной оферты</n-link> и даю согласие на <n-link color="primary" to="/">обработку персональных данных</n-link></span>
+          <span slot="label" class="black--text">Я принимаю <n-link color="primary" to="/">условия публичной оферты</n-link> и даю согласие на <n-link color="primary" to="/">обработку персональных данных</n-link></span>
         </v-checkbox>
       </v-col>
       <v-col
@@ -97,9 +97,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style scoped>
-.black-label {
-  color: black;
-}
-</style>
