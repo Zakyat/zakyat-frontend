@@ -99,9 +99,12 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'CharityCard',
-  props: [
-    'gathering',
-  ],
+  props: {
+    gathering: {
+      type: Object,
+      required: true,
+    },
+  },
 });
 </script>
 

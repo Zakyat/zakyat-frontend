@@ -55,7 +55,7 @@ export default Vue.extend({
       required: true,
     },
     gatherings: {
-      type: Object,
+      type: Array,
       required: true,
     },
   },
