@@ -53,7 +53,7 @@ export default Vue.extend({
       pages: [
         { text: this.$t('links.fees'), link: '/' },
         { text: this.$t('links.projects'), link: '/' },
-        { text: this.$t('links.reports'), link: '/' },
+        { text: this.$t('links.reports'), link: '/reports' },
         { text: this.$t('links.news'), link: '/news' },
         { text: this.$t('links.about'), link: '/' },
       ],
