@@ -68,7 +68,9 @@
           class="my-0 py-0"
           on-icon="mdi-check-box-outline"
         >
-          <span slot="label" class="black--text">Я принимаю <n-link color="primary" to="/">условия публичной оферты</n-link> и даю согласие на <n-link color="primary" to="/">обработку персональных данных</n-link></span>
+          <label>
+            <span name="label" class="black--text">Я принимаю <n-link color="primary" to="/">условия публичной оферты</n-link> и даю согласие на <n-link color="primary" to="/">обработку персональных данных</n-link></span>
+          </label>
         </v-checkbox>
       </v-col>
       <v-col
