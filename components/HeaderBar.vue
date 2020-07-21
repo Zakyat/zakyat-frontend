@@ -33,7 +33,9 @@
       class="rounded-lg"
     >
       <div class="button-wrapper white">
-        <img src="@/assets/images/dialog-icons/close.svg" alt="close" @click="authDialog = !authDialog" class="mt-3 mr-3">
+        <v-btn icon @click="authDialog = !authDialog" class="mt-3 mr-3">
+          <img src="@/assets/images/dialog-icons/close.svg" alt="close">
+        </v-btn>
       </div>
       <DialogWrapper />
     </v-dialog>

@@ -1,144 +1,142 @@
 <template>
-  <div class="registration">
-    <v-container class="registration__container rounded">
-      <v-row justify="space-between ml-0 mr-0">
-        <h2>
-          <!--{{ $t('access.registration.title') }}-->
-          Регистрация
-        </h2>
-        <v-btn text class="mt-1 text-capitalize buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
-          <span>
-            <!--{{ $t('access.login.linkAndButtonName') }}-->
-            Вход
-          </span>
-        </v-btn>
-      </v-row>
-      <p class="pt-4 description">
-        <!--{{ $t('access.registration.description') }}-->
-        Зарегистрируйтесь через социальные сети
-        или электронную почту
-      </p>
-      <div class="d-flex justify-space-between">
-        <v-btn
-          width="31%"
-          color="rgba(0, 0, 0, 0.2)"
-          outlined
-          rounded
-        >
-          <img src="@/assets/images/social-icons/vk.svg">
-        </v-btn>
-        <v-btn
-          width="31%"
-          color="rgba(0, 0, 0, 0.2)"
-          outlined
-          rounded
-        >
-          <img src="@/assets/images/social-icons/instagram.svg">
-        </v-btn>
-        <v-btn
-          width="31%"
-          color="rgba(0, 0, 0, 0.2)"
-          outlined
-          rounded
-        >
-          <img src="@/assets/images/social-icons/google.svg">
-        </v-btn>
-      </div>
-      <!--      :placeholder="$t('access.global.emailPlaceholder')"-->
-      <v-text-field
-        class="mt-5 textField"
-        dense
-        rounded
-        outlined
-        placeholder="Эл. почта"
-      />
-      <v-text-field
-        v-model="password"
-        class="mt-5 textField"
-        placeholder="Пароль"
-        required
-        dense
-        rounded
-        outlined
-        loading
-        :type="showPassword ? 'text' : 'password'"
-        @click:append="showPassword = !showPassword"
-      >
-        <template v-slot:progress>
-          <v-progress-linear
-            :value="progress"
-            :color="color"
-            absolute
-            height="6"
-            class="mt-3 ml-2 rounded progress-bar"
-          />
-        </template>
-        <template v-slot:append>
-          <v-btn
-            v-if="showPassword"
-            fab
-            height="30px"
-            width="30px"
-            depressed
-            color="white"
-            class="mt-n1 mr-n3"
-          >
-            <img src="@/assets/images/dialog-icons/password-icons/show.svg" alt="show" class="mt-1" @click="showPassword = !showPassword">
-          </v-btn>
-          <v-btn
-            v-else
-            fab
-            height="30px"
-            width="30px"
-            depressed
-            color="white"
-            class="mt-n1 mr-n3"
-          >
-            <img src="@/assets/images/dialog-icons/password-icons/hide.svg" alt="hide" @click="showPassword = !showPassword">
-          </v-btn>
-        </template>
-      </v-text-field>
-
-      <template v-if="progress">
-        <p v-if="progress === 34" class="progress-result ml-2 mt-6">
-          <!--{{ $t('access.registration.errors.weekPassword') }}-->
-          Короткий пароль. Используйте хотя бы 6 символов.
-        </p>
-        <p v-if="progress === 68" class="progress-result ml-2 mt-6">
-          <!--{{ $t('access.registration.errors.averagePassword') }}-->
-          Средний пароль
-        </p>
-        <p v-if="progress === 100" class="progress-result ml-2 mt-6">
-          <!--{{ $t('access.registration.errors.goodPassword') }}-->
-          Хороший пароль
-        </p>
-      </template>
-      <v-row justify="space-between ml-0 mr-0 mb-3 mt-3">
-        <v-checkbox
-          v-model="selected"
-          class="pt-0"
-          color="#00AC00"
-        />
-        <p class="assigment">
-          <!--{{ $t('access.registration.agreements.textFirstPart') }} <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>, {{ $t('access.registration.agreements.textSecondPart') }} <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a>-->
-          Я ознакомился с <a href="#">Пользовательским соглашением</a>, принимаю его и даю <a href="#">Согласие на обработку персональных данных</a>
-        </p>
-      </v-row>
-      <v-btn
-        color="#00AC00"
-        dark
-        block
-        rounded
-        height="40px"
-        class="text-none buttonTo mt-n2"
-      >
-        <span class="buttonName">
-          <!--{{ $t('access.registration.linkAndButtonName') }}-->
-          Зарегистрироваться
+  <v-container class="registration__container rounded">
+    <v-row justify="space-between ml-0 mr-0">
+      <h2>
+        <!--{{ $t('access.registration.title') }}-->
+        Регистрация
+      </h2>
+      <v-btn text class="mt-1 text-capitalize buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
+        <span>
+          <!--{{ $t('access.login.linkAndButtonName') }}-->
+          Вход
         </span>
       </v-btn>
-    </v-container>
-  </div>
+    </v-row>
+    <p class="pt-4 description">
+      <!--{{ $t('access.registration.description') }}-->
+      Зарегистрируйтесь через социальные сети
+      или электронную почту
+    </p>
+    <div class="d-flex justify-space-between">
+      <v-btn
+        width="31%"
+        color="rgba(0, 0, 0, 0.2)"
+        outlined
+        rounded
+      >
+        <img src="@/assets/images/social-icons/vk.svg">
+      </v-btn>
+      <v-btn
+        width="31%"
+        color="rgba(0, 0, 0, 0.2)"
+        outlined
+        rounded
+      >
+        <img src="@/assets/images/social-icons/instagram.svg">
+      </v-btn>
+      <v-btn
+        width="31%"
+        color="rgba(0, 0, 0, 0.2)"
+        outlined
+        rounded
+      >
+        <img src="@/assets/images/social-icons/google.svg">
+      </v-btn>
+    </div>
+    <!--      :placeholder="$t('access.global.emailPlaceholder')"-->
+    <v-text-field
+      class="mt-5 textField"
+      dense
+      rounded
+      outlined
+      placeholder="Эл. почта"
+    />
+    <v-text-field
+      v-model="password"
+      class="mt-5 textField"
+      placeholder="Пароль"
+      required
+      dense
+      rounded
+      outlined
+      loading
+      :type="showPassword ? 'text' : 'password'"
+      @click:append="showPassword = !showPassword"
+    >
+      <template v-slot:progress>
+        <v-progress-linear
+          :value="progress"
+          :color="color"
+          absolute
+          height="6"
+          class="mt-3 ml-2 rounded progress-bar"
+        />
+      </template>
+      <template v-slot:append>
+        <v-btn
+          v-if="showPassword"
+          fab
+          height="30px"
+          width="30px"
+          depressed
+          color="white"
+          class="mt-n1 mr-n3"
+        >
+          <img src="@/assets/images/dialog-icons/password-icons/show.svg" alt="show" class="mt-1" @click="showPassword = !showPassword">
+        </v-btn>
+        <v-btn
+          v-else
+          fab
+          height="30px"
+          width="30px"
+          depressed
+          color="white"
+          class="mt-n1 mr-n3"
+        >
+          <img src="@/assets/images/dialog-icons/password-icons/hide.svg" alt="hide" @click="showPassword = !showPassword">
+        </v-btn>
+      </template>
+    </v-text-field>
+
+    <template v-if="progress">
+      <p v-if="progress === 34" class="progress-result ml-2 mt-6">
+        <!--{{ $t('access.registration.errors.weekPassword') }}-->
+        Короткий пароль. Используйте хотя бы 6 символов.
+      </p>
+      <p v-if="progress === 68" class="progress-result ml-2 mt-6">
+        <!--{{ $t('access.registration.errors.averagePassword') }}-->
+        Средний пароль
+      </p>
+      <p v-if="progress === 100" class="progress-result ml-2 mt-6">
+        <!--{{ $t('access.registration.errors.goodPassword') }}-->
+        Хороший пароль
+      </p>
+    </template>
+    <v-row justify="space-between ml-0 mr-0 mb-3 mt-5">
+      <v-checkbox
+        v-model="agreedToTerms"
+        class="pt-0"
+        color="#00AC00"
+      />
+      <p class="assigment">
+        <!--{{ $t('access.registration.agreements.textFirstPart') }} <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>, {{ $t('access.registration.agreements.textSecondPart') }} <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a>-->
+        Я ознакомился с <a href="#">Пользовательским соглашением</a>, принимаю его и даю <a href="#">Согласие на обработку персональных данных</a>
+      </p>
+    </v-row>
+    <v-btn
+      color="#00AC00"
+      dark
+      block
+      rounded
+      height="40px"
+      class="text-none buttonTo mt-n2"
+    >
+      <span class="buttonName">
+        <!--{{ $t('access.registration.linkAndButtonName') }}-->
+        Зарегистрироваться
+      </span>
+    </v-btn>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -151,6 +149,7 @@ export default Vue.extend({
       password: '',
       passwordRegexp: /\d/,
       showPassword: false,
+      agreedToTerms: false,
     };
   },
   computed: {
