@@ -9,7 +9,8 @@
         text
         class="mt-1 custom-transform-class text-none buttonTo"
         color="#00AC00"
-        @click="$emit('set-dialog', 'RegistrationDialog')">
+        @click="$emit('set-dialog', 'RegistrationDialog')"
+      >
         <span>
           <!--{{ $t('access.registration.linkAndButtonName') }}-->
           Зарегистрироваться
@@ -27,7 +28,7 @@
         outlined
         rounded
       >
-        <img src="@/assets/images/social-icons/vk.svg" alt="vk">
+        <img src="@/assets/images/social-icons/vk.svg" alt="vk"/>
       </v-btn>
       <v-btn
         width="31%"

@@ -24,7 +24,7 @@
         outlined
         rounded
       >
-        <img src="@/assets/images/social-icons/vk.svg">
+        <img src="@/assets/images/social-icons/vk.svg" alt="vk">
       </v-btn>
       <v-btn
         width="31%"
@@ -32,7 +32,7 @@
         outlined
         rounded
       >
-        <img src="@/assets/images/social-icons/instagram.svg">
+        <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">
       </v-btn>
       <v-btn
         width="31%"
@@ -40,16 +40,18 @@
         outlined
         rounded
       >
-        <img src="@/assets/images/social-icons/google.svg">
+        <img src="@/assets/images/social-icons/google.svg" alt="google">
       </v-btn>
     </div>
+    <div class="d-flex justify-space-between" />
     <!--      :placeholder="$t('access.global.emailPlaceholder')"-->
     <v-text-field
-      class="mt-5 textField"
+      type="email"
+      class="mt-5 mb-5 textField"
+      placeholder="Эл. почта"
       dense
       rounded
       outlined
-      placeholder="Эл. почта"
     />
     <v-text-field
       v-model="password"

@@ -31,6 +31,7 @@
       v-model="authDialog"
       width="440"
       class="rounded-lg"
+      :fullscreen="$vuetify.breakpoint.mobile"
     >
       <div class="button-wrapper white">
         <v-btn icon @click="authDialog = !authDialog" class="mt-3 mr-3">
