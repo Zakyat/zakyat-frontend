@@ -6,7 +6,7 @@
           <!--{{ $t('access.registration.title') }}-->
           Регистрация
         </h2>
-        <v-btn text class="mt-1 text-capitalize buttonTo" color="#00AC00" @click="toSignInDialog">
+        <v-btn text class="mt-1 text-capitalize buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
           <span>
             <!--{{ $t('access.login.linkAndButtonName') }}-->
             Вход
@@ -121,7 +121,7 @@
         />
         <p class="assigment">
           <!--{{ $t('access.registration.agreements.textFirstPart') }} <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>, {{ $t('access.registration.agreements.textSecondPart') }} <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a>-->
-          Я ознакомился с <a>Пользовательским соглашением</a>, принимаю его и даю <a>Согласие на обработку персональных данных</a>
+          Я ознакомился с <a href="#">Пользовательским соглашением</a>, принимаю его и даю <a href="#">Согласие на обработку персональных данных</a>
         </p>
       </v-row>
       <v-btn
@@ -149,13 +149,11 @@ export default Vue.extend({
   data () {
     return {
       password: '',
-      passwordRegexp: /[0-9]/,
+      passwordRegexp: /\d/,
       showPassword: false,
-      selected: false,
     };
   },
   computed: {
-    // eslint-disable-next-line vue/return-in-computed-property
     progress () : number {
       if (this.password.length < 6 && this.password.length > 0) {
         return 34;
@@ -171,13 +169,7 @@ export default Vue.extend({
       }
     },
     color () : string {
-      // return ['error', 'warning', 'success'][Math.floor(this.progress / 35)];
       return ['error', 'warning', 'success'][Math.floor(this.progress / 35)];
-    },
-  },
-  methods: {
-    toSignInDialog () : void {
-      this.$emit('set-dialog', 'SignInDialog');
     },
   },
 });

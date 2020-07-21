@@ -21,19 +21,19 @@
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
-    <v-btn text small @click="dialog = !dialog">
+    <v-btn text small @click="authDialog = !authDialog">
       <v-icon color="white" size="20">
         mdi-account-circle
       </v-icon>
       {{ $t('login') }}
     </v-btn>
     <v-dialog
-      v-model="dialog"
+      v-model="authDialog"
       width="440"
       class="rounded-lg"
     >
-      <div class="button-wrapper white" align="right">
-        <img src="@/assets/images/dialog-icons/close.svg" alt="close" @click="dialog = !dialog" class="mt-3 mr-3">
+      <div class="button-wrapper white">
+        <img src="@/assets/images/dialog-icons/close.svg" alt="close" @click="authDialog = !authDialog" class="mt-3 mr-3">
       </div>
       <DialogWrapper />
     </v-dialog>
@@ -61,7 +61,7 @@
 import Vue from 'vue';
 import LanguageSelector from '@/components/LanguageSelector.vue';
 import { rubles } from '@/plugins/currency';
-import DialogWrapper from '@/components/access/DialogWrapper.vue';
+import DialogWrapper from '~/components/access/DialogContent.vue';
 
 export default Vue.extend({
   components: {
@@ -73,7 +73,7 @@ export default Vue.extend({
       amount: 6234234,
       items: this.$t('search.suggestions'),
       isSearcherOpen: false,
-      dialog: false,
+      authDialog: false,
     };
   },
   methods: {
@@ -90,5 +90,9 @@ export default Vue.extend({
   margin-top: 65px;
   width: 600px;
   z-index: 2;
+}
+
+.button-wrapper {
+  text-align: right;
 }
 </style>

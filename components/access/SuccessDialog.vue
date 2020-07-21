@@ -8,7 +8,7 @@
           Письмо для восстановления пароля успешно отправлено. Проверьте вашу почту.
         </p>
         <div class="link-wrapper mt-7">
-          <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="toSignInDialog">
+          <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog');">
             <span>
               <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
               Вернуться ко входу
@@ -25,11 +25,6 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'SuccessDialog',
-  methods: {
-    toSignInDialog () : void{
-      this.$emit('set-dialog', 'SignInDialog');
-    },
-  },
 });
 </script>
 

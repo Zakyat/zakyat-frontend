@@ -25,13 +25,13 @@
         rounded
         dark
         class="custom-transform-class text-none buttonTo mt-5"
-        @click="toSuccessDialog"
+        @click="$emit('set-dialog', 'SuccessDialog')"
       >
         <!--{{ $t('access.login.recoveryPassword.buttonName') }}-->
         Отправить письмо
       </v-btn>
       <div class="link-wrapper text-center mt-7">
-        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="toSignInDialog">
+        <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
           <span>
             <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
             Вернуться ко входу
@@ -47,14 +47,6 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'RecoveryPasDialog',
-  methods: {
-    toSignInDialog () : void{
-      this.$emit('set-dialog', 'SignInDialog');
-    },
-    toSuccessDialog () : void{
-      this.$emit('set-dialog', 'SuccessDialog');
-    },
-  },
 });
 </script>
 
