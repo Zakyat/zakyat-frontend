@@ -54,8 +54,9 @@
       class="mt-5 mb-5 textField"
       placeholder="Эл. почта"
       dense
+      solo
+      flat
       rounded
-      outlined
     />
     <!--:placeholder="$t('access.global.passwordPlaceholder')"-->
     <v-text-field
@@ -63,10 +64,12 @@
       placeholder="Пароль"
       required
       dense
+      solo
+      flat
       rounded
-      outlined
       class="textField"
       :type="showPassword ? 'text' : 'password'"
+      @click:append="showPassword = !showPassword"
     >
       <template v-slot:append>
         <v-btn
@@ -78,7 +81,7 @@
           color="white"
           class="mt-n1 mr-n3"
         >
-          <img src="@/assets/images/dialog-icons/password-icons/show.svg" alt="show" class="mt-1" @click="showPassword = !showPassword">
+          <img src="@/assets/images/dialog-icons/password-icons/show.svg" alt="show" class="mt-2" @click="showPassword = !showPassword">
         </v-btn>
         <v-btn
           v-else
@@ -89,7 +92,7 @@
           color="white"
           class="mt-n1 mr-n3"
         >
-          <img src="@/assets/images/dialog-icons/password-icons/hide.svg" alt="hide" @click="showPassword = !showPassword">
+          <img src="@/assets/images/dialog-icons/password-icons/hide.svg" alt="hide" class="mt-1" @click="showPassword = !showPassword">
         </v-btn>
       </template>
     </v-text-field>

@@ -1,11 +1,11 @@
 <template>
   <div class="success__container rounded info-wrapper">
     <img src="@/assets/images/dialog-icons/success-dialog/send.svg" alt="success">
-    <p class="pt-4 description">
+    <p class="pt-2 description">
       <!--{{ $t('access.login.recoveryPassword.success') }}-->
       Письмо для восстановления пароля успешно отправлено. Проверьте вашу почту.
     </p>
-    <v-btn text class="mt-7 custom-transform-class text-none buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog');">
+    <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog');">
       <span>
         <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
         Вернуться ко входу
@@ -24,7 +24,7 @@ export default Vue.extend({
 
 <style lang="scss">
   .success__container {
-    padding: 5px 50px 50px 50px;
+    padding: 5px 50px 40px 50px;
     background-color: white;
     text-align: center;
   }

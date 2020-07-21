@@ -4,17 +4,19 @@
       <!--{{ $t('access.login.recoveryPassword.title') }}-->
       Восстановление пароля
     </h2>
-    <p class="pt-4 description">
+    <p class="pt-2 description">
       <!--{{ $t('access.login.recoveryPassword.description') }}-->
       Мы отправим на указанную электронную почту письмо для восстановления пароля
     </p>
     <!--:placeholder="$t('access.global.emailPlaceholder')"-->
     <v-text-field
       class="mt-5 textField"
-      dense
       placeholder="Эл. почта"
+      type="email"
+      dense
+      solo
+      flat
       rounded
-      outlined
       height="40px"
     />
     <v-btn
@@ -23,13 +25,13 @@
       dense
       rounded
       dark
-      class="custom-transform-class text-none buttonTo mt-5"
+      class="custom-transform-class text-none buttonTo mt-4"
       @click="$emit('set-dialog', 'SuccessDialog')"
     >
       <!--{{ $t('access.login.recoveryPassword.buttonName') }}-->
       Отправить письмо
     </v-btn>
-    <div class="link-wrapper text-center mt-7">
+    <div class="link-wrapper text-center mt-5">
       <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
         <span>
           <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
@@ -50,7 +52,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .recovery__container {
-    padding: 5px 50px 50px 50px;
+    padding: 5px 50px 35px 50px;
     background-color: white;
   }
 

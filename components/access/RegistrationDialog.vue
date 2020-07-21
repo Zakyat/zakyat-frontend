@@ -8,11 +8,11 @@
       <v-btn text class="mt-1 text-capitalize buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
         <span>
           <!--{{ $t('access.login.linkAndButtonName') }}-->
-          Вход
+          Войти
         </span>
       </v-btn>
     </v-row>
-    <p class="pt-4 description">
+    <p class="pt-2 description">
       <!--{{ $t('access.registration.description') }}-->
       Зарегистрируйтесь через социальные сети
       или электронную почту
@@ -50,8 +50,9 @@
       class="mt-5 mb-5 textField"
       placeholder="Эл. почта"
       dense
+      solo
+      flat
       rounded
-      outlined
     />
     <v-text-field
       v-model="password"
@@ -59,8 +60,9 @@
       placeholder="Пароль"
       required
       dense
+      solo
+      flat
       rounded
-      outlined
       loading
       :type="showPassword ? 'text' : 'password'"
       @click:append="showPassword = !showPassword"
@@ -84,7 +86,7 @@
           color="white"
           class="mt-n1 mr-n3"
         >
-          <img src="@/assets/images/dialog-icons/password-icons/show.svg" alt="show" class="mt-1" @click="showPassword = !showPassword">
+          <img src="@/assets/images/dialog-icons/password-icons/show.svg" alt="show" class="mt-2" @click="showPassword = !showPassword">
         </v-btn>
         <v-btn
           v-else
@@ -95,7 +97,7 @@
           color="white"
           class="mt-n1 mr-n3"
         >
-          <img src="@/assets/images/dialog-icons/password-icons/hide.svg" alt="hide" @click="showPassword = !showPassword">
+          <img src="@/assets/images/dialog-icons/password-icons/hide.svg" alt="hide" class="mt-1" @click="showPassword = !showPassword">
         </v-btn>
       </template>
     </v-text-field>
@@ -155,7 +157,10 @@ export default Vue.extend({
     };
   },
   computed: {
-    // add here conditions for password
+    /*
+       add here your own conditions for password
+       here just an example of password validating
+    */
     progress () : number {
       if (this.password.length < 6 && this.password.length > 0) {
         return 34;
@@ -180,7 +185,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 
   .registration__container {
-    padding: 5px 50px 50px 50px;
+    padding: 0 50px 40px 55px;
     background-color: white;
   }
 
@@ -217,6 +222,10 @@ export default Vue.extend({
 
   .textField {
     border: 1px solid black;
-    height: 42px;
+    height: 40px;
+  }
+
+  .textField:focus {
+    border: 1px solid black;
   }
 </style>
