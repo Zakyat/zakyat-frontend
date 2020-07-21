@@ -155,6 +155,7 @@ export default Vue.extend({
     };
   },
   computed: {
+    // add here conditions for password
     progress () : number {
       if (this.password.length < 6 && this.password.length > 0) {
         return 34;

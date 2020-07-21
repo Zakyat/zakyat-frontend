@@ -7,7 +7,7 @@
       </h2>
       <v-btn
         text
-        class="mt-1 custom-transform-class text-none buttonTo"
+        class="custom-transform-class text-none buttonTo"
         color="#00AC00"
         @click="$emit('set-dialog', 'RegistrationDialog')"
       >
@@ -17,7 +17,7 @@
         </span>
       </v-btn>
     </v-row>
-    <p class="pt-4 description">
+    <p class="pt-2 description">
       <!--{{ $t('access.login.description') }}-->
       Войдите через социальные сети или электронную почту
     </p>
@@ -106,7 +106,7 @@
         Войти
       </span>
     </v-btn>
-    <div class="link-wrapper text-center mt-7">
+    <div class="link-wrapper text-center mt-5">
       <v-btn
         text
         class="mt-1 custom-transform-class text-none buttonTo"
@@ -140,7 +140,7 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
   .sign-in__container {
-    padding: 5px 50px 50px 50px;
+    padding: 0 50px 35px 50px;
     background-color: white;
   }
 
