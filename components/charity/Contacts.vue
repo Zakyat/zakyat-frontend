@@ -78,7 +78,7 @@
         <v-btn
           rounded
           color="primary"
-          flat
+          text
         >
           {{ $t('charity.contacts.resumeBtn') }}
         </v-btn>
