@@ -79,7 +79,7 @@
     <SwiperSlide class="parrentSlide">
       <v-container class="linkContainer">
         <nuxt-link to="/gatherings" class="showMore">
-          Посмотреть все &#8250;
+          Посмотреть все <img src="@/assets/images/gatherings/arrow-point-to-right 1.svg" alt="go-to">
         </nuxt-link>
       </v-container>
     </SwiperSlide>

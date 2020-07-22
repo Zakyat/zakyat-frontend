@@ -41,7 +41,7 @@
 
             <v-row class="mt-n10">
               <v-col>
-                <v-card-text style="font-size: 14px">
+                <v-card-text style="font-size: 14px;">
                   {{ gathering.info }}
                 </v-card-text>
               </v-col>
@@ -91,7 +91,7 @@
                   dark
                   color="#00AC00"
                   class="text-none donate"
-                  style="font-weight: normal"
+                  style="font-weight: normal;"
                 >
                   {{ $t('home.slideshow.donate') }}
                 </v-btn>
