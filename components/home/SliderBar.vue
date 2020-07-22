@@ -181,15 +181,15 @@ export default Vue.extend({
 }
 
 .linkContainer {
+  height: 440px;
   display: grid;
   place-items: center;
-  height: 30vw;
 }
 
 .showMore {
-  padding-top: 60px;
+  padding-top: 70px;
   text-decoration: none;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: 400;
   color: #161414;
 }
