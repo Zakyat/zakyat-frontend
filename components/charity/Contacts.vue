@@ -67,7 +67,18 @@
           on-icon="mdi-check-box-outline"
         >
           <template v-slot:label>
-            <span class="black--text">Я принимаю <n-link color="primary" to="/">условия публичной оферты</n-link> и даю согласие на <n-link color="primary" to="/">обработку персональных данных</n-link></span>
+            <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">
+              <template #terms>
+                <nuxt-link to="/" color="primary">
+                  {{ $t('charity.contacts.terms_conditions.terms') }}
+                </nuxt-link>
+              </template>
+              <template #data>
+                <nuxt-link to="/" color="primary">
+                  {{ $t('charity.contacts.terms_conditions.data_processing') }}
+                </nuxt-link>
+              </template>
+            </i18n>
           </template>
         </v-checkbox>
       </v-col>

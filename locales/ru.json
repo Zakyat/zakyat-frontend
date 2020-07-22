@@ -360,7 +360,12 @@
       "email": "Email",
       "lastName": "Фамилия",
       "phone": "Телефон",
-      "resumeBtn": "Продолжить"
+      "resumeBtn": "Продолжить",
+      "terms_conditions": {
+        "text": "Я принимаю {terms} и даю согласие на {data}",
+        "terms": "условия публичной оферты",
+        "data_processing": "обработку персональных данных"
+      }
     }
   },
   "news": {

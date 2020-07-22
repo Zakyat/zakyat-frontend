@@ -337,7 +337,12 @@
       "name": "Name",
       "phone": "Telephone",
       "resumeBtn": "Proceed",
-      "title": "Your contact details"
+      "title": "Your contact details",
+      "terms_conditions": {
+        "data_processing": "processing of personal data",
+        "terms": "terms of the public offer",
+        "text": "I accept {terms} and consent to {data}"
+      }
     },
     "donationAmountSelection": {
       "amountInput": "Enter the amount, ₽",

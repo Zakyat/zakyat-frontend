@@ -74,7 +74,12 @@
       "phone": "هاتف",
       "lastName": "لقب",
       "resumeBtn": "تقدم",
-      "title": "تفاصيل الاتصال الخاصة بك"
+      "title": "تفاصيل الاتصال الخاصة بك",
+      "terms_conditions": {
+        "data_processing": "معالجة البيانات الشخصية",
+        "terms": "شروط العرض العام",
+        "text": "أوافق على {terms} وأوافق على {data}"
+      }
     },
     "gathering": {
       "charityCard": {
