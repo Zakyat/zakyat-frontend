@@ -78,7 +78,7 @@
     </SwiperSlide>
     <SwiperSlide class="parrentSlide">
       <v-container class="linkContainer">
-        <nuxt-link to="#" class="showMore">
+        <nuxt-link to="/gatherings" class="showMore">
           Посмотреть все &#8250;
         </nuxt-link>
       </v-container>
@@ -189,7 +189,7 @@ export default Vue.extend({
 .showMore {
   padding-top: 70px;
   text-decoration: none;
-  font-size: 1.3em;
+  font-size: 1.1em;
   font-weight: 400;
   color: #161414;
 }
