@@ -13,26 +13,26 @@
         class="payment-tabs pa-1"
       >
         <v-tab
-          v-for="item in donationTabs"
-          :key="item"
+          v-for="{ title } in donationTabs"
+          :key="title"
           class="payment-tab"
           active-class="payment-tab-primary"
         >
-          {{ item.donation }}
+          {{ title }}
         </v-tab>
       </v-tabs>
 
       <v-tabs-items v-model="tab" class="mt-3">
         <v-tab-item
-          v-for="item in donationTabs"
-          :key="item"
+          v-for="{title, description} in donationTabs"
+          :key="title"
         >
           <v-card flat>
             <v-card-text
               class="pa-0 ma-0"
               style="color: black;"
             >
-              {{ item.content }}
+              {{ description }}
             </v-card-text>
           </v-card>
         </v-tab-item>
@@ -45,8 +45,7 @@
         class="pl-0"
       >
         <v-text-field
-          v-model="selectedAmount"
-          :value="selectedAmount"
+          v-model.number="selectedAmount"
           rounded
           dense
           hide-details
@@ -71,7 +70,7 @@
           <v-radio
             v-for="a in amounts"
             :key="a"
-            :label="`${a} ₽`"
+            :label="a | rubles"
             :value="a"
             class="pa-2 black-label"
           />
@@ -91,20 +90,20 @@ export default Vue.extend({
       tab: null,
       donationTabs: [
         {
-          donation: 'Разовое пожертвование',
-          content: 'Один раз с указанного вами способа оплаты списывается сумма пожертвования. В любой момент вы сможете отключить подписку в личном кабинете. Как только нуждающийся наберет необходимую сумму, ваше ежедневное пожертвование будет поступать на счет следующего нуждающегося по списку.',
+          title: this.$t('charity.donationAmountSelection.donation_types.onetime.title'),
+          description: this.$t('charity.donationAmountSelection.donation_types.onetime.description'),
         },
         {
-          donation: 'Ежедневное пожертвование',
-          content: 'Раз в день с указанного вами способа оплаты списывается сумма пожертвования. В любой момент вы сможете отключить подписку в личном кабинете. Как только нуждающийся наберет необходимую сумму, ваше ежедневное пожертвование будет поступать на счет следующего нуждающегося по списку.',
+          title: this.$t('charity.donationAmountSelection.donation_types.daily.title'),
+          description: this.$t('charity.donationAmountSelection.donation_types.daily.description'),
         },
         {
-          donation: 'Ежемесячное пожертвование',
-          content: 'Раз в месяц с указанного вами способа оплаты списывается сумма пожертвования. В любой момент вы сможете отключить подписку в личном кабинете. Как только нуждающийся наберет необходимую сумму, ваше ежедневное пожертвование будет поступать на счет следующего нуждающегося по списку.',
+          title: this.$t('charity.donationAmountSelection.donation_types.monthly.title'),
+          description: this.$t('charity.donationAmountSelection.donation_types.monthly.description'),
         },
       ],
       amounts: [1, 5, 10, 50, 100, 200, 300, 500],
-      selectedAmount: null,
+      selectedAmount: 0,
     };
   },
 });

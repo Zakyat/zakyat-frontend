@@ -16,23 +16,19 @@
         class="payment-tabs pa-1"
       >
         <v-tab
-          v-for="item in paymentTabs"
-          :key="item.payment"
+          v-for="method in paymentMethods"
+          :key="method"
           class="payment-tab"
           active-class="payment-tab-primary"
         >
-          {{ item.payment }}
+          {{ method }}
         </v-tab>
       </v-tabs>
     </v-col>
     <v-col cols="12">
       <v-tabs-items v-model="tab" class="mt-n4">
-        <v-tab-item
-          v-for="item in paymentTabs"
-          :key="item.payment"
-        >
+        <v-tab-item>
           <v-card
-            v-if="item.payment === 'Банковская карта'"
             flat
           >
             <v-card-text
@@ -44,8 +40,12 @@
             <DonationAmountSelection />
             <Contacts />
           </v-card>
+        </v-tab-item>
+        <v-tab-item
+          v-for="i in paymentMethods.length"
+          :key="i"
+        >
           <v-card
-            v-else
             flat
           >
             <v-card-text
@@ -75,22 +75,12 @@ export default Vue.extend({
   data () {
     return {
       tab: null,
-      paymentTabs: [
-        {
-          payment: 'Банковская карта',
-        },
-        {
-          payment: 'SMS',
-        },
-        {
-          payment: 'Мобильный телефон',
-        },
-        {
-          payment: 'Яндекс деньги',
-        },
-        {
-          payment: 'Paypal',
-        },
+      paymentMethods: [
+        this.$t('charity.paymentMethod.methods.bank_card'),
+        this.$t('charity.paymentMethod.methods.SMS'),
+        this.$t('charity.paymentMethod.methods.mobile_phone'),
+        this.$t('charity.paymentMethod.methods.yandex_money'),
+        this.$t('charity.paymentMethod.methods.paypal'),
       ],
     };
   },
