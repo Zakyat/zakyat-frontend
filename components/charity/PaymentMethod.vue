@@ -102,6 +102,6 @@ export default Vue.extend({
 
 .payment-tab-primary {
   background-color: #00ac00;
-  color: white;
+  color: white !important;
 }
 </style>
