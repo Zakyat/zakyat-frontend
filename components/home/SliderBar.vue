@@ -76,6 +76,13 @@
         </v-card>
       </v-img>
     </SwiperSlide>
+    <SwiperSlide class="parrentSlide">
+      <v-container class="linkContainer">
+        <nuxt-link to="#" class="showMore">
+          Посмотреть все &#8250;
+        </nuxt-link>
+      </v-container>
+    </SwiperSlide>
     <v-btn slot="button-prev" class="swiper-button-prev" fab>
       <v-icon x-large>
         mdi-chevron-left
@@ -167,5 +174,23 @@ export default Vue.extend({
 .subtitle {
   margin-bottom: 0;
   color: #9da3a6;
+}
+
+.parrentSlide {
+  width: 40% !important;
+}
+
+.linkContainer {
+  display: grid;
+  place-items: center;
+  height: 30vw;
+}
+
+.showMore {
+  padding-top: 60px;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 400;
+  color: #161414;
 }
 </style>
