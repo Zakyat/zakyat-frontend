@@ -9,10 +9,10 @@
           <v-row>
             <v-col cols="8">
               <v-card-title class="pb-0">
-                {{ slide.title }}
+                {{ slide.name }}, {{ slide.age }} лет
               </v-card-title>
               <v-card-text>
-                {{ slide.description }}
+                {{ slide.problem }}
                 <v-row justify="space-between">
                   <v-col class="pb-1">
                     <p class="subtitle">
@@ -91,9 +91,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-
+import { mapState } from 'vuex';
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-import { SwiperOptions } from 'swiper';
+import { SwiperOptions } from 'swiper'; // eslint-disable-line import/named
+import { RootState } from '@/store/index';
 import 'swiper/css/swiper.css';
 
 export default Vue.extend({
@@ -103,24 +104,6 @@ export default Vue.extend({
   },
   data () {
     return {
-      slides: [
-        {
-          id: 'Бурганова Альфия, сбор 309',
-          src: require('@/assets/images/slideshow1.jpg'),
-          title: 'Бурганова Альфия, 16 лет',
-          description: 'Идиопатический прогрессирующий сколиоз 4-й степени, спасет операция',
-          required: 500_500,
-          collected: 65_065,
-        },
-        {
-          id: 'Садыков Амирхан, сбор 400',
-          src: require('@/assets/images/slideshow2.jpg'),
-          title: 'Садыков Амирхан, 11 лет',
-          description: 'ДЦП',
-          required: 500_500,
-          collected: 335_065,
-        },
-      ],
       swiperOptions: {
         slidesPerView: 'auto',
         spaceBetween: 30,
@@ -130,6 +113,11 @@ export default Vue.extend({
         },
       } as SwiperOptions,
     };
+  },
+  computed: {
+    ...mapState({
+      slides: state => (state as RootState).gatherings,
+    }),
   },
 });
 </script>

@@ -10,15 +10,23 @@
         class="pa-0 ma-0"
       >
         <v-select
-          v-model="selectedGathering"
           outlined
           rounded
           flat
           :placeholder="$t('charity.gathering.gatheringSelection')"
           :items="gatherings"
-          item-text="id"
+          item-value="id"
           class="pa-0 ma-0"
-        />
+          :value="gatheringId"
+          @input="$router.push(`/charity?id=${$event}`)"
+        >
+          <template #item="{ item }">
+            {{ item.name }}, {{ item.id }}
+          </template>
+          <template #selection="{ item }">
+            {{ item.name }}, {{ item.id }}
+          </template>
+        </v-select>
       </v-col>
       <v-spacer />
       <v-col
@@ -36,14 +44,15 @@
       </v-col>
     </v-row>
     <CharityCard
-      v-if="selectedGathering"
-      :gathering="gatherings.find(x => x.id === selectedGathering)"
+      v-if="gatheringId"
+      v-bind="selectedGathering"
     />
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
+import { mapState } from 'vuex';
 import CharityCard from '@/components/charity/CharityCard.vue';
 
 export default Vue.extend({
@@ -53,22 +62,14 @@ export default Vue.extend({
   },
   props: {
     gatheringId: {
-      type: String,
-      required: true,
-    },
-    gatherings: {
-      type: Array,
-      required: true,
+      type: Number,
+      default: 0,
     },
   },
   computed: {
-    selectedGathering: {
-      get () {
-        return this.gatheringId;
-      },
-      set (newSelectedGathering) {
-        this.gatheringId = newSelectedGathering;
-      },
+    ...mapState(['gatherings']),
+    selectedGathering () {
+      return this.gatherings.find(gathering => gathering.id === this.gatheringId);
     },
   },
 });

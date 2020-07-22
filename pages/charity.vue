@@ -1,15 +1,10 @@
 <template>
   <v-container>
-    <CharityBanner
-      class="mt-5"
-    />
+    <CharityBanner class="mt-5" />
     <h1 class="mt-12">
       {{ $t('charity.title') }}
     </h1>
-    <GatheringSelection
-      :gathering-id="gatheringId"
-      :gatherings="gatherings"
-    />
+    <GatheringSelection :gathering-id="gatheringId" />
     <PaymentMethod class="mb-12" />
   </v-container>
 </template>
@@ -27,36 +22,10 @@ export default Vue.extend({
     GatheringSelection,
     PaymentMethod,
   },
-  data () {
-    return {
-      gatheringId: this.$route.query.id,
-      gatherings: [
-        {
-          id: 'Бурганова Альфия, сбор 309',
-          name: 'Бурганова Альфия',
-          age: 16,
-          gatheringNo: 309,
-          problem: 'Идиопатический прогрессирующий сколиоз 4-й степени, спасет операция',
-          text: 'Альфие 16 лет. В 9 месяцев ей поставили диагноз — ДЦП. Врачи сказали, что ходить она не сможет. Никогда. Но в 2 годика она сделала первые робкие шаги. В первый класс она пошла в обычную школу. Ей было очень тяжело, ее пальчики не слушались и не получалось писать красивые буквы. Но она настойчиво старалась писать и добилась каллиграфического почерка. Альфия научилась играть на курае и даже заняла второе место в международном конкурсе. К сожалению, болезнь не отступает до конца и она вынуждена проходить неприятные процедуры. Сумма к сбору на лечение Альфии составляет 500 тысяч 500 рублей.',
-          collected: 65065,
-          left: 435435,
-          total: 500500,
-          collectedPercent: 13,
-        },
-        {
-          id: 'Садыков Амирхан, сбор 400',
-          name: 'Садыков Амирхан',
-          age: 12,
-          gatheringNo: 400,
-          problem: 'Идиопатический прогрессирующий сколиоз 4-й степени, спасет операция',
-          text: 'Амирхану 12 лет. В 9 месяцев ей поставили диагноз — ДЦП. Врачи сказали, что ходить она не сможет. Никогда. Но в 2 годика она сделала первые робкие шаги. В первый класс она пошла в обычную школу.',
-          collected: 300000,
-          left: 200500,
-          total: 500500,
-          collectedPercent: 60,
-        },
-      ],
-    };
+  computed: {
+    gatheringId () {
+      return parseInt(this.$route.query.id as string);
+    },
   },
 });
 </script>
