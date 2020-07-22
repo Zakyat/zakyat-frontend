@@ -10,8 +10,8 @@
       class="gathering"
       flat
     >
-      <v-container class="gatheringContent">
-        <v-row class="mt-n6" align="center">
+      <div class="gatheringContent">
+        <v-row class="mt-n8" align="center">
           <v-col cols="3" class="imageContainer pt-8">
             <img :src="gathering.img" style="border-radius: 15px;">
           </v-col>
@@ -99,7 +99,7 @@
             </v-row>
           </v-col>
         </v-row>
-      </v-container>
+      </div>
     </v-card>
   </div>
 </template>
@@ -181,6 +181,7 @@ export default {
   }
 
   .gathering {
+    height: 360px;
     margin-bottom: 30px;
     border-radius: 15px !important;
   }
