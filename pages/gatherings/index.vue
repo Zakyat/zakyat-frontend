@@ -18,10 +18,10 @@
           <v-col>
             <v-row class="mt-n3">
               <v-col>
-                <v-card-title style="font-weight: bold; font-size: 30px;">
+                <v-card-title style="font-weight: bold; font-size: 30px;" class="pb-6">
                   {{ gathering.title }}
                 </v-card-title>
-                <v-card-subtitle style="font-size: 16px; color: black;">
+                <v-card-subtitle style="font-size: 16px; color: black;" class="description">
                   {{ gathering.description }}
                 </v-card-subtitle>
               </v-col>
@@ -111,7 +111,7 @@ export default {
       gatherings: [
         {
           img: require('@/assets/images/gatherings/gathering1.png'),
-          title: 'Бурганова Альфия, 16 лет',
+          title: 'Бурганова Альфия',
           description: 'Идиопатический прогрессирующий сколиоз 4-й степени, спасет операция',
           info: 'Альфие 16 лет. В 9 месяцев ей поставили диагноз — ДЦП. Врачи сказали, что' +
                 ' ходить она не сможет. Никогда. Но в 2 годика она сделала первые робкие шаги.' +
@@ -126,7 +126,7 @@ export default {
         },
         {
           img: require('@/assets/images/gatherings/gathering2.png'),
-          title: 'Садыков Амирхан, 11 лет',
+          title: 'Садыков Амирхан',
           description: 'ДЦП',
           info: 'Амирхан — второй долгожданный ребенок в семье. Родился с помощью кесарева ' +
             'сечения на 38 неделе. Уже внутриутробно были выявлено — полное удвоение слева почки ' +
@@ -141,7 +141,7 @@ export default {
         },
         {
           img: require('@/assets/images/gatherings/gathering1.png'),
-          title: 'Бурганова Альфия, 16 лет',
+          title: 'Бурганова Альфия',
           description: 'Идиопатический прогрессирующий сколиоз 4-й степени, спасет операция',
           info: 'Альфие 16 лет. В 9 месяцев ей поставили диагноз — ДЦП. Врачи сказали, что' +
             ' ходить она не сможет. Никогда. Но в 2 годика она сделала первые робкие шаги.' +
@@ -156,7 +156,7 @@ export default {
         },
         {
           img: require('@/assets/images/gatherings/gathering2.png'),
-          title: 'Садыков Амирхан, 11 лет',
+          title: 'Садыков Амирхан',
           description: 'ДЦП',
           info: 'Амирхан — второй долгожданный ребенок в семье. Родился с помощью кесарева ' +
             'сечения на 38 неделе. Уже внутриутробно были выявлено — полное удвоение слева почки ' +
