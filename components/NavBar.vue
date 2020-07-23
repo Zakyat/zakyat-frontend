@@ -30,6 +30,7 @@
       dark
       color="primary"
       height="40px"
+      to="/charity"
     >
       {{ $t('give_help') }}
     </v-btn>
