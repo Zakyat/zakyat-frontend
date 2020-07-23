@@ -1,16 +1,31 @@
 <template>
   <v-container class="reports" fluid>
     <v-row>
-      <v-col cols="3">
-        <v-select
-          v-model="selectedItem"
-          :items="selectItems"
-          item-text="text"
-          item-value="component"
-          rounded
-          hide-selected
-          class="select"
-        />
+      <v-col>
+        <span class="select">{{ selectItems.find(x=>x.component==selectedItem).text }}
+          <v-menu>
+            <template v-slot:activator="{ on, attrs }">
+              <v-btn
+                dark
+                icon
+                v-bind="attrs"
+                v-on="on"
+              >
+                <v-icon color="black">mdi-chevron-down</v-icon>
+              </v-btn>
+            </template>
+
+            <v-list>
+              <v-list-item
+                v-for="(item, i) in selectItems"
+                :key="i"
+                @click="selectedItem=item.component"
+              >
+                <v-list-item-title>{{ item.text }}</v-list-item-title>
+              </v-list-item>
+            </v-list>
+          </v-menu>
+        </span>
       </v-col>
       <v-spacer />
       <v-col cols="2">
@@ -34,12 +49,16 @@
         />
       </v-col>
     </v-row>
-    <v-content v-if="selectedItem =='admission'">
-      <Admission />
-    </v-content>
-    <v-content v-if="selectedItem =='expenses'">
-      <Expense />
-    </v-content>
+    <Admission v-if="selectedItem =='admission'" :page="page" :month="month" :year="year" />
+    <Expense v-if="selectedItem =='expenses'" :page="page" :month="month" :year="year" />
+    <v-row class="text-center mt-6 text-black">
+      <v-pagination
+        v-model="page"
+        :length="total_page"
+        :total-visible="6"
+        circle
+      />
+    </v-row>
   </v-container>
 </template>
 
@@ -62,20 +81,23 @@ export default Vue.extend({
       years: [2018, 2019, 2020],
       year: 2020,
       months: [
-        { text: 'январь', num: 1 },
-        { text: 'февраль', num: 2 },
-        { text: 'март', num: 3 },
-        { text: 'апрель', num: 4 },
-        { text: 'май', num: 5 },
-        { text: 'июнь', num: 6 },
-        { text: 'июль', num: 7 },
-        { text: 'август', num: 8 },
-        { text: 'сентябрь', num: 9 },
-        { text: 'октябрь', num: 10 },
-        { text: 'ноябрь', num: 11 },
-        { text: 'декабрь', num: 12 },
+        { text: '', num: 0 },
+        { text: this.$t('reports.months.january'), num: 1 },
+        { text: this.$t('reports.months.february'), num: 2 },
+        { text: this.$t('reports.months.march'), num: 3 },
+        { text: this.$t('reports.months.april'), num: 4 },
+        { text: this.$t('reports.months.may'), num: 5 },
+        { text: this.$t('reports.months.june'), num: 6 },
+        { text: this.$t('reports.months.july'), num: 7 },
+        { text: this.$t('reports.months.august'), num: 8 },
+        { text: this.$t('reports.months.september'), num: 9 },
+        { text: this.$t('reports.months.october'), num: 10 },
+        { text: this.$t('reports.months.november'), num: 11 },
+        { text: this.$t('reports.months.december'), num: 12 },
       ],
       month: new Date().getMonth() + 1,
+      page: 1,
+      total_page: 10,
     };
   },
 });
@@ -87,9 +109,9 @@ export default Vue.extend({
 }
 
 .select {
-    width: 285px;
     font-style: normal;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 36px;
+    line-height: 43px;
   }
 </style>
