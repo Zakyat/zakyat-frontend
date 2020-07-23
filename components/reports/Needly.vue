@@ -1,9 +1,9 @@
 <template>
   <v-content>
     <v-row>
-      <h3>{{ $t('reports.expenses.subtitle') }}</h3>
+      <span class="subtitle">{{ $t('reports.expenses.subtitle') }}</span>
       <v-spacer />
-      <h3>{{ 1900500 | rubles }}</h3>
+      <span class="subtitle">{{ 1900500 | rubles }}</span>
     </v-row>
     <v-row style="padding: 30px 0px 10px">
       <v-flex lg2 class="text--secondary">
@@ -23,11 +23,11 @@
       </v-flex>
     </v-row>
     <v-row
-      v-for="(donatation, i) in donationData"
+      v-for="(donatation, i) in donationData.slice(0,10)"
       :key="i"
       align="center"
       class="mt-4"
-      style="background: white; border-radius: 10px; min-height: 60px; padding: 0 20px;"
+      style="background: white; border-radius: 10px; min-height: 60px; padding: 20px;"
     >
       <v-flex lg2 class="text">
         {{ donatation.applicationNumber }}
@@ -51,6 +51,23 @@
 <script lang="ts">
 import Vue from 'vue';
 export default Vue.extend({
+  props: {
+    page: {
+      type: Number,
+      default: 1,
+      required: false,
+    },
+    month: {
+      type: Number,
+      default: 0,
+      required: false,
+    },
+    year: {
+      type: Number,
+      default: 2020,
+      required: false,
+    },
+  },
   data () {
     return {
       donationData: [
@@ -125,5 +142,12 @@ export default Vue.extend({
   font-style: normal;
   font-size: 16px;
   line-height: 20px;
+}
+
+.subtitle{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 29px;
 }
 </style>
