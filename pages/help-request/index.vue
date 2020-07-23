@@ -1,13 +1,15 @@
 <template>
-    $END$
+  <HelpRequestContent/>
 </template>
 
-<script>
-    export default {
-        name: "index"
-    }
+<script lang="ts">
+import HelpRequestContent from '~/components/help-requests/HelpRequestContent.vue';
+export default {
+  components: {
+    HelpRequestContent,
+  }
+}
 </script>
 
 <style scoped>
-
 </style>

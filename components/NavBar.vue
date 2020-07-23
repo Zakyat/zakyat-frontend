@@ -40,6 +40,7 @@
       dark
       color="accent"
       height="40px"
+      to="/help-request"
     >
       {{ $t('get_help') }}
     </v-btn>
