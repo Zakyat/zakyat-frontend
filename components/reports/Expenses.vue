@@ -20,8 +20,8 @@
         </v-tab>
       </v-tabs>
     </v-row>
-    <Needly v-if="tab==0" />
-    <Spending v-if="tab==1" />
+    <Needly v-if="tab==0" :page="page" :month="month" :year="year" />
+    <Spending v-if="tab==1" :page="page" :month="month" :year="year" />
   </v-content>
 </template>
 
@@ -33,6 +33,23 @@ export default Vue.extend({
   components: {
     Needly,
     Spending,
+  },
+  props: {
+    page: {
+      type: Number,
+      default: 1,
+      required: false,
+    },
+    month: {
+      type: Number,
+      default: 0,
+      required: false,
+    },
+    year: {
+      type: Number,
+      default: 2020,
+      required: false,
+    },
   },
   data () {
     return {
