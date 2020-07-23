@@ -50,7 +50,30 @@
       </v-col>
     </v-row>
     <Admission v-if="selectedItem =='admission'" :page="page" :month="month" :year="year" />
-    <Expense v-if="selectedItem =='expenses'" :page="page" :month="month" :year="year" />
+    <v-content v-if="selectedItem =='expenses'" style="padding: 0 10px 10px">
+      <v-row style="padding: 0 0 30px;">
+        <v-tabs
+          v-model="tab"
+          hide-slider
+          grow
+          centered
+          center-active
+          show-arrows
+          class="payment-tabs pa-1"
+        >
+          <v-tab
+            v-for="item in components"
+            :key="item.component"
+            class="payment-tab"
+            active-class="payment-tab-primary"
+          >
+            {{ item.text }}
+          </v-tab>
+        </v-tabs>
+      </v-row>
+      <Needly v-if="tab==0" :page="page" :month="month" :year="year" />
+      <Spending v-if="tab==1" :page="page" :month="month" :year="year" />
+    </v-content>
     <v-row class="text-center mt-6 text-black">
       <v-pagination
         v-model="page"
@@ -65,11 +88,13 @@
 <script lang="ts">
 import Vue from 'vue';
 import Admission from '@/components/reports/Admission.vue';
-import Expense from '@/components/reports/Expenses.vue';
+import Needly from '@/components/reports/Needly.vue';
+import Spending from '@/components/reports/Spending.vue';
 export default Vue.extend({
   components: {
     Admission,
-    Expense,
+    Needly,
+    Spending,
   },
   data () {
     return {
@@ -96,6 +121,11 @@ export default Vue.extend({
         { text: this.$t('reports.months.december'), num: 12 },
       ],
       month: new Date().getMonth() + 1,
+      tab: 'needly',
+      components: [
+        { text: this.$t('reports.expenses.needly'), component: 'needly' },
+        { text: this.$t('reports.expenses.spending'), component: 'spending' },
+      ],
       page: 1,
       total_page: 10,
     };
@@ -114,4 +144,19 @@ export default Vue.extend({
     font-size: 36px;
     line-height: 43px;
   }
+
+.payment-tabs {
+  border: 1px solid black;
+  border-radius: 30px;
+}
+.payment-tab {
+  width: 300px;
+  border-radius: 30px;
+  text-transform: inherit;
+  font-size: 15px;
+}
+.payment-tab-primary {
+  background-color: #00ac00;
+  color: white !important;
+}
 </style>
