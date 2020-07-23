@@ -91,6 +91,20 @@
       "donation_target": "Назначение пожертвования",
       "donation_type": "Вид пожертвования",
       "amount": "Сумма"
+    },
+    "months" :{
+      "january": "январь",
+      "february": "февраль",
+      "march": "март",
+      "april": "апрель",
+      "may": "май",
+      "june": "июнь",
+      "july": "июль",
+      "august": "август",
+      "september": "сентябрь",
+      "october": "октябрь",
+      "november": "ноябрь",
+      "december": "декабрь"
     }
   },
   "zakat": {
