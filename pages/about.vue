@@ -8,8 +8,12 @@
     >
       <v-row>
         <v-col>
-          <h2>Задачи фонда</h2>
-          <p class="pt-3">Благотворительный фонд «Закят» учрежден Централизованной Религиозной Организацией Духовного управления мусульман в Республике Татарстан в 1998 году. БФ «Закят» занимается сбором и распределением Закята и Садака в Республике Татарстан. Деятельность по сбору Закята и Садака осуществляют специалисты фонда. Распределение Закята и Садака осуществляется по решению комиссии. Консультации по осуществлению деятельности фонда оказывает Совет Улемов ЦРО-ДУМ РТ.</p>
+          <h2>
+            {{ $t('about.foundation_tasks') }}
+          </h2>
+          <p class="pt-3">
+            {{ $t('about.foundation_about_text') }}
+          </p>
         </v-col>
         <v-col>
           <v-img
@@ -19,15 +23,20 @@
           />
         </v-col>
       </v-row>
+      <Employees />
     </v-card>
   </v-container>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import Employees from '@/components/about/Employees.vue';
 
 export default Vue.extend({
   layout: 'grey',
+  components: {
+    Employees,
+  },
 });
 </script>
 
