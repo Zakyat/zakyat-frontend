@@ -41,8 +41,7 @@
               placeholder="Введите свое полное имя"
               outlined
               type="text"
-            >
-            </v-text-field>
+            />
             <v-text-field
               class="defaultTextField"
               dense
@@ -50,8 +49,7 @@
               placeholder="Введите гражданство"
               outlined
               type="text"
-            >
-            </v-text-field>
+            />
             <v-text-field
               class="defaultTextField"
               dense
@@ -59,8 +57,7 @@
               placeholder="Номер телефона"
               outlined
               type="number"
-            >
-            </v-text-field>
+            />
             <v-autocomplete
               class="autocompleteField defaultTextField"
               dense
@@ -69,8 +66,7 @@
               placeholder="Религия"
               height="50px"
               type="text"
-            >
-            </v-autocomplete>
+            />
           </v-col>
           <v-col cols="5">
             <v-autocomplete
@@ -81,19 +77,19 @@
               placeholder="Пол"
               height="50px"
               type="text"
-            >
-            </v-autocomplete>
+            />
           </v-col>
         </v-row>
-        <h2 class="smallHeader ml-3">Дата рождения</h2>
+        <h2 class="smallHeader ml-3">
+          Дата рождения
+        </h2>
         <v-text-field
           class="dateField"
           type="date"
           dense
           height="50px"
           outlined
-        >
-        </v-text-field>
+        />
         <v-text-field
           class="defaultTextField outerRowTextField"
           dense
@@ -101,8 +97,10 @@
           placeholder="Адрес проживания"
           outlined
           type="text"
-        ></v-text-field>
-        <h2 class="defaultHeader">Паспорт</h2>
+        />
+        <h2 class="defaultHeader">
+          Паспорт
+        </h2>
         <v-file-input
           solo
           flat
@@ -111,18 +109,20 @@
           hide-details
           placeholder="Прикрепить изображения главной страницы,  прописки,  о браке и дети (4 шт)"
           class="sendFiles ml-n3"
-        >
-        </v-file-input>
-        <h2 class="smallHeader mt-4">Заполните данные о работе или прикрепите справку с биржы труда</h2>
+        />
+        <h2 class="smallHeader mt-4">
+          Заполните данные о работе или прикрепите справку с биржы труда
+        </h2>
         <v-expansion-panels
           flat
         >
-          <v-expansion-panel
-          >
+          <v-expansion-panel>
             <v-expansion-panel-header
               class="workInfo"
             >
-              <h2 class="defaultHeader ml-n6">Работа и доход</h2>
+              <h2 class="defaultHeader ml-n6">
+                Работа и доход
+              </h2>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="ml-n6">
               <v-text-field
@@ -132,7 +132,7 @@
                 placeholder="Место работы"
                 outlined
                 type="text"
-              ></v-text-field>
+              />
               <v-text-field
                 class="defaultTextField outerRowTextField"
                 dense
@@ -140,7 +140,7 @@
                 placeholder="Рабочая позиция на работе"
                 outlined
                 type="text"
-              ></v-text-field>
+              />
               <v-text-field
                 class="defaultTextField outerRowTextField"
                 dense
@@ -148,7 +148,7 @@
                 placeholder="Заработная плата"
                 outlined
                 type="text"
-              ></v-text-field>
+              />
               <v-text-field
                 class="defaultTextField outerRowTextField"
                 dense
@@ -156,8 +156,10 @@
                 placeholder="Пенсия (в руб), если есть"
                 outlined
                 type="text"
-              ></v-text-field>
-              <h2 class="defaultHeader">Справка с места работы</h2>
+              />
+              <h2 class="defaultHeader">
+                Справка с места работы
+              </h2>
               <v-file-input
                 solo
                 flat
@@ -166,9 +168,10 @@
                 hide-details
                 placeholder="Прикрепить изображение"
                 class="sendFiles ml-n3"
-              >
-              </v-file-input>
-              <h2 class="defaultHeader">Трудовая книжка</h2>
+              />
+              <h2 class="defaultHeader">
+                Трудовая книжка
+              </h2>
               <v-file-input
                 solo
                 flat
@@ -177,12 +180,13 @@
                 hide-details
                 placeholder="Прикрепить изображения"
                 class="sendFiles ml-n3"
-              >
-              </v-file-input>
+              />
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
-        <h2 class="defaultHeader mt-2">Справка о доходах за последние 6 месяцев</h2>
+        <h2 class="defaultHeader mt-2">
+          Справка о доходах за последние 6 месяцев
+        </h2>
         <v-file-input
           solo
           flat
@@ -191,8 +195,10 @@
           hide-details
           placeholder="Прикрепить изображения о доходах: заработная плата, пенсия и/или пособия."
           class="sendFiles ml-n3"
-        ></v-file-input>
-        <h2 class="defaultHeader mt-3">Справка с биржи труда</h2>
+        />
+        <h2 class="defaultHeader mt-3">
+          Справка с биржи труда
+        </h2>
         <v-file-input
           solo
           flat
@@ -201,8 +207,10 @@
           hide-details
           placeholder="Прикрепить изображения справки из биржы труда, если безработный"
           class="sendFiles ml-n3"
-        ></v-file-input>
-        <h2 class="defaultHeader mt-3">Статус в семье</h2>
+        />
+        <h2 class="defaultHeader mt-3">
+          Статус в семье
+        </h2>
         <v-autocomplete
           class="autocompleteField defaultTextField mt-3"
           dense
@@ -211,9 +219,8 @@
           placeholder="Женат/замужем"
           height="50px"
           type="text"
-        ></v-autocomplete>
+        />
       </div>
-
 
       <div class="spouseInfo">
         <h2 class="mainHeader mt-8">
@@ -228,8 +235,7 @@
               placeholder="Введите свое полное имя"
               outlined
               type="text"
-            >
-            </v-text-field>
+            />
             <v-text-field
               class="defaultTextField"
               dense
@@ -237,8 +243,7 @@
               placeholder="Введите гражданство"
               outlined
               type="text"
-            >
-            </v-text-field>
+            />
             <v-text-field
               class="defaultTextField"
               dense
@@ -246,8 +251,7 @@
               placeholder="Номер телефона"
               outlined
               type="number"
-            >
-            </v-text-field>
+            />
             <v-autocomplete
               class="autocompleteField defaultTextField"
               dense
@@ -256,19 +260,19 @@
               placeholder="Религия"
               height="50px"
               type="text"
-            >
-            </v-autocomplete>
+            />
           </v-col>
         </v-row>
-        <h2 class="smallHeader ml-3">Дата рождения</h2>
+        <h2 class="smallHeader ml-3">
+          Дата рождения
+        </h2>
         <v-text-field
           class="dateField"
           type="date"
           dense
           height="50px"
           outlined
-        >
-        </v-text-field>
+        />
         <v-text-field
           class="defaultTextField outerRowTextField"
           dense
@@ -276,8 +280,10 @@
           placeholder="Адрес проживания"
           outlined
           type="text"
-        ></v-text-field>
-        <h2 class="defaultHeader">Паспорт</h2>
+        />
+        <h2 class="defaultHeader">
+          Паспорт
+        </h2>
         <v-file-input
           solo
           flat
@@ -286,18 +292,20 @@
           hide-details
           placeholder="Прикрепить изображения главной страницы,  прописки,  о браке и дети (4 шт)"
           class="sendFiles ml-n3"
-        >
-        </v-file-input>
-        <h2 class="smallHeader mt-4">Заполните данные о работе или прикрепите справку с биржы труда</h2>
+        />
+        <h2 class="smallHeader mt-4">
+          Заполните данные о работе или прикрепите справку с биржы труда
+        </h2>
         <v-expansion-panels
           flat
         >
-          <v-expansion-panel
-          >
+          <v-expansion-panel>
             <v-expansion-panel-header
               class="workInfo"
             >
-              <h2 class="defaultHeader ml-n6">Работа и доход</h2>
+              <h2 class="defaultHeader ml-n6">
+                Работа и доход
+              </h2>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="ml-n6">
               <v-text-field
@@ -307,7 +315,7 @@
                 placeholder="Место работы"
                 outlined
                 type="text"
-              ></v-text-field>
+              />
               <v-text-field
                 class="defaultTextField outerRowTextField"
                 dense
@@ -315,7 +323,7 @@
                 placeholder="Рабочая позиция на работе"
                 outlined
                 type="text"
-              ></v-text-field>
+              />
               <v-text-field
                 class="defaultTextField outerRowTextField"
                 dense
@@ -323,7 +331,7 @@
                 placeholder="Заработная плата"
                 outlined
                 type="text"
-              ></v-text-field>
+              />
               <v-text-field
                 class="defaultTextField outerRowTextField"
                 dense
@@ -331,8 +339,10 @@
                 placeholder="Пенсия (в руб), если есть"
                 outlined
                 type="text"
-              ></v-text-field>
-              <h2 class="defaultHeader">Справка с места работы</h2>
+              />
+              <h2 class="defaultHeader">
+                Справка с места работы
+              </h2>
               <v-file-input
                 solo
                 flat
@@ -341,9 +351,10 @@
                 hide-details
                 placeholder="Прикрепить изображение"
                 class="sendFiles ml-n3"
-              >
-              </v-file-input>
-              <h2 class="defaultHeader">Трудовая книжка</h2>
+              />
+              <h2 class="defaultHeader">
+                Трудовая книжка
+              </h2>
               <v-file-input
                 solo
                 flat
@@ -352,12 +363,13 @@
                 hide-details
                 placeholder="Прикрепить изображения"
                 class="sendFiles ml-n3"
-              >
-              </v-file-input>
+              />
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
-        <h2 class="defaultHeader mt-2">Справка о доходах за последние 6 месяцев</h2>
+        <h2 class="defaultHeader mt-2">
+          Справка о доходах за последние 6 месяцев
+        </h2>
         <v-file-input
           solo
           flat
@@ -366,8 +378,10 @@
           hide-details
           placeholder="Прикрепить изображения о доходах: заработная плата, пенсия и/или пособия."
           class="sendFiles ml-n3"
-        ></v-file-input>
-        <h2 class="defaultHeader mt-3">Справка с биржи труда</h2>
+        />
+        <h2 class="defaultHeader mt-3">
+          Справка с биржи труда
+        </h2>
         <v-file-input
           solo
           flat
@@ -376,13 +390,9 @@
           hide-details
           placeholder="Прикрепить изображения справки из биржы труда, если безработный"
           class="sendFiles ml-n3"
-        ></v-file-input>
+        />
       </div>
-      <div class="childInfo">
-
-
-
-      </div>
+      <div class="childInfo" />
     </v-form>
   </div>
 </template>
