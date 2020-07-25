@@ -348,54 +348,57 @@
             <v-icon>mdi-plus-circle-outline</v-icon>
           </v-btn>
         </h2>
-        <template
-          v-for="form in childFormsAmount"
-        >
-          <v-row class="mt-3">
-            <v-col cols="7" class="pr-9">
-              <v-text-field
-                class="defaultTextField"
-                dense
-                height="50px"
-                placeholder="Введите полное имя ребенка"
-                outlined
-                type="text"
-              />
-            </v-col>
-            <v-col cols="5">
-              <v-autocomplete
-                class="autocompleteField defaultTextField"
-                dense
-                outlined
-                :items="gender"
-                placeholder="Пол"
-                height="50px"
-                type="text"
-              />
-            </v-col>
-          </v-row>
-          <h2 class="smallHeader ml-3">
-            Дата рождения
-          </h2>
-          <v-text-field
-            class="dateField"
-            type="date"
-            dense
-            height="50px"
-            outlined
-          />
-          <h2 class="defaultHeader">
-            Паспорт или свидетельство о рождении
-          </h2>
-          <v-file-input
-            solo
-            flat
-            prepend-icon=""
-            multiple="multiple"
-            hide-details
-            placeholder="Прикрепить 2 изображения паспорта: главная страница, прописка или свидетельство о рождении"
-            class="sendFiles ml-n3"
-          />
+        <template>
+          <div
+            v-for="form in childFormsAmount"
+            :key="form"
+          >
+            <v-row class="mt-3">
+              <v-col cols="7" class="pr-9">
+                <v-text-field
+                  class="defaultTextField"
+                  dense
+                  height="50px"
+                  placeholder="Введите полное имя ребенка"
+                  outlined
+                  type="text"
+                />
+              </v-col>
+              <v-col cols="5">
+                <v-autocomplete
+                  class="autocompleteField defaultTextField"
+                  dense
+                  outlined
+                  :items="gender"
+                  placeholder="Пол"
+                  height="50px"
+                  type="text"
+                />
+              </v-col>
+            </v-row>
+            <h2 class="smallHeader ml-3">
+              Дата рождения
+            </h2>
+            <v-text-field
+              class="dateField"
+              type="date"
+              dense
+              height="50px"
+              outlined
+            />
+            <h2 class="defaultHeader">
+              Паспорт или свидетельство о рождении
+            </h2>
+            <v-file-input
+              solo
+              flat
+              prepend-icon=""
+              multiple="multiple"
+              hide-details
+              placeholder="Прикрепить 2 изображения паспорта: главная страница, прописка или свидетельство о рождении"
+              class="sendFiles ml-n3"
+            />
+          </div>
         </template>
       </div>
 
