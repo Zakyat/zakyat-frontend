@@ -12,7 +12,9 @@
   </div>
 </template>
 <script lang="ts">
-export default {
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'HelpRequestCategories',
   data () {
     return {
@@ -31,7 +33,7 @@ export default {
       ],
     };
   },
-};
+});
 </script>
 
 <style scoped lang="scss">

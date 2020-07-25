@@ -222,42 +222,206 @@
         />
       </div>
 
-      <div class="spouseInfo">
-        <h2 class="mainHeader mt-8">
-          Супруг(-а)
-        </h2>
+
+
+
+<!--      <div class="spouseInfo">-->
+<!--        <h2 class="mainHeader mt-8">-->
+<!--          Супруг(-а)-->
+<!--        </h2>-->
+<!--        <v-row class="mt-3">-->
+<!--          <v-col cols="7" class="pr-9">-->
+<!--            <v-text-field-->
+<!--              class="defaultTextField"-->
+<!--              dense-->
+<!--              height="50px"-->
+<!--              placeholder="Введите свое полное имя"-->
+<!--              outlined-->
+<!--              type="text"-->
+<!--            />-->
+<!--            <v-text-field-->
+<!--              class="defaultTextField"-->
+<!--              dense-->
+<!--              height="50px"-->
+<!--              placeholder="Введите гражданство"-->
+<!--              outlined-->
+<!--              type="text"-->
+<!--            />-->
+<!--            <v-text-field-->
+<!--              class="defaultTextField"-->
+<!--              dense-->
+<!--              height="50px"-->
+<!--              placeholder="Номер телефона"-->
+<!--              outlined-->
+<!--              type="number"-->
+<!--            />-->
+<!--            <v-autocomplete-->
+<!--              class="autocompleteField defaultTextField"-->
+<!--              dense-->
+<!--              outlined-->
+<!--              :items="religion"-->
+<!--              placeholder="Религия"-->
+<!--              height="50px"-->
+<!--              type="text"-->
+<!--            />-->
+<!--          </v-col>-->
+<!--        </v-row>-->
+<!--        <h2 class="smallHeader ml-3">-->
+<!--          Дата рождения-->
+<!--        </h2>-->
+<!--        <v-text-field-->
+<!--          class="dateField"-->
+<!--          type="date"-->
+<!--          dense-->
+<!--          height="50px"-->
+<!--          outlined-->
+<!--        />-->
+<!--        <v-text-field-->
+<!--          class="defaultTextField outerRowTextField"-->
+<!--          dense-->
+<!--          height="50px"-->
+<!--          placeholder="Адрес проживания"-->
+<!--          outlined-->
+<!--          type="text"-->
+<!--        />-->
+<!--        <h2 class="defaultHeader">-->
+<!--          Паспорт-->
+<!--        </h2>-->
+<!--        <v-file-input-->
+<!--          solo-->
+<!--          flat-->
+<!--          prepend-icon=""-->
+<!--          multiple="multiple"-->
+<!--          hide-details-->
+<!--          placeholder="Прикрепить изображения главной страницы,  прописки,  о браке и дети (4 шт)"-->
+<!--          class="sendFiles ml-n3"-->
+<!--        />-->
+<!--        <h2 class="smallHeader mt-4">-->
+<!--          Заполните данные о работе или прикрепите справку с биржы труда-->
+<!--        </h2>-->
+<!--        <v-expansion-panels-->
+<!--          flat-->
+<!--        >-->
+<!--          <v-expansion-panel>-->
+<!--            <v-expansion-panel-header-->
+<!--              class="workInfo"-->
+<!--            >-->
+<!--              <h2 class="defaultHeader ml-n6">-->
+<!--                Работа и доход-->
+<!--              </h2>-->
+<!--            </v-expansion-panel-header>-->
+<!--            <v-expansion-panel-content class="ml-n6">-->
+<!--              <v-text-field-->
+<!--                class="defaultTextField outerRowTextField"-->
+<!--                dense-->
+<!--                height="50px"-->
+<!--                placeholder="Место работы"-->
+<!--                outlined-->
+<!--                type="text"-->
+<!--              />-->
+<!--              <v-text-field-->
+<!--                class="defaultTextField outerRowTextField"-->
+<!--                dense-->
+<!--                height="50px"-->
+<!--                placeholder="Рабочая позиция на работе"-->
+<!--                outlined-->
+<!--                type="text"-->
+<!--              />-->
+<!--              <v-text-field-->
+<!--                class="defaultTextField outerRowTextField"-->
+<!--                dense-->
+<!--                height="50px"-->
+<!--                placeholder="Заработная плата"-->
+<!--                outlined-->
+<!--                type="text"-->
+<!--              />-->
+<!--              <v-text-field-->
+<!--                class="defaultTextField outerRowTextField"-->
+<!--                dense-->
+<!--                height="50px"-->
+<!--                placeholder="Пенсия (в руб), если есть"-->
+<!--                outlined-->
+<!--                type="text"-->
+<!--              />-->
+<!--              <h2 class="defaultHeader">-->
+<!--                Справка с места работы-->
+<!--              </h2>-->
+<!--              <v-file-input-->
+<!--                solo-->
+<!--                flat-->
+<!--                prepend-icon=""-->
+<!--                multiple="multiple"-->
+<!--                hide-details-->
+<!--                placeholder="Прикрепить изображение"-->
+<!--                class="sendFiles ml-n3"-->
+<!--              />-->
+<!--              <h2 class="defaultHeader">-->
+<!--                Трудовая книжка-->
+<!--              </h2>-->
+<!--              <v-file-input-->
+<!--                solo-->
+<!--                flat-->
+<!--                prepend-icon=""-->
+<!--                multiple="multiple"-->
+<!--                hide-details-->
+<!--                placeholder="Прикрепить изображения"-->
+<!--                class="sendFiles ml-n3"-->
+<!--              />-->
+<!--            </v-expansion-panel-content>-->
+<!--          </v-expansion-panel>-->
+<!--        </v-expansion-panels>-->
+<!--        <h2 class="defaultHeader mt-2">-->
+<!--          Справка о доходах за последние 6 месяцев-->
+<!--        </h2>-->
+<!--        <v-file-input-->
+<!--          solo-->
+<!--          flat-->
+<!--          prepend-icon=""-->
+<!--          multiple="multiple"-->
+<!--          hide-details-->
+<!--          placeholder="Прикрепить изображения о доходах: заработная плата, пенсия и/или пособия."-->
+<!--          class="sendFiles ml-n3"-->
+<!--        />-->
+<!--        <h2 class="defaultHeader mt-3">-->
+<!--          Справка с биржи труда-->
+<!--        </h2>-->
+<!--        <v-file-input-->
+<!--          solo-->
+<!--          flat-->
+<!--          prepend-icon=""-->
+<!--          multiple="multiple"-->
+<!--          hide-details-->
+<!--          placeholder="Прикрепить изображения справки из биржы труда, если безработный"-->
+<!--          class="sendFiles ml-n3"-->
+<!--        />-->
+<!--      </div>-->
+      <h2 class="mainHeader mt-8">
+        Ребенок
+        <v-btn icon @click="addChildForm">
+          <v-icon>mdi-plus-circle-outline</v-icon>
+        </v-btn>
+      </h2>
+      <template
+        v-for="form in childFormsAmount"
+      >
         <v-row class="mt-3">
           <v-col cols="7" class="pr-9">
             <v-text-field
               class="defaultTextField"
               dense
               height="50px"
-              placeholder="Введите свое полное имя"
+              placeholder="Введите полное имя ребенка"
               outlined
               type="text"
             />
-            <v-text-field
-              class="defaultTextField"
-              dense
-              height="50px"
-              placeholder="Введите гражданство"
-              outlined
-              type="text"
-            />
-            <v-text-field
-              class="defaultTextField"
-              dense
-              height="50px"
-              placeholder="Номер телефона"
-              outlined
-              type="number"
-            />
+          </v-col>
+          <v-col cols="5">
             <v-autocomplete
               class="autocompleteField defaultTextField"
               dense
               outlined
-              :items="religion"
-              placeholder="Религия"
+              :items="gender"
+              placeholder="Пол"
               height="50px"
               type="text"
             />
@@ -273,16 +437,8 @@
           height="50px"
           outlined
         />
-        <v-text-field
-          class="defaultTextField outerRowTextField"
-          dense
-          height="50px"
-          placeholder="Адрес проживания"
-          outlined
-          type="text"
-        />
         <h2 class="defaultHeader">
-          Паспорт
+          Паспорт или свидетельство о рождении
         </h2>
         <v-file-input
           solo
@@ -290,127 +446,54 @@
           prepend-icon=""
           multiple="multiple"
           hide-details
-          placeholder="Прикрепить изображения главной страницы,  прописки,  о браке и дети (4 шт)"
+          placeholder="Прикрепить 2 изображения паспорта: главная страница, прописка или свидетельство о рождении"
           class="sendFiles ml-n3"
         />
-        <h2 class="smallHeader mt-4">
-          Заполните данные о работе или прикрепите справку с биржы труда
-        </h2>
-        <v-expansion-panels
-          flat
+      </template>
+      <div class="childInfo"/>
+      <div class="agreementToProcessing">
+        <v-checkbox
+          label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
+          color="success"
+        ></v-checkbox>
+        <v-btn
+          depressed
+          dark
+          color="#56B756"
+          height="46px"
+          width="300"
+          class="buttonTo text-none rounded-pill"
         >
-          <v-expansion-panel>
-            <v-expansion-panel-header
-              class="workInfo"
-            >
-              <h2 class="defaultHeader ml-n6">
-                Работа и доход
-              </h2>
-            </v-expansion-panel-header>
-            <v-expansion-panel-content class="ml-n6">
-              <v-text-field
-                class="defaultTextField outerRowTextField"
-                dense
-                height="50px"
-                placeholder="Место работы"
-                outlined
-                type="text"
-              />
-              <v-text-field
-                class="defaultTextField outerRowTextField"
-                dense
-                height="50px"
-                placeholder="Рабочая позиция на работе"
-                outlined
-                type="text"
-              />
-              <v-text-field
-                class="defaultTextField outerRowTextField"
-                dense
-                height="50px"
-                placeholder="Заработная плата"
-                outlined
-                type="text"
-              />
-              <v-text-field
-                class="defaultTextField outerRowTextField"
-                dense
-                height="50px"
-                placeholder="Пенсия (в руб), если есть"
-                outlined
-                type="text"
-              />
-              <h2 class="defaultHeader">
-                Справка с места работы
-              </h2>
-              <v-file-input
-                solo
-                flat
-                prepend-icon=""
-                multiple="multiple"
-                hide-details
-                placeholder="Прикрепить изображение"
-                class="sendFiles ml-n3"
-              />
-              <h2 class="defaultHeader">
-                Трудовая книжка
-              </h2>
-              <v-file-input
-                solo
-                flat
-                prepend-icon=""
-                multiple="multiple"
-                hide-details
-                placeholder="Прикрепить изображения"
-                class="sendFiles ml-n3"
-              />
-            </v-expansion-panel-content>
-          </v-expansion-panel>
-        </v-expansion-panels>
-        <h2 class="defaultHeader mt-2">
-          Справка о доходах за последние 6 месяцев
-        </h2>
-        <v-file-input
-          solo
-          flat
-          prepend-icon=""
-          multiple="multiple"
-          hide-details
-          placeholder="Прикрепить изображения о доходах: заработная плата, пенсия и/или пособия."
-          class="sendFiles ml-n3"
-        />
-        <h2 class="defaultHeader mt-3">
-          Справка с биржи труда
-        </h2>
-        <v-file-input
-          solo
-          flat
-          prepend-icon=""
-          multiple="multiple"
-          hide-details
-          placeholder="Прикрепить изображения справки из биржы труда, если безработный"
-          class="sendFiles ml-n3"
-        />
+          Написать заявление и отправить
+        </v-btn>
       </div>
-      <div class="childInfo" />
     </v-form>
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'ChildrenWithDisabilitiesHelp',
   data () {
     return {
       gender: ['man', 'woman'],
       religion: ['Islam', 'Christianity', 'Hinduism', 'Buddhism'],
       familyStatus: ['Женат/замужем', 'Разведен', 'Одинок', 'Вдова/вдовец', 'Другое'],
+      childFormsAmount: 0,
+      spouse: true,
     };
   },
-};
+  methods: {
+    addChildForm () {
+      this.childFormsAmount++;
+    },
+  },
+});
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .buttonTo {
   letter-spacing: normal;
   font-weight: normal;
@@ -475,5 +558,10 @@ export default {
 
 .childInfo {
   width: 150px;
+}
+
+.agreementToProcessing {
+  display: grid;
+  place-items: center;
 }
 </style>

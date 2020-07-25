@@ -18,9 +18,11 @@
 </template>
 
 <script lang="ts">
+import Vue from "vue";
 import HelpRequestCategories from '@/components/help-requests/HelpRequestCategories.vue';
 import ChildrenWithDisabilitiesHelp from '@/components/help-requests/ChildrenWithDisabilitiesHelp.vue';
-export default {
+
+export default Vue.extend({
   name: 'HelpRequestContent',
   components: {
     ChildrenWithDisabilitiesHelp,
@@ -36,7 +38,7 @@ export default {
       this.currentContent = content;
     },
   },
-};
+});
 </script>
 
 <style scoped lang="scss">

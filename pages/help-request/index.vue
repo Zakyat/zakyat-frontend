@@ -3,13 +3,12 @@
 </template>
 
 <script lang="ts">
+import Vue from 'vue';
 import HelpRequestContent from '~/components/help-requests/HelpRequestContent.vue';
-export default {
+
+export default Vue.extend({
   components: {
     HelpRequestContent,
-  }
-}
+  },
+});
 </script>
-
-<style scoped>
-</style>
