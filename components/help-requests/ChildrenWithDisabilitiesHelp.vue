@@ -70,10 +70,10 @@
           </v-col>
           <v-col cols="5">
             <v-autocomplete
+              v-model="userGender"
               class="autocompleteField defaultTextField"
               dense
               outlined
-              v-model="userGender"
               :items="gender"
               placeholder="Пол"
               height="50px"
@@ -411,6 +411,7 @@
           label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
           color="success"
         />
+        <!--add @click event for test-->
         <v-btn
           depressed
           dark
@@ -418,11 +419,46 @@
           height="46px"
           width="300"
           class="buttonTo text-none rounded-pill"
+          @click="getWarning = !getWarning"
         >
           Написать заявление и отправить
         </v-btn>
       </div>
     </v-form>
+    <v-dialog
+      v-model="getWarning"
+      width="440"
+      class="warningDialog"
+    >
+      <div class="button-wrapper white">
+        <v-btn
+          icon
+          color="black"
+          x-large
+          @click="getWarning = !getWarning"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+      </div>
+      <div class="success__container white">
+        <v-icon right size="60px" color="#EB3050">
+          mdi-close-circle
+        </v-icon>
+        <p class="pt-4 description">
+          Заполните все поля для отправки заявления
+        </p>
+        <v-btn
+          text
+          class="mt-8 custom-transform-class text-none buttonTo"
+          color="#EB3050"
+          @click="getWarning = !getWarning"
+        >
+          <span>
+            Вернуться
+          </span>
+        </v-btn>
+      </div>
+    </v-dialog>
   </div>
 </template>
 
@@ -444,6 +480,7 @@ export default Vue.extend({
       childFormsAmount: 0,
       familyStatus: '',
       hasSpouse: false,
+      getWarning: false,
     };
   },
   methods: {
@@ -528,5 +565,22 @@ export default Vue.extend({
 .agreementToProcessing {
   display: grid;
   place-items: center;
+}
+
+.info-wrapper {
+  text-align: center;
+}
+
+.button-wrapper {
+  text-align: right;
+}
+
+.success__container {
+  padding: 0 50px 50px 50px;
+  text-align: center;
+}
+
+.description {
+  font-size: 14px;
 }
 </style>
