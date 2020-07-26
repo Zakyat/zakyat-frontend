@@ -217,8 +217,8 @@
           class="autocompleteField defaultTextField mt-3"
           dense
           outlined
-          :items="userGender === 'М' || '' ? familyStatusMan : familyStatusWoman"
-          :placeholder="userGender === 'М' || '' ? familyStatusMan[0] : familyStatusWoman[0]"
+          :items="userGender === 'М' || userGender === '' ? familyStatusMan : familyStatusWoman"
+          :placeholder="userGender === 'М' || userGender === '' ? familyStatusMan[0] : familyStatusWoman[0]"
           height="50px"
           type="text"
         />
