@@ -106,7 +106,7 @@ export default Vue.extend({
       years: [2018, 2019, 2020],
       year: 2020,
       months: [
-        { text: '', num: 0 },
+        { text: this.$t('reports.full_year'), num: 0 },
         { text: this.$t('reports.months.january'), num: 1 },
         { text: this.$t('reports.months.february'), num: 2 },
         { text: this.$t('reports.months.march'), num: 3 },

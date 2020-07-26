@@ -92,6 +92,7 @@
       "donation_type": "Вид пожертвования",
       "amount": "Сумма"
     },
+    "full_year": "весь год",
     "months" :{
       "january": "январь",
       "february": "февраль",
