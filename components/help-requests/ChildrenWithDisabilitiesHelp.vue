@@ -213,6 +213,7 @@
           Статус в семье
         </h2>
         <v-autocomplete
+          v-model="familyStatus"
           class="autocompleteField defaultTextField mt-3"
           dense
           outlined
@@ -277,7 +278,9 @@
         <v-expansion-panels
           flat
         >
-          <v-expansion-panel>
+          <v-expansion-panel
+            :disabled="hasSpouse"
+          >
             <v-expansion-panel-header
               class="spouseHeader"
               expand-icon="mdi-plus-circle-outline"
@@ -439,7 +442,8 @@ export default Vue.extend({
       // user data
       userGender: '',
       childFormsAmount: 0,
-      spouse: true,
+      familyStatus: '',
+      hasSpouse: false,
     };
   },
   methods: {
@@ -447,6 +451,11 @@ export default Vue.extend({
       this.childFormsAmount++;
     },
   },
+  // computed: {
+  //   changeFamilyStatus () {
+  //     this.hasSpouse = this.familyStatus !== 'Одинок' && this.familyStatus !== 'Одинока' && this.familyStatus !== 'Другое';
+  //   },
+  // }
 });
 </script>
 
