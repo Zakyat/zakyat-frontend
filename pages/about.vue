@@ -24,8 +24,10 @@
         </v-col>
       </v-row>
       <Employees
+        class="mt-7"
         :employees="employees"
       />
+      <Documents />
     </v-card>
   </v-container>
 </template>
@@ -33,11 +35,13 @@
 <script lang="ts">
 import Vue from 'vue';
 import Employees from '@/components/about/Employees.vue';
+import Documents from '@/components/about/Documents.vue';
 
 export default Vue.extend({
   layout: 'grey',
   components: {
     Employees,
+    Documents,
   },
   data () {
     return {
