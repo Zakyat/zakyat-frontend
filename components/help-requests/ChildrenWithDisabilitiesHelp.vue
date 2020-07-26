@@ -279,7 +279,7 @@
           flat
         >
           <v-expansion-panel
-            :disabled="hasSpouse"
+            :disabled="!(familyStatus !== 'Одинокая' && familyStatus !== 'Одинок' && familyStatus !== 'Другое')"
           >
             <v-expansion-panel-header
               class="spouseHeader"
@@ -451,11 +451,6 @@ export default Vue.extend({
       this.childFormsAmount++;
     },
   },
-  // computed: {
-  //   changeFamilyStatus () {
-  //     this.hasSpouse = this.familyStatus !== 'Одинок' && this.familyStatus !== 'Одинока' && this.familyStatus !== 'Другое';
-  //   },
-  // }
 });
 </script>
 
