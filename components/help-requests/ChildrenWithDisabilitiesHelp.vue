@@ -73,6 +73,7 @@
               class="autocompleteField defaultTextField"
               dense
               outlined
+              v-model="userGender"
               :items="gender"
               placeholder="Пол"
               height="50px"
@@ -215,8 +216,8 @@
           class="autocompleteField defaultTextField mt-3"
           dense
           outlined
-          :items="familyStatus"
-          placeholder="Женат/замужем"
+          :items="userGender === 'М' || '' ? familyStatusMan : familyStatusWoman"
+          :placeholder="userGender === 'М' || '' ? familyStatusMan[0] : familyStatusWoman[0]"
           height="50px"
           type="text"
         />
@@ -406,7 +407,7 @@
         <v-checkbox
           label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
           color="success"
-        ></v-checkbox>
+        />
         <v-btn
           depressed
           dark
@@ -429,9 +430,14 @@ export default Vue.extend({
   name: 'ChildrenWithDisabilitiesHelp',
   data () {
     return {
-      gender: ['man', 'woman'],
-      religion: ['Islam', 'Christianity', 'Hinduism', 'Buddhism'],
-      familyStatus: ['Женат/замужем', 'Разведен', 'Одинок', 'Вдова/вдовец', 'Другое'],
+      // options for choose
+      // need to add this fields into the ru.json, in the en.json we need only one default array of familyStatus
+      gender: ['М', 'Ж'],
+      religion: ['Ислам', 'Христианство', 'Иудаизм', 'Атеизм', 'Другое'],
+      familyStatusMan: ['Женат', 'Разведен', 'Одинок', 'Разведен', 'Другое'],
+      familyStatusWoman: ['Замужем', 'Разведена', 'Одинокая', 'Разведена', 'Другое'],
+      // user data
+      userGender: '',
       childFormsAmount: 0,
       spouse: true,
     };
