@@ -4,21 +4,24 @@
       Получить помощь
     </h1>
     <div class="content">
-      <!--add !currentContent for disabled components-->
+      <!--add !currentContent for disabled components,
+      check HelpRequestCategories.vue -> data -> categories.componentName-->
       <h2 v-if="currentContent === 'linkOfCategories' || !currentContent" class="mb-7">
         Выберите свою категорию для получения помощи:
       </h2>
+      <!--shows for current category-->
       <h2 v-else class="mb-7">
         Ваша категория для получения помощи:
       </h2>
       <HelpRequestCategories v-if="currentContent === 'linkOfCategories' || !currentContent" @set-content="setContent" />
       <ChildrenWithDisabilitiesHelp v-if="currentContent === 'childrenWithDisabilities'" @set-content="setContent" />
+      <!--add here other category-components-->
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from "vue";
+import Vue from 'vue';
 import HelpRequestCategories from '@/components/help-requests/HelpRequestCategories.vue';
 import ChildrenWithDisabilitiesHelp from '@/components/help-requests/ChildrenWithDisabilitiesHelp.vue';
 

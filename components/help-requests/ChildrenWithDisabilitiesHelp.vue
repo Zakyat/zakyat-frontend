@@ -34,6 +34,8 @@
         </h2>
         <v-row class="mt-3">
           <v-col cols="7" class="pr-9">
+            <!--added :rules="fieldRules" cuz aria-required="true" doesn't work-->
+            <!--added class="defaultTextFiled" for filter text-inputs from other file-inputs-->
             <v-text-field
               class="defaultTextField"
               dense
@@ -41,7 +43,7 @@
               placeholder="Введите свое полное имя"
               outlined
               type="text"
-              :rules="filedRules"
+              :rules="fieldRules"
             />
             <v-text-field
               class="defaultTextField"
@@ -50,7 +52,7 @@
               placeholder="Введите гражданство"
               outlined
               type="text"
-              :rules="filedRules"
+              :rules="fieldRules"
             />
             <v-text-field
               class="defaultTextField"
@@ -59,7 +61,7 @@
               placeholder="Номер телефона"
               outlined
               type="number"
-              :rules="filedRules"
+              :rules="fieldRules"
             />
             <v-autocomplete
               class="autocompleteField defaultTextField"
@@ -69,7 +71,7 @@
               placeholder="Религия"
               height="50px"
               type="text"
-              :rules="filedRules"
+              :rules="fieldRules"
             />
           </v-col>
           <v-col cols="5">
@@ -82,7 +84,7 @@
               placeholder="Пол"
               height="50px"
               type="text"
-              :rules="filedRules"
+              :rules="fieldRules"
             />
           </v-col>
         </v-row>
@@ -95,7 +97,7 @@
           dense
           height="50px"
           outlined
-          :rules="filedRules"
+          :rules="fieldRules"
         />
         <v-text-field
           class="defaultTextField outerRowTextField"
@@ -104,7 +106,7 @@
           placeholder="Адрес проживания"
           outlined
           type="text"
-          :rules="filedRules"
+          :rules="fieldRules"
         />
         <h2 class="defaultHeader">
           Паспорт
@@ -140,7 +142,7 @@
                 placeholder="Место работы"
                 outlined
                 type="text"
-                :rules="filedRules"
+                :rules="fieldRules"
               />
               <v-text-field
                 class="defaultTextField outerRowTextField"
@@ -149,7 +151,7 @@
                 placeholder="Рабочая позиция на работе"
                 outlined
                 type="text"
-                :rules="filedRules"
+                :rules="fieldRules"
               />
               <v-text-field
                 class="defaultTextField outerRowTextField"
@@ -158,7 +160,7 @@
                 placeholder="Заработная плата"
                 outlined
                 type="text"
-                :rules="filedRules"
+                :rules="fieldRules"
               />
               <v-text-field
                 class="defaultTextField outerRowTextField"
@@ -167,7 +169,7 @@
                 placeholder="Пенсия (в руб), если есть"
                 outlined
                 type="text"
-                :rules="filedRules"
+                :rules="fieldRules"
               />
               <h2 class="defaultHeader">
                 Справка с места работы
@@ -223,6 +225,7 @@
         <h2 class="defaultHeader mt-3">
           Статус в семье
         </h2>
+        <!--here, depending on gender, the endings of the items and placeholders changes-->
         <v-autocomplete
           v-model="familyStatus"
           class="autocompleteField defaultTextField mt-3"
@@ -232,7 +235,7 @@
           :placeholder="userGender === 'М' || userGender === '' ? familyStatusMan[0] : familyStatusWoman[0]"
           height="50px"
           type="text"
-          :rules="filedRules"
+          :rules="fieldRules"
         />
       </div>
 
@@ -290,6 +293,7 @@
         <v-expansion-panels
           flat
         >
+          <!--this panel "Spouse" is disabled when user selects family-status - "Alone" or "Other"-->
           <v-expansion-panel
             :disabled="!(familyStatus !== 'Одинокая' && familyStatus !== 'Одинок' && familyStatus !== 'Другое')"
           >
@@ -311,7 +315,7 @@
                     placeholder="Введите свое полное имя"
                     outlined
                     type="text"
-                    :rules="filedRules"
+                    :rules="fieldRules"
                   />
                   <v-text-field
                     class="defaultTextField"
@@ -320,7 +324,7 @@
                     placeholder="Введите гражданство"
                     outlined
                     type="text"
-                    :rules="filedRules"
+                    :rules="fieldRules"
                   />
                 </v-col>
               </v-row>
@@ -333,7 +337,7 @@
                 dense
                 height="50px"
                 outlined
-                :rules="filedRules"
+                :rules="fieldRules"
               />
               <v-text-field
                 class="defaultTextField outerRowTextField"
@@ -342,7 +346,7 @@
                 placeholder="Адрес проживания"
                 outlined
                 type="text"
-                :rules="filedRules"
+                :rules="fieldRules"
               />
               <h2 class="defaultHeader">
                 Паспорт
@@ -360,7 +364,7 @@
           </v-expansion-panel>
         </v-expansion-panels>
       </div>
-
+      <!--here user can add other child-form-->
       <div class="otherChildInfoBlock">
         <h2 class="mainHeader mt-2">
           Ребёнок
@@ -382,7 +386,7 @@
                   placeholder="Введите полное имя ребенка"
                   outlined
                   type="text"
-                  :rules="filedRules"
+                  :rules="fieldRules"
                 />
               </v-col>
               <v-col cols="5">
@@ -394,7 +398,7 @@
                   placeholder="Пол"
                   height="50px"
                   type="text"
-                  :rules="filedRules"
+                  :rules="fieldRules"
                 />
               </v-col>
             </v-row>
@@ -407,7 +411,7 @@
               dense
               height="50px"
               outlined
-              :rules="filedRules"
+              :rules="fieldRules"
             />
             <h2 class="defaultHeader">
               Паспорт или свидетельство о рождении
@@ -430,9 +434,8 @@
           label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
           color="success"
           v-model="agreedToTerms"
-          :rules="filedRules"
+          :rules="fieldRules"
         />
-        <!--add @click event for test-->
         <v-btn
           depressed
           dark
@@ -468,7 +471,8 @@ export default Vue.extend({
   data () {
     return {
       // options for choose
-      // need to add this fields into the ru.json, in the en.json we need only one default array of familyStatus
+      // need to add this fields into the ru.json, in the en.json we need
+      // only one default array of common familyStatusItems
       gender: ['М', 'Ж'],
       religion: ['Ислам', 'Христианство', 'Иудаизм', 'Атеизм', 'Другое'],
       familyStatusMan: ['Женат', 'Разведен', 'Одинок', 'Разведен', 'Другое'],
@@ -480,13 +484,15 @@ export default Vue.extend({
       hasSpouse: false,
       getWarning: false,
       agreedToTerms: false,
-      filedRules: [(v: string) => !!v],
+      fieldRules: [(v: string) => !!v],
     };
   },
   methods: {
     addChildForm () {
       this.childFormsAmount++;
     },
+    // this method checks all inputs in the form and if one of them isn't valid
+    // shows warning-dialog and validates all input-fields in the form
     validate () {
       const inputs = this.$refs.form.$el.getElementsByClassName('defaultTextField');
       for (let i: number = 0; i < inputs.length; i++) {

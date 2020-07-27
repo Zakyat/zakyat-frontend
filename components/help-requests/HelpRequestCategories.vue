@@ -16,6 +16,7 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'HelpRequestCategories',
+  // here we still need fields from ru.json for localization
   data () {
     return {
       categories: [
