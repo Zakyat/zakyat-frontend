@@ -15,6 +15,7 @@ module.exports = {
     'semi': ['error', 'always'],
     'no-console': ['warn', { allow: ['warn', 'error'] }],
     'quote-props': ['error', 'consistent-as-needed'],
+    'vue/match-component-file-name': ['error', { extensions: ['vue'] }],
     /* 'vue-i18n/no-raw-text': ['warn', {
       ignoreNodes: ['v-icon'],
       ignorePattern: '^([\\W\\d\\s]+|\\w+@\\w+\\.\\w+)$',
