@@ -41,6 +41,7 @@
               placeholder="Введите свое полное имя"
               outlined
               type="text"
+              :rules="filedRules"
             />
             <v-text-field
               class="defaultTextField"
@@ -49,6 +50,7 @@
               placeholder="Введите гражданство"
               outlined
               type="text"
+              :rules="filedRules"
             />
             <v-text-field
               class="defaultTextField"
@@ -57,6 +59,7 @@
               placeholder="Номер телефона"
               outlined
               type="number"
+              :rules="filedRules"
             />
             <v-autocomplete
               class="autocompleteField defaultTextField"
@@ -66,6 +69,7 @@
               placeholder="Религия"
               height="50px"
               type="text"
+              :rules="filedRules"
             />
           </v-col>
           <v-col cols="5">
@@ -78,6 +82,7 @@
               placeholder="Пол"
               height="50px"
               type="text"
+              :rules="filedRules"
             />
           </v-col>
         </v-row>
@@ -85,11 +90,12 @@
           Дата рождения
         </h2>
         <v-text-field
-          class="dateField"
+          class="dateField defaultTextField"
           type="date"
           dense
           height="50px"
           outlined
+          :rules="filedRules"
         />
         <v-text-field
           class="defaultTextField outerRowTextField"
@@ -98,6 +104,7 @@
           placeholder="Адрес проживания"
           outlined
           type="text"
+          :rules="filedRules"
         />
         <h2 class="defaultHeader">
           Паспорт
@@ -133,6 +140,7 @@
                 placeholder="Место работы"
                 outlined
                 type="text"
+                :rules="filedRules"
               />
               <v-text-field
                 class="defaultTextField outerRowTextField"
@@ -141,6 +149,7 @@
                 placeholder="Рабочая позиция на работе"
                 outlined
                 type="text"
+                :rules="filedRules"
               />
               <v-text-field
                 class="defaultTextField outerRowTextField"
@@ -149,6 +158,7 @@
                 placeholder="Заработная плата"
                 outlined
                 type="text"
+                :rules="filedRules"
               />
               <v-text-field
                 class="defaultTextField outerRowTextField"
@@ -157,6 +167,7 @@
                 placeholder="Пенсия (в руб), если есть"
                 outlined
                 type="text"
+                :rules="filedRules"
               />
               <h2 class="defaultHeader">
                 Справка с места работы
@@ -221,6 +232,7 @@
           :placeholder="userGender === 'М' || userGender === '' ? familyStatusMan[0] : familyStatusWoman[0]"
           height="50px"
           type="text"
+          :rules="filedRules"
         />
       </div>
 
@@ -299,6 +311,7 @@
                     placeholder="Введите свое полное имя"
                     outlined
                     type="text"
+                    :rules="filedRules"
                   />
                   <v-text-field
                     class="defaultTextField"
@@ -307,6 +320,7 @@
                     placeholder="Введите гражданство"
                     outlined
                     type="text"
+                    :rules="filedRules"
                   />
                 </v-col>
               </v-row>
@@ -314,11 +328,12 @@
                 Дата рождения
               </h2>
               <v-text-field
-                class="dateField"
+                class="dateField defaultTextField"
                 type="date"
                 dense
                 height="50px"
                 outlined
+                :rules="filedRules"
               />
               <v-text-field
                 class="defaultTextField outerRowTextField"
@@ -327,6 +342,7 @@
                 placeholder="Адрес проживания"
                 outlined
                 type="text"
+                :rules="filedRules"
               />
               <h2 class="defaultHeader">
                 Паспорт
@@ -366,6 +382,7 @@
                   placeholder="Введите полное имя ребенка"
                   outlined
                   type="text"
+                  :rules="filedRules"
                 />
               </v-col>
               <v-col cols="5">
@@ -377,6 +394,7 @@
                   placeholder="Пол"
                   height="50px"
                   type="text"
+                  :rules="filedRules"
                 />
               </v-col>
             </v-row>
@@ -384,11 +402,12 @@
               Дата рождения
             </h2>
             <v-text-field
-              class="dateField"
+              class="dateField defaultTextField"
               type="date"
               dense
               height="50px"
               outlined
+              :rules="filedRules"
             />
             <h2 class="defaultHeader">
               Паспорт или свидетельство о рождении
@@ -410,6 +429,8 @@
         <v-checkbox
           label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
           color="success"
+          v-model="agreedToTerms"
+          :rules="filedRules"
         />
         <!--add @click event for test-->
         <v-btn
@@ -419,7 +440,7 @@
           height="46px"
           width="300"
           class="buttonTo text-none rounded-pill"
-          @click="getWarning = !getWarning"
+          @click="validate"
         >
           Написать заявление и отправить
         </v-btn>
@@ -430,43 +451,20 @@
       width="440"
       class="warningDialog"
     >
-      <div class="button-wrapper white">
-        <v-btn
-          icon
-          color="black"
-          x-large
-          @click="getWarning = !getWarning"
-        >
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-      </div>
-      <div class="success__container white">
-        <v-icon right size="60px" color="#EB3050">
-          mdi-close-circle
-        </v-icon>
-        <p class="pt-4 description">
-          Заполните все поля для отправки заявления
-        </p>
-        <v-btn
-          text
-          class="mt-8 custom-transform-class text-none buttonTo"
-          color="#EB3050"
-          @click="getWarning = !getWarning"
-        >
-          <span>
-            Вернуться
-          </span>
-        </v-btn>
-      </div>
+      <WarningDialog @close-dialog="closeDialog" />
     </v-dialog>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import WarningDialog from '~/components/help-requests/WarningDialog.vue';
 
 export default Vue.extend({
   name: 'ChildrenWithDisabilitiesHelp',
+  components: {
+    WarningDialog,
+  },
   data () {
     return {
       // options for choose
@@ -481,11 +479,26 @@ export default Vue.extend({
       familyStatus: '',
       hasSpouse: false,
       getWarning: false,
+      agreedToTerms: false,
+      filedRules: [(v: string) => !!v],
     };
   },
   methods: {
     addChildForm () {
       this.childFormsAmount++;
+    },
+    validate () {
+      const inputs = this.$refs.form.$el.getElementsByClassName('defaultTextField');
+      for (let i: number = 0; i < inputs.length; i++) {
+        if (!inputs[i].__vue__.valid || !this.agreedToTerms) {
+          this.$refs.form.validate();
+          this.getWarning = !this.getWarning;
+          break;
+        }
+      }
+    },
+    closeDialog () {
+      this.getWarning = !this.getWarning;
     },
   },
 });
