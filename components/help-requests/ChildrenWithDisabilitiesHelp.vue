@@ -27,6 +27,7 @@
     </p>
     <v-form
       ref="form"
+      v-model="isValid"
     >
       <div class="infoAboutYou">
         <h2 class="mainHeader mt-8">
@@ -484,6 +485,7 @@ export default Vue.extend({
       hasSpouse: false,
       getWarning: false,
       agreedToTerms: false,
+      isValid: '',
       fieldRules: [(v: string) => !!v],
     };
   },
@@ -491,16 +493,11 @@ export default Vue.extend({
     addChildForm () {
       this.childFormsAmount++;
     },
-    // this method checks all inputs in the form and if one of them isn't valid
-    // shows warning-dialog and validates all input-fields in the form
     validate () {
-      const inputs = this.$refs.form.$el.getElementsByClassName('defaultTextField');
-      for (let i: number = 0; i < inputs.length; i++) {
-        if (!inputs[i].__vue__.valid || !this.agreedToTerms) {
-          this.$refs.form.validate();
-          this.getWarning = !this.getWarning;
-          break;
-        }
+      console.log(this.isValid);
+      if (!this.isValid || !this.agreedToTerms) {
+        (this.$refs.form as HTMLFormElement).validate();
+        this.getWarning = !this.getWarning;
       }
     },
     closeDialog () {
