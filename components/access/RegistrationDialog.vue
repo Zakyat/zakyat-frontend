@@ -114,15 +114,16 @@
     <v-row justify="space-between mx-0 mb-3 mt-5">
       <v-checkbox
         v-model="agreedToTerms"
-        class="pt-0"
+        class="mt-n2"
         color="#00AC00"
-      />
-      <p class="assigment">
-        {{ $t('access.registration.agreements.textFirstPart') }}
-        <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>,
-        {{ $t('access.registration.agreements.textSecondPart') }}
-        <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a>
-      </p>
+      >
+        <div slot="label" class="registration-form__assigment">
+          {{ $t('access.registration.agreements.textFirstPart') }}
+          <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>,
+          {{ $t('access.registration.agreements.textSecondPart') }}
+          <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a>
+        </div>
+      </v-checkbox>
     </v-row>
     <v-btn
       color="#00AC00"
@@ -130,7 +131,7 @@
       block
       rounded
       height="40px"
-      class="button mt-n2"
+      class="button mt-n2 mb-1"
     >
       <span class="button__name">
         {{ $t('access.registration.linkAndButtonName') }}
@@ -196,8 +197,8 @@ export default Vue.extend({
     font-size: 14px;
   }
 
-  .assigment {
-    font-size: 12px;
+  .registration-form__assigment {
+    font-size: 14px;
     width: 300px;
   }
 
