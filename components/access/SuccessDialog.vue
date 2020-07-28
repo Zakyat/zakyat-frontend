@@ -2,12 +2,10 @@
   <div class="success-dialog rounded">
     <img src="@/assets/images/dialog-icons/success-dialog/send.svg" alt="success">
     <p class="pt-2 success-dialog__description">
-      <!--{{ $t('access.login.recoveryPassword.success') }}-->
-      Письмо для восстановления пароля успешно отправлено. Проверьте вашу почту.
+      {{ $t('access.login.recoveryPassword.success') }}
     </p>
     <v-btn text class="mt-1 button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
-      <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
-      Вернуться ко входу
+      {{ $t('access.login.recoveryPassword.redirectionName') }}
     </v-btn>
   </div>
 </template>

@@ -2,8 +2,7 @@
   <v-container class="sign-in-form rounded">
     <v-row justify="space-between mx-0">
       <h2>
-        <!--{{ $t('access.login.title') }}-->
-        Вход
+        {{ $t('access.login.title') }}
       </h2>
       <v-btn
         text
@@ -11,13 +10,11 @@
         color="#00AC00"
         @click="$emit('set-dialog', 'RegistrationDialog')"
       >
-        <!--{{ $t('access.registration.linkAndButtonName') }}-->
-        Зарегистрироваться
+        {{ $t('access.registration.linkAndButtonName') }}
       </v-btn>
     </v-row>
     <p class="pt-2 sign-in-form__description">
-      <!--{{ $t('access.login.description') }}-->
-      Войдите через социальные сети или электронную почту
+      {{ $t('access.login.description') }}
     </p>
     <v-row class="sign-in-form__social-media mt-n3 mb-n3">
       <v-col class="pr-0">
@@ -51,21 +48,19 @@
         </v-btn>
       </v-col>
     </v-row>
-    <!--:placeholder="$t('access.global.emailPlaceholder')"-->
     <v-text-field
       v-model="email"
       type="email"
       class="mt-5 mb-5 sign-in-form__text-field"
-      placeholder="Эл. почта"
+      :placeholder="$t('access.global.emailPlaceholder')"
       dense
       solo
       flat
       rounded
     />
-    <!--:placeholder="$t('access.global.passwordPlaceholder')"-->
     <v-text-field
       v-model="password"
-      placeholder="Пароль"
+      :placeholder="$t('access.global.passwordPlaceholder')"
       required
       dense
       solo
@@ -109,8 +104,7 @@
       class="font-weight-regular button mt-5"
     >
       <span class="button__name">
-        <!--{{ $t('access.login.linkAndButtonName') }}-->
-        Войти
+        {{ $t('access.login.linkAndButtonName') }}
       </span>
     </v-btn>
     <div class="link-wrapper text-center mt-5">
@@ -121,8 +115,7 @@
         height="40px"
         @click="$emit('set-dialog', 'RecoveryDialog')"
       >
-        <!--{{ $t('access.login.reminder') }}-->
-        Забыли пароль?
+        {{ $t('access.login.reminder') }}
       </v-btn>
     </div>
   </v-container>

@@ -1,17 +1,14 @@
 <template>
   <div class="recovery-password-form rounded">
     <h2>
-      <!--{{ $t('access.login.recoveryPassword.title') }}-->
-      Восстановление пароля
+      {{ $t('access.login.recoveryPassword.title') }}
     </h2>
     <p class="pt-2 recovery-password-form__description">
-      <!--{{ $t('access.login.recoveryPassword.description') }}-->
-      Мы отправим на указанную электронную почту письмо для восстановления пароля
+      {{ $t('access.login.recoveryPassword.description') }}
     </p>
-    <!--:placeholder="$t('access.global.emailPlaceholder')"-->
     <v-text-field
       class="mt-5 recovery-password-form__text-field"
-      placeholder="Эл. почта"
+      :placeholder="$t('access.global.emailPlaceholder')"
       type="email"
       dense
       solo
@@ -28,13 +25,11 @@
       class="button mt-4"
       @click="$emit('set-dialog', 'SuccessDialog')"
     >
-      <!--{{ $t('access.login.recoveryPassword.buttonName') }}-->
-      Отправить письмо
+      {{ $t('access.login.recoveryPassword.buttonName') }}
     </v-btn>
     <div class="text-center mt-5">
       <v-btn text class="mt-1  button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
-        <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
-        Вернуться ко входу
+        {{ $t('access.login.recoveryPassword.redirectionName') }}
       </v-btn>
     </div>
   </div>

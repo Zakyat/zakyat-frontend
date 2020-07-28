@@ -2,18 +2,14 @@
   <v-container class="registration-form rounded">
     <v-row justify="space-between mx-0">
       <h2>
-        <!--{{ $t('access.registration.title') }}-->
-        Регистрация
+        {{ $t('access.registration.title') }}
       </h2>
       <v-btn text class="mt-1 button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
-        <!--{{ $t('access.login.linkAndButtonName') }}-->
-        Войти
+        {{ $t('access.login.linkAndButtonName') }}
       </v-btn>
     </v-row>
     <p class="pt-2 registration-form__description">
-      <!--{{ $t('access.registration.description') }}-->
-      Зарегистрируйтесь через социальные сети
-      или электронную почту
+      {{ $t('access.registration.description') }}
     </p>
     <v-row class="recovery-password-form__social-media mt-n3 mb-n3">
       <v-col class="pr-0">
@@ -47,11 +43,10 @@
         </v-btn>
       </v-col>
     </v-row>
-    <!--:placeholder="$t('access.global.emailPlaceholder')"-->
     <v-text-field
       type="email"
       class="mt-5 mb-5 recovery-password-form__text-field"
-      placeholder="Эл. почта"
+      :placeholder="$t('access.global.emailPlaceholder')"
       dense
       solo
       flat
@@ -60,7 +55,7 @@
     <v-text-field
       v-model="password"
       class="mt-5 recovery-password-form__text-field"
-      placeholder="Пароль"
+      :placeholder="$t('access.global.passwordPlaceholder')"
       required
       dense
       solo
@@ -107,16 +102,13 @@
 
     <template v-if="progress">
       <p v-if="progress === 34" class="progress-bar__progress-result ml-2 mt-6">
-        <!--{{ $t('access.registration.errors.weekPassword') }}-->
-        Короткий пароль. Используйте хотя бы 6 символов.
+        {{ $t('access.registration.errors.weekPassword') }}
       </p>
       <p v-if="progress === 68" class="progress-bar__progress-result ml-2 mt-6">
-        <!--{{ $t('access.registration.errors.averagePassword') }}-->
-        Средний пароль
+        {{ $t('access.registration.errors.averagePassword') }}
       </p>
       <p v-if="progress === 100" class="progress-bar__progress-result ml-2 mt-6">
-        <!--{{ $t('access.registration.errors.goodPassword') }}-->
-        Хороший пароль
+        {{ $t('access.registration.errors.goodPassword') }}
       </p>
     </template>
     <v-row justify="space-between mx-0 mb-3 mt-5">
@@ -126,8 +118,10 @@
         color="#00AC00"
       />
       <p class="assigment">
-        <!--{{ $t('access.registration.agreements.textFirstPart') }} <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>, {{ $t('access.registration.agreements.textSecondPart') }} <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a>-->
-        Я ознакомился с <a href="#">Пользовательским соглашением</a>, принимаю его и даю <a href="#">Согласие на обработку персональных данных</a>
+        {{ $t('access.registration.agreements.textFirstPart') }}
+        <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>,
+        {{ $t('access.registration.agreements.textSecondPart') }}
+        <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a>
       </p>
     </v-row>
     <v-btn
@@ -139,8 +133,7 @@
       class="button mt-n2"
     >
       <span class="button__name">
-        <!--{{ $t('access.registration.linkAndButtonName') }}-->
-        Зарегистрироваться
+        {{ $t('access.registration.linkAndButtonName') }}
       </span>
     </v-btn>
   </v-container>
