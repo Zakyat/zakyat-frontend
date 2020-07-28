@@ -33,7 +33,7 @@
       class="rounded-lg"
       :fullscreen="$vuetify.breakpoint.mobile"
     >
-      <div class="button-wrapper white">
+      <div class="text-right white">
         <v-btn icon @click="authDialog = !authDialog" class="mt-3 mr-3">
           <img src="@/assets/images/dialog-icons/close.svg" alt="close">
         </v-btn>
@@ -64,7 +64,7 @@
 import Vue from 'vue';
 import LanguageSelector from '@/components/LanguageSelector.vue';
 import { rubles } from '@/plugins/currency';
-import DialogWrapper from '~/components/access/DialogContent.vue';
+import DialogWrapper from '@/components/access/DialogContent.vue';
 
 export default Vue.extend({
   components: {
@@ -95,7 +95,4 @@ export default Vue.extend({
   z-index: 2;
 }
 
-.button-wrapper {
-  text-align: right;
-}
 </style>

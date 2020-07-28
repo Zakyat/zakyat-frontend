@@ -13,6 +13,7 @@ import RegistrationDialog from '@/components/access/RegistrationDialog.vue';
 import SignInDialog from '@/components/access/SignInDialog.vue';
 import RecoveryPasDialog from '~/components/access/PasswordRecoveryDialog.vue';
 import SuccessDialog from '@/components/access/SuccessDialog.vue';
+
 export default Vue.extend({
   name: 'DialogWrapper',
   components: {
