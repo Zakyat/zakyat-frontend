@@ -10,16 +10,16 @@
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </div>
-    <div class="success__container white">
-      <v-icon right size="60px" color="#EB3050">
-        mdi-close-circle
+    <div class="warning__container white">
+      <v-icon right size="75px" color="#EB3050">
+        mdi-alert-circle
       </v-icon>
       <p class="pt-4 description">
         Заполните все поля для отправки заявления
       </p>
       <v-btn
         text
-        class="mt-8 custom-transform-class text-none buttonTo"
+        class="mt-2 custom-transform-class text-none buttonTo"
         color="#EB3050"
         @click="$emit('close-dialog')"
       >
@@ -43,13 +43,16 @@ export default Vue.extend({
   text-align: right;
 }
 
-.success__container {
-  padding: 0 50px 50px 50px;
+.warning__container {
+  padding: 0 50px 35px 50px;
+  display: grid;
+  place-items: center;
   text-align: center;
 }
 
 .description {
   font-size: 14px;
+  width: 250px;
 }
 
 .buttonTo {
