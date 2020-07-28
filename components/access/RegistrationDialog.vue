@@ -1,53 +1,56 @@
 <template>
-  <v-container class="registration__container rounded">
-    <v-row justify="space-between ml-0 mr-0">
+  <v-container class="registration-form rounded">
+    <v-row justify="space-between mx-0">
       <h2>
         <!--{{ $t('access.registration.title') }}-->
         Регистрация
       </h2>
-      <v-btn text class="mt-1 text-capitalize buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
-        <span>
-          <!--{{ $t('access.login.linkAndButtonName') }}-->
-          Войти
-        </span>
+      <v-btn text class="mt-1 button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
+        <!--{{ $t('access.login.linkAndButtonName') }}-->
+        Войти
       </v-btn>
     </v-row>
-    <p class="pt-2 description">
+    <p class="pt-2 registration-form__description">
       <!--{{ $t('access.registration.description') }}-->
       Зарегистрируйтесь через социальные сети
       или электронную почту
     </p>
-    <div class="d-flex justify-space-between">
-      <v-btn
-        width="31%"
-        color="rgba(0, 0, 0, 0.2)"
-        outlined
-        rounded
-      >
-        <img src="@/assets/images/social-icons/vk.svg" alt="vk">
-      </v-btn>
-      <v-btn
-        width="31%"
-        color="rgba(0, 0, 0, 0.2)"
-        outlined
-        rounded
-      >
-        <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">
-      </v-btn>
-      <v-btn
-        width="31%"
-        color="rgba(0, 0, 0, 0.2)"
-        outlined
-        rounded
-      >
-        <img src="@/assets/images/social-icons/google.svg" alt="google">
-      </v-btn>
-    </div>
-    <div class="d-flex justify-space-between" />
-    <!--      :placeholder="$t('access.global.emailPlaceholder')"-->
+    <v-row class="recovery-password-form__social-media mt-n3 mb-n3">
+      <v-col class="pr-0">
+        <v-btn
+          color="rgba(0, 0, 0, 0.2)"
+          outlined
+          rounded
+          class="recovery-password-form__social-media-link"
+        >
+          <img src="@/assets/images/social-icons/vk.svg" alt="vk">
+        </v-btn>
+      </v-col>
+      <v-col class="px-2">
+        <v-btn
+          color="rgba(0, 0, 0, 0.2)"
+          outlined
+          rounded
+          class="recovery-password-form__social-media-link"
+        >
+          <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">
+        </v-btn>
+      </v-col>
+      <v-col class="pl-0">
+        <v-btn
+          color="rgba(0, 0, 0, 0.2)"
+          outlined
+          rounded
+          class="recovery-password-form__social-media-link"
+        >
+          <img src="@/assets/images/social-icons/google.svg" alt="google">
+        </v-btn>
+      </v-col>
+    </v-row>
+    <!--:placeholder="$t('access.global.emailPlaceholder')"-->
     <v-text-field
       type="email"
-      class="mt-5 mb-5 textField"
+      class="mt-5 mb-5 recovery-password-form__text-field"
       placeholder="Эл. почта"
       dense
       solo
@@ -56,7 +59,7 @@
     />
     <v-text-field
       v-model="password"
-      class="mt-5 textField"
+      class="mt-5 recovery-password-form__text-field"
       placeholder="Пароль"
       required
       dense
@@ -103,20 +106,20 @@
     </v-text-field>
 
     <template v-if="progress">
-      <p v-if="progress === 34" class="progress-result ml-2 mt-6">
+      <p v-if="progress === 34" class="progress-bar__progress-result ml-2 mt-6">
         <!--{{ $t('access.registration.errors.weekPassword') }}-->
         Короткий пароль. Используйте хотя бы 6 символов.
       </p>
-      <p v-if="progress === 68" class="progress-result ml-2 mt-6">
+      <p v-if="progress === 68" class="progress-bar__progress-result ml-2 mt-6">
         <!--{{ $t('access.registration.errors.averagePassword') }}-->
         Средний пароль
       </p>
-      <p v-if="progress === 100" class="progress-result ml-2 mt-6">
+      <p v-if="progress === 100" class="progress-bar__progress-result ml-2 mt-6">
         <!--{{ $t('access.registration.errors.goodPassword') }}-->
         Хороший пароль
       </p>
     </template>
-    <v-row justify="space-between ml-0 mr-0 mb-3 mt-5">
+    <v-row justify="space-between mx-0 mb-3 mt-5">
       <v-checkbox
         v-model="agreedToTerms"
         class="pt-0"
@@ -133,9 +136,9 @@
       block
       rounded
       height="40px"
-      class="text-none buttonTo mt-n2"
+      class="button mt-n2"
     >
-      <span class="buttonName">
+      <span class="button__name">
         <!--{{ $t('access.registration.linkAndButtonName') }}-->
         Зарегистрироваться
       </span>
@@ -151,40 +154,25 @@ export default Vue.extend({
   data () {
     return {
       password: '',
-      passwordRegexp: /\d/,
       showPassword: false,
       agreedToTerms: false,
     };
   },
   computed: {
     /*
-       add here your own conditions for password
+       add into the progress() method  your own conditions for password
        here just an example of password validating
     */
-    progress () : number {
-      if (this.password.length < 6 && this.password.length > 0) {
-        return 34;
-      } else
-      if ((this.password.length >= 6 && this.password.length < 11) ||
-        (this.password.length >= 11 && !this.passwordRegexp.test(this.password))) {
-        return 68;
-      } else
-      if (this.password.length >= 11 && this.passwordRegexp.test(this.password)) {
-        return 100;
-      } else {
-        return 0;
-      }
-    },
-    color () : string {
-      return ['error', 'warning', 'success'][Math.floor(this.progress / 35)];
-    },
+    // progress () {},
+    // into the color() method you can add logic of color change depending on password input
+    // color () {},
   },
 });
 </script>
 
 <style lang="scss" scoped>
 
-  .registration__container {
+  .registration-form {
     padding: 0 50px 40px 55px;
     background-color: white;
   }
@@ -193,12 +181,12 @@ export default Vue.extend({
     text-decoration: none;
   }
 
-  .buttonTo {
+  .button {
     letter-spacing: normal;
     font-weight: normal;
   }
 
-  .buttonName {
+  .button__name {
     font-size: 16px;
   }
 
@@ -207,11 +195,11 @@ export default Vue.extend({
     border-radius: 10px;
   }
 
-  .progress-result {
+  .progress-bar__progress-result {
     font-size: 13px;
   }
 
-  .description {
+  .registration-form__description {
     font-size: 14px;
   }
 
@@ -220,12 +208,20 @@ export default Vue.extend({
     width: 300px;
   }
 
-  .textField {
+  .recovery-password-form__text-field {
     border: 1px solid black;
     height: 40px;
   }
 
-  .textField:focus {
+  .recovery-password-form__text-field:focus {
     border: 1px solid black;
+  }
+
+  .recovery-password-form__social-media {
+    text-align: center;
+  }
+
+  .recovery-password-form__social-media-link {
+    width: 100%;
   }
 </style>

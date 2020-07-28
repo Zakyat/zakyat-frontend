@@ -1,15 +1,13 @@
 <template>
-  <div class="success__container rounded info-wrapper">
+  <div class="success-dialog rounded">
     <img src="@/assets/images/dialog-icons/success-dialog/send.svg" alt="success">
-    <p class="pt-2 description">
+    <p class="pt-2 success-dialog__description">
       <!--{{ $t('access.login.recoveryPassword.success') }}-->
       Письмо для восстановления пароля успешно отправлено. Проверьте вашу почту.
     </p>
-    <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog');">
-      <span>
-        <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
-        Вернуться ко входу
-      </span>
+    <v-btn text class="mt-1 button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
+      <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
+      Вернуться ко входу
     </v-btn>
   </div>
 </template>
@@ -23,22 +21,18 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-  .success__container {
+  .success-dialog {
     padding: 5px 50px 40px 50px;
     background-color: white;
     text-align: center;
   }
 
-  a {
-    text-decoration: none;
-  }
-
-  .buttonTo {
+  .button {
     letter-spacing: normal;
     font-weight: normal;
   }
 
-  .description {
+  .success-dialog__description {
     font-size: 14px;
   }
 </style>

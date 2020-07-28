@@ -1,16 +1,16 @@
 <template>
-  <div class="recovery__container rounded">
+  <div class="recovery-password-form rounded">
     <h2>
       <!--{{ $t('access.login.recoveryPassword.title') }}-->
       Восстановление пароля
     </h2>
-    <p class="pt-2 description">
+    <p class="pt-2 recovery-password-form__description">
       <!--{{ $t('access.login.recoveryPassword.description') }}-->
       Мы отправим на указанную электронную почту письмо для восстановления пароля
     </p>
     <!--:placeholder="$t('access.global.emailPlaceholder')"-->
     <v-text-field
-      class="mt-5 textField"
+      class="mt-5 recovery-password-form__text-field"
       placeholder="Эл. почта"
       type="email"
       dense
@@ -25,18 +25,16 @@
       dense
       rounded
       dark
-      class="custom-transform-class text-none buttonTo mt-4"
+      class="button mt-4"
       @click="$emit('set-dialog', 'SuccessDialog')"
     >
       <!--{{ $t('access.login.recoveryPassword.buttonName') }}-->
       Отправить письмо
     </v-btn>
-    <div class="link-wrapper text-center mt-5">
-      <v-btn text class="mt-1 custom-transform-class text-none buttonTo" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
-        <span>
-          <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
-          Вернуться ко входу
-        </span>
+    <div class="text-center mt-5">
+      <v-btn text class="mt-1  button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
+        <!--{{ $t('access.login.recoveryPassword.redirectionName') }}-->
+        Вернуться ко входу
       </v-btn>
     </div>
   </div>
@@ -46,30 +44,26 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'RecoveryPasDialog',
+  name: 'PasswordRecoveryDialog',
 });
 </script>
 
 <style lang="scss" scoped>
-  .recovery__container {
+  .recovery-password-form {
     padding: 5px 50px 35px 50px;
     background-color: white;
   }
 
-  a {
-    text-decoration: none;
+  .recovery-password-form__description {
+    font-size: 14px;
   }
 
-  .buttonTo {
+  .button {
     letter-spacing: normal;
     font-weight: normal;
   }
 
-  .description {
-    font-size: 14px;
-  }
-
-  .textField {
+  .recovery-password-form__text-field {
     border: 1px solid black;
     height: 42px;
   }
