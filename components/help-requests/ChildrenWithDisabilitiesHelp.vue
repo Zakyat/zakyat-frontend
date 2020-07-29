@@ -41,7 +41,7 @@
               class="category__default-text-field"
               dense
               height="50px"
-              placeholder="Введите свое полное имя"
+              placeholder="  Введите свое полное имя"
               outlined
               type="text"
               :rules="fieldRules"
@@ -50,7 +50,7 @@
               class="category__default-text-field"
               dense
               height="50px"
-              placeholder="Введите гражданство"
+              placeholder="  Введите гражданство"
               outlined
               type="text"
               :rules="fieldRules"
@@ -59,7 +59,7 @@
               class="category__default-text-field"
               dense
               height="50px"
-              placeholder="Номер телефона"
+              placeholder="  Номер телефона"
               outlined
               type="number"
               :rules="fieldRules"
@@ -69,7 +69,7 @@
               dense
               outlined
               :items="religion"
-              placeholder="Религия"
+              placeholder="  Религия"
               height="50px"
               type="text"
               :rules="fieldRules"
@@ -82,7 +82,7 @@
               dense
               outlined
               :items="gender"
-              placeholder="Пол"
+              placeholder=" Пол"
               height="50px"
               type="text"
               :rules="fieldRules"
@@ -93,7 +93,7 @@
           Дата рождения
         </h2>
         <v-menu
-          v-model="datePicker"
+          v-model="userDatePicker"
           :close-on-content-click="false"
           :nudge-right="40"
           transition="scale-transition"
@@ -102,7 +102,7 @@
         >
           <template v-slot:activator="{ on, attrs }">
             <v-text-field
-              v-model="date"
+              v-model="userDate"
               outlined
               class="rounded-pill category__date-field"
               prepend-inner-icon="mdi-calendar-multiselect"
@@ -115,17 +115,16 @@
             />
           </template>
           <v-date-picker
-            v-model="date"
-            show-week="false"
+            v-model="userDate"
             color="success"
-            @input="datePicker = false"
+            @input="userDatePicker = false"
           />
         </v-menu>
         <v-text-field
           class="category__default-text-field category__outer-row-field"
           dense
           height="50px"
-          placeholder="Адрес проживания"
+          placeholder="  Адрес проживания"
           outlined
           type="text"
           :rules="fieldRules"
@@ -161,7 +160,7 @@
                 class="category__default-text-field category__outer-row-field"
                 dense
                 height="50px"
-                placeholder="Место работы"
+                placeholder="  Место работы"
                 outlined
                 type="text"
                 :rules="fieldRules"
@@ -170,7 +169,7 @@
                 class="category__default-text-field category__outer-row-field"
                 dense
                 height="50px"
-                placeholder="Рабочая позиция на работе"
+                placeholder="  Рабочая позиция на работе"
                 outlined
                 type="text"
                 :rules="fieldRules"
@@ -179,7 +178,7 @@
                 class="category__default-text-field category__outer-row-field"
                 dense
                 height="50px"
-                placeholder="Заработная плата"
+                placeholder="  Заработная плата"
                 outlined
                 type="text"
                 :rules="fieldRules"
@@ -188,7 +187,7 @@
                 class="category__default-text-field category__outer-row-field"
                 dense
                 height="50px"
-                placeholder="Пенсия (в руб), если есть"
+                placeholder="  Пенсия (в руб), если есть"
                 outlined
                 type="text"
                 :rules="fieldRules"
@@ -253,7 +252,7 @@
           dense
           outlined
           :items="userGender === 'М' || userGender === '' ? familyStatusMan : familyStatusWoman"
-          :placeholder="userGender === 'М' || userGender === '' ? familyStatusMan[0] : familyStatusWoman[0]"
+          :placeholder="'  ' + (userGender === 'М' || userGender === '' ?  familyStatusMan[0] : familyStatusWoman[0])"
           height="50px"
           type="text"
           :rules="fieldRules"
@@ -334,7 +333,7 @@
                     class="category__default-text-field"
                     dense
                     height="50px"
-                    placeholder="Введите свое полное имя"
+                    placeholder="  Введите свое полное имя"
                     outlined
                     type="text"
                     :rules="fieldRules"
@@ -343,7 +342,7 @@
                     class="category__default-text-field"
                     dense
                     height="50px"
-                    placeholder="Введите гражданство"
+                    placeholder="  Введите гражданство"
                     outlined
                     type="text"
                     :rules="fieldRules"
@@ -353,19 +352,39 @@
               <h2 class="category__small-header ml-3">
                 Дата рождения
               </h2>
-              <v-text-field
-                class="category__date-field category__default-text-field"
-                type="date"
-                dense
-                height="50px"
-                outlined
-                :rules="fieldRules"
-              />
+              <v-menu
+                v-model="spouseDatePicker"
+                :close-on-content-click="false"
+                :nudge-right="40"
+                transition="scale-transition"
+                offset-y
+                min-width="290px"
+              >
+                <template v-slot:activator="{ on, attrs }">
+                  <v-text-field
+                    v-model="spouseDate"
+                    outlined
+                    class="rounded-pill category__date-field"
+                    prepend-inner-icon="mdi-calendar-multiselect"
+                    readonly
+                    v-bind="attrs"
+                    placeholder="     __-__-____"
+                    color="success"
+                    :rules="fieldRules"
+                    v-on="on"
+                  />
+                </template>
+                <v-date-picker
+                  v-model="spouseDate"
+                  color="success"
+                  @input="spouseDatePicker = false"
+                />
+              </v-menu>
               <v-text-field
                 class="category__default-text-field category__outer-row-field"
                 dense
                 height="50px"
-                placeholder="Адрес проживания"
+                placeholder="  Адрес проживания"
                 outlined
                 type="text"
                 :rules="fieldRules"
@@ -399,54 +418,7 @@
             v-for="form in childFormsAmount"
             :key="form"
           >
-            <v-row class="mt-3">
-              <v-col cols="7" class="pr-9">
-                <v-text-field
-                  class="category__default-text-field"
-                  dense
-                  height="50px"
-                  placeholder="Введите полное имя ребенка"
-                  outlined
-                  type="text"
-                  :rules="fieldRules"
-                />
-              </v-col>
-              <v-col cols="5">
-                <v-autocomplete
-                  class="category__autocomplete-field category__default-text-field"
-                  dense
-                  outlined
-                  :items="gender"
-                  placeholder="Пол"
-                  height="50px"
-                  type="text"
-                  :rules="fieldRules"
-                />
-              </v-col>
-            </v-row>
-            <h2 class="category__small-header ml-3">
-              Дата рождения
-            </h2>
-            <v-text-field
-              class="category__date-field category__default-text-field"
-              type="date"
-              dense
-              height="50px"
-              outlined
-              :rules="fieldRules"
-            />
-            <h2 class="category__default-header">
-              Паспорт или свидетельство о рождении
-            </h2>
-            <v-file-input
-              solo
-              flat
-              prepend-icon=""
-              multiple="multiple"
-              hide-details
-              placeholder="Прикрепить 2 изображения паспорта: главная страница, прописка или свидетельство о рождении"
-              class="category__file-sender ml-n3"
-            />
+            <ChildForm />
           </div>
         </template>
       </div>
@@ -484,10 +456,12 @@
 <script lang="ts">
 import Vue from 'vue';
 import WarningDialog from '~/components/help-requests/WarningDialog.vue';
+import ChildForm from '~/components/help-requests/ChildForm.vue';
 
 export default Vue.extend({
   name: 'ChildrenWithDisabilitiesHelp',
   components: {
+    ChildForm,
     WarningDialog,
   },
   data () {
@@ -500,9 +474,11 @@ export default Vue.extend({
       familyStatusMan: ['Женат', 'Разведен', 'Одинок', 'Разведен', 'Другое'],
       familyStatusWoman: ['Замужем', 'Разведена', 'Одинокая', 'Разведена', 'Другое'],
       // user data
-      date: '',
       userGender: '',
-      datePicker: false,
+      userDate: '',
+      spouseDate: '',
+      userDatePicker: false,
+      spouseDatePicker: false,
       childFormsAmount: 0,
       familyStatus: '',
       hasSpouse: false,
