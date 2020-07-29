@@ -92,14 +92,35 @@
         <h2 class="category__small-header ml-3">
           Дата рождения
         </h2>
-        <v-text-field
-          class="category__date-field category__default-text-field"
-          type="date"
-          dense
-          height="50px"
-          outlined
-          :rules="fieldRules"
-        />
+        <v-menu
+          v-model="datePicker"
+          :close-on-content-click="false"
+          :nudge-right="40"
+          transition="scale-transition"
+          offset-y
+          min-width="290px"
+        >
+          <template v-slot:activator="{ on, attrs }">
+            <v-text-field
+              v-model="date"
+              outlined
+              class="rounded-pill category__date-field"
+              prepend-inner-icon="mdi-calendar-multiselect"
+              readonly
+              v-bind="attrs"
+              placeholder="     __-__-____"
+              color="success"
+              :rules="fieldRules"
+              v-on="on"
+            />
+          </template>
+          <v-date-picker
+            v-model="date"
+            show-week="false"
+            color="success"
+            @input="datePicker = false"
+          />
+        </v-menu>
         <v-text-field
           class="category__default-text-field category__outer-row-field"
           dense
@@ -179,7 +200,6 @@
                 solo
                 flat
                 prepend-icon=""
-                multiple="multiple"
                 hide-details
                 placeholder="Прикрепить изображение"
                 class="category__file-sender ml-n3"
@@ -285,6 +305,7 @@
           flat
           prepend-icon=""
           hide-details
+          multiple="multiple"
           placeholder="Прикрепить 2 изображения паспорта: главная страница, прописка или свидетельство о рождении"
           class="category__file-sender ml-n3"
         />
@@ -430,20 +451,20 @@
         </template>
       </div>
 
-      <div class="catgory__agreement">
+      <div class="category__agreement">
         <v-checkbox
+          v-model="agreedToTerms"
           label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
           color="success"
-          v-model="agreedToTerms"
           :rules="fieldRules"
         />
         <v-btn
           depressed
           dark
-          color="#56B756"
           height="46px"
           width="300"
-          class="button-to text-none rounded-pill"
+          :color="(isValid && agreedToTerms) ? '#56B756' : '#899a89'"
+          class="button-to"
           @click="validate"
         >
           Написать заявление и отправить
@@ -479,7 +500,9 @@ export default Vue.extend({
       familyStatusMan: ['Женат', 'Разведен', 'Одинок', 'Разведен', 'Другое'],
       familyStatusWoman: ['Замужем', 'Разведена', 'Одинокая', 'Разведена', 'Другое'],
       // user data
+      date: '',
       userGender: '',
+      datePicker: false,
       childFormsAmount: 0,
       familyStatus: '',
       hasSpouse: false,
@@ -514,6 +537,17 @@ export default Vue.extend({
   width: 140px;
   border-radius: 30px;
   font-size: 16px;
+  text-transform: none;
+}
+
+.button-to-disabled {
+  background-color: #899a89;
+  letter-spacing: normal;
+  font-weight: normal;
+  width: 140px;
+  border-radius: 30px;
+  font-size: 16px;
+  text-transform: none;
 }
 
 .category {
@@ -551,7 +585,7 @@ export default Vue.extend({
 }
 
 .category__date-field {
-  width: 200px;
+  width: 170px;
   border-radius: 30px !important;
   margin-top: 10px;
 }
@@ -578,7 +612,7 @@ export default Vue.extend({
   width: 150px;
 }
 
-.catgory__agreement {
+.category__agreement {
   display: grid;
   place-items: center;
 }
