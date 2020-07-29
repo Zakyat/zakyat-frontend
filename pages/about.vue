@@ -27,6 +27,9 @@
         class="mt-7"
         :employees="employees"
       />
+      <Certificates
+        :certificates="certificates"
+      />
       <Documents />
     </v-card>
   </v-container>
@@ -35,6 +38,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import Employees from '@/components/about/Employees.vue';
+import Certificates from '@/components/about/Сertificates.vue';
 import Documents from '@/components/about/Documents.vue';
 
 export default Vue.extend({
@@ -42,6 +46,7 @@ export default Vue.extend({
   components: {
     Employees,
     Documents,
+    Certificates,
   },
   data () {
     return {
@@ -85,6 +90,20 @@ export default Vue.extend({
           position: 'Генеральный директор БФ «Закят»',
           duties: '1. Распоряжание средствами фонда. 2. Формирование задач, поставленных перед фондом и осуществление организации их решений. 3. Представление интересов фонда при взаимодействии с юридическими и физическими лицами.',
           phone: '+ 7 (843) 225-33-22',
+        },
+      ],
+      certificates: [
+        {
+          img: require('@/assets/about_us_files/registration_certificate.jpg'),
+          name: 'Регистрации',
+        },
+        {
+          img: require('@/assets/about_us_files/certificate_of_accounting.jpg'),
+          name: 'Постановки на учет',
+        },
+        {
+          img: require('@/assets/about_us_files/egrul_certificate.jpg'),
+          name: 'Внесении в ЕГРЮЛ',
         },
       ],
     };
