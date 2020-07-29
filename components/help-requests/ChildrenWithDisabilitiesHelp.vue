@@ -493,7 +493,6 @@ export default Vue.extend({
       this.childFormsAmount++;
     },
     validate () {
-      console.log(this.isValid);
       if (!this.isValid || !this.agreedToTerms) {
         (this.$refs.form as HTMLFormElement).validate();
         this.getWarning = !this.getWarning;
