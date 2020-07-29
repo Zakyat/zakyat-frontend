@@ -1,6 +1,6 @@
 <template>
   <div class="dialog-wrapper">
-    <div class="button-wrapper white">
+    <div class="dialog-wrapper__button-wrapper white">
       <v-btn
         icon
         color="black"
@@ -10,16 +10,16 @@
         <v-icon>mdi-close</v-icon>
       </v-btn>
     </div>
-    <div class="warning__container white">
+    <div class="dialog-wrapper__warning-content white">
       <v-icon right size="75px" color="#EB3050">
         mdi-alert-circle
       </v-icon>
-      <p class="pt-4 description">
+      <p class="pt-4 warning-content__description">
         Заполните все поля для отправки заявления
       </p>
       <v-btn
         text
-        class="mt-2 custom-transform-class text-none buttonTo"
+        class="mt-2 text-none button-to"
         color="#EB3050"
         @click="$emit('close-dialog')"
       >
@@ -39,23 +39,23 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.button-wrapper {
+.dialog-wrapper__button-wrapper {
   text-align: right;
 }
 
-.warning__container {
+.dialog-wrapper__warning-content {
   padding: 0 50px 35px 50px;
   display: grid;
   place-items: center;
   text-align: center;
 }
 
-.description {
+.warning-content__description {
   font-size: 14px;
   width: 250px;
 }
 
-.buttonTo {
+.button-to {
   letter-spacing: normal;
   font-weight: normal;
   width: 140px;

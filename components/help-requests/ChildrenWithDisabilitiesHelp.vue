@@ -15,7 +15,7 @@
           dark
           color="#56B756"
           height="46px"
-          class="buttonTo text-none rounded-pill"
+          class="button-to text-none rounded-pill"
           @click="$emit('set-content', 'linkOfCategories')"
         >
           Изменить
@@ -30,7 +30,7 @@
       v-model="isValid"
     >
       <div class="infoAboutYou">
-        <h2 class="mainHeader mt-8">
+        <h2 class="category__main-header mt-8">
           Информация о вас
         </h2>
         <v-row class="mt-3">
@@ -38,7 +38,7 @@
             <!--added :rules="fieldRules" cuz aria-required="true" doesn't work-->
             <!--added class="defaultTextFiled" for filter text-inputs from other file-inputs-->
             <v-text-field
-              class="defaultTextField"
+              class="category__default-text-field"
               dense
               height="50px"
               placeholder="Введите свое полное имя"
@@ -47,7 +47,7 @@
               :rules="fieldRules"
             />
             <v-text-field
-              class="defaultTextField"
+              class="category__default-text-field"
               dense
               height="50px"
               placeholder="Введите гражданство"
@@ -56,7 +56,7 @@
               :rules="fieldRules"
             />
             <v-text-field
-              class="defaultTextField"
+              class="category__default-text-field"
               dense
               height="50px"
               placeholder="Номер телефона"
@@ -65,7 +65,7 @@
               :rules="fieldRules"
             />
             <v-autocomplete
-              class="autocompleteField defaultTextField"
+              class="category__autocomplete-field category__default-text-field"
               dense
               outlined
               :items="religion"
@@ -78,7 +78,7 @@
           <v-col cols="5">
             <v-autocomplete
               v-model="userGender"
-              class="autocompleteField defaultTextField"
+              class="category__autocomplete-field category__default-text-field"
               dense
               outlined
               :items="gender"
@@ -89,11 +89,11 @@
             />
           </v-col>
         </v-row>
-        <h2 class="smallHeader ml-3">
+        <h2 class="category__small-header ml-3">
           Дата рождения
         </h2>
         <v-text-field
-          class="dateField defaultTextField"
+          class="category__date-field category__default-text-field"
           type="date"
           dense
           height="50px"
@@ -101,7 +101,7 @@
           :rules="fieldRules"
         />
         <v-text-field
-          class="defaultTextField outerRowTextField"
+          class="category__default-text-field category__outer-row-field"
           dense
           height="50px"
           placeholder="Адрес проживания"
@@ -109,7 +109,7 @@
           type="text"
           :rules="fieldRules"
         />
-        <h2 class="defaultHeader">
+        <h2 class="category__default-header">
           Паспорт
         </h2>
         <v-file-input
@@ -119,9 +119,9 @@
           multiple="multiple"
           hide-details
           placeholder="Прикрепить изображения главной страницы,  прописки,  о браке и дети (4 шт)"
-          class="sendFiles ml-n3"
+          class="category__file-sender ml-n3"
         />
-        <h2 class="smallHeader mt-4">
+        <h2 class="category__small-header mt-4">
           Заполните данные о работе или прикрепите справку с биржы труда
         </h2>
         <v-expansion-panels
@@ -129,15 +129,15 @@
         >
           <v-expansion-panel>
             <v-expansion-panel-header
-              class="workInfo"
+              class="category__work-info"
             >
-              <h2 class="defaultHeader ml-n6">
+              <h2 class="category__default-header ml-n6">
                 Работа и доход
               </h2>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="ml-n6">
               <v-text-field
-                class="defaultTextField outerRowTextField"
+                class="category__default-text-field category__outer-row-field"
                 dense
                 height="50px"
                 placeholder="Место работы"
@@ -146,7 +146,7 @@
                 :rules="fieldRules"
               />
               <v-text-field
-                class="defaultTextField outerRowTextField"
+                class="category__default-text-field category__outer-row-field"
                 dense
                 height="50px"
                 placeholder="Рабочая позиция на работе"
@@ -155,7 +155,7 @@
                 :rules="fieldRules"
               />
               <v-text-field
-                class="defaultTextField outerRowTextField"
+                class="category__default-text-field category__outer-row-field"
                 dense
                 height="50px"
                 placeholder="Заработная плата"
@@ -164,7 +164,7 @@
                 :rules="fieldRules"
               />
               <v-text-field
-                class="defaultTextField outerRowTextField"
+                class="category__default-text-field category__outer-row-field"
                 dense
                 height="50px"
                 placeholder="Пенсия (в руб), если есть"
@@ -172,7 +172,7 @@
                 type="text"
                 :rules="fieldRules"
               />
-              <h2 class="defaultHeader">
+              <h2 class="category__default-header">
                 Справка с места работы
               </h2>
               <v-file-input
@@ -182,9 +182,9 @@
                 multiple="multiple"
                 hide-details
                 placeholder="Прикрепить изображение"
-                class="sendFiles ml-n3"
+                class="category__file-sender ml-n3"
               />
-              <h2 class="defaultHeader">
+              <h2 class="category__default-header">
                 Трудовая книжка
               </h2>
               <v-file-input
@@ -194,12 +194,12 @@
                 multiple="multiple"
                 hide-details
                 placeholder="Прикрепить изображения"
-                class="sendFiles ml-n3"
+                class="category__file-sender ml-n3"
               />
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
-        <h2 class="defaultHeader mt-2">
+        <h2 class="category__default-header mt-2">
           Справка о доходах за последние 6 месяцев
         </h2>
         <v-file-input
@@ -209,9 +209,9 @@
           multiple="multiple"
           hide-details
           placeholder="Прикрепить изображения о доходах: заработная плата, пенсия и/или пособия."
-          class="sendFiles ml-n3"
+          class="category__file-sender ml-n3"
         />
-        <h2 class="defaultHeader mt-3">
+        <h2 class="category__default-header mt-3">
           Справка с биржи труда
         </h2>
         <v-file-input
@@ -221,15 +221,15 @@
           multiple="multiple"
           hide-details
           placeholder="Прикрепить изображения справки из биржы труда, если безработный"
-          class="sendFiles ml-n3"
+          class="category__file-sender ml-n3"
         />
-        <h2 class="defaultHeader mt-3">
+        <h2 class="category__default-header mt-3">
           Статус в семье
         </h2>
         <!--here, depending on gender, the endings of the items and placeholders changes-->
         <v-autocomplete
           v-model="familyStatus"
-          class="autocompleteField defaultTextField mt-3"
+          class="category__autocomplete-field category__default-text-field mt-3"
           dense
           outlined
           :items="userGender === 'М' || userGender === '' ? familyStatusMan : familyStatusWoman"
@@ -241,10 +241,10 @@
       </div>
 
       <div class="childInfoBlock">
-        <h2 class="mainHeader mt-2">
+        <h2 class="category__main-header mt-2">
           Ребёнок, нуждающийся в помощи
         </h2>
-        <h2 class="defaultHeader mt-6">
+        <h2 class="category__default-header mt-6">
           Справка об инвалидности
         </h2>
         <v-file-input
@@ -253,9 +253,9 @@
           prepend-icon=""
           hide-details
           placeholder="Прикрепить изображение"
-          class="sendFiles ml-n3"
+          class="category__file-sender ml-n3"
         />
-        <h2 class="defaultHeader mt-3">
+        <h2 class="category__default-header mt-3">
           Выписка (справка) от врача
         </h2>
         <v-file-input
@@ -264,9 +264,9 @@
           prepend-icon=""
           hide-details
           placeholder="Прикрепить изображение"
-          class="sendFiles ml-n3"
+          class="category__file-sender ml-n3"
         />
-        <h2 class="defaultHeader mt-3">
+        <h2 class="category__default-header mt-3">
           Счет на медицинские услуги или на приобретение медикаментов
         </h2>
         <v-file-input
@@ -275,9 +275,9 @@
           prepend-icon=""
           hide-details
           placeholder="Прикрепить изображение"
-          class="sendFiles ml-n3"
+          class="category__file-sender ml-n3"
         />
-        <h2 class="defaultHeader mt-3">
+        <h2 class="category__default-header mt-3">
           Паспорт или свидетельство о рождении
         </h2>
         <v-file-input
@@ -286,7 +286,7 @@
           prepend-icon=""
           hide-details
           placeholder="Прикрепить 2 изображения паспорта: главная страница, прописка или свидетельство о рождении"
-          class="sendFiles ml-n3"
+          class="category__file-sender ml-n3"
         />
       </div>
 
@@ -299,10 +299,10 @@
             :disabled="!(familyStatus !== 'Одинокая' && familyStatus !== 'Одинок' && familyStatus !== 'Другое')"
           >
             <v-expansion-panel-header
-              class="spouseHeader"
+              class="category___spouse-header"
               expand-icon="mdi-plus-circle-outline"
             >
-              <h2 class="mainHeader ml-n6">
+              <h2 class="category__main-header ml-n6">
                 Супруг(-а)
               </h2>
             </v-expansion-panel-header>
@@ -310,7 +310,7 @@
               <v-row class="mt-n2">
                 <v-col cols="7" class="pr-9">
                   <v-text-field
-                    class="defaultTextField"
+                    class="category__default-text-field"
                     dense
                     height="50px"
                     placeholder="Введите свое полное имя"
@@ -319,7 +319,7 @@
                     :rules="fieldRules"
                   />
                   <v-text-field
-                    class="defaultTextField"
+                    class="category__default-text-field"
                     dense
                     height="50px"
                     placeholder="Введите гражданство"
@@ -329,11 +329,11 @@
                   />
                 </v-col>
               </v-row>
-              <h2 class="smallHeader ml-3">
+              <h2 class="category__small-header ml-3">
                 Дата рождения
               </h2>
               <v-text-field
-                class="dateField defaultTextField"
+                class="category__date-field category__default-text-field"
                 type="date"
                 dense
                 height="50px"
@@ -341,7 +341,7 @@
                 :rules="fieldRules"
               />
               <v-text-field
-                class="defaultTextField outerRowTextField"
+                class="category__default-text-field category__outer-row-field"
                 dense
                 height="50px"
                 placeholder="Адрес проживания"
@@ -349,7 +349,7 @@
                 type="text"
                 :rules="fieldRules"
               />
-              <h2 class="defaultHeader">
+              <h2 class="category__default-header">
                 Паспорт
               </h2>
               <v-file-input
@@ -359,7 +359,7 @@
                 multiple="multiple"
                 hide-details
                 placeholder="Прикрепить изображения главной страницы,  прописки,  о браке и дети (4 шт)"
-                class="sendFiles ml-n3"
+                class="category__file-sender ml-n3"
               />
             </v-expansion-panel-content>
           </v-expansion-panel>
@@ -367,7 +367,7 @@
       </div>
       <!--here user can add other child-form-->
       <div class="otherChildInfoBlock">
-        <h2 class="mainHeader mt-2">
+        <h2 class="category__main-header mt-2">
           Ребёнок
           <v-btn icon @click="addChildForm">
             <v-icon>mdi-plus-circle-outline</v-icon>
@@ -381,7 +381,7 @@
             <v-row class="mt-3">
               <v-col cols="7" class="pr-9">
                 <v-text-field
-                  class="defaultTextField"
+                  class="category__default-text-field"
                   dense
                   height="50px"
                   placeholder="Введите полное имя ребенка"
@@ -392,7 +392,7 @@
               </v-col>
               <v-col cols="5">
                 <v-autocomplete
-                  class="autocompleteField defaultTextField"
+                  class="category__autocomplete-field category__default-text-field"
                   dense
                   outlined
                   :items="gender"
@@ -403,18 +403,18 @@
                 />
               </v-col>
             </v-row>
-            <h2 class="smallHeader ml-3">
+            <h2 class="category__small-header ml-3">
               Дата рождения
             </h2>
             <v-text-field
-              class="dateField defaultTextField"
+              class="category__date-field category__default-text-field"
               type="date"
               dense
               height="50px"
               outlined
               :rules="fieldRules"
             />
-            <h2 class="defaultHeader">
+            <h2 class="category__default-header">
               Паспорт или свидетельство о рождении
             </h2>
             <v-file-input
@@ -424,13 +424,13 @@
               multiple="multiple"
               hide-details
               placeholder="Прикрепить 2 изображения паспорта: главная страница, прописка или свидетельство о рождении"
-              class="sendFiles ml-n3"
+              class="category__file-sender ml-n3"
             />
           </div>
         </template>
       </div>
 
-      <div class="agreementToProcessing">
+      <div class="catgory__agreement">
         <v-checkbox
           label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
           color="success"
@@ -443,7 +443,7 @@
           color="#56B756"
           height="46px"
           width="300"
-          class="buttonTo text-none rounded-pill"
+          class="button-to text-none rounded-pill"
           @click="validate"
         >
           Написать заявление и отправить
@@ -508,7 +508,7 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-.buttonTo {
+.button-to {
   letter-spacing: normal;
   font-weight: normal;
   width: 140px;
@@ -527,76 +527,67 @@ export default Vue.extend({
   font-size: 20px;
 }
 
-.mainHeader {
+.category__main-header {
   color: #1c6739;
 }
 
-.defaultHeader {
+.category__default-header {
   font-weight: normal;
   font-size: 22px;
 }
 
-.smallHeader {
+.category__small-header {
   font-size: 16px;
   font-weight: normal;
   color: #b0b0b0;
 }
 
-.defaultTextField {
+.category__default-text-field {
   border-radius: 30px !important;
 }
 
-.autocompleteField {
+.category__autocomplete-field {
   width: 230px;
 }
 
-.dateField {
+.category__date-field {
   width: 200px;
   border-radius: 30px !important;
   margin-top: 10px;
 }
 
-.outerRowTextField {
+.category__outer-row-field {
   width: 600px;
 }
 
-.sendFiles {
+.category__file-sender {
   text-decoration: underline;
   text-underline-position: under;
   color: #666;
 }
 
-.workInfo {
+.category__work-info {
   width: 220px;
 }
 
-.spouseHeader {
+.category___spouse-header {
   width: 170px;
 }
 
-.childInfo {
+.category__child-info {
   width: 150px;
 }
 
-.agreementToProcessing {
+.catgory__agreement {
   display: grid;
   place-items: center;
 }
 
-.info-wrapper {
+.category__info-wrapper {
   text-align: center;
 }
 
 .button-wrapper {
   text-align: right;
-}
-
-.success__container {
-  padding: 0 50px 50px 50px;
-  text-align: center;
-}
-
-.description {
-  font-size: 14px;
 }
 </style>
