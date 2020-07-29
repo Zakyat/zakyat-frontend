@@ -43,7 +43,6 @@ export default Vue.extend({
       required: true,
     },
   },
-  // data () {
   data () {
     return {
       overlay: false,
