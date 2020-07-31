@@ -31,6 +31,7 @@
         :certificates="certificates"
       />
       <Documents />
+      <Contacts />
     </v-card>
   </v-container>
 </template>
@@ -40,6 +41,7 @@ import Vue from 'vue';
 import Employees from '@/components/about/Employees.vue';
 import Certificates from '@/components/about/Сertificates.vue';
 import Documents from '@/components/about/Documents.vue';
+import Contacts from '@/components/about/Contacts.vue';
 
 export default Vue.extend({
   layout: 'grey',
@@ -47,6 +49,7 @@ export default Vue.extend({
     Employees,
     Documents,
     Certificates,
+    Contacts,
   },
   data () {
     return {
