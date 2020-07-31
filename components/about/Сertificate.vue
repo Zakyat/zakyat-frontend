@@ -1,11 +1,12 @@
 <template>
   <v-container class="pa-0">
     <v-img
-      width="200"
+      width=""
       :src="img"
       @click="overlay = !overlay"
+      style="cursor: pointer;"
     />
-    <p>{{ name }}</p>
+    <p class="mt-3">{{ name }}</p>
     <v-overlay
       :value="overlay"
     >

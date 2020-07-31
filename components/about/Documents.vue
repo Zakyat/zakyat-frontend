@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="pa-0">
     <h2>
       {{ $t('about.documents') }}
     </h2>

@@ -94,15 +94,15 @@ export default Vue.extend({
       ],
       certificates: [
         {
-          img: require('@/assets/about_us_files/registration_certificate.jpg'),
+          img: require('@/assets/about_us_files/registration_certificate.png'),
           name: 'Регистрации',
         },
         {
-          img: require('@/assets/about_us_files/certificate_of_accounting.jpg'),
+          img: require('@/assets/about_us_files/certificate_of_accounting.png'),
           name: 'Постановки на учет',
         },
         {
-          img: require('@/assets/about_us_files/egrul_certificate.jpg'),
+          img: require('@/assets/about_us_files/egrul_certificate.png'),
           name: 'Внесении в ЕГРЮЛ',
         },
       ],
