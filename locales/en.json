@@ -362,5 +362,63 @@
       "register": "Register",
       "title": "Registration"
     }
+  },
+  "charity": {
+    "banner": {
+      "title": "Together we save the lives of children and adults, help them become healthy and happy!"
+    },
+    "contacts": {
+      "email": "Email",
+      "lastName": "Surname",
+      "name": "Name",
+      "phone": "Telephone",
+      "resumeBtn": "Proceed",
+      "title": "Your contact details",
+      "terms_conditions": {
+        "data_processing": "processing of personal data",
+        "terms": "terms of the public offer",
+        "text": "I accept {terms} and consent to {data}"
+      }
+    },
+    "donationAmountSelection": {
+      "amountInput": "Enter the amount, ₽",
+      "donation_types": {
+        "daily": {
+          "description": "Once a day, the donation amount is debited from the payment method you specified. At any time you can turn off your subscription in your personal account. As soon as the needy collects the required amount, your daily donation will be credited to the account of the next needy on the list.",
+          "title": "Daily donation"
+        },
+        "monthly": {
+          "description": "Once a month, the donation amount is debited from the payment method you specified. At any time you can turn off your subscription in your personal account. As soon as the needy collects the required amount, your daily donation will be credited to the account of the next needy on the list.",
+          "title": "Monthly donation"
+        },
+        "onetime": {
+          "description": "The donation amount is debited from the payment method you specified once. At any time you can turn off your subscription in your personal account. As soon as the needy collects the required amount, your daily donation will be credited to the account of the next needy on the list.",
+          "title": "One-time donation"
+        }
+      }
+    },
+    "gathering": {
+      "anonymous": "Anonymously",
+      "charityCard": {
+        "collected": "Collected",
+        "left": "Left",
+        "seeGatherings": "View donations",
+        "total": "Needed"
+      },
+      "gatheringSelection": "Select gathering"
+    },
+    "paymentMethod": {
+      "bankDonationText": "All money from this fee will go to the account of the needy",
+      "defaultText": "You can send money to 8888 with the text АЛЬФИЯ",
+      "title": "Payment method",
+      "methods": {
+        "SMS": "SMS",
+        "bank_card": "Bank card",
+        "mobile_phone": "Mobile phone",
+        "paypal": "Paypal",
+        "yandex_money": "Yandex money"
+      }
+    },
+    "title": "Donation to"
   }
 }
