@@ -1,14 +1,14 @@
 <template>
   <div class="recovery-password-form rounded">
     <h2>
-      {{ $t('access.login.recoveryPassword.title') }}
+      {{ $t('auth.login.recoveryPassword.title') }}
     </h2>
     <p class="pt-2 recovery-password-form__description">
-      {{ $t('access.login.recoveryPassword.description') }}
+      {{ $t('auth.login.recoveryPassword.description') }}
     </p>
     <v-text-field
       class="mt-5 recovery-password-form__text-field"
-      :placeholder="$t('access.global.emailPlaceholder')"
+      :placeholder="$t('auth.global.emailPlaceholder')"
       type="email"
       dense
       solo
@@ -25,11 +25,11 @@
       class="button mt-4"
       @click="$emit('set-dialog', 'SuccessDialog')"
     >
-      {{ $t('access.login.recoveryPassword.buttonName') }}
+      {{ $t('auth.login.recoveryPassword.buttonName') }}
     </v-btn>
     <div class="text-center mt-5">
       <v-btn text class="mt-1  button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
-        {{ $t('access.login.recoveryPassword.redirectionName') }}
+        {{ $t('auth.login.recoveryPassword.redirectionName') }}
       </v-btn>
     </div>
   </div>

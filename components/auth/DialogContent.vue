@@ -9,10 +9,10 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import RegistrationDialog from '@/components/access/RegistrationDialog.vue';
-import SignInDialog from '@/components/access/SignInDialog.vue';
-import RecoveryPasDialog from '@/components/access/PasswordRecoveryDialog.vue';
-import SuccessDialog from '@/components/access/SuccessDialog.vue';
+import RegistrationDialog from '@/components/auth/RegistrationDialog.vue';
+import SignInDialog from '@/components/auth/SignInDialog.vue';
+import RecoveryPasDialog from '@/components/auth/PasswordRecoveryDialog.vue';
+import SuccessDialog from '@/components/auth/SuccessDialog.vue';
 
 export default Vue.extend({
   name: 'DialogContent',

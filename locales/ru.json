@@ -330,7 +330,7 @@
       "see_all": "Смотреть все"
     }
   },
-  "access": {
+  "auth": {
     "global": {
       "emailPlaceholder": "Эл. почта",
       "passwordPlaceholder": "Пароль"

@@ -2,7 +2,7 @@
   <v-container class="sign-in-form rounded">
     <v-row justify="space-between mx-0">
       <h2>
-        {{ $t('access.login.title') }}
+        {{ $t('auth.login.title') }}
       </h2>
       <v-btn
         text
@@ -10,11 +10,11 @@
         color="#00AC00"
         @click="$emit('set-dialog', 'RegistrationDialog')"
       >
-        {{ $t('access.registration.linkAndButtonName') }}
+        {{ $t('auth.registration.linkAndButtonName') }}
       </v-btn>
     </v-row>
     <p class="pt-2 sign-in-form__description">
-      {{ $t('access.login.description') }}
+      {{ $t('auth.login.description') }}
     </p>
     <v-row class="sign-in-form__social-media mt-n3 mb-n3">
       <v-col class="pr-0">
@@ -52,7 +52,7 @@
       v-model="email"
       type="email"
       class="mt-5 mb-5 sign-in-form__text-field"
-      :placeholder="$t('access.global.emailPlaceholder')"
+      :placeholder="$t('auth.global.emailPlaceholder')"
       dense
       solo
       flat
@@ -60,7 +60,7 @@
     />
     <v-text-field
       v-model="password"
-      :placeholder="$t('access.global.passwordPlaceholder')"
+      :placeholder="$t('auth.global.passwordPlaceholder')"
       required
       dense
       solo
@@ -80,7 +80,7 @@
       class="font-weight-regular button mt-5"
     >
       <span class="button__name">
-        {{ $t('access.login.linkAndButtonName') }}
+        {{ $t('auth.login.linkAndButtonName') }}
       </span>
     </v-btn>
     <div class="link-wrapper text-center mt-5">
@@ -91,7 +91,7 @@
         height="40px"
         @click="$emit('set-dialog', 'RecoveryDialog')"
       >
-        {{ $t('access.login.reminder') }}
+        {{ $t('auth.login.reminder') }}
       </v-btn>
     </div>
   </v-container>

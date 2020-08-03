@@ -2,14 +2,14 @@
   <v-container class="registration-form rounded">
     <v-row justify="space-between" class="mx-0">
       <h2>
-        {{ $t('access.registration.title') }}
+        {{ $t('auth.registration.title') }}
       </h2>
       <v-btn text class="mt-1" color="primary" @click="$emit('set-dialog', 'SignInDialog')">
-        {{ $t('access.login.linkAndButtonName') }}
+        {{ $t('auth.login.linkAndButtonName') }}
       </v-btn>
     </v-row>
     <p class="pt-2 mb-0 registration-form__description">
-      {{ $t('access.registration.description') }}
+      {{ $t('auth.registration.description') }}
     </p>
     <v-row justify="space-between">
       <v-col>
@@ -46,7 +46,7 @@
     <v-text-field
       type="email"
       class="mt-2"
-      :placeholder="$t('access.global.emailPlaceholder')"
+      :placeholder="$t('auth.global.emailPlaceholder')"
       outlined
       height="50"
       hide-details
@@ -58,7 +58,7 @@
     <v-text-field
       v-model="password"
       class="mt-5"
-      :placeholder="$t('access.global.passwordPlaceholder')"
+      :placeholder="$t('auth.global.passwordPlaceholder')"
       :hint="passwordMessage"
       required
       height="50"
@@ -89,10 +89,10 @@
         color="#00AC00"
       >
         <div slot="label" class="registration-form__assigment">
-          {{ $t('access.registration.agreements.textFirstPart') }}
-          <a href="#">{{ $t('access.registration.agreements.userAgreementName') }}</a>,
-          {{ $t('access.registration.agreements.textSecondPart') }}
-          <a href="#">{{ $t('access.registration.agreements.confidentialAgreementName') }}</a>
+          {{ $t('auth.registration.agreements.textFirstPart') }}
+          <a href="#">{{ $t('auth.registration.agreements.userAgreementName') }}</a>,
+          {{ $t('auth.registration.agreements.textSecondPart') }}
+          <a href="#">{{ $t('auth.registration.agreements.confidentialAgreementName') }}</a>
         </div>
       </v-checkbox>
     </v-row>
@@ -105,7 +105,7 @@
       :disabled="passwordStrength === 0"
     >
       <span class="button__name">
-        {{ $t('access.registration.linkAndButtonName') }}
+        {{ $t('auth.registration.linkAndButtonName') }}
       </span>
     </v-btn>
   </v-container>

@@ -66,7 +66,7 @@
 import Vue from 'vue';
 import LanguageSelector from '@/components/LanguageSelector.vue';
 import { rubles } from '@/plugins/currency';
-import DialogWrapper from '@/components/access/DialogContent.vue';
+import DialogWrapper from '@/components/auth/DialogContent.vue';
 
 export default Vue.extend({
   components: {
