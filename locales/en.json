@@ -329,5 +329,38 @@
       "other_news": "Other news",
       "see_all": "See all"
     }
+  },
+  "auth": {
+    "emailPlaceholder": "Email",
+    "login": {
+      "description": "Sign in via social media or email",
+      "errors": "There is no such account.",
+      "forgotPassword": "Forgot your password?",
+      "login": "Login",
+      "title": "Login"
+    },
+    "passwordPlaceholder": "Password",
+    "recoverPassword": {
+      "description": "We will send an email to the specified email to reset your password.",
+      "goBack": "Back to login",
+      "sendEmail": "send email",
+      "success": "Password recovery email has been successfully sent. Check your mail.",
+      "title": "Recover Password"
+    },
+    "registration": {
+      "agreement": {
+        "dataProcessingConsent": "the processing of personal data",
+        "text": "I have read the {userAgreement}, accept it, and give consent to {dataProcessingConsent}",
+        "userAgreement": "User agreement"
+      },
+      "description": "Sign up via social media or email",
+      "errors": {
+        "averagePassword": "Average password.",
+        "goodPassword": "Good password.",
+        "weekPassword": "Short password. Use at least 6 characters."
+      },
+      "register": "Register",
+      "title": "Registration"
+    }
   }
 }
