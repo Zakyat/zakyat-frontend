@@ -34,8 +34,10 @@
       :fullscreen="$vuetify.breakpoint.mobile"
     >
       <div class="text-right white">
-        <v-btn icon @click="authDialog = !authDialog" class="mt-3 mr-3">
-          <img src="@/assets/images/dialog-icons/close.svg" alt="close">
+        <v-btn icon class="mt-3 mr-3" @click="authDialog = !authDialog">
+          <v-icon color="black" large>
+            mdi-close
+          </v-icon>
         </v-btn>
       </div>
       <DialogWrapper />

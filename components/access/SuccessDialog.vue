@@ -1,6 +1,8 @@
 <template>
   <div class="success-dialog rounded">
-    <img src="@/assets/images/dialog-icons/success-dialog/send.svg" alt="success">
+    <v-icon size="60" color="success">
+      mdi-checkbox-marked-circle
+    </v-icon>
     <p class="pt-2 success-dialog__description">
       {{ $t('access.login.recoveryPassword.success') }}
     </p>

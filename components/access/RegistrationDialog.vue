@@ -63,6 +63,7 @@
       rounded
       loading
       :type="showPassword ? 'text' : 'password'"
+      :append-icon="showPassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
       @click:append="showPassword = !showPassword"
     >
       <template v-slot:progress>
@@ -73,30 +74,6 @@
           height="6"
           class="mt-3 ml-2 rounded progress-bar"
         />
-      </template>
-      <template v-slot:append>
-        <v-btn
-          v-if="showPassword"
-          fab
-          height="30px"
-          width="30px"
-          depressed
-          color="white"
-          class="mt-n1 mr-n3"
-        >
-          <img src="@/assets/images/dialog-icons/password-icons/show.svg" alt="show" class="mt-2" @click="showPassword = !showPassword">
-        </v-btn>
-        <v-btn
-          v-else
-          fab
-          height="30px"
-          width="30px"
-          depressed
-          color="white"
-          class="mt-n1 mr-n3"
-        >
-          <img src="@/assets/images/dialog-icons/password-icons/hide.svg" alt="hide" class="mt-1" @click="showPassword = !showPassword">
-        </v-btn>
       </template>
     </v-text-field>
 
