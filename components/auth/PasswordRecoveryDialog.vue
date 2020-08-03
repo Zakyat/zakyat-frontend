@@ -3,35 +3,37 @@
     <h2>
       {{ $t('auth.recoverPassword.title') }}
     </h2>
-    <p class="pt-2 recovery-password-form__description">
+    <p class="pt-2 body-2">
       {{ $t('auth.recoverPassword.description') }}
     </p>
     <v-text-field
-      class="mt-5 recovery-password-form__text-field"
+      v-model="email"
+      class="mt-5"
       :placeholder="$t('auth.emailPlaceholder')"
       type="email"
       dense
       solo
       flat
       rounded
-      height="40px"
+      outlined
+      height="40"
     />
     <v-btn
-      color="#00AC00"
+      color="primary"
       block
-      dense
       rounded
       dark
-      class="button mt-4"
       @click="$emit('set-dialog', 'SuccessDialog')"
     >
       {{ $t('auth.recoverPassword.sendEmail') }}
     </v-btn>
-    <div class="text-center mt-5">
-      <v-btn text class="mt-1  button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
-        {{ $t('auth.recoverPassword.goBack') }}
-      </v-btn>
-    </div>
+    <v-row justify="center">
+      <v-col cols="auto" class="mt-1">
+        <v-btn text color="primary" @click="$emit('set-dialog', 'SignInDialog')">
+          {{ $t('auth.recoverPassword.goBack') }}
+        </v-btn>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -40,6 +42,11 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'PasswordRecoveryDialog',
+  data () {
+    return {
+      email: '',
+    };
+  },
 });
 </script>
 
@@ -47,19 +54,5 @@ export default Vue.extend({
   .recovery-password-form {
     padding: 5px 50px 35px 50px;
     background-color: white;
-  }
-
-  .recovery-password-form__description {
-    font-size: 14px;
-  }
-
-  .button {
-    letter-spacing: normal;
-    font-weight: normal;
-  }
-
-  .recovery-password-form__text-field {
-    border: 1px solid black;
-    height: 42px;
   }
 </style>

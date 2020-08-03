@@ -8,48 +8,50 @@
         {{ $t('auth.login.login') }}
       </v-btn>
     </v-row>
-    <p class="pt-2 mb-0 registration-form__description">
+    <p class="pt-2 mb-0 body-2">
       {{ $t('auth.registration.description') }}
     </p>
     <v-row justify="space-between">
-      <v-col>
+      <v-col cols="4">
         <v-btn
           color="rgba(0, 0, 0, 0.2)"
           outlined
           rounded
-          class="recovery-password-form__social-media-link"
+          block
         >
           <img src="@/assets/images/social-icons/vk.svg" alt="vk">
         </v-btn>
       </v-col>
-      <v-col>
+      <v-col cols="4">
         <v-btn
           color="rgba(0, 0, 0, 0.2)"
           outlined
           rounded
-          class="recovery-password-form__social-media-link"
+          block
         >
           <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">
         </v-btn>
       </v-col>
-      <v-col>
+      <v-col cols="4">
         <v-btn
           color="rgba(0, 0, 0, 0.2)"
           outlined
           rounded
-          class="recovery-password-form__social-media-link"
+          block
         >
           <img src="@/assets/images/social-icons/google.svg" alt="google">
         </v-btn>
       </v-col>
     </v-row>
     <v-text-field
+      v-model="email"
       type="email"
       class="mt-2"
       :placeholder="$t('auth.emailPlaceholder')"
       outlined
       height="50"
       hide-details
+      autofocus
       dense
       solo
       flat
@@ -86,7 +88,7 @@
       <v-checkbox
         v-model="agreedToTerms"
         class="mt-n2"
-        color="#00AC00"
+        color="primary"
       >
         <template v-slot:label>
           <i18n path="auth.registration.agreement.text" style="font-size: 14px;">
@@ -108,7 +110,7 @@
       class="mt-n2 mb-1"
       :disabled="passwordStrength === 0"
     >
-      <span class="button__name">
+      <span class="body-1">
         {{ $t('auth.registration.register') }}
       </span>
     </v-btn>
@@ -122,6 +124,7 @@ export default Vue.extend({
   name: 'RegistrationDialog',
   data () {
     return {
+      email: '',
       password: '',
       showPassword: false,
       agreedToTerms: false,
@@ -171,33 +174,12 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
-
   .registration-form {
-    padding: 0 50px 40px 55px;
+    padding: 0 50px 35px 55px;
     background-color: white;
   }
 
   a {
     text-decoration: none;
-  }
-
-  .button__name {
-    font-size: 16px;
-  }
-
-  .progress-bar__progress-result {
-    font-size: 13px;
-  }
-
-  .registration-form__description {
-    font-size: 14px;
-  }
-
-  .registration-form__assigment {
-    font-size: 14px;
-  }
-
-  .recovery-password-form__social-media-link {
-    width: 100%;
   }
 </style>

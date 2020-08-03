@@ -30,7 +30,6 @@
     <v-dialog
       v-model="authDialog"
       width="440"
-      class="rounded-lg"
       :fullscreen="$vuetify.breakpoint.mobile"
     >
       <div class="text-right white">
@@ -96,5 +95,4 @@ export default Vue.extend({
   width: 600px;
   z-index: 2;
 }
-
 </style>

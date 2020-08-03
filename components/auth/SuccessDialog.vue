@@ -6,7 +6,7 @@
     <p class="pt-2 success-dialog__description">
       {{ $t('auth.recoverPassword.success') }}
     </p>
-    <v-btn text class="mt-1 button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
+    <v-btn text class="mt-1 button" color="primary" @click="$emit('set-dialog', 'SignInDialog')">
       {{ $t('auth.recoverPassword.goBack') }}
     </v-btn>
   </div>
