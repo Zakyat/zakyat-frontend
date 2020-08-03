@@ -4,7 +4,7 @@
       <h2>
         {{ $t('access.registration.title') }}
       </h2>
-      <v-btn text class="mt-1 button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
+      <v-btn text class="mt-1" color="primary" @click="$emit('set-dialog', 'SignInDialog')">
         {{ $t('access.login.linkAndButtonName') }}
       </v-btn>
     </v-row>
@@ -47,6 +47,9 @@
       type="email"
       class="mt-2"
       :placeholder="$t('access.global.emailPlaceholder')"
+      outlined
+      height="50"
+      hide-details
       dense
       solo
       flat
@@ -54,9 +57,12 @@
     />
     <v-text-field
       v-model="password"
-      class="mt-5 recovery-password-form__text-field"
+      class="mt-5"
       :placeholder="$t('access.global.passwordPlaceholder')"
+      :hint="passwordMessage"
       required
+      height="50"
+      outlined
       dense
       solo
       flat
@@ -68,27 +74,15 @@
     >
       <template v-slot:progress>
         <v-progress-linear
-          :value="progress"
-          :color="color"
+          :value="passwordStrength * 25"
+          :color="progressColor"
+          rounded
           absolute
-          height="6"
-          class="mt-3 ml-2 rounded progress-bar"
+          height="5"
         />
       </template>
     </v-text-field>
-
-    <template v-if="progress">
-      <p v-if="progress === 34" class="progress-bar__progress-result ml-2 mt-6">
-        {{ $t('access.registration.errors.weekPassword') }}
-      </p>
-      <p v-if="progress === 68" class="progress-bar__progress-result ml-2 mt-6">
-        {{ $t('access.registration.errors.averagePassword') }}
-      </p>
-      <p v-if="progress === 100" class="progress-bar__progress-result ml-2 mt-6">
-        {{ $t('access.registration.errors.goodPassword') }}
-      </p>
-    </template>
-    <v-row justify="space-between mx-0 mb-3 mt-5">
+    <v-row justify="space-between" class="mx-0 mb-3 mt-5">
       <v-checkbox
         v-model="agreedToTerms"
         class="mt-n2"
@@ -103,12 +97,12 @@
       </v-checkbox>
     </v-row>
     <v-btn
-      color="#00AC00"
-      dark
+      color="primary"
       block
       rounded
       height="40px"
-      class="button mt-n2 mb-1"
+      class="mt-n2 mb-1"
+      :disabled="passwordStrength === 0"
     >
       <span class="button__name">
         {{ $t('access.registration.linkAndButtonName') }}
@@ -130,13 +124,44 @@ export default Vue.extend({
     };
   },
   computed: {
-    /*
-       add into the progress() method  your own conditions for password
-       here just an example of password validating
-    */
-    // progress () {},
-    // into the color() method you can add logic of color change depending on password input
-    // color () {},
+    passwordStrength (): number {
+      if (this.password.length < 6) {
+        return 0;
+      }
+      const hasLower = /[a-z]/.test(this.password) ? 1 : 0;
+      const hasUpper = /[A-Z]/.test(this.password) ? 1 : 0;
+      const hasDigit = /[\d]/.test(this.password) ? 1 : 0;
+      const hasSymbol = /[\W]/.test(this.password) ? 1 : 0;
+      return hasLower + hasUpper + hasDigit + hasSymbol;
+    },
+    progressColor (): string {
+      switch (this.passwordStrength) {
+        case 0:
+          return 'error';
+        case 1:
+        case 2:
+          return 'warning';
+        case 3:
+        case 4:
+          return 'success';
+        default:
+          return '';
+      }
+    },
+    passwordMessage () {
+      switch (this.passwordStrength) {
+        case 0:
+          return this.$t('auth.registration.errors.weekPassword');
+        case 1:
+        case 2:
+          return this.$t('auth.registration.errors.averagePassword');
+        case 3:
+        case 4:
+          return this.$t('auth.registration.errors.goodPassword');
+        default:
+          return '';
+      }
+    },
   },
 });
 </script>
@@ -152,18 +177,8 @@ export default Vue.extend({
     text-decoration: none;
   }
 
-  .button {
-    letter-spacing: normal;
-    font-weight: normal;
-  }
-
   .button__name {
     font-size: 16px;
-  }
-
-  .progress-bar {
-    width: 320px;
-    border-radius: 10px;
   }
 
   .progress-bar__progress-result {
@@ -177,15 +192,6 @@ export default Vue.extend({
   .registration-form__assigment {
     font-size: 14px;
     width: 300px;
-  }
-
-  .recovery-password-form__text-field {
-    border: 1px solid black;
-    height: 40px;
-  }
-
-  .recovery-password-form__text-field:focus {
-    border: 1px solid black;
   }
 
   .recovery-password-form__social-media-link {
