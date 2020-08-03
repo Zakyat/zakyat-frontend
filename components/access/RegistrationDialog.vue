@@ -1,6 +1,6 @@
 <template>
   <v-container class="registration-form rounded">
-    <v-row justify="space-between mx-0">
+    <v-row justify="space-between" class="mx-0">
       <h2>
         {{ $t('access.registration.title') }}
       </h2>
@@ -8,11 +8,11 @@
         {{ $t('access.login.linkAndButtonName') }}
       </v-btn>
     </v-row>
-    <p class="pt-2 registration-form__description">
+    <p class="pt-2 mb-0 registration-form__description">
       {{ $t('access.registration.description') }}
     </p>
-    <v-row class="recovery-password-form__social-media mt-n3 mb-n3">
-      <v-col class="pr-0">
+    <v-row justify="space-between">
+      <v-col>
         <v-btn
           color="rgba(0, 0, 0, 0.2)"
           outlined
@@ -22,7 +22,7 @@
           <img src="@/assets/images/social-icons/vk.svg" alt="vk">
         </v-btn>
       </v-col>
-      <v-col class="px-2">
+      <v-col>
         <v-btn
           color="rgba(0, 0, 0, 0.2)"
           outlined
@@ -32,7 +32,7 @@
           <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">
         </v-btn>
       </v-col>
-      <v-col class="pl-0">
+      <v-col>
         <v-btn
           color="rgba(0, 0, 0, 0.2)"
           outlined
@@ -45,7 +45,7 @@
     </v-row>
     <v-text-field
       type="email"
-      class="mt-5 mb-5 recovery-password-form__text-field"
+      class="mt-2"
       :placeholder="$t('access.global.emailPlaceholder')"
       dense
       solo
@@ -186,10 +186,6 @@ export default Vue.extend({
 
   .recovery-password-form__text-field:focus {
     border: 1px solid black;
-  }
-
-  .recovery-password-form__social-media {
-    text-align: center;
   }
 
   .recovery-password-form__social-media-link {
