@@ -1,6 +1,6 @@
 <template>
   <v-container class="sign-in-form rounded">
-    <v-row justify="space-between mx-0">
+    <v-row justify="space-between" class="mx-0">
       <h2>
         {{ $t('auth.login.title') }}
       </h2>
@@ -10,7 +10,7 @@
         color="#00AC00"
         @click="$emit('set-dialog', 'RegistrationDialog')"
       >
-        {{ $t('auth.registration.linkAndButtonName') }}
+        {{ $t('auth.registration.register') }}
       </v-btn>
     </v-row>
     <p class="pt-2 sign-in-form__description">
@@ -52,7 +52,7 @@
       v-model="email"
       type="email"
       class="mt-5 mb-5 sign-in-form__text-field"
-      :placeholder="$t('auth.global.emailPlaceholder')"
+      :placeholder="$t('auth.emailPlaceholder')"
       dense
       solo
       flat
@@ -60,7 +60,7 @@
     />
     <v-text-field
       v-model="password"
-      :placeholder="$t('auth.global.passwordPlaceholder')"
+      :placeholder="$t('auth.passwordPlaceholder')"
       required
       dense
       solo
@@ -80,7 +80,7 @@
       class="font-weight-regular button mt-5"
     >
       <span class="button__name">
-        {{ $t('auth.login.linkAndButtonName') }}
+        {{ $t('auth.login.login') }}
       </span>
     </v-btn>
     <div class="link-wrapper text-center mt-5">
@@ -91,7 +91,7 @@
         height="40px"
         @click="$emit('set-dialog', 'RecoveryDialog')"
       >
-        {{ $t('auth.login.reminder') }}
+        {{ $t('auth.login.forgotPassword') }}
       </v-btn>
     </div>
   </v-container>

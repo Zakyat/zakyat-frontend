@@ -4,10 +4,10 @@
       mdi-checkbox-marked-circle
     </v-icon>
     <p class="pt-2 success-dialog__description">
-      {{ $t('auth.login.recoveryPassword.success') }}
+      {{ $t('auth.recoverPassword.success') }}
     </p>
     <v-btn text class="mt-1 button" color="#00AC00" @click="$emit('set-dialog', 'SignInDialog')">
-      {{ $t('auth.login.recoveryPassword.redirectionName') }}
+      {{ $t('auth.recoverPassword.goBack') }}
     </v-btn>
   </div>
 </template>

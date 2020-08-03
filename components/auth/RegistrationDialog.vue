@@ -5,7 +5,7 @@
         {{ $t('auth.registration.title') }}
       </h2>
       <v-btn text class="mt-1" color="primary" @click="$emit('set-dialog', 'SignInDialog')">
-        {{ $t('auth.login.linkAndButtonName') }}
+        {{ $t('auth.login.login') }}
       </v-btn>
     </v-row>
     <p class="pt-2 mb-0 registration-form__description">
@@ -46,7 +46,7 @@
     <v-text-field
       type="email"
       class="mt-2"
-      :placeholder="$t('auth.global.emailPlaceholder')"
+      :placeholder="$t('auth.emailPlaceholder')"
       outlined
       height="50"
       hide-details
@@ -58,7 +58,7 @@
     <v-text-field
       v-model="password"
       class="mt-5"
-      :placeholder="$t('auth.global.passwordPlaceholder')"
+      :placeholder="$t('auth.passwordPlaceholder')"
       :hint="passwordMessage"
       required
       height="50"
@@ -88,12 +88,16 @@
         class="mt-n2"
         color="#00AC00"
       >
-        <div slot="label" class="registration-form__assigment">
-          {{ $t('auth.registration.agreements.textFirstPart') }}
-          <a href="#">{{ $t('auth.registration.agreements.userAgreementName') }}</a>,
-          {{ $t('auth.registration.agreements.textSecondPart') }}
-          <a href="#">{{ $t('auth.registration.agreements.confidentialAgreementName') }}</a>
-        </div>
+        <template v-slot:label>
+          <i18n path="auth.registration.agreement.text" style="font-size: 14px;">
+            <template v-slot:userAgreement>
+              <a href="#">{{ $t('auth.registration.agreement.userAgreement') }}</a>
+            </template>
+            <template v-slot:dataProcessingConsent>
+              <a href="#">{{ $t('auth.registration.agreement.dataProcessingConsent') }}</a>
+            </template>
+          </i18n>
+        </template>
       </v-checkbox>
     </v-row>
     <v-btn
@@ -105,7 +109,7 @@
       :disabled="passwordStrength === 0"
     >
       <span class="button__name">
-        {{ $t('auth.registration.linkAndButtonName') }}
+        {{ $t('auth.registration.register') }}
       </span>
     </v-btn>
   </v-container>
@@ -191,7 +195,6 @@ export default Vue.extend({
 
   .registration-form__assigment {
     font-size: 14px;
-    width: 300px;
   }
 
   .recovery-password-form__social-media-link {

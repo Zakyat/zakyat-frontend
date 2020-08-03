@@ -331,19 +331,16 @@
     }
   },
   "auth": {
-    "global": {
-      "emailPlaceholder": "Эл. почта",
-      "passwordPlaceholder": "Пароль"
-    },
+    "emailPlaceholder": "Эл. почта",
+    "passwordPlaceholder": "Пароль",
     "registration": {
       "title": "Регистрация",
-      "linkAndButtonName": "Зарегистрироваться",
+      "register": "Зарегистрироваться",
       "description": "Зарегистрируйтесь через социальные сети или электронную почту",
-      "agreements": {
-        "textFirstPart": "Я ознакомился с",
-        "textSecondPart": "принимаю его и даю",
-        "userAgreementName": "Пользовательским соглашением",
-        "confidentialAgreementName": "Согласие на обработку персональных данных"
+      "agreement": {
+        "text": "Я ознакомился с {userAgreement}, принимаю его и даю {dataProcessingConsent}",
+        "userAgreement": "Пользовательским соглашением",
+        "dataProcessingConsent": "Согласие на обработку персональных данных"
       },
       "errors": {
         "weekPassword": "Короткий пароль. Используйте хотя бы 6 символов.",
@@ -353,17 +350,17 @@
     },
     "login": {
       "title": "Вход",
-      "linkAndButtonName": "Войти",
+      "login": "Войти",
       "description": "Войдите через социальные сети или электронную почту",
-      "reminder": "Забыли пароль?",
-      "errors": "Такого аккаунта нет.",
-      "recoveryPassword": {
-        "title": "Восстановление пароля",
-        "description": "Мы отправим на указанную электронную почту письмо для восстановления пароля.",
-        "buttonName": "Отправить письмо",
-        "redirectionName": "Вернуться ко входу",
-        "success": "Письмо для восстановления пароля успешно отправлено. Проверьте вашу почту."
-      }
+      "forgotPassword": "Забыли пароль?",
+      "errors": "Такого аккаунта нет."
+    },
+    "recoverPassword": {
+      "title": "Восстановление пароля",
+      "description": "Мы отправим на указанную электронную почту письмо для восстановления пароля.",
+      "sendEmail": "Отправить письмо",
+      "goBack": "Вернуться ко входу",
+      "success": "Письмо для восстановления пароля успешно отправлено. Проверьте вашу почту."
     }
   }
 }
