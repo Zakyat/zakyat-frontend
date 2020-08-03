@@ -53,6 +53,5 @@ export default Vue.extend({
 <style lang="scss" scoped>
   .recovery-password-form {
     padding: 5px 50px 35px 50px;
-    background-color: white;
   }
 </style>

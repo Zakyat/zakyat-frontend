@@ -119,6 +119,5 @@ export default Vue.extend({
 <style lang="scss" scoped>
   .sign-in-form {
     padding: 0 50px 35px 50px;
-    background-color: white;
   }
 </style>

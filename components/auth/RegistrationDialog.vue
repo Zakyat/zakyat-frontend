@@ -49,7 +49,7 @@
       class="mt-2"
       :placeholder="$t('auth.emailPlaceholder')"
       outlined
-      height="50"
+      height="40"
       hide-details
       autofocus
       dense
@@ -63,7 +63,7 @@
       :placeholder="$t('auth.passwordPlaceholder')"
       :hint="passwordMessage"
       required
-      height="50"
+      height="40"
       outlined
       dense
       solo
@@ -176,7 +176,6 @@ export default Vue.extend({
 <style lang="scss" scoped>
   .registration-form {
     padding: 0 50px 35px 55px;
-    background-color: white;
   }
 
   a {

@@ -39,7 +39,11 @@
           </v-icon>
         </v-btn>
       </div>
-      <DialogWrapper />
+      <component
+        :is="currentDialog"
+        style="background-color: white;"
+        @set-dialog="currentDialog = $event"
+      />
     </v-dialog>
     <v-flex lg1 md2 xs4>
       <LanguageSelector class="icon" />
@@ -63,14 +67,20 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import LanguageSelector from '@/components/LanguageSelector.vue';
 import { rubles } from '@/plugins/currency';
-import DialogWrapper from '@/components/auth/DialogContent.vue';
+import LanguageSelector from '@/components/LanguageSelector.vue';
+import RegistrationDialog from '@/components/auth/RegistrationDialog.vue';
+import SignInDialog from '@/components/auth/SignInDialog.vue';
+import PasswordRecoveryDialog from '@/components/auth/PasswordRecoveryDialog.vue';
+import SuccessDialog from '@/components/auth/SuccessDialog.vue';
 
 export default Vue.extend({
   components: {
     LanguageSelector,
-    DialogWrapper,
+    PasswordRecoveryDialog,
+    RegistrationDialog,
+    SuccessDialog,
+    SignInDialog,
   },
   data () {
     return {
@@ -78,6 +88,7 @@ export default Vue.extend({
       items: this.$t('search.suggestions'),
       isSearcherOpen: false,
       authDialog: false,
+      currentDialog: 'SignInDialog',
     };
   },
   methods: {
