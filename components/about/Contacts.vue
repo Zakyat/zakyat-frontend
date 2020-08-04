@@ -12,13 +12,23 @@
       <v-col
         cols="auto"
       >
-        <p><v-icon class="mr-3 mt-n1">mdi-email</v-icon>{{ email }}</p>
+        <p>
+          <v-icon class="mr-3 mt-n1">
+            mdi-email
+          </v-icon>
+          {{ email }}
+        </p>
       </v-col>
       <v-col
         cols="auto"
         class="ml-5"
       >
-        <p><v-icon class="mr-3">mdi-phone</v-icon>{{ phone }}</p>
+        <p>
+          <v-icon class="mr-3">
+            mdi-phone
+          </v-icon>
+          {{ phone }}
+        </p>
       </v-col>
     </v-row>
   </v-container>
