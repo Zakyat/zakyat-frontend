@@ -3,10 +3,12 @@
     <v-img
       width=""
       :src="img"
-      @click="overlay = !overlay"
       style="cursor: pointer;"
+      @click="overlay = !overlay"
     />
-    <p class="mt-3">{{ name }}</p>
+    <p class="mt-3">
+      {{ name }}
+    </p>
     <v-overlay
       :value="overlay"
     >

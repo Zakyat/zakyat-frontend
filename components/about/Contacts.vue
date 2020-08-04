@@ -4,7 +4,9 @@
     <Map
       class="mt-5"
     />
-    <p class="mt-5">Мы находимся по адресу: г. Казань, ул. Габдуллы Тукая, 89/14</p>
+    <p class="mt-5">
+      Мы находимся по адресу: г. Казань, ул. Габдуллы Тукая, 89/14
+    </p>
 
     <v-row>
       <v-col
@@ -30,14 +32,6 @@ export default Vue.extend({
   name: 'Employee',
   components: {
     Map,
-  },
-  props: {
-
-  },
-  data () {
-    return {
-
-    };
   },
 });
 </script>
