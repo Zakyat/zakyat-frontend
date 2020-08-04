@@ -14,7 +14,7 @@
       {{ position }}
     </v-card-subtitle>
     <v-card-text class="pa-0 black--text">
-      Функции:
+      {{ $t('about.employee.duties') }}:
     </v-card-text>
     <v-card-text class="pa-0 black--text" style="width: 80%;">
       {{ duties }}
