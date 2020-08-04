@@ -10,7 +10,7 @@
       <v-col
         cols="auto"
       >
-        <p><v-icon>mdi-mail</v-icon> fondzakyat@yandex.ru</p>
+        <p><v-icon>mdi-email</v-icon> fondzakyat@yandex.ru</p>
       </v-col>
       <v-col
         cols="auto"

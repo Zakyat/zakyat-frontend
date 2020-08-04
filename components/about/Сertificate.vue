@@ -12,7 +12,7 @@
     >
       <v-row>
         <v-img
-          :src="img"
+          :src="fullImg"
           max-width="500"
         />
       </v-row>
@@ -36,6 +36,10 @@ export default Vue.extend({
   name: 'Employee',
   props: {
     img: {
+      type: String,
+      required: true,
+    },
+    fullImg: {
       type: String,
       required: true,
     },

@@ -14,6 +14,7 @@
         <Certificate
           :img="certificate.img"
           :name="certificate.name"
+          :full-img="certificate.fullImg"
         />
       </v-col>
     </v-row>
@@ -41,6 +42,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style scoped>
-</style>
