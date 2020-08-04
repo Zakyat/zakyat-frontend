@@ -66,11 +66,13 @@
             />
             <v-autocomplete
               class="category__autocomplete-field category__default-text-field"
-              dense
               outlined
+              dense
+              height="50px"
+              solo
+              flat
               :items="religion"
               placeholder="  Религия"
-              height="50px"
               type="text"
               :rules="fieldRules"
             />
@@ -79,14 +81,17 @@
             <v-autocomplete
               v-model="userGender"
               class="category__autocomplete-field category__default-text-field"
-              dense
               outlined
+              solo
+              dense
+              flat
+              height="50px"
               :items="gender"
               placeholder=" Пол"
-              height="50px"
               type="text"
               :rules="fieldRules"
-            />
+            >
+            </v-autocomplete>
           </v-col>
         </v-row>
         <h2 class="category__small-header ml-3">
@@ -249,8 +254,10 @@
         <v-autocomplete
           v-model="familyStatus"
           class="category__autocomplete-field category__default-text-field mt-3"
-          dense
           outlined
+          dense
+          solo
+          flat
           :items="userGender === 'М' || userGender === '' ? familyStatusMan : familyStatusWoman"
           :placeholder="'  ' + (userGender === 'М' || userGender === '' ?  familyStatusMan[0] : familyStatusWoman[0])"
           height="50px"
@@ -557,6 +564,7 @@ export default Vue.extend({
 
 .category__autocomplete-field {
   width: 230px;
+  height: 50px !important;
 }
 
 .category__date-field {
@@ -599,4 +607,5 @@ export default Vue.extend({
 .button-wrapper {
   text-align: right;
 }
+
 </style>
