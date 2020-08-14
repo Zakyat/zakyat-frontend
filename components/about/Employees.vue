@@ -1,7 +1,7 @@
 <template>
   <v-container class="pa-0">
     <h2>{{ $t('about.employees') }}</h2>
-    <v-row>
+    <v-row class="mt-5">
       <v-col
         v-for="employee in employees"
         :key="employee.id"

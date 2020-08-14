@@ -17,7 +17,10 @@
       {{ $t('about.employee.duties') }}:
     </v-card-text>
     <v-card-text class="pa-0 black--text" style="width: 80%;">
-      {{ duties }}
+<!--      {{ duties }}-->
+      <span>1. Распоряжание средствами фонда.</span> <br>
+      <span>2. Формирование задач, поставленных перед фондом и осуществление организации их решений.</span> <br>
+      <span>3. Представление интересов фонда при взаимодействии с юридическими и физическими лицами.</span>
     </v-card-text>
     <v-card-text class="pa-0 mt-3 black--text">
       <v-icon>mdi-phone</v-icon> {{ phone }}

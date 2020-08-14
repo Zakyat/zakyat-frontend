@@ -1,5 +1,7 @@
 <template>
-  <v-container>
+  <v-container
+    class="mt-10"
+  >
     <v-card
       flat
       rounded
