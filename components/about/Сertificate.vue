@@ -22,11 +22,9 @@
         <v-col>
           <v-btn
             icon
-            color="red"
             @click="overlay = false"
           >
-            <!--          <v-icon>mdi-close</v-icon>-->
-            x
+            <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-col>
       </v-row>
