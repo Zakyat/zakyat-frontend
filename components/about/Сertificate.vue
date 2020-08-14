@@ -13,19 +13,24 @@
       :value="overlay"
     >
       <v-row>
-        <v-img
-          :src="fullImg"
-          max-width="500"
-        />
+        <v-col>
+          <v-img
+            :src="fullImg"
+            max-width="500"
+          />
+        </v-col>
+        <v-col>
+          <v-btn
+            icon
+            color="red"
+            @click="overlay = false"
+          >
+            <!--          <v-icon>mdi-close</v-icon>-->
+            x
+          </v-btn>
+        </v-col>
       </v-row>
       <v-row class="justify-center">
-        <v-btn
-          icon
-          class="mt-3"
-          @click="overlay = false"
-        >
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
       </v-row>
     </v-overlay>
   </v-container>
