@@ -61,13 +61,14 @@
 import Vue from 'vue';
 
 export default Vue.extend({
+  name: 'Reports',
   data () {
     return {
       pages: [
         { text: this.$t('reports.income.title'), path: '/reports/income' },
         { text: this.$t('reports.expenses.title'), path: '/reports/expenses' },
       ],
-      selectedPage: '/reports/income',
+      selectedPage: this.$route.path,
       years: [2018, 2019, 2020],
       year: 2020,
       months: [
@@ -89,11 +90,6 @@ export default Vue.extend({
       page: 1,
       total_page: 10,
     };
-  },
-  created () {
-    if (this.$route.path.endsWith('expenses')) {
-      this.selectedPage = '/reports/expenses';
-    }
   },
 });
 </script>

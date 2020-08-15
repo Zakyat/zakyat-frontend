@@ -31,6 +31,7 @@ import Needly from '@/components/reports/Needly.vue';
 import Spending from '@/components/reports/Spending.vue';
 
 export default Vue.extend({
+  name: 'Expenses',
   components: {
     Needly,
     Spending,
