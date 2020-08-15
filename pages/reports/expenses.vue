@@ -1,0 +1,81 @@
+<template>
+  <v-content style="padding: 0 10px 10px;">
+    <v-row style="padding: 0 0 30px;">
+      <v-tabs
+        v-model="tab"
+        hide-slider
+        grow
+        centered
+        center-active
+        show-arrows
+        class="payment-tabs pa-1"
+      >
+        <v-tab
+          v-for="item in components"
+          :key="item.component"
+          class="payment-tab"
+          active-class="payment-tab-primary"
+        >
+          {{ item.text }}
+        </v-tab>
+      </v-tabs>
+    </v-row>
+    <Needly v-if="tab==0" :page="page" :month="month" :year="year" />
+    <Spending v-if="tab==1" :page="page" :month="month" :year="year" />
+  </v-content>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+import Needly from '@/components/reports/Needly.vue';
+import Spending from '@/components/reports/Spending.vue';
+
+export default Vue.extend({
+  components: {
+    Needly,
+    Spending,
+  },
+  props: {
+    page: {
+      type: Number,
+      default: 1,
+    },
+    month: {
+      type: Number,
+      default: 0,
+    },
+    year: {
+      type: Number,
+      default: 2020,
+    },
+  },
+  data () {
+    return {
+      tab: 'needly',
+      components: [
+        { text: this.$t('reports.expenses.needly'), component: 'needly' },
+        { text: this.$t('reports.expenses.spending'), component: 'spending' },
+      ],
+    };
+  },
+});
+</script>
+
+<style lang="scss" scoped>
+.payment-tab-primary {
+  background-color: #00ac00;
+  color: white !important;
+}
+
+.payment-tabs {
+  border: 1px solid black;
+  border-radius: 30px;
+}
+
+.payment-tab {
+  width: 300px;
+  border-radius: 30px;
+  text-transform: inherit;
+  font-size: 15px;
+}
+</style>

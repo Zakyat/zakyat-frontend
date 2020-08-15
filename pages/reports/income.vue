@@ -55,17 +55,14 @@ export default Vue.extend({
     page: {
       type: Number,
       default: 1,
-      required: false,
     },
     month: {
       type: Number,
       default: 0,
-      required: false,
     },
     year: {
       type: Number,
       default: 2020,
-      required: false,
     },
   },
   data () {
@@ -162,7 +159,6 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-
 .text {
   font-style: normal;
   font-size: 16px;

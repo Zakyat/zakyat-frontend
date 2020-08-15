@@ -3,14 +3,16 @@
     <v-row>
       <v-col>
         <v-select
-          v-model="selectedItem"
-          :items="selectItems"
-          item-value="component"
+          v-model="selectedPage"
+          :items="pages"
+          item-text="text"
+          item-value="path"
           class="page-selector"
           background-color="transparent"
           hide-details
           solo
           flat
+          @input="$router.push($event)"
         >
           <template #selection="{ item }">
             <span class="display-1 font-weight-bold ml-n3">
@@ -26,6 +28,7 @@
           :items="months"
           item-text="text"
           item-value="num"
+          hide-details
           rounded
           outlined
           style="font-weight: bold;"
@@ -35,37 +38,14 @@
         <v-select
           v-model="year"
           :items="years"
+          hide-details
           rounded
           outlined
           style="font-weight: bold;"
         />
       </v-col>
     </v-row>
-    <Income v-if="selectedItem =='income'" :page="page" :month="month" :year="year" />
-    <v-content v-if="selectedItem =='expenses'" style="padding: 0 10px 10px;">
-      <v-row style="padding: 0 0 30px;">
-        <v-tabs
-          v-model="tab"
-          hide-slider
-          grow
-          centered
-          center-active
-          show-arrows
-          class="payment-tabs pa-1"
-        >
-          <v-tab
-            v-for="item in components"
-            :key="item.component"
-            class="payment-tab"
-            active-class="payment-tab-primary"
-          >
-            {{ item.text }}
-          </v-tab>
-        </v-tabs>
-      </v-row>
-      <Needly v-if="tab==0" :page="page" :month="month" :year="year" />
-      <Spending v-if="tab==1" :page="page" :month="month" :year="year" />
-    </v-content>
+    <nuxt-child :page="page" :month="month" :year="year" />
     <v-row class="text-center mt-6 text-black">
       <v-pagination
         v-model="page"
@@ -79,23 +59,15 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Income from '@/components/reports/Income.vue';
-import Needly from '@/components/reports/Needly.vue';
-import Spending from '@/components/reports/Spending.vue';
 
 export default Vue.extend({
-  components: {
-    Income,
-    Needly,
-    Spending,
-  },
   data () {
     return {
-      selectItems: [
-        { text: this.$t('reports.income.title'), component: 'income' },
-        { text: this.$t('reports.expenses.title'), component: 'expenses' },
+      pages: [
+        { text: this.$t('reports.income.title'), path: '/reports/income' },
+        { text: this.$t('reports.expenses.title'), path: '/reports/expenses' },
       ],
-      selectedItem: 'income',
+      selectedPage: '/reports/income',
       years: [2018, 2019, 2020],
       year: 2020,
       months: [
@@ -114,14 +86,14 @@ export default Vue.extend({
         { text: this.$t('reports.months.december'), num: 12 },
       ],
       month: new Date().getMonth() + 1,
-      tab: 'needly',
-      components: [
-        { text: this.$t('reports.expenses.needly'), component: 'needly' },
-        { text: this.$t('reports.expenses.spending'), component: 'spending' },
-      ],
       page: 1,
       total_page: 10,
     };
+  },
+  created () {
+    if (this.$route.path.endsWith('expenses')) {
+      this.selectedPage = '/reports/expenses';
+    }
   },
 });
 </script>
@@ -142,22 +114,5 @@ export default Vue.extend({
       width: 0;
     }
   }
-}
-
-.payment-tabs {
-  border: 1px solid black;
-  border-radius: 30px;
-}
-
-.payment-tab {
-  width: 300px;
-  border-radius: 30px;
-  text-transform: inherit;
-  font-size: 15px;
-}
-
-.payment-tab-primary {
-  background-color: #00ac00;
-  color: white !important;
 }
 </style>
