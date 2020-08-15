@@ -13,9 +13,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import TagsSlider from '~/components/news/TagsSlider.vue';
-import NewsList from '~/components/news/NewsList.vue';
-import Sadaka from '~/components/news/Sadaka.vue';
+import TagsSlider from '@/components/news/TagsSlider.vue';
+import NewsList from '@/components/news/NewsList.vue';
+import Sadaka from '@/components/news/Sadaka.vue';
 
 export default Vue.extend({
   components: {

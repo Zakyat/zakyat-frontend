@@ -9,7 +9,8 @@
     "build": "nuxt-ts build",
     "generate": "nuxt-ts generate",
     "start": "nuxt-ts start",
-    "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore ."
+    "lint": "eslint --ext '.ts,.js,.vue' --ignore-path .gitignore .",
+    "lint:style": "stylelint ."
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^0.4.10",
@@ -29,7 +30,18 @@
     "babel-eslint": "^10.0.1",
     "eslint": "^7.2.0",
     "eslint-plugin-nuxt": "^1.0.0",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11",
     "stylelint": "^13.3.3",
     "stylelint-config-standard": "^20.0.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,vue}": "eslint",
+    "*.{css,scss,vue}": "stylelint"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

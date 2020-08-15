@@ -18,7 +18,7 @@ import NavBar from '@/components/NavBar.vue';
 import FooterBar from '@/components/FooterBar.vue';
 
 export default Vue.extend({
-  name: 'DefaultLayout',
+  name: 'Default',
   components: {
     HeaderBar,
     NavBar,
