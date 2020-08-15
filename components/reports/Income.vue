@@ -1,11 +1,11 @@
 <template>
-  <v-content style="padding: 0 10px 10px">
+  <v-content style="padding: 0 10px 10px;">
     <v-row>
       <span class="subtitle">{{ $t('reports.income.subtitle') }}</span>
       <v-spacer />
       <span class="subtitle">{{ 15000 | rubles }}</span>
     </v-row>
-    <v-row style="padding: 30px 10px 10px">
+    <v-row style="padding: 30px 10px 10px;">
       <v-flex lg2 class="text--secondary">
         {{ $t('reports.income.date') }}
       </v-flex>
@@ -32,7 +32,7 @@
       <v-flex lg2 class="text">
         {{ income.date.toLocaleDateString($i18n.locale) }}
       </v-flex>
-      <v-flex lg3 class="text" style="font-weight: bold">
+      <v-flex lg3 class="text" style="font-weight: bold;">
         {{ income.benefactor }}
       </v-flex>
       <v-flex lg3 class="text">
@@ -41,7 +41,7 @@
       <v-flex lg3 class="text">
         {{ income.donationType }}
       </v-flex>
-      <v-flex lg1 class="text-right text" style="font-weight: bold">
+      <v-flex lg1 class="text-right text" style="font-weight: bold;">
         {{ income.amount | rubles }}
       </v-flex>
     </v-row>
@@ -169,7 +169,7 @@ export default Vue.extend({
   line-height: 20px;
 }
 
-.subtitle{
+.subtitle {
   font-style: normal;
   font-weight: bold;
   font-size: 24px;

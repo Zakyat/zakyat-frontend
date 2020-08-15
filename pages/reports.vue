@@ -42,7 +42,7 @@
       </v-col>
     </v-row>
     <Income v-if="selectedItem =='income'" :page="page" :month="month" :year="year" />
-    <v-content v-if="selectedItem =='expenses'" style="padding: 0 10px 10px">
+    <v-content v-if="selectedItem =='expenses'" style="padding: 0 10px 10px;">
       <v-row style="padding: 0 0 30px;">
         <v-tabs
           v-model="tab"
@@ -136,22 +136,26 @@ export default Vue.extend({
   ::v-deep .v-select__slot {
     width: initial;
   }
+
   ::v-deep .v-select__selections {
     input {
       width: 0;
     }
   }
 }
+
 .payment-tabs {
   border: 1px solid black;
   border-radius: 30px;
 }
+
 .payment-tab {
   width: 300px;
   border-radius: 30px;
   text-transform: inherit;
   font-size: 15px;
 }
+
 .payment-tab-primary {
   background-color: #00ac00;
   color: white !important;
