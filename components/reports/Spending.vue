@@ -1,5 +1,5 @@
 <template>
-  <v-content>
+  <v-container>
     <v-row>
       <span class="subtitle">{{ $t('reports.expenses.spending') }}</span>
       <v-spacer />
@@ -45,7 +45,7 @@
         <span style="font-weight: bold;">{{ donatation.amounts.collected | rubles }}</span>/{{ donatation.amounts.needed | rubles }}
       </v-flex>
     </v-row>
-  </v-content>
+  </v-container>
 </template>
 
 <script lang="ts">
