@@ -325,5 +325,42 @@
       "show_tags_button": "Show by tags"
     },
     "title": "news"
+  },
+  "reports": {
+    "income": {
+      "amount": "Amount",
+      "benfactor_name": "Benefactor name",
+      "date": "Date",
+      "donation_target": "Purpose of donation",
+      "donation_type": "Donation type",
+      "subtitle": "Collected for the selected period",
+      "title": "Donations"
+    },
+    "expenses": {
+      "amounts": "Submitted / Required",
+      "application_date": "Date of application",
+      "application_number": "Application number",
+      "beneficiary_name": "Name of the needy",
+      "needly": "For those in need",
+      "situation_description": "Description of the situation",
+      "spending": "Other expenses",
+      "subtitle": "Transferred to those in need for the selected period",
+      "title": "Help provided"
+    },
+    "full_year": "whole year",
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "october": "October",
+      "september": "September",
+      "november": "November",
+      "december": "December"
+    }
   }
 }
