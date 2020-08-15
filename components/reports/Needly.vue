@@ -3,7 +3,7 @@
     <v-row>
       <span class="subtitle">{{ $t('reports.expenses.subtitle') }}</span>
       <v-spacer />
-      <span class="subtitle">{{ 1900500 | rubles }}</span>
+      <span class="subtitle">{{ total | rubles }}</span>
     </v-row>
     <v-row style="padding: 30px 0 10px;">
       <v-flex lg2 class="text--secondary">
@@ -133,6 +133,11 @@ export default Vue.extend({
         },
       ],
     };
+  },
+  computed: {
+    total (): number {
+      return this.donationData.reduce((acc, item) => item.amounts.collected + acc, 0);
+    },
   },
 });
 </script>
