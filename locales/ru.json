@@ -71,8 +71,8 @@
       "all": "Смотреть все"
     }
   },
-  "reports" : {
-    "expenses" : {
+  "reports": {
+    "expenses": {
       "needly": "Для нуждающихся",
       "spending": "Иные расходы",
       "title": "Оказанная помощь",
@@ -83,7 +83,7 @@
       "situation_description": "Описание ситуации",
       "amounts": "Передано/Необходимо"
     },
-    "admission" : {
+    "income": {
       "title": "Поступления",
       "subtitle": "Собрано за выбранный период",
       "date": "Дата",
@@ -93,7 +93,7 @@
       "amount": "Сумма"
     },
     "full_year": "весь год",
-    "months" :{
+    "months": {
       "january": "январь",
       "february": "февраль",
       "march": "март",

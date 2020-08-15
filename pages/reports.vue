@@ -41,7 +41,7 @@
         />
       </v-col>
     </v-row>
-    <Admission v-if="selectedItem =='admission'" :page="page" :month="month" :year="year" />
+    <Income v-if="selectedItem =='income'" :page="page" :month="month" :year="year" />
     <v-content v-if="selectedItem =='expenses'" style="padding: 0 10px 10px">
       <v-row style="padding: 0 0 30px;">
         <v-tabs
@@ -79,23 +79,23 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Admission from '@/components/reports/Admission.vue';
+import Income from '@/components/reports/Income.vue';
 import Needly from '@/components/reports/Needly.vue';
 import Spending from '@/components/reports/Spending.vue';
 
 export default Vue.extend({
   components: {
-    Admission,
+    Income,
     Needly,
     Spending,
   },
   data () {
     return {
       selectItems: [
-        { text: this.$t('reports.admission.title'), component: 'admission' },
+        { text: this.$t('reports.income.title'), component: 'income' },
         { text: this.$t('reports.expenses.title'), component: 'expenses' },
       ],
-      selectedItem: 'admission',
+      selectedItem: 'income',
       years: [2018, 2019, 2020],
       year: 2020,
       months: [

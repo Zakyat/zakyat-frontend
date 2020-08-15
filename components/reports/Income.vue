@@ -1,25 +1,25 @@
 <template>
   <v-content style="padding: 0 10px 10px">
     <v-row>
-      <span class="subtitle">{{ $t('reports.admission.subtitle') }}</span>
+      <span class="subtitle">{{ $t('reports.income.subtitle') }}</span>
       <v-spacer />
       <span class="subtitle">{{ 15000 | rubles }}</span>
     </v-row>
     <v-row style="padding: 30px 10px 10px">
       <v-flex lg2 class="text--secondary">
-        {{ $t('reports.admission.date') }}
+        {{ $t('reports.income.date') }}
       </v-flex>
       <v-flex lg3 class="text--secondary">
-        {{ $t('reports.admission.benfactor_name') }}
+        {{ $t('reports.income.benfactor_name') }}
       </v-flex>
       <v-flex lg3 class="text--secondary">
-        {{ $t('reports.admission.donation_target') }}
+        {{ $t('reports.income.donation_target') }}
       </v-flex>
       <v-flex lg3 class="text--secondary">
-        {{ $t('reports.admission.donation_type') }}
+        {{ $t('reports.income.donation_type') }}
       </v-flex>
       <v-flex lg1 class="text--secondary text-right">
-        {{ $t('reports.admission.amount') }}
+        {{ $t('reports.income.amount') }}
       </v-flex>
     </v-row>
     <v-row
