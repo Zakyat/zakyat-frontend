@@ -2,30 +2,22 @@
   <v-container class="reports" fluid>
     <v-row>
       <v-col>
-        <span class="select">{{ selectItems.find(x=>x.component==selectedItem).text }}
-          <v-menu>
-            <template v-slot:activator="{ on, attrs }">
-              <v-btn
-                dark
-                icon
-                v-bind="attrs"
-                v-on="on"
-              >
-                <v-icon color="black">mdi-chevron-down</v-icon>
-              </v-btn>
-            </template>
-
-            <v-list>
-              <v-list-item
-                v-for="(item, i) in selectItems"
-                :key="i"
-                @click="selectedItem=item.component"
-              >
-                <v-list-item-title>{{ item.text }}</v-list-item-title>
-              </v-list-item>
-            </v-list>
-          </v-menu>
-        </span>
+        <v-select
+          v-model="selectedItem"
+          :items="selectItems"
+          item-value="component"
+          class="page-selector"
+          background-color="transparent"
+          hide-details
+          solo
+          flat
+        >
+          <template #selection="{ item }">
+            <span class="display-1 font-weight-bold ml-n3">
+              {{ item.text }}
+            </span>
+          </template>
+        </v-select>
       </v-col>
       <v-spacer />
       <v-col cols="2">
@@ -90,6 +82,7 @@ import Vue from 'vue';
 import Admission from '@/components/reports/Admission.vue';
 import Needly from '@/components/reports/Needly.vue';
 import Spending from '@/components/reports/Spending.vue';
+
 export default Vue.extend({
   components: {
     Admission,
@@ -133,18 +126,22 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .reports {
   padding: 50px 6%;
 }
 
-.select {
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 43px;
+// To stick the chevron next to the selection
+.page-selector {
+  ::v-deep .v-select__slot {
+    width: initial;
   }
-
+  ::v-deep .v-select__selections {
+    input {
+      width: 0;
+    }
+  }
+}
 .payment-tabs {
   border: 1px solid black;
   border-radius: 30px;
