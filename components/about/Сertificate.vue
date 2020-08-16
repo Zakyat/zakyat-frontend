@@ -28,8 +28,6 @@
           </v-btn>
         </v-col>
       </v-row>
-      <v-row class="justify-center">
-      </v-row>
     </v-overlay>
   </v-container>
 </template>
