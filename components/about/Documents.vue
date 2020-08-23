@@ -11,6 +11,7 @@
       <a
         :href="document.link"
         class="black--text document"
+        target="_blank"
       >
         {{ document.name }}
       </a>
@@ -27,7 +28,8 @@ export default Vue.extend({
   data () {
     return {
       documents: [
-        { name: 'Устав', link: '#' }, { name: 'Лист записи', link: require('@/assets/about_us_files/record_sheet.jpeg') },
+        { name: 'Устав', link: require('file-loader!@/assets/about_us_files/article_of_association.pdf') },
+        { name: 'Лист записи', link: require('@/assets/about_us_files/record_sheet.jpeg') },
       ],
     };
   },
