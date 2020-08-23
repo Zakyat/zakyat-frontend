@@ -21,12 +21,30 @@
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
-    <v-btn text small>
+    <v-btn text small @click="authDialog = !authDialog">
       <v-icon color="white" size="20">
         mdi-account-circle
       </v-icon>
       {{ $t('login') }}
     </v-btn>
+    <v-dialog
+      v-model="authDialog"
+      width="440"
+      :fullscreen="$vuetify.breakpoint.mobile"
+    >
+      <div class="text-right white">
+        <v-btn icon class="mt-3 mr-3" @click="authDialog = !authDialog">
+          <v-icon color="black" large>
+            mdi-close
+          </v-icon>
+        </v-btn>
+      </div>
+      <component
+        :is="currentDialog"
+        style="background-color: white;"
+        @set-dialog="currentDialog = $event"
+      />
+    </v-dialog>
     <v-flex lg1 md2 xs4>
       <LanguageSelector class="icon" />
     </v-flex>
@@ -49,18 +67,28 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import LanguageSelector from '@/components/LanguageSelector.vue';
 import { rubles } from '@/plugins/currency';
+import LanguageSelector from '@/components/LanguageSelector.vue';
+import RegistrationDialog from '@/components/auth/RegistrationDialog.vue';
+import SignInDialog from '@/components/auth/SignInDialog.vue';
+import PasswordRecoveryDialog from '@/components/auth/PasswordRecoveryDialog.vue';
+import SuccessDialog from '@/components/auth/SuccessDialog.vue';
 
 export default Vue.extend({
   components: {
     LanguageSelector,
+    PasswordRecoveryDialog,
+    RegistrationDialog,
+    SuccessDialog,
+    SignInDialog,
   },
   data () {
     return {
       amount: 6234234,
       items: this.$t('search.suggestions'),
       isSearcherOpen: false,
+      authDialog: false,
+      currentDialog: 'SignInDialog',
     };
   },
   methods: {
