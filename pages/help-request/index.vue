@@ -1,13 +1,14 @@
 <template>
-  <div class="cards-wrapper">
+  <div>
     <v-card
-      v-for="(category, i) in categories"
+      v-for="({text, route}, i) in categories"
       :key="i"
       flat
+      nuxt
+      :to="route"
       class="category"
-      @click="$emit('set-content', category.componentName)"
     >
-      {{ category.name }}
+      {{ text }}
     </v-card>
   </div>
 </template>
@@ -20,17 +21,17 @@ export default Vue.extend({
   data () {
     return {
       categories: [
-        { name: 'ребенок, имеющий проблемы со здоровьем', componentName: 'childrenWithDisabilities' },
-        { name: 'взрослый, имеющий проблемы со здоровьем', componentName: '' },
-        { name: 'многодетная семья', componentName: '' },
-        { name: 'бедная семья', componentName: '' },
-        { name: 'пенсионеры', componentName: '' },
-        { name: 'родитель-одиночка', componentName: '' },
-        { name: 'сирота', componentName: '' },
-        { name: 'беженец', componentName: '' },
-        { name: 'человек без места проживания или путешественник, который попал в беду', componentName: '' },
-        { name: 'должник', componentName: '' },
-        { name: 'человек, стремящийся к изучению ислама', componentName: '' },
+        { text: 'ребенок, имеющий проблемы со здоровьем', route: '/help-request/childrenWithDisabilities' },
+        { text: 'взрослый, имеющий проблемы со здоровьем', route: '' },
+        { text: 'многодетная семья', route: '' },
+        { text: 'бедная семья', route: '' },
+        { text: 'пенсионеры', route: '' },
+        { text: 'родитель-одиночка', route: '' },
+        { text: 'сирота', route: '' },
+        { text: 'беженец', route: '' },
+        { text: 'человек без места проживания или путешественник, который попал в беду', route: '' },
+        { text: 'должник', route: '' },
+        { text: 'человек, стремящийся к изучению ислама', route: '' },
       ],
     };
   },
@@ -42,13 +43,11 @@ export default Vue.extend({
   width: 75%;
   height: 46px;
   display: grid;
-  justify-content: start;
   align-items: center;
   padding-left: 30px;
-  margin-bottom: 13px;
-  border-radius: 10px !important;
+  margin-bottom: 1em;
   background-color: #fafafa;
   border: 1px solid #ccc;
-  font-size: 20px;
+  font-size: 1.25em;
 }
 </style>
