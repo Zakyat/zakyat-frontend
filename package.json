@@ -19,8 +19,7 @@
     "nuxt": "^2.0.0",
     "nuxt-i18n": "^6.12.2",
     "swiper": "^5.4.2",
-    "vue-awesome-swiper": "^4.1.1",
-    "vue-custom-datepicker": "^1.1.6"
+    "vue-awesome-swiper": "^4.1.1"
   },
   "devDependencies": {
     "@nuxt/typescript-build": "^1.0.3",
