@@ -1,25 +1,54 @@
 <template>
-  <HelpRequestCategories @set-content="setContent" />
+  <div class="cards-wrapper">
+    <v-card
+      v-for="(category, i) in categories"
+      :key="i"
+      flat
+      class="category"
+      @click="$emit('set-content', category.componentName)"
+    >
+      {{ category.name }}
+    </v-card>
+  </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import HelpRequestCategories from '@/components/help-requests/HelpRequestCategories.vue';
 
 export default Vue.extend({
-  name: 'HelpRequestContent',
-  components: {
-    HelpRequestCategories,
-  },
+  name: 'HelpRequestCategories',
   data () {
     return {
-      currentContent: 'linkOfCategories',
+      categories: [
+        { name: 'ребенок, имеющий проблемы со здоровьем', componentName: 'childrenWithDisabilities' },
+        { name: 'взрослый, имеющий проблемы со здоровьем', componentName: '' },
+        { name: 'многодетная семья', componentName: '' },
+        { name: 'бедная семья', componentName: '' },
+        { name: 'пенсионеры', componentName: '' },
+        { name: 'родитель-одиночка', componentName: '' },
+        { name: 'сирота', componentName: '' },
+        { name: 'беженец', componentName: '' },
+        { name: 'человек без места проживания или путешественник, который попал в беду', componentName: '' },
+        { name: 'должник', componentName: '' },
+        { name: 'человек, стремящийся к изучению ислама', componentName: '' },
+      ],
     };
-  },
-  methods: {
-    setContent (content: string): void {
-      this.currentContent = content;
-    },
   },
 });
 </script>
+
+<style scoped lang="scss">
+.category {
+  width: 75%;
+  height: 46px;
+  display: grid;
+  justify-content: start;
+  align-items: center;
+  padding-left: 30px;
+  margin-bottom: 13px;
+  border-radius: 10px !important;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  font-size: 20px;
+}
+</style>
