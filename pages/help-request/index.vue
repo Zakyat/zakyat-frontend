@@ -1,5 +1,5 @@
 <template>
-  <div class="help-wrapper">
+  <v-container>
     <h1 class="mt-9 mb-6">
       Получить помощь
     </h1>
@@ -17,7 +17,7 @@
       <ChildrenWithDisabilitiesHelp v-if="currentContent === 'childrenWithDisabilities'" @set-content="setContent" />
       <!--add here other category-components-->
     </div>
-  </div>
+  </v-container>
 </template>
 
 <script lang="ts">
@@ -45,11 +45,6 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
-  .help-wrapper {
-    margin: 0 auto;
-    width: 1170px;
-  }
-
   .content {
     background-color: white;
     border-radius: 15px;
