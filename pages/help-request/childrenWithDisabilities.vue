@@ -1,27 +1,8 @@
 <template>
   <div class="category-wrapper">
-    <v-row justify="space-between">
-      <v-col cols="10">
-        <v-card
-          flat
-          class="category"
-        >
-          ребенок, имеющий проблемы со здоровьем
-        </v-card>
-      </v-col>
-      <v-col cols="2" style="text-align: right;">
-        <v-btn
-          depressed
-          dark
-          color="#56B756"
-          height="46px"
-          class="button-to text-none rounded-pill"
-          @click="$emit('set-content', 'linkOfCategories')"
-        >
-          Изменить
-        </v-btn>
-      </v-col>
-    </v-row>
+    <CategoryHeader>
+      ребенок, имеющий проблемы со здоровьем
+    </CategoryHeader>
     <p class="mt-3" style="font-size: 16px;">
       Для выбранной категории вам нужно заполнить информацию о себе, супруге и о всех своих детях
     </p>
@@ -90,8 +71,7 @@
               placeholder=" Пол"
               type="text"
               :rules="fieldRules"
-            >
-            </v-autocomplete>
+            />
           </v-col>
         </v-row>
         <h2 class="category__small-header ml-3">
@@ -259,7 +239,7 @@
           solo
           flat
           :items="userGender === 'М' || userGender === '' ? familyStatusMan : familyStatusWoman"
-          :placeholder="'  ' + (userGender === 'М' || userGender === '' ?  familyStatusMan[0] : familyStatusWoman[0])"
+          :placeholder="'  ' + (userGender === 'М' || userGender === '' ? familyStatusMan[0] : familyStatusWoman[0])"
           height="50px"
           type="text"
           :rules="fieldRules"
@@ -462,6 +442,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import CategoryHeader from '@/components/help-requests/CategoryHeader.vue';
 import WarningDialog from '~/components/help-requests/WarningDialog.vue';
 import ChildForm from '~/components/help-requests/ChildForm.vue';
 
@@ -470,6 +451,7 @@ export default Vue.extend({
   components: {
     ChildForm,
     WarningDialog,
+    CategoryHeader,
   },
   data () {
     return {
@@ -519,28 +501,6 @@ export default Vue.extend({
   width: 140px;
   border-radius: 30px;
   font-size: 16px;
-  text-transform: none;
-}
-
-.button-to-disabled {
-  background-color: #899a89;
-  letter-spacing: normal;
-  font-weight: normal;
-  width: 140px;
-  border-radius: 30px;
-  font-size: 16px;
-  text-transform: none;
-}
-
-.category {
-  height: 46px;
-  display: grid;
-  place-items: center;
-  margin-bottom: 13px;
-  border-radius: 30px !important;
-  background-color: #e5e5e5;
-  border: 1px solid #ccc;
-  font-size: 20px;
 }
 
 .category__main-header {
@@ -591,21 +551,8 @@ export default Vue.extend({
   width: 170px;
 }
 
-.category__child-info {
-  width: 150px;
-}
-
 .category__agreement {
   display: grid;
   place-items: center;
 }
-
-.category__info-wrapper {
-  text-align: center;
-}
-
-.button-wrapper {
-  text-align: right;
-}
-
 </style>
