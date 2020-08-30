@@ -1,10 +1,10 @@
 <template>
   <div>
     <CategoryHeader>
-      ребенок, имеющий проблемы со здоровьем
+      {{ $t('help_request.categories.child_health_problems.title') }}
     </CategoryHeader>
     <p class="mt-3" style="font-size: 16px;">
-      Для выбранной категории вам нужно заполнить информацию о себе, супруге и о всех своих детях
+      {{ $t('help_request.categories.child_health_problems.subtitle') }}
     </p>
     <v-form
       ref="form"
@@ -12,14 +12,14 @@
     >
       <div class="infoAboutYou">
         <h2 class="category__main-header mt-8">
-          Информация о вас
+          {{ $t('help_request.categories.child_health_problems.your_info') }}
         </h2>
         <v-row class="mt-3">
           <v-col cols="7" class="pr-9">
             <v-text-field
               dense
               height="50"
-              placeholder="Введите свое полное имя"
+              :placeholder="$t('help_request.categories.child_health_problems.enter_name')"
               rounded
               outlined
               type="text"
@@ -29,7 +29,7 @@
               rounded
               dense
               height="50"
-              placeholder="Введите гражданство"
+              :placeholder="$t('help_request.categories.child_health_problems.enter_citizenship')"
               outlined
               type="text"
               :rules="fieldRules"
@@ -38,7 +38,7 @@
               rounded
               dense
               height="50"
-              placeholder="Номер телефона"
+              :placeholder="$t('help_request.categories.child_health_problems.phone_number')"
               outlined
               type="number"
               :rules="fieldRules"
@@ -51,9 +51,10 @@
               solo
               flat
               rounded
-              :items="religion"
-              placeholder="Религия"
-              type="text"
+              :items="religions"
+              item-text="text"
+              item-value="value"
+              :placeholder="$t('help_request.categories.child_health_problems.religion')"
               :rules="fieldRules"
             />
           </v-col>
@@ -67,15 +68,17 @@
               flat
               rounded
               height="50"
-              :items="gender"
-              placeholder="Пол"
+              :items="genders"
+              item-text="text"
+              item-value="value"
+              :placeholder="$t('help_request.categories.child_health_problems.gender')"
               type="text"
               :rules="fieldRules"
             />
           </v-col>
         </v-row>
         <h2 class="category__small-header ml-3">
-          Дата рождения
+          {{ $t('help_request.categories.child_health_problems.birthdate') }}
         </h2>
         <v-menu
           v-model="userDatePicker"
@@ -110,14 +113,14 @@
           class="category__outer-row-field"
           dense
           height="50"
-          placeholder="Адрес проживания"
+          :placeholder="$t('help_request.categories.child_health_problems.residential_address')"
           outlined
           rounded
           type="text"
           :rules="fieldRules"
         />
         <h2 class="category__default-header">
-          Паспорт
+          {{ $t('help_request.categories.child_health_problems.passport') }}
         </h2>
         <v-file-input
           solo
@@ -125,21 +128,17 @@
           prepend-icon=""
           multiple="multiple"
           hide-details
-          placeholder="Прикрепить изображения главной страницы,  прописки,  о браке и дети (4 шт)"
+          :placeholder="$t('help_request.categories.child_health_problems.passport_instructions')"
           class="category__file-sender ml-n3"
         />
         <h2 class="category__small-header mt-4">
-          Заполните данные о работе или прикрепите справку с биржы труда
+          {{ $t('help_request.categories.child_health_problems.job_instructions') }}
         </h2>
-        <v-expansion-panels
-          flat
-        >
+        <v-expansion-panels flat>
           <v-expansion-panel>
-            <v-expansion-panel-header
-              class="category__work-info"
-            >
+            <v-expansion-panel-header class="category__work-info">
               <h2 class="category__default-header ml-n6">
-                Работа и доход
+                {{ $t('help_request.categories.child_health_problems.work.title') }}
               </h2>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="ml-n6">
@@ -147,7 +146,7 @@
                 class="category__outer-row-field"
                 dense
                 height="50"
-                placeholder="Место работы"
+                :placeholder="$t('help_request.categories.child_health_problems.work.place')"
                 outlined
                 rounded
                 type="text"
@@ -157,7 +156,7 @@
                 class="category__outer-row-field"
                 dense
                 height="50"
-                placeholder="Рабочая позиция на работе"
+                :placeholder="$t('help_request.categories.child_health_problems.work.position')"
                 outlined
                 rounded
                 type="text"
@@ -167,7 +166,7 @@
                 class="category__outer-row-field"
                 dense
                 height="50"
-                placeholder="Заработная плата"
+                :placeholder="$t('help_request.categories.child_health_problems.work.salary')"
                 outlined
                 rounded
                 type="text"
@@ -177,25 +176,25 @@
                 class="category__outer-row-field"
                 dense
                 height="50"
-                placeholder="Пенсия (в руб), если есть"
+                :placeholder="$t('help_request.categories.child_health_problems.work.pension')"
                 outlined
                 rounded
                 type="text"
                 :rules="fieldRules"
               />
               <h2 class="category__default-header">
-                Справка с места работы
+                {{ $t('help_request.categories.child_health_problems.work.certificate') }}
               </h2>
               <v-file-input
                 solo
                 flat
                 prepend-icon=""
                 hide-details
-                placeholder="Прикрепить изображение"
+                :placeholder="$t('help_request.categories.child_health_problems.work.attach_image')"
                 class="category__file-sender ml-n3"
               />
               <h2 class="category__default-header">
-                Трудовая книжка
+                {{ $t('help_request.categories.child_health_problems.work.records') }}
               </h2>
               <v-file-input
                 solo
@@ -203,14 +202,14 @@
                 prepend-icon=""
                 multiple="multiple"
                 hide-details
-                placeholder="Прикрепить изображения"
+                :placeholder="$t('help_request.categories.child_health_problems.work.attach_image')"
                 class="category__file-sender ml-n3"
               />
             </v-expansion-panel-content>
           </v-expansion-panel>
         </v-expansion-panels>
         <h2 class="category__default-header mt-2">
-          Справка о доходах за последние 6 месяцев
+          {{ $t('help_request.categories.child_health_problems.income_statement') }}
         </h2>
         <v-file-input
           solo
@@ -218,11 +217,11 @@
           prepend-icon=""
           multiple="multiple"
           hide-details
-          placeholder="Прикрепить изображения о доходах: заработная плата, пенсия и/или пособия."
+          :placeholder="$t('help_request.categories.child_health_problems.income_attach')"
           class="category__file-sender ml-n3"
         />
         <h2 class="category__default-header mt-3">
-          Справка с биржи труда
+          {{ $t('help_request.categories.child_health_problems.labor_exchange_reference') }}
         </h2>
         <v-file-input
           solo
@@ -230,11 +229,11 @@
           prepend-icon=""
           multiple="multiple"
           hide-details
-          placeholder="Прикрепить изображения справки из биржы труда, если безработный"
+          :placeholder="$t('help_request.categories.child_health_problems.labor_exchange_attach')"
           class="category__file-sender ml-n3"
         />
         <h2 class="category__default-header mt-3">
-          Статус в семье
+          {{ $t('help_request.categories.child_health_problems.family_status') }}
         </h2>
         <!--here, depending on gender, the endings of the items and placeholders changes-->
         <v-autocomplete
@@ -245,8 +244,10 @@
           solo
           flat
           rounded
-          :items="userGender === 'М' || userGender === '' ? familyStatusMan : familyStatusWoman"
-          :placeholder="(userGender === 'М' || userGender === '' ? familyStatusMan[0] : familyStatusWoman[0])"
+          item-text="text"
+          item-value="value"
+          :items="userGender === 'М' || userGender === '' ? familyStatusesMan : familyStatusesWoman"
+          :placeholder="(userGender === 'М' || userGender === '' ? familyStatusesMan[0].text : familyStatusesWoman[0]).text"
           height="50"
           type="text"
           :rules="fieldRules"
@@ -255,69 +256,66 @@
 
       <div class="childInfoBlock">
         <h2 class="category__main-header mt-2">
-          Ребёнок, нуждающийся в помощи
+          {{ $t('help_request.categories.child_health_problems.child.title') }}
         </h2>
         <h2 class="category__default-header mt-6">
-          Справка об инвалидности
+          {{ $t('help_request.categories.child_health_problems.child.disability_certificate') }}
         </h2>
         <v-file-input
           solo
           flat
           prepend-icon=""
           hide-details
-          placeholder="Прикрепить изображение"
+          :placeholder="$t('help_request.categories.child_health_problems.work.attach_image')"
           class="category__file-sender ml-n3"
         />
         <h2 class="category__default-header mt-3">
-          Выписка (справка) от врача
+          {{ $t('help_request.categories.child_health_problems.child.doctor_statement') }}
         </h2>
         <v-file-input
           solo
           flat
           prepend-icon=""
           hide-details
-          placeholder="Прикрепить изображение"
+          :placeholder="$t('help_request.categories.child_health_problems.work.attach_image')"
           class="category__file-sender ml-n3"
         />
         <h2 class="category__default-header mt-3">
-          Счет на медицинские услуги или на приобретение медикаментов
+          {{ $t('help_request.categories.child_health_problems.child.medication_invoice') }}
         </h2>
         <v-file-input
           solo
           flat
           prepend-icon=""
           hide-details
-          placeholder="Прикрепить изображение"
+          :placeholder="$t('help_request.categories.child_health_problems.work.attach_image')"
           class="category__file-sender ml-n3"
         />
         <h2 class="category__default-header mt-3">
-          Паспорт или свидетельство о рождении
+          {{ $t('help_request.categories.child_health_problems.child.identification') }}
         </h2>
         <v-file-input
           solo
           flat
           prepend-icon=""
           hide-details
-          multiple="multiple"
-          placeholder="Прикрепить 2 изображения паспорта: главная страница, прописка или свидетельство о рождении"
+          multiple
+          :placeholder="$t('help_request.categories.child_health_problems.child.identification_instructions')"
           class="category__file-sender ml-n3"
         />
       </div>
 
       <div class="spouseInfo">
-        <v-expansion-panels
-          flat
-        >
-          <!--this panel "Spouse" is disabled when user selects family-status - "Alone" or "Other"-->
+        <v-expansion-panels flat>
           <v-expansion-panel
-            :disabled="!(familyStatus !== 'Одинокая' && familyStatus !== 'Одинок' && familyStatus !== 'Другое')"
+            :disabled="familyStatus === 'single' || familyStatus === 'other'"
           >
             <v-expansion-panel-header
               class="category___spouse-header"
               expand-icon="mdi-plus-circle-outline"
             >
               <h2 class="category__main-header ml-n6">
-                Супруг(-а)
+                {{ $t('help_request.categories.child_health_problems.spouse') }}
               </h2>
             </v-expansion-panel-header>
             <v-expansion-panel-content class="ml-n6">
@@ -327,7 +325,7 @@
                     rounded
                     dense
                     height="50"
-                    placeholder="Введите свое полное имя"
+                    :placeholder="$t('help_request.categories.child_health_problems.enter_name')"
                     outlined
                     type="text"
                     :rules="fieldRules"
@@ -336,7 +334,7 @@
                     rounded
                     dense
                     height="50"
-                    placeholder="Введите гражданство"
+                    :placeholder="$t('help_request.categories.child_health_problems.enter_citizenship')"
                     outlined
                     type="text"
                     :rules="fieldRules"
@@ -344,7 +342,7 @@
                 </v-col>
               </v-row>
               <h2 class="category__small-header ml-3">
-                Дата рождения
+                {{ $t('help_request.categories.child_health_problems.birthdate') }}
               </h2>
               <v-menu
                 v-model="spouseDatePicker"
@@ -379,14 +377,14 @@
                 class="category__outer-row-field"
                 dense
                 height="50"
-                placeholder="Адрес проживания"
+                :placeholder="$t('help_request.categories.child_health_problems.residential_address')"
                 outlined
                 rounded
                 type="text"
                 :rules="fieldRules"
               />
               <h2 class="category__default-header">
-                Паспорт
+                {{ $t('help_request.categories.child_health_problems.passport') }}
               </h2>
               <v-file-input
                 solo
@@ -394,7 +392,7 @@
                 prepend-icon=""
                 multiple="multiple"
                 hide-details
-                placeholder="Прикрепить изображения главной страницы,  прописки,  о браке и дети (4 шт)"
+                :placeholder="$t('help_request.categories.child_health_problems.marriage_attachment')"
                 class="category__file-sender ml-n3"
               />
             </v-expansion-panel-content>
@@ -404,7 +402,7 @@
       <!--here user can add other child-form-->
       <div class="otherChildInfoBlock">
         <h2 class="category__main-header mt-2">
-          Ребёнок
+          {{ $t('help_request.categories.child_health_problems.child_form.title') }}
           <v-btn icon @click="addChildForm">
             <v-icon>mdi-plus-circle-outline</v-icon>
           </v-btn>
@@ -422,20 +420,20 @@
       <div class="category__agreement">
         <v-checkbox
           v-model="agreedToTerms"
-          label="Я принимаю условия публичной оферты и даю согласие на обработку персональных данных"
+          :label="$t('help_request.categories.child_health_problems.terms_consent')"
           color="success"
           :rules="fieldRules"
         />
         <v-btn
           depressed
-          dark
           height="46"
-          width="300"
-          :color="(isValid && agreedToTerms) ? '#56B756' : '#899a89'"
+          min-width="300"
+          color="#56B756"
+          :disabled="!isValid || !agreedToTerms"
           class="button-to"
           @click="validate"
         >
-          Написать заявление и отправить
+          {{ $t('help_request.categories.child_health_problems.send') }}
         </v-btn>
       </div>
     </v-form>
@@ -452,8 +450,8 @@
 <script lang="ts">
 import Vue from 'vue';
 import CategoryHeader from '@/components/help-requests/CategoryHeader.vue';
-import WarningDialog from '~/components/help-requests/WarningDialog.vue';
-import ChildForm from '~/components/help-requests/ChildForm.vue';
+import WarningDialog from '@/components/help-requests/WarningDialog.vue';
+import ChildForm from '@/components/help-requests/ChildForm.vue';
 
 export default Vue.extend({
   name: 'ChildrenWithDisabilities',
@@ -467,10 +465,28 @@ export default Vue.extend({
       // options for choose
       // need to add this fields into the ru.json, in the en.json we need
       // only one default array of common familyStatusItems
-      gender: ['М', 'Ж'],
-      religion: ['Ислам', 'Христианство', 'Иудаизм', 'Атеизм', 'Другое'],
-      familyStatusMan: ['Женат', 'Разведен', 'Одинок', 'Разведен', 'Другое'],
-      familyStatusWoman: ['Замужем', 'Разведена', 'Одинокая', 'Разведена', 'Другое'],
+      genders: [
+        { text: this.$t('help_request.categories.child_health_problems.genders.male'), value: 'М' },
+        { text: this.$t('help_request.categories.child_health_problems.genders.female'), value: 'Ж' }],
+      religions: [
+        { text: this.$t('help_request.categories.child_health_problems.religions.islam'), value: 'islam' },
+        { text: this.$t('help_request.categories.child_health_problems.religions.christianity'), value: 'christianity' },
+        { text: this.$t('help_request.categories.child_health_problems.religions.judaism'), value: 'judaism' },
+        { text: this.$t('help_request.categories.child_health_problems.religions.atheism'), value: 'atheism' },
+        { text: this.$t('help_request.categories.child_health_problems.religions.other'), value: 'other' },
+      ],
+      familyStatusesMan: [
+        { text: this.$t('help_request.categories.child_health_problems.family_statuses.male.married'), value: 'married' },
+        { text: this.$t('help_request.categories.child_health_problems.family_statuses.male.divorced'), value: 'divorced' },
+        { text: this.$t('help_request.categories.child_health_problems.family_statuses.male.single'), value: 'single' },
+        { text: this.$t('help_request.categories.child_health_problems.family_statuses.male.other'), value: 'other' },
+      ],
+      familyStatusesWoman: [
+        { text: this.$t('help_request.categories.child_health_problems.family_statuses.female.married'), value: 'married' },
+        { text: this.$t('help_request.categories.child_health_problems.family_statuses.female.divorced'), value: 'divorced' },
+        { text: this.$t('help_request.categories.child_health_problems.family_statuses.female.single'), value: 'single' },
+        { text: this.$t('help_request.categories.child_health_problems.family_statuses.female.other'), value: 'other' },
+      ],
       // user data
       userGender: '',
       userDate: '',

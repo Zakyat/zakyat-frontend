@@ -15,12 +15,12 @@
         depressed
         dark
         color="#56B756"
-        height="46px"
-        class="button-to text-none rounded-pill"
+        height="46"
+        class="button-to"
         nuxt
         to="/help-request"
       >
-        Изменить
+        {{ parent.$t('help_request.change') }}
       </v-btn>
     </v-col>
   </v-row>

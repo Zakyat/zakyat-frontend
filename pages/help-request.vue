@@ -1,14 +1,14 @@
 <template>
   <v-container>
     <h1 class="mt-9 mb-6">
-      Получить помощь
+      {{ $t('help_request.title') }}
     </h1>
     <div class="content">
       <h2 v-if="categoryChosen" class="mb-7">
-        Ваша категория для получения помощи:
+        {{ $t('help_request.your_category') }}:
       </h2>
       <h2 v-else class="mb-7">
-        Выберите свою категорию для получения помощи:
+        {{ $t('help_request.choose_category') }}:
       </h2>
       <nuxt-child />
     </div>

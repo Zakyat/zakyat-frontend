@@ -3,10 +3,10 @@
     <v-row class="mt-3">
       <v-col cols="7" class="pr-9">
         <v-text-field
-          class="category__default-text-field"
+          rounded
           dense
           height="50px"
-          placeholder="  Введите полное имя ребенка"
+          :placeholder="$t('help_request.categories.child_health_problems.child_form.name')"
           outlined
           type="text"
           :rules="fieldRules"
@@ -14,19 +14,22 @@
       </v-col>
       <v-col cols="5">
         <v-autocomplete
-          class="category__autocomplete-field category__default-text-field"
+          class="category__autocomplete-field"
           dense
           outlined
-          :items="gender"
-          placeholder="  Пол"
-          height="50px"
+          rounded
+          :items="genders"
+          item-text="text"
+          item-value="value"
+          :placeholder="$t('help_request.categories.child_health_problems.gender')"
+          height="50"
           type="text"
           :rules="fieldRules"
         />
       </v-col>
     </v-row>
     <h2 class="category__small-header ml-3">
-      Дата рождения
+      {{ $t('help_request.categories.child_health_problems.birthdate') }}
     </h2>
     <v-menu
       :v-model="childDatePicker"
@@ -40,11 +43,12 @@
         <v-text-field
           v-model="childDate"
           outlined
-          class="rounded-pill category__date-field"
+          class="category__date-field"
           prepend-inner-icon="mdi-calendar-multiselect"
           readonly
+          rounded
           v-bind="attrs"
-          placeholder="     __-__-____"
+          placeholder="__-__-____"
           color="success"
           :rules="fieldRules"
           v-on="on"
@@ -57,7 +61,7 @@
       />
     </v-menu>
     <h2 class="category__default-header">
-      Паспорт или свидетельство о рождении
+      {{ $t('help_request.categories.child_health_problems.child.identification') }}
     </h2>
     <v-file-input
       solo
@@ -65,23 +69,29 @@
       prepend-icon=""
       multiple="multiple"
       hide-details
-      placeholder="Прикрепить 2 изображения паспорта: главная страница, прописка или свидетельство о рождении"
+      :placeholder="$t('help_request.categories.child_health_problems.child.identification_instructions')"
       class="category__file-sender ml-n3"
     />
   </div>
 </template>
+
 <script lang="ts">
-export default {
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'ChildForm',
   data () {
     return {
       fieldRules: [(v: string) => !!v],
-      gender: ['М', 'Ж'],
+      genders: [
+        { text: this.$t('help_request.categories.child_health_problems.genders.male'), value: 'male' },
+        { text: this.$t('help_request.categories.child_health_problems.genders.male'), value: 'female' },
+      ],
       childDate: '',
       childDatePicker: false,
     };
   },
-};
+});
 </script>
 
 <style scoped lang="scss">
@@ -91,17 +101,12 @@ export default {
     color: #b0b0b0;
   }
 
-  .category__default-text-field {
-    border-radius: 30px !important;
-  }
-
   .category__autocomplete-field {
     width: 230px;
   }
 
   .category__date-field {
     width: 170px;
-    border-radius: 30px !important;
     margin-top: 10px;
   }
 
@@ -115,5 +120,4 @@ export default {
     text-underline-position: under;
     color: #666;
   }
-
 </style>
