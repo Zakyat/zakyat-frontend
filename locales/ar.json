@@ -55,14 +55,51 @@
     "volunteers": "متطوعو الموقع"
   },
   "login": "تسجيل الدخول",
+  "search": {
+    "buttonName": "بحث"
+  },
+  "reports": {
+    "expenses": {
+      "amounts": "مقدم / مطلوب",
+      "application_number": "رقم الطلب",
+      "situation_description": "وصف الموقف",
+      "needly": "للمحتاجين",
+      "application_date": "تاريخ التطبيق",
+      "subtitle": "المحولة إلى المحتاجين للفترة المحددة",
+      "spending": "نفقات أخرى",
+      "beneficiary_name": "اسم المحتاج",
+      "title": "قدمت المساعدة"
+    },
+    "income": {
+      "donation_target": "الغرض من التبرع",
+      "date": "تاريخ",
+      "benfactor_name": "الاسم الكامل للمستفيد",
+      "amount": "كمية",
+      "subtitle": "جمعت للفترة المحددة",
+      "donation_type": "نوع التبرع",
+      "title": "التبرعات"
+    },
+    "months": {
+      "january": "يناير",
+      "february": "فبراير",
+      "december": "ديسمبر",
+      "august": "أغسطس",
+      "april": "أبريل",
+      "september": "سبتمبر",
+      "november": "نوفمبر",
+      "june": "يونيو",
+      "october": "اكتوبر",
+      "may": "مايو",
+      "march": "مارس",
+      "july": "يوليو"
+    },
+    "full_year": "عام كامل"
+  },
   "news": {
     "specific_news": {
       "other_news": "أخبار أخرى",
       "see_all": "اظهار الكل"
     }
-  },
-  "search": {
-    "buttonName": "بحث"
   },
   "auth": {
     "emailPlaceholder": "البريد الإلكتروني",

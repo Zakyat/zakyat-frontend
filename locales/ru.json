@@ -71,6 +71,43 @@
       "all": "Смотреть все"
     }
   },
+  "reports": {
+    "expenses": {
+      "needly": "Для нуждающихся",
+      "spending": "Иные расходы",
+      "title": "Оказанная помощь",
+      "subtitle": "Передано нуждающимся за выбранный период",
+      "application_number": "Номер заявления",
+      "application_date": "Дата заявления",
+      "beneficiary_name": "ФИО нуждающегося",
+      "situation_description": "Описание ситуации",
+      "amounts": "Передано/Необходимо"
+    },
+    "income": {
+      "title": "Поступления",
+      "subtitle": "Собрано за выбранный период",
+      "date": "Дата",
+      "benfactor_name": "ФИО благотворителя",
+      "donation_target": "Назначение пожертвования",
+      "donation_type": "Вид пожертвования",
+      "amount": "Сумма"
+    },
+    "full_year": "весь год",
+    "months": {
+      "january": "январь",
+      "february": "февраль",
+      "march": "март",
+      "april": "апрель",
+      "may": "май",
+      "june": "июнь",
+      "july": "июль",
+      "august": "август",
+      "september": "сентябрь",
+      "october": "октябрь",
+      "november": "ноябрь",
+      "december": "декабрь"
+    }
+  },
   "zakat": {
     "title": "Выплатить закят",
     "calculator": {
