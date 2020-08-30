@@ -21,17 +21,17 @@ export default Vue.extend({
   data () {
     return {
       categories: [
-        { text: 'ребенок, имеющий проблемы со здоровьем', route: '/help-request/childrenWithDisabilities' },
-        { text: 'взрослый, имеющий проблемы со здоровьем', route: '' },
-        { text: 'многодетная семья', route: '' },
-        { text: 'бедная семья', route: '' },
-        { text: 'пенсионеры', route: '' },
-        { text: 'родитель-одиночка', route: '' },
-        { text: 'сирота', route: '' },
-        { text: 'беженец', route: '' },
-        { text: 'человек без места проживания или путешественник, который попал в беду', route: '' },
-        { text: 'должник', route: '' },
-        { text: 'человек, стремящийся к изучению ислама', route: '' },
+        { text: this.$t('help_request.categories.child_health_problems.title'), route: '/help-request/childrenWithDisabilities' },
+        { text: this.$t('help_request.categories.adult_health_problems.title'), route: '' },
+        { text: this.$t('help_request.categories.large_family.title'), route: '' },
+        { text: this.$t('help_request.categories.poor_family.title'), route: '' },
+        { text: this.$t('help_request.categories.retirees.title'), route: '' },
+        { text: this.$t('help_request.categories.single_parent.title'), route: '' },
+        { text: this.$t('help_request.categories.orphan.title'), route: '' },
+        { text: this.$t('help_request.categories.refugee.title'), route: '' },
+        { text: this.$t('help_request.categories.homeless.title'), route: '' },
+        { text: this.$t('help_request.categories.debtor.title'), route: '' },
+        { text: this.$t('help_request.categories.islam_student.title'), route: '' },
       ],
     };
   },

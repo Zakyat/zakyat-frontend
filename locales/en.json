@@ -493,6 +493,36 @@
           "title": "Work and income"
         },
         "your_info": "Information about you"
+      },
+      "adult_health_problems": {
+        "title": "adult with health problems"
+      },
+      "debtor": {
+        "title": "debtor"
+      },
+      "homeless": {
+        "title": "a person without a place of residence or a traveler who is in trouble"
+      },
+      "islam_student": {
+        "title": "a person who aspires to study Islam"
+      },
+      "large_family": {
+        "title": "large family"
+      },
+      "orphan": {
+        "title": "orphan"
+      },
+      "poor_family": {
+        "title": "poor family"
+      },
+      "refugee": {
+        "title": "refugee"
+      },
+      "retirees": {
+        "title": "retiree"
+      },
+      "single_parent": {
+        "title": "single parent"
       }
     },
     "change": "Edit",
