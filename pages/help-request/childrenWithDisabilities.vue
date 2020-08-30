@@ -1,5 +1,5 @@
 <template>
-  <div class="category-wrapper">
+  <div>
     <CategoryHeader>
       ребенок, имеющий проблемы со здоровьем
     </CategoryHeader>
@@ -16,44 +16,43 @@
         </h2>
         <v-row class="mt-3">
           <v-col cols="7" class="pr-9">
-            <!--added :rules="fieldRules" cuz aria-required="true" doesn't work-->
-            <!--added class="defaultTextFiled" for filter text-inputs from other file-inputs-->
             <v-text-field
-              class="category__default-text-field"
               dense
-              height="50px"
-              placeholder="  Введите свое полное имя"
+              height="50"
+              placeholder="Введите свое полное имя"
+              rounded
               outlined
               type="text"
               :rules="fieldRules"
             />
             <v-text-field
-              class="category__default-text-field"
+              rounded
               dense
-              height="50px"
-              placeholder="  Введите гражданство"
+              height="50"
+              placeholder="Введите гражданство"
               outlined
               type="text"
               :rules="fieldRules"
             />
             <v-text-field
-              class="category__default-text-field"
+              rounded
               dense
-              height="50px"
-              placeholder="  Номер телефона"
+              height="50"
+              placeholder="Номер телефона"
               outlined
               type="number"
               :rules="fieldRules"
             />
             <v-autocomplete
-              class="category__autocomplete-field category__default-text-field"
+              class="category__autocomplete-field"
               outlined
               dense
-              height="50px"
+              height="50"
               solo
               flat
+              rounded
               :items="religion"
-              placeholder="  Религия"
+              placeholder="Религия"
               type="text"
               :rules="fieldRules"
             />
@@ -61,14 +60,15 @@
           <v-col cols="5">
             <v-autocomplete
               v-model="userGender"
-              class="category__autocomplete-field category__default-text-field"
+              class="category__autocomplete-field"
               outlined
               solo
               dense
               flat
-              height="50px"
+              rounded
+              height="50"
               :items="gender"
-              placeholder=" Пол"
+              placeholder="Пол"
               type="text"
               :rules="fieldRules"
             />
@@ -83,17 +83,18 @@
           :nudge-right="40"
           transition="scale-transition"
           offset-y
-          min-width="290px"
+          min-width="290"
         >
           <template v-slot:activator="{ on, attrs }">
             <v-text-field
               v-model="userDate"
               outlined
-              class="rounded-pill category__date-field"
+              class="category__date-field"
               prepend-inner-icon="mdi-calendar-multiselect"
               readonly
               v-bind="attrs"
-              placeholder="     __-__-____"
+              placeholder="__-__-____"
+              rounded
               color="success"
               :rules="fieldRules"
               v-on="on"
@@ -106,11 +107,12 @@
           />
         </v-menu>
         <v-text-field
-          class="category__default-text-field category__outer-row-field"
+          class="category__outer-row-field"
           dense
-          height="50px"
-          placeholder="  Адрес проживания"
+          height="50"
+          placeholder="Адрес проживания"
           outlined
+          rounded
           type="text"
           :rules="fieldRules"
         />
@@ -142,38 +144,42 @@
             </v-expansion-panel-header>
             <v-expansion-panel-content class="ml-n6">
               <v-text-field
-                class="category__default-text-field category__outer-row-field"
+                class="category__outer-row-field"
                 dense
-                height="50px"
-                placeholder="  Место работы"
+                height="50"
+                placeholder="Место работы"
                 outlined
+                rounded
                 type="text"
                 :rules="fieldRules"
               />
               <v-text-field
-                class="category__default-text-field category__outer-row-field"
+                class="category__outer-row-field"
                 dense
-                height="50px"
-                placeholder="  Рабочая позиция на работе"
+                height="50"
+                placeholder="Рабочая позиция на работе"
                 outlined
+                rounded
                 type="text"
                 :rules="fieldRules"
               />
               <v-text-field
-                class="category__default-text-field category__outer-row-field"
+                class="category__outer-row-field"
                 dense
-                height="50px"
-                placeholder="  Заработная плата"
+                height="50"
+                placeholder="Заработная плата"
                 outlined
+                rounded
                 type="text"
                 :rules="fieldRules"
               />
               <v-text-field
-                class="category__default-text-field category__outer-row-field"
+                class="category__outer-row-field"
                 dense
-                height="50px"
-                placeholder="  Пенсия (в руб), если есть"
+                height="50"
+                placeholder="Пенсия (в руб), если есть"
                 outlined
+                rounded
                 type="text"
                 :rules="fieldRules"
               />
@@ -233,14 +239,15 @@
         <!--here, depending on gender, the endings of the items and placeholders changes-->
         <v-autocomplete
           v-model="familyStatus"
-          class="category__autocomplete-field category__default-text-field mt-3"
+          class="category__autocomplete-field mt-3"
           outlined
           dense
           solo
           flat
+          rounded
           :items="userGender === 'М' || userGender === '' ? familyStatusMan : familyStatusWoman"
-          :placeholder="'  ' + (userGender === 'М' || userGender === '' ? familyStatusMan[0] : familyStatusWoman[0])"
-          height="50px"
+          :placeholder="(userGender === 'М' || userGender === '' ? familyStatusMan[0] : familyStatusWoman[0])"
+          height="50"
           type="text"
           :rules="fieldRules"
         />
@@ -317,19 +324,19 @@
               <v-row class="mt-n2">
                 <v-col cols="7" class="pr-9">
                   <v-text-field
-                    class="category__default-text-field"
+                    rounded
                     dense
-                    height="50px"
-                    placeholder="  Введите свое полное имя"
+                    height="50"
+                    placeholder="Введите свое полное имя"
                     outlined
                     type="text"
                     :rules="fieldRules"
                   />
                   <v-text-field
-                    class="category__default-text-field"
+                    rounded
                     dense
-                    height="50px"
-                    placeholder="  Введите гражданство"
+                    height="50"
+                    placeholder="Введите гражданство"
                     outlined
                     type="text"
                     :rules="fieldRules"
@@ -345,17 +352,18 @@
                 :nudge-right="40"
                 transition="scale-transition"
                 offset-y
-                min-width="290px"
+                min-width="290"
               >
                 <template v-slot:activator="{ on, attrs }">
                   <v-text-field
                     v-model="spouseDate"
                     outlined
-                    class="rounded-pill category__date-field"
+                    rounded
+                    class="category__date-field"
                     prepend-inner-icon="mdi-calendar-multiselect"
                     readonly
                     v-bind="attrs"
-                    placeholder="     __-__-____"
+                    placeholder="__-__-____"
                     color="success"
                     :rules="fieldRules"
                     v-on="on"
@@ -368,11 +376,12 @@
                 />
               </v-menu>
               <v-text-field
-                class="category__default-text-field category__outer-row-field"
+                class="category__outer-row-field"
                 dense
-                height="50px"
-                placeholder="  Адрес проживания"
+                height="50"
+                placeholder="Адрес проживания"
                 outlined
+                rounded
                 type="text"
                 :rules="fieldRules"
               />
@@ -420,7 +429,7 @@
         <v-btn
           depressed
           dark
-          height="46px"
+          height="46"
           width="300"
           :color="(isValid && agreedToTerms) ? '#56B756' : '#899a89'"
           class="button-to"
@@ -447,7 +456,7 @@ import WarningDialog from '~/components/help-requests/WarningDialog.vue';
 import ChildForm from '~/components/help-requests/ChildForm.vue';
 
 export default Vue.extend({
-  name: 'ChildrenWithDisabilitiesHelp',
+  name: 'ChildrenWithDisabilities',
   components: {
     ChildForm,
     WarningDialog,
@@ -518,10 +527,6 @@ export default Vue.extend({
   color: #b0b0b0;
 }
 
-.category__default-text-field {
-  border-radius: 30px !important;
-}
-
 .category__autocomplete-field {
   width: 230px;
   height: 50px !important;
@@ -529,7 +534,6 @@ export default Vue.extend({
 
 .category__date-field {
   width: 170px;
-  border-radius: 30px !important;
   margin-top: 10px;
 }
 
