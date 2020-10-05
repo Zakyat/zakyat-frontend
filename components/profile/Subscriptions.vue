@@ -26,16 +26,9 @@
             </td>
             <td>Master card *2324</td>
             <td>
-              <v-btn
-                text
-                rounded
-                color="red"
-                style="float: right;"
-                small
-              >
-                <!--        {{ $t('charity.contacts.resumeBtn') }}-->
+              <nuxt-link to="#" class="change-avatar">
                 Отменить подписку
-              </v-btn>
+              </nuxt-link>
             </td>
           </tr>
         </tbody>
@@ -51,6 +44,16 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  font-size: 28px;
+}
+
+.change-avatar {
+  color: #ac0000;
+  float: right;
+  text-decoration: none;
+}
+
 .sbor {
   padding: 0;
   margin: 0;

@@ -46,6 +46,10 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  font-size: 28px;
+}
+
 .sbor {
   padding: 0;
   margin: 0;

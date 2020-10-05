@@ -2,53 +2,72 @@
   <v-row
     justify="space-between"
   >
-    <div>
+    <v-col
+      cols="12"
+      md="3"
+      class="pt-0"
+    >
       <v-img
         width="202"
         height="202"
-        rounded
+        class="avatar"
+        style="margin: 0 auto;"
         :src="require('@/assets/images/banners/3.png')"
       />
-      <nuxt-link to="#">
-        Изменить фото
-      </nuxt-link>
-    </div>
-    <div>
-      <v-text-field
-        :placeholder="$t('charity.contacts.name')"
-        rounded
-        flat
-        outlined
-        color="grey"
-        hide-details
-        dense
-      />
-      <v-text-field
-        :placeholder="$t('charity.contacts.email')"
-        rounded
-        flat
-        outlined
-        color="grey"
-        hide-details
-        dense
-        class="mt-3"
-      />
-      <v-btn
-        text
-        rounded
-        color="primary"
+      <v-row
+        justify="center"
         class="mt-5"
-        style="width: 184px;"
       >
-        <!--        {{ $t('charity.contacts.resumeBtn') }}-->
-        Сменить пароль
-      </v-btn>
-    </div>
-    <div>
-      <nuxt-link to="#">
-        Сохраненить изменения
+        <nuxt-link to="#" class="change-avatar">
+          Изменить фото
+        </nuxt-link>
+      </v-row>
+    </v-col>
+    <v-col
+      cols="12"
+      md="6"
+    >
+      <v-form>
+        <v-text-field
+          :placeholder="$t('charity.contacts.name')"
+          rounded
+          flat
+          outlined
+          color="grey"
+          hide-details
+          dense
+        />
+        <v-text-field
+          :placeholder="$t('charity.contacts.email')"
+          rounded
+          flat
+          outlined
+          color="grey"
+          hide-details
+          dense
+          class="mt-3"
+        />
+        <v-btn
+          rounded
+          color="primary"
+          class="mt-5"
+          width="184"
+        >
+          <!--        {{ $t('charity.contacts.resumeBtn') }}-->
+          Сменить пароль
+        </v-btn>
+      </v-form>
+    </v-col>
+    <v-col
+      cols="12"
+      md="3"
+      class="apply-changes"
+    >
+      <nuxt-link to="#" class="change">
+        Сохраненить <br>
+        изменения
       </nuxt-link>
-    </div>
+    </v-col>
   </v-row>
 </template>
 
@@ -59,7 +78,20 @@ export default {
 </script>
 
 <style scoped>
+.apply-changes {
+  display: flex;
+  justify-content: center;
+}
+
 .change {
   text-decoration: none;
+}
+
+.change-avatar {
+  text-decoration: none;
+}
+
+.avatar {
+  border-radius: 200px;
 }
 </style>
