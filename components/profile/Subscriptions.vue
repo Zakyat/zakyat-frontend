@@ -13,7 +13,7 @@
       <v-col></v-col>
     </v-row>
     <v-card
-      class="subscription pr-5 py-0"
+      class="subscription pr-5 py-0 mb-3"
       flat
       rounded
       outlined
