@@ -1,7 +1,25 @@
 <template>
   <div class="mt-5">
-    <h2>Мои пожертвования</h2>
-
+    <v-row>
+      <v-col
+        cols="12"
+        md="8"
+      >
+        <h2>Мои пожертвования</h2>
+      </v-col>
+      <v-col>
+        <v-text-field
+          placeholder="Сумма или номер проекта"
+          append-icon="mdi-magnify"
+          rounded
+          dense
+          flat
+          outlined
+          hide-details
+          color="black"
+        />
+      </v-col>
+    </v-row>
     <v-simple-table>
       <template>
         <thead>
