@@ -76,6 +76,11 @@
         </v-card>
       </v-img>
     </SwiperSlide>
+    <SwiperSlide class="my-auto py-0 text-center" style="width: 40%;">
+      <v-btn text nuxt to="/gatherings">
+        {{ $t('home.slideshow.see_all') }} <v-icon>mdi-chevron-right</v-icon>
+      </v-btn>
+    </SwiperSlide>
     <v-btn slot="button-prev" class="swiper-button-prev" fab>
       <v-icon x-large>
         mdi-chevron-left

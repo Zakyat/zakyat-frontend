@@ -38,7 +38,8 @@
       "collected": "Collected",
       "remaining": "Remaining",
       "required": "Required",
-      "donate": "Donate"
+      "donate": "Donate",
+      "see_all": "View all"
     },
     "sadaka": {
       "title": "Make sadaka",
@@ -566,5 +567,8 @@
     "choose_category": "Select your category for assistance",
     "title": "Get help",
     "your_category": "Your category for assistance"
+  },
+  "gatherings": {
+    "title": "Gatherings"
   }
 }
