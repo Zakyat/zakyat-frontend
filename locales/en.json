@@ -38,7 +38,8 @@
       "collected": "Collected",
       "remaining": "Remaining",
       "required": "Required",
-      "donate": "Donate"
+      "donate": "Donate",
+      "see_all": "View all"
     },
     "sadaka": {
       "title": "Make sadaka",
@@ -330,6 +331,76 @@
       "see_all": "See all"
     }
   },
+  "reports": {
+    "income": {
+      "amount": "Amount",
+      "benfactor_name": "Benefactor name",
+      "date": "Date",
+      "donation_target": "Purpose of donation",
+      "donation_type": "Donation type",
+      "subtitle": "Collected for the selected period",
+      "title": "Donations"
+    },
+    "expenses": {
+      "amounts": "Submitted / Required",
+      "application_date": "Date of application",
+      "application_number": "Application number",
+      "beneficiary_name": "Name of the needy",
+      "needly": "For those in need",
+      "situation_description": "Description of the situation",
+      "spending": "Other expenses",
+      "subtitle": "Transferred to those in need for the selected period",
+      "title": "Help provided"
+    },
+    "full_year": "whole year",
+    "months": {
+      "january": "January",
+      "february": "February",
+      "march": "March",
+      "april": "April",
+      "may": "May",
+      "june": "June",
+      "july": "July",
+      "august": "August",
+      "october": "October",
+      "september": "September",
+      "november": "November",
+      "december": "December"
+    }
+  },
+  "auth": {
+    "emailPlaceholder": "Email",
+    "login": {
+      "description": "Sign in via social media or email",
+      "errors": "There is no such account.",
+      "forgotPassword": "Forgot your password?",
+      "login": "Login",
+      "title": "Login"
+    },
+    "passwordPlaceholder": "Password",
+    "recoverPassword": {
+      "description": "We will send an email to the specified email to reset your password.",
+      "goBack": "Back to login",
+      "sendEmail": "send email",
+      "success": "Password recovery email has been successfully sent. Check your mail.",
+      "title": "Recover Password"
+    },
+    "registration": {
+      "agreement": {
+        "dataProcessingConsent": "the processing of personal data",
+        "text": "I have read the {userAgreement}, accept it, and give consent to {dataProcessingConsent}",
+        "userAgreement": "User agreement"
+      },
+      "description": "Sign up via social media or email",
+      "errors": {
+        "averagePassword": "Average password.",
+        "goodPassword": "Good password.",
+        "weekPassword": "Short password. Use at least 6 characters."
+      },
+      "register": "Register",
+      "title": "Registration"
+    }
+  },
   "charity": {
     "banner": {
       "title": "Together we save the lives of children and adults, help them become healthy and happy!"
@@ -387,5 +458,117 @@
       }
     },
     "title": "Donation to"
+  },
+  "help_request": {
+    "categories": {
+      "child_health_problems": {
+        "birthdate": "Date of Birth",
+        "child": {
+          "disability_certificate": "Disability certificate",
+          "doctor_statement": "Statement (certificate) from a doctor",
+          "identification": "Passport or birth certificate",
+          "identification_instructions": "Attach 2 passport images: home page, registration or birth certificate",
+          "medication_invoice": "Medical invoice or medication bill",
+          "title": "Child in need of help"
+        },
+        "child_form": {
+          "name": "Enter the child's full name",
+          "title": "Child"
+        },
+        "enter_citizenship": "Enter citizenship",
+        "enter_name": "Please enter your full name",
+        "family_status": "Family status",
+        "family_statuses": {
+          "female": {
+            "divorced": "Divorced",
+            "married": "Married",
+            "other": "Other",
+            "single": "Single"
+          },
+          "male": {
+            "divorced": "Divorced",
+            "married": "Married",
+            "other": "Other",
+            "single": "Single"
+          }
+        },
+        "gender": "Gender",
+        "genders": {
+          "female": "F",
+          "male": "M"
+        },
+        "income_attach": "Attach images of income: salary, pension and/or benefits",
+        "income_statement": "Certificate of income for the last 6 months",
+        "job_instructions": "Fill out the job data or attach a certificate from the labor exchange",
+        "labor_exchange_attach": "Attach images of a certificate from the labor exchange if unemployed",
+        "labor_exchange_reference": "Statement from the labor exchange",
+        "marriage_attachment": "Attach images of the main page, registration, marriage and children (4 pcs)",
+        "passport": "Passport",
+        "passport_instructions": "Attach images of the main page, registration, marriage and children (4 pcs)",
+        "phone_number": "Phone number",
+        "religion": "Religion",
+        "religions": {
+          "atheism": "Atheism",
+          "christianity": "Christianity",
+          "islam": "Islam",
+          "judaism": "Judaism",
+          "other": "Other"
+        },
+        "residential_address": "Residence address",
+        "send": "Write an application and send",
+        "spouse": "Spouse(s)",
+        "subtitle": "For the selected category, you need to fill in information about yourself, your spouse and all your children",
+        "terms_consent": "I accept the terms of the public offer and consent to the processing of personal data",
+        "title": "child with health problems",
+        "work": {
+          "attach_image": "Attach image",
+          "certificate": "Certificate from the place of work",
+          "pension": "Pension (in rubles), if any",
+          "place": "Place of work",
+          "position": "Work position at work",
+          "records": "Employment history",
+          "salary": "Wages",
+          "title": "Work and income"
+        },
+        "your_info": "Information about you"
+      },
+      "adult_health_problems": {
+        "title": "adult with health problems"
+      },
+      "debtor": {
+        "title": "debtor"
+      },
+      "homeless": {
+        "title": "a person without a place of residence or a traveler who is in trouble"
+      },
+      "islam_student": {
+        "title": "a person who aspires to study Islam"
+      },
+      "large_family": {
+        "title": "large family"
+      },
+      "orphan": {
+        "title": "orphan"
+      },
+      "poor_family": {
+        "title": "poor family"
+      },
+      "refugee": {
+        "title": "refugee"
+      },
+      "retirees": {
+        "title": "retiree"
+      },
+      "single_parent": {
+        "title": "single parent"
+      }
+    },
+    "change": "Edit",
+    "choose_category": "Select your category for assistance",
+    "title": "Get help",
+    "your_category": "Your category for assistance"
+  },
+  "gatherings": {
+    "title": "Gatherings"
   }
 }

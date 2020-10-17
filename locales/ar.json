@@ -31,7 +31,8 @@
       "collected": "تم جمع",
       "donate": "تبرع",
       "remaining": "المتبقي",
-      "required": "المطلوب"
+      "required": "المطلوب",
+      "see_all": "مشاهدة الكل"
     },
     "volunteer": {
       "description": "إذا كنت ترغب في إسعاد المحتاجين وجعل حياتهم أفضل، فسوف نقبلك بكل سرور في فريقنا الودود من الأشخاص ذوي التفكير المماثل. اترك تفاصيل الاتصال بك وأخبرنا كيف تريد المساعدة. سوف نتصل بك بمجرد النظر في عرضك!",
@@ -55,14 +56,84 @@
     "volunteers": "متطوعو الموقع"
   },
   "login": "تسجيل الدخول",
+  "search": {
+    "buttonName": "بحث"
+  },
+  "reports": {
+    "expenses": {
+      "amounts": "مقدم / مطلوب",
+      "application_number": "رقم الطلب",
+      "situation_description": "وصف الموقف",
+      "needly": "للمحتاجين",
+      "application_date": "تاريخ التطبيق",
+      "subtitle": "المحولة إلى المحتاجين للفترة المحددة",
+      "spending": "نفقات أخرى",
+      "beneficiary_name": "اسم المحتاج",
+      "title": "قدمت المساعدة"
+    },
+    "income": {
+      "donation_target": "الغرض من التبرع",
+      "date": "تاريخ",
+      "benfactor_name": "الاسم الكامل للمستفيد",
+      "amount": "كمية",
+      "subtitle": "جمعت للفترة المحددة",
+      "donation_type": "نوع التبرع",
+      "title": "التبرعات"
+    },
+    "months": {
+      "january": "يناير",
+      "february": "فبراير",
+      "december": "ديسمبر",
+      "august": "أغسطس",
+      "april": "أبريل",
+      "september": "سبتمبر",
+      "november": "نوفمبر",
+      "june": "يونيو",
+      "october": "اكتوبر",
+      "may": "مايو",
+      "march": "مارس",
+      "july": "يوليو"
+    },
+    "full_year": "عام كامل"
+  },
   "news": {
     "specific_news": {
       "other_news": "أخبار أخرى",
       "see_all": "اظهار الكل"
     }
   },
-  "search": {
-    "buttonName": "بحث"
+  "auth": {
+    "emailPlaceholder": "البريد الإلكتروني",
+    "login": {
+      "description": "تسجيل الدخول عبر وسائل التواصل الاجتماعي أو البريد الإلكتروني",
+      "errors": "لا يوجد مثل هذا الحساب.",
+      "forgotPassword": "نسيت كلمة المرور؟",
+      "login": "سجل الدخول",
+      "title": "تسجيل الدخول"
+    },
+    "passwordPlaceholder": "كلمة السر",
+    "recoverPassword": {
+      "description": "سنرسل بريدًا إلكترونيًا إلى البريد الإلكتروني المحدد لإعادة تعيين كلمة المرور الخاصة بك.",
+      "title": "استعادة كلمة السر",
+      "success": "تم إرسال البريد الإلكتروني لاسترداد كلمة المرور بنجاح. راجع بريدك.",
+      "goBack": "عودة الى تسجيل الدخول",
+      "sendEmail": "أرسل الرسالة"
+    },
+    "registration": {
+      "agreement": {
+        "text": "لقد قرأت {userAgreement} وأوافق عليها وأعطي {dataProcessingConsent}",
+        "dataProcessingConsent": "الموافقة على معالجة البيانات الشخصية",
+        "userAgreement": "اتفاقية المستخدم"
+      },
+      "register": "سجل الان",
+      "errors": {
+        "weekPassword": "كلمة مرور قصيرة. استخدم 6 أحرف على الأقل.",
+        "goodPassword": "كلمة مرور جيدة.",
+        "averagePassword": "​​كلمة المرور متوسطة القوة."
+      },
+      "description": "اشترك عبر وسائل التواصل الاجتماعي أو البريد الإلكتروني",
+      "title": "تسجيل حساب"
+    }
   },
   "charity": {
     "banner": {
@@ -121,5 +192,8 @@
       }
     },
     "title": "التبرع لصالح"
+  },
+  "gatherings": {
+    "title": "الحملات"
   }
 }
