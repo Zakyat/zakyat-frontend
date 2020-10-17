@@ -48,7 +48,7 @@
 import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
-  name: 'SingleNewsCard',
+  name: 'NewsCard',
   props: {
     id: {
       type: Number,
