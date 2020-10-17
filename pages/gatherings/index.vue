@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <h1 class="mt-12 mb-8">
-      Сборы
+      {{ $t('gatherings.title') }}
     </h1>
 
     <v-card
