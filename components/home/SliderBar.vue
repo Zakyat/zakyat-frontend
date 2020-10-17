@@ -76,12 +76,10 @@
         </v-card>
       </v-img>
     </SwiperSlide>
-    <SwiperSlide class="parrentSlide">
-      <v-container class="linkContainer">
-        <nuxt-link to="/gatherings" class="showMore">
-          Посмотреть все <img src="@/assets/images/gatherings/arrow-point-to-right 1.svg" alt="go-to">
-        </nuxt-link>
-      </v-container>
+    <SwiperSlide class="my-auto py-0 text-center" style="width: 40%;">
+      <v-btn text nuxt to="/gatherings">
+        Посмотреть все <v-icon>mdi-chevron-right</v-icon>
+      </v-btn>
     </SwiperSlide>
     <v-btn slot="button-prev" class="swiper-button-prev" fab>
       <v-icon x-large>
@@ -164,23 +162,5 @@ export default Vue.extend({
 .subtitle {
   margin-bottom: 0;
   color: #9da3a6;
-}
-
-.parrentSlide {
-  width: 40% !important;
-}
-
-.linkContainer {
-  height: 440px;
-  display: grid;
-  place-items: center;
-}
-
-.showMore {
-  padding-top: 70px;
-  text-decoration: none;
-  font-size: 1.1em;
-  font-weight: 400;
-  color: #161414;
 }
 </style>
