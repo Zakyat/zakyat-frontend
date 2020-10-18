@@ -19,9 +19,9 @@
       <span>2. Формирование задач, поставленных перед фондом и осуществление организации их решений.</span> <br>
       <span>3. Представление интересов фонда при взаимодействии с юридическими и физическими лицами.</span>
     </v-card-text>
-    <v-card-text class="pa-0 mt-3 black--text">
+    <v-btn text :href="'tel:' + phone" class="px-1 mt-3">
       <v-icon>mdi-phone</v-icon> {{ phone }}
-    </v-card-text>
+    </v-btn>
   </v-card>
 </template>
 
