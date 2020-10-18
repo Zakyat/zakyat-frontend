@@ -11,11 +11,7 @@
         cols="12"
         md="4"
       >
-        <Certificate
-          :img="certificate.img"
-          :name="certificate.name"
-          :full-img="certificate.fullImg"
-        />
+        <Certificate v-bind="certificate" />
       </v-col>
     </v-row>
   </v-container>

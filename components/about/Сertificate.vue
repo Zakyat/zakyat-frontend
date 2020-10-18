@@ -14,7 +14,7 @@
       <v-row>
         <v-col>
           <v-img
-            :src="fullImg"
+            :src="img"
             max-width="500"
             max-height="100vh"
             contain
@@ -36,7 +36,7 @@ import Vue from 'vue';
 export default Vue.extend({
   name: 'Certificate',
   props: {
-    fullImg: {
+    img: {
       type: String,
       required: true,
     },
