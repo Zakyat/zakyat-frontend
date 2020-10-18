@@ -104,6 +104,10 @@ export default {
       if (!ctx.isDev) {
         config.output.publicPath = './_nuxt/'; // default is the absolute '/_nuxt/'.
       }
+      config.module.rules.push({
+        test: /\.pdf$/,
+        loader: 'file-loader',
+      });
     },
   },
   router: {

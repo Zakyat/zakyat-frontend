@@ -1,11 +1,8 @@
 <template>
-  <v-container
-    class="mt-10"
-  >
+  <v-container class="mt-10">
     <v-card
       flat
       rounded
-      color="white"
       class="pa-7"
     >
       <v-row>
@@ -25,19 +22,13 @@
         </v-col>
         <v-col>
           <v-img
-            rounded
-            class="main-img"
+            style="border-radius: 10px;"
             :src="require('@/assets/images/about/102113 1.png')"
           />
         </v-col>
       </v-row>
-      <Employees
-        class="mt-7"
-        :employees="employees"
-      />
-      <Certificates
-        :certificates="certificates"
-      />
+      <Employees :employees="employees" class="mt-7" />
+      <Certificates :certificates="certificates" />
       <Documents />
       <Contacts />
     </v-card>
@@ -52,7 +43,6 @@ import Documents from '@/components/about/Documents.vue';
 import Contacts from '@/components/about/Contacts.vue';
 
 export default Vue.extend({
-  layout: 'grey',
   components: {
     Employees,
     Documents,
@@ -132,9 +122,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style scoped>
-.main-img {
-  border-radius: 10px;
-}
-</style>

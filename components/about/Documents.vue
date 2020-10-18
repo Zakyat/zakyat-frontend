@@ -3,20 +3,21 @@
     <h2>
       {{ $t('about.documents') }}
     </h2>
-    <div
+    <v-row
       v-for="document in documents"
       :key="document.id"
-      class="mt-3"
+      no-gutters
     >
-      <a
-        :href="document.link"
-        class="black--text document"
-        target="_blank"
-      >
-        {{ document.name }}
-      </a>
-      <br>
-    </div>
+      <v-col>
+        <a
+          :href="document.link"
+          class="black--text text-decoration-none"
+          target="_blank"
+        >
+          {{ document.name }}
+        </a>
+      </v-col>
+    </v-row>
   </v-container>
 </template>
 
@@ -24,20 +25,14 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Employee',
+  name: 'Documents',
   data () {
     return {
       documents: [
-        { name: 'Устав', link: require('file-loader!@/assets/about_us_files/article_of_association.pdf') },
+        { name: 'Устав', link: require('@/assets/about_us_files/article_of_association.pdf') },
         { name: 'Лист записи', link: require('@/assets/about_us_files/record_sheet.jpeg') },
       ],
     };
   },
 });
 </script>
-
-<style scoped>
-.document {
-  text-decoration: none !important;
-}
-</style>

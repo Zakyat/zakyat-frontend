@@ -1,10 +1,7 @@
 <template>
-  <v-card
-    flat
-  >
+  <v-card flat>
     <v-img
-      rounded
-      class="main-img"
+      style="border-radius: 10px;"
       :src="img"
     />
     <v-card-title class="pa-0 mt-3" style="font-size: 26px;">
@@ -17,7 +14,7 @@
       {{ $t('about.employee.duties') }}:
     </v-card-text>
     <v-card-text class="pa-0 black--text" style="width: 80%;">
-<!--      {{ duties }}-->
+      <!--      {{ duties }}-->
       <span>1. Распоряжание средствами фонда.</span> <br>
       <span>2. Формирование задач, поставленных перед фондом и осуществление организации их решений.</span> <br>
       <span>3. Представление интересов фонда при взаимодействии с юридическими и физическими лицами.</span>
@@ -57,9 +54,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style scoped>
-.main-img {
-  border-radius: 10px !important;
-}
-</style>

@@ -1,29 +1,27 @@
 <template>
   <v-container class="pa-0">
     <v-img
-      width=""
+      max-height="200"
       :src="img"
       style="cursor: pointer;"
+      position="center top"
       @click="overlay = !overlay"
     />
     <p class="mt-3">
       {{ name }}
     </p>
-    <v-overlay
-      :value="overlay"
-    >
+    <v-overlay :value="overlay">
       <v-row>
         <v-col>
           <v-img
             :src="fullImg"
             max-width="500"
+            max-height="100vh"
+            contain
           />
         </v-col>
         <v-col>
-          <v-btn
-            icon
-            @click="overlay = false"
-          >
+          <v-btn icon @click="overlay = false">
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-col>
@@ -36,12 +34,8 @@
 import Vue from 'vue';
 
 export default Vue.extend({
-  name: 'Employee',
+  name: 'Certificate',
   props: {
-    img: {
-      type: String,
-      required: true,
-    },
     fullImg: {
       type: String,
       required: true,

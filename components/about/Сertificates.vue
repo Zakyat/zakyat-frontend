@@ -26,7 +26,7 @@ import Vue from 'vue';
 import Certificate from '@/components/about/Сertificate.vue';
 
 export default Vue.extend({
-  name: 'Employee',
+  name: 'Certificates',
   components: {
     Certificate,
   },
