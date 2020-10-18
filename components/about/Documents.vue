@@ -29,8 +29,8 @@ export default Vue.extend({
   data () {
     return {
       documents: [
-        { name: 'Устав', link: require('@/assets/about_us_files/article_of_association.pdf') },
-        { name: 'Лист записи', link: require('@/assets/about_us_files/record_sheet.jpeg') },
+        { name: this.$t('about.document_names.regulation'), link: require('@/assets/about_us_files/article_of_association.pdf') },
+        { name: this.$t('about.document_names.record_sheet'), link: require('@/assets/about_us_files/record_sheet.jpeg') },
       ],
     };
   },

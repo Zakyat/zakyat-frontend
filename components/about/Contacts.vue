@@ -40,7 +40,7 @@ export default Vue.extend({
   },
   data () {
     return {
-      address: 'Мы находимся по адресу: г. Казань, ул. Габдуллы Тукая, 89/14',
+      address: this.$t('about.address'),
       email: 'fondzakyat@yandex.ru',
       phone: '8 (843) 225-33-22',
     };
