@@ -1,34 +1,29 @@
 <template>
   <v-container class="pa-0 mt-5">
     <h2>{{ $t('about.contacts') }}</h2>
-    <Map
-      class="mt-5"
-    />
+
+    <Map class="mt-5" />
+
     <p class="mt-5">
       {{ address }}
     </p>
 
     <v-row>
-      <v-col
-        cols="auto"
-      >
-        <p>
+      <v-col cols="auto">
+        <v-btn text :href="'mailto:' + email">
           <v-icon class="mr-3 mt-n1">
             mdi-email
-          </v-icon>
+          </v-icon>&nbsp;
           {{ email }}
-        </p>
+        </v-btn>
       </v-col>
-      <v-col
-        cols="auto"
-        class="ml-5"
-      >
-        <p>
+      <v-col cols="auto" class="ml-5">
+        <v-btn text :href="'tel:' + phone">
           <v-icon class="mr-3">
             mdi-phone
-          </v-icon>
+          </v-icon>&nbsp;
           {{ phone }}
-        </p>
+        </v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -39,7 +34,7 @@ import Vue from 'vue';
 import Map from '@/components/about/Map.vue';
 
 export default Vue.extend({
-  name: 'Employee',
+  name: 'Contacts',
   components: {
     Map,
   },
