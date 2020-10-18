@@ -570,5 +570,29 @@
   },
   "gatherings": {
     "title": "Gatherings"
+  },
+  "about": {
+    "address": "We are located at: Kazan, st. Gabdulla Tukay, 89/14",
+    "certificates": "Certificates",
+    "contacts": "Contacts",
+    "document_names": {
+      "record_sheet": "Record sheet",
+      "regulation": "The charter"
+    },
+    "documents": "Documents",
+    "employee": {
+      "duties": "Duties"
+    },
+    "employees": "Foundation employees",
+    "foundation_tasks": "Foundation's objectives",
+    "paragraph1": "Charitable Foundation \"Zakat\" was established by the Centralized Religious Organization of the Spiritual Administration of Muslims in the Republic of Tatarstan in 1998. \nCharitable Foundation \"Zakat\" is engaged in the collection and distribution of Zakat and Sadak in the Republic of Tatarstan. \nThe collection of Zakat and Sadak is carried out by the specialists of the foundation. \nThe distribution of Zakat and Sadak is carried out by the decision of the commission. \nThe Council of Ulema TsRO-DUM RT provides consultations on the implementation of the fund's activities.",
+    "paragraph2": "Charitable Foundation \"Zakat\" is engaged in rendering assistance to the most unprotected layers of the population: large, low-income families who find themselves in a difficult life situation; \norphans and lonely elderly people. \nThe fund is also engaged in fundraising and helps in paying for treatment for seriously ill children and adults.",
+    "positions": {
+      "charity_leader": "Leading specialist of the department of charitable programs",
+      "chief_specialist": "Chief Specialist of the Department of Charitable Programs",
+      "collection_specialist": "Specialist at the collection and distribution point for clothing and essential items",
+      "deputy_director": "Deputy General Director",
+      "general_director": "General Director of CF \"Zakat\""
+    }
   }
 }

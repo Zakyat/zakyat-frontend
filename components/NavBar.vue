@@ -57,7 +57,7 @@ export default Vue.extend({
         { text: this.$t('links.projects'), link: '/' },
         { text: this.$t('links.reports'), link: '/reports' },
         { text: this.$t('links.news'), link: '/news' },
-        { text: this.$t('links.about'), link: '/' },
+        { text: this.$t('links.about'), link: '/about' },
       ],
     };
   },
