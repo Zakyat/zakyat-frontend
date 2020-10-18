@@ -23,7 +23,7 @@
         <v-col>
           <v-img
             style="border-radius: 10px;"
-            :src="require('@/assets/images/about/102113 1.png')"
+            :src="require('@/assets/images/about/cover.png')"
           />
         </v-col>
       </v-row>
