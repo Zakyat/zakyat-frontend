@@ -14,19 +14,18 @@
       {{ $t('about.employee.duties') }}:
     </v-card-text>
     <v-card-text class="pa-0 black--text" style="width: 80%;">
-      <!--      {{ duties }}-->
-      <span>1. Распоряжание средствами фонда.</span> <br>
-      <span>2. Формирование задач, поставленных перед фондом и осуществление организации их решений.</span> <br>
-      <span>3. Представление интересов фонда при взаимодействии с юридическими и физическими лицами.</span>
+      <ol class="pl-4">
+        <li v-for="duty in duties" :key="duty" v-text="duty" />
+      </ol>
     </v-card-text>
     <v-btn text :href="'tel:' + phone" class="px-1 mt-3">
-      <v-icon>mdi-phone</v-icon> {{ phone }}
+      <v-icon>mdi-phone</v-icon>&nbsp;{{ phone }}
     </v-btn>
   </v-card>
 </template>
 
 <script lang="ts">
-import Vue from 'vue';
+import Vue, { PropType } from 'vue';
 
 export default Vue.extend({
   name: 'Employee',
@@ -44,7 +43,7 @@ export default Vue.extend({
       required: true,
     },
     duties: {
-      type: String,
+      type: Array as PropType<string[]>,
       required: true,
     },
     phone: {

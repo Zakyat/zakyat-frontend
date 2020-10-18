@@ -8,13 +8,7 @@
         cols="12"
         md="6"
       >
-        <Employee
-          :img="employee.img"
-          :name="employee.name"
-          :position="employee.position"
-          :duties="employee.duties"
-          :phone="employee.phone"
-        />
+        <Employee v-bind="employee" />
       </v-col>
     </v-row>
   </v-container>
