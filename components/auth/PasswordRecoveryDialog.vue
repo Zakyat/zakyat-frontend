@@ -3,7 +3,7 @@
     <h2>
       {{ $t('auth.recoverPassword.title') }}
     </h2>
-    <p class="pt-2 body-2">
+    <p class="pt-2 text-body-2">
       {{ $t('auth.recoverPassword.description') }}
     </p>
     <v-text-field

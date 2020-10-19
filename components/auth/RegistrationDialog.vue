@@ -8,7 +8,7 @@
         {{ $t('auth.login.login') }}
       </v-btn>
     </v-row>
-    <p class="pt-2 mb-0 body-2">
+    <p class="pt-2 mb-0 text-body-2">
       {{ $t('auth.registration.description') }}
     </p>
     <v-row justify="space-between">
@@ -110,7 +110,7 @@
       class="mt-n2 mb-1"
       :disabled="passwordStrength === 0"
     >
-      <span class="body-1">
+      <span class="text-body-1">
         {{ $t('auth.registration.register') }}
       </span>
     </v-btn>

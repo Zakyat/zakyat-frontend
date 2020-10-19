@@ -15,7 +15,7 @@
           @input="$router.push($event)"
         >
           <template #selection="{ item }">
-            <span class="display-1 font-weight-bold ml-n3">
+            <span class="text-h4 font-weight-bold ml-n3">
               {{ item.text }}
             </span>
           </template>

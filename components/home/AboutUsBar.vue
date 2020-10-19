@@ -2,7 +2,7 @@
   <v-container class="about-container">
     <v-row no-gutters>
       <v-col cols="12">
-        <h1 class="display-1 font-weight-bold">
+        <h1 class="text-h4 font-weight-bold">
           {{ $t('home.about.title') }}
         </h1>
       </v-col>

@@ -57,7 +57,7 @@
                     color="primary"
                     background-color="#DADADA"
                     size="60"
-                    class="font-weight-bold title"
+                    class="font-weight-bold text-h6"
                     :value="100*slide.collected/slide.required"
                   >
                     {{ Math.floor(100 * slide.collected / slide.required) }}%

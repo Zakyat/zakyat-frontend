@@ -3,7 +3,7 @@
     <v-icon size="60" color="success">
       mdi-checkbox-marked-circle
     </v-icon>
-    <p class="pt-2 body-2">
+    <p class="pt-2 text-body-2">
       {{ $t('auth.recoverPassword.success') }}
     </p>
     <v-btn text class="mt-1" color="primary" @click="$emit('set-dialog', 'SignInDialog')">

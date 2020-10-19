@@ -21,7 +21,7 @@
         cols="8"
         md="8"
       >
-        <v-card-title class="headline pa-0">
+        <v-card-title class="text-h5 pa-0">
           {{ title }}
         </v-card-title>
         <v-card-text class="pa-0">

@@ -19,10 +19,10 @@
           <v-col>
             <v-row no-gutters>
               <v-col class="px-4">
-                <h2 class="display-1 font-weight-bold black--text">
+                <h2 class="text-h4 font-weight-bold black--text">
                   {{ gathering.name }}
                 </h2>
-                <h3 class="subtitle-1 black--text">
+                <h3 class="text-subtitle-1 black--text">
                   {{ gathering.problem }}
                 </h3>
               </v-col>
@@ -32,7 +32,7 @@
                   color="primary"
                   background-color="#DADADA"
                   size="60"
-                  class="font-weight-bold title"
+                  class="font-weight-bold text-h5"
                   :value="100*gathering.collected/gathering.required"
                 >
                   {{ Math.floor(100 * gathering.collected / gathering.required) }}%
