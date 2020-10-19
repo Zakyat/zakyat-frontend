@@ -74,7 +74,7 @@
       :append-icon="showPassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
       @click:append="showPassword = !showPassword"
     >
-      <template v-slot:progress>
+      <template #progress>
         <v-progress-linear
           :value="passwordStrength * 25"
           :color="progressColor"
@@ -90,12 +90,12 @@
         class="mt-n2"
         color="primary"
       >
-        <template v-slot:label>
+        <template #label>
           <i18n path="auth.registration.agreement.text" style="font-size: 14px;">
-            <template v-slot:userAgreement>
+            <template #userAgreement>
               <a href="#">{{ $t('auth.registration.agreement.userAgreement') }}</a>
             </template>
-            <template v-slot:dataProcessingConsent>
+            <template #dataProcessingConsent>
               <a href="#">{{ $t('auth.registration.agreement.dataProcessingConsent') }}</a>
             </template>
           </i18n>
