@@ -1,7 +1,8 @@
 import colors from 'vuetify/es5/util/colors';
+import { NuxtConfig } from '@nuxt/types';
 
-export default {
-  mode: 'universal',
+const config: NuxtConfig = {
+  ssr: true,
   /*
   ** Headers of the page
   */
@@ -102,9 +103,9 @@ export default {
     */
     extend (config, ctx) {
       if (!ctx.isDev) {
-        config.output.publicPath = './_nuxt/'; // default is the absolute '/_nuxt/'.
+        config.output!.publicPath = './_nuxt/'; // default is the absolute '/_nuxt/'.
       }
-      config.module.rules.push({
+      config.module!.rules.push({
         test: /\.pdf$/,
         loader: 'file-loader',
       });
@@ -114,3 +115,5 @@ export default {
     base: process.env.BASE_URL || '/',
   },
 };
+
+export default config;
