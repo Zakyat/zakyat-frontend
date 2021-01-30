@@ -12,9 +12,10 @@
     </v-flex>
     <v-flex xs12 md4>
       <v-img
+        class="zakat-img"
         max-width="256px"
         width="100%"
-        :src="require('@/assets/images/banners/1.png')"
+        :src="require('@/assets/images/banners/mans.svg')"
       />
     </v-flex>
   </v-layout>
@@ -28,13 +29,18 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .zakat-container {
-  background-color: #00ac00;
-  padding: 30px 6% 0% 6%;
+  background-color: #006838;
+  padding: 30px 6% 0 6%;
   width: 100%;
   color: #fff;
 
+  .zakat-img {
+    float: right;
+  }
+
   h1 {
-    font: bold 36px;
+    font-size: 36px;
+    font-weight: bold;
     line-height: 43px;
   }
 }
