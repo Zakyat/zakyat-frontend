@@ -7,9 +7,9 @@
     <SliderBar />
     <DonationBar />
     <ProjectBar />
-    <VolunteerBannerBar />
-    <NewsBar />
     <ZakatBannerBar />
+    <NewsBar />
+    <VolunteerBannerBar />
     <FundedProjectBar />
     <AboutUsBar />
     <DonationBar />
