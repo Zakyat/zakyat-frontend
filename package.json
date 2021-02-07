@@ -34,7 +34,8 @@
     "husky": "^4.3.0",
     "lint-staged": "^10.4.2",
     "stylelint": "^13.7.2",
-    "stylelint-config-standard": "^20.0.0"
+    "stylelint-config-standard": "^20.0.0",
+    "vue-cli-plugin-apollo": "~0.22.2"
   },
   "lint-staged": {
     "*.{js,ts,vue}": "eslint",
