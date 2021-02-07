@@ -84,6 +84,30 @@
         />
       </template>
     </v-text-field>
+    <v-text-field
+      v-model="passwordRepeat"
+      class="mt-5"
+      :placeholder="$t('auth.passwordRepeatPlaceholder')"
+      required
+      height="40"
+      outlined
+      dense
+      solo
+      flat
+      rounded
+      :type="showPassword ? 'text' : 'password'"
+      :append-icon="showPassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
+      @click:append="showPassword = !showPassword"
+    >
+    </v-text-field>
+    <v-alert
+      v-if="passwordRepeat !== password"
+      dense
+      outlined
+      type="error"
+    >
+     Пароли не совпадают
+    </v-alert>
     <v-row justify="space-between" class="mx-0 mb-3 mt-5">
       <v-checkbox
         v-model="agreedToTerms"
@@ -108,7 +132,7 @@
       rounded
       height="40px"
       class="mt-n2 mb-1"
-      :disabled="passwordStrength === 0"
+      :disabled="passwordStrength === 0 || password !== passwordRepeat"
     >
       <span class="text-body-1">
         {{ $t('auth.registration.register') }}
@@ -126,6 +150,7 @@ export default Vue.extend({
     return {
       email: '',
       password: '',
+      passwordRepeat: '',
       showPassword: false,
       agreedToTerms: false,
     };

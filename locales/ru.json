@@ -562,6 +562,7 @@
   "auth": {
     "emailPlaceholder": "Эл. почта",
     "passwordPlaceholder": "Пароль",
+    "passwordRepeatPlaceholder": "Повторите пароль",
     "registration": {
       "title": "Регистрация",
       "register": "Зарегистрироваться",
