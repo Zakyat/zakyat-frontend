@@ -1,5 +1,8 @@
 <template>
-  <v-app class="app-wrapper">
+  <div v-if="!isLoaded" class="app">
+    <Loader />
+  </div>
+  <v-app v-else class="app-wrapper">
     <HeaderBar />
     <NavBar />
     <v-divider />
@@ -10,12 +13,13 @@
   </v-app>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import Vue from 'vue';
 
 import HeaderBar from '@/components/HeaderBar.vue';
 import NavBar from '@/components/NavBar.vue';
 import FooterBar from '@/components/FooterBar.vue';
+import Loader from '~/components/loader/Loader.vue';
 
 export default Vue.extend({
   name: 'White',
@@ -23,9 +27,25 @@ export default Vue.extend({
     HeaderBar,
     NavBar,
     FooterBar,
+    Loader,
   },
+
   head () {
     return this.$nuxtI18nSeo();
+  },
+
+  data () {
+    return {
+      isLoaded: false,
+    };
+  },
+
+  mounted () {
+    document.onreadystatechange = () => {
+      if (document.readyState === 'complete') {
+        this.isLoaded = true;
+      }
+    };
   },
 });
 </script>
@@ -35,5 +55,11 @@ export default Vue.extend({
   max-width: 1440px;
   background-color: white;
   margin: 0 auto;
+}
+
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
