@@ -5,7 +5,7 @@
       rounded
       color="#006838"
       height="6px"
-      value="15" />
+      :value=loaderValue />
   </div>
 </template>
 
@@ -14,6 +14,9 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'Loader',
+  props: {
+    loaderValue: Number,
+  },
 });
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div v-if="!isLoaded" class="app">
-    <Loader />
+    <Loader v-bind:loader-value="loaderValue"  />
   </div>
   <v-app v-else class="app-wrapper">
     <HeaderBar />
@@ -37,13 +37,21 @@ export default Vue.extend({
   data () {
     return {
       isLoaded: false,
+      loaderValue: 0,
     };
   },
 
   mounted () {
     document.onreadystatechange = () => {
+      if (document.readyState === 'loading') {
+        this.loaderValue = 30;
+      }
+      if (document.readyState === 'interactive') {
+        this.loaderValue = 60;
+      }
       if (document.readyState === 'complete') {
         this.isLoaded = true;
+        this.loaderValue = 100;
       }
     };
   },
