@@ -1,5 +1,7 @@
 <template>
   <v-container class="registration-form rounded">
+    <p>gql:</p>
+    <h2>{{employees}}</h2>
     <v-row justify="space-between" class="mx-0">
       <h2>
         {{ $t('auth.registration.title') }}
@@ -143,9 +145,25 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag'
 
 export default Vue.extend({
   name: 'RegistrationDialog',
+
+  apollo: {
+    // Simple query that will update the 'hello' vue property
+    employees: gql`query {
+      users {
+        edges{
+          node{
+            username
+            firstName
+          }
+        }
+      }
+    }`,
+  },
+
   data () {
     return {
       email: '',
@@ -153,8 +171,10 @@ export default Vue.extend({
       passwordRepeat: '',
       showPassword: false,
       agreedToTerms: false,
+      employees: '',
     };
   },
+
   computed: {
     passwordStrength (): number {
       if (this.password.length < 6) {

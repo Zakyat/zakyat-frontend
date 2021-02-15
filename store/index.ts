@@ -1,4 +1,5 @@
 import { GetterTree, ActionTree, MutationTree } from 'vuex';
+import apolloProvider from "../apollo.config.js";
 
 export const state = () => ({
   gatherings: [
