@@ -21,12 +21,22 @@
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
-    <v-btn text small @click="authDialog = !authDialog">
+
+
+    <v-btn v-if="$auth.loggedIn" text small @click="authDialog = !authDialog">
       <v-icon color="white" size="20">
         mdi-account-circle
       </v-icon>
-      {{ $t('login') }}
+      <span>{{$auth.user.email}}</span>
     </v-btn>
+    <v-btn v-else text small @click="authDialog = !authDialog">
+      <v-icon color="white" size="20">
+        mdi-account-circle
+      </v-icon>
+      <span>{{ $t('login') }}</span>
+    </v-btn>
+
+
     <v-dialog
       v-model="authDialog"
       width="440"
@@ -45,9 +55,9 @@
         @set-dialog="currentDialog = $event"
       />
     </v-dialog>
-    <v-flex lg1 md2 xs4>
-      <LanguageSelector class="icon" />
-    </v-flex>
+<!--    <v-flex lg1 md2 xs4>-->
+<!--      <LanguageSelector class="icon" />-->
+<!--    </v-flex>-->
     <v-autocomplete
       v-show="isSearcherOpen"
       class="searcher mx-auto"

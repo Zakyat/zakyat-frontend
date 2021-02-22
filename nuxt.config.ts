@@ -48,6 +48,8 @@ const config: NuxtConfig = {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
+    '@nuxtjs/auth',
+    '@nuxtjs/axios',
     [
       'nuxt-i18n',
       {
@@ -68,11 +70,16 @@ const config: NuxtConfig = {
     clientConfigs: {
       default: {
         httpEndpoint: 'http://127.0.0.1:8000/graphql',
-        mode: 'no-cors',
       },
-      // fetchOptions: {
-      //   mode: 'no-cors',
-      // },
+    }
+  },
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: '/sessions', method: 'post', propertyName: 'token' },
+        }
+      }
     }
   },
   /*

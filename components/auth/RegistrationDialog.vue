@@ -1,189 +1,213 @@
 <template>
   <v-container class="registration-form rounded">
-    <p>gql:</p>
-    <h2>{{employees}}</h2>
-    <v-row justify="space-between" class="mx-0">
-      <h2>
-        {{ $t('auth.registration.title') }}
-      </h2>
-      <v-btn text class="mt-1" color="primary" @click="$emit('set-dialog', 'SignInDialog')">
-        {{ $t('auth.login.login') }}
-      </v-btn>
-    </v-row>
-    <p class="pt-2 mb-0 text-body-2">
-      {{ $t('auth.registration.description') }}
-    </p>
-    <v-row justify="space-between">
-      <v-col cols="4">
-        <v-btn
-          color="rgba(0, 0, 0, 0.2)"
-          outlined
-          rounded
-          block
-        >
-          <img src="@/assets/images/social-icons/vk.svg" alt="vk">
-        </v-btn>
-      </v-col>
-      <v-col cols="4">
-        <v-btn
-          color="rgba(0, 0, 0, 0.2)"
-          outlined
-          rounded
-          block
-        >
-          <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">
-        </v-btn>
-      </v-col>
-      <v-col cols="4">
-        <v-btn
-          color="rgba(0, 0, 0, 0.2)"
-          outlined
-          rounded
-          block
-        >
-          <img src="@/assets/images/social-icons/google.svg" alt="google">
-        </v-btn>
-      </v-col>
-    </v-row>
-    <v-text-field
-      v-model="email"
-      type="email"
-      class="mt-2"
-      :placeholder="$t('auth.emailPlaceholder')"
-      outlined
-      height="40"
-      hide-details
-      autofocus
-      dense
-      solo
-      flat
-      rounded
-    />
-    <v-text-field
-      v-model="password"
-      class="mt-5"
-      :placeholder="$t('auth.passwordPlaceholder')"
-      :hint="passwordMessage"
-      required
-      height="40"
-      outlined
-      dense
-      solo
-      flat
-      rounded
-      loading
-      :type="showPassword ? 'text' : 'password'"
-      :append-icon="showPassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
-      @click:append="showPassword = !showPassword"
-    >
-      <template #progress>
-        <v-progress-linear
-          :value="passwordStrength * 25"
-          :color="progressColor"
-          rounded
-          absolute
-          height="5"
-        />
-      </template>
-    </v-text-field>
-    <v-text-field
-      v-model="passwordRepeat"
-      class="mt-5"
-      :placeholder="$t('auth.passwordRepeatPlaceholder')"
-      required
-      height="40"
-      outlined
-      dense
-      solo
-      flat
-      rounded
-      :type="showPassword ? 'text' : 'password'"
-      :append-icon="showPassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
-      @click:append="showPassword = !showPassword"
-    >
-    </v-text-field>
-    <v-alert
-      v-if="passwordRepeat !== password"
-      dense
-      outlined
-      type="error"
-    >
-     Пароли не совпадают
+    <v-alert>
     </v-alert>
-    <v-row justify="space-between" class="mx-0 mb-3 mt-5">
-      <v-checkbox
-        v-model="agreedToTerms"
-        class="mt-n2"
-        color="primary"
+    <form action="" @submit.prevent="register()">
+      <v-row justify="space-between" class="mx-0">
+        <h2>
+          {{ $t('auth.registration.title') }}
+        </h2>
+        <v-btn text class="mt-1" color="primary" @click="$emit('set-dialog', 'SignInDialog')">
+          {{ $t('auth.login.login') }}
+        </v-btn>
+      </v-row>
+      <p class="pt-2 mb-0 text-body-2">
+        {{ $t('auth.registration.description') }}
+      </p>
+      <v-row justify="space-between">
+        <v-col cols="4">
+          <v-btn
+            color="rgba(0, 0, 0, 0.2)"
+            outlined
+            rounded
+            block
+          >
+            <img src="@/assets/images/social-icons/vk.svg" alt="vk">
+          </v-btn>
+        </v-col>
+        <v-col cols="4">
+          <v-btn
+            color="rgba(0, 0, 0, 0.2)"
+            outlined
+            rounded
+            block
+          >
+            <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">
+          </v-btn>
+        </v-col>
+        <v-col cols="4">
+          <v-btn
+            color="rgba(0, 0, 0, 0.2)"
+            outlined
+            rounded
+            block
+          >
+            <img src="@/assets/images/social-icons/google.svg" alt="google">
+          </v-btn>
+        </v-col>
+      </v-row>
+      <v-text-field
+        v-model="email"
+        type="email"
+        class="mt-2"
+        :placeholder="$t('auth.emailPlaceholder')"
+        outlined
+        height="40"
+        hide-details
+        autofocus
+        dense
+        solo
+        flat
+        rounded
+      />
+      <v-text-field
+        v-model="password1"
+        class="mt-5"
+        :placeholder="$t('auth.passwordPlaceholder')"
+        :hint="passwordMessage"
+        required
+        height="40"
+        outlined
+        dense
+        solo
+        flat
+        rounded
+        loading
+        :type="showPassword ? 'text' : 'password'"
+        :append-icon="showPassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
+        @click:append="showPassword = !showPassword"
       >
-        <template #label>
-          <i18n path="auth.registration.agreement.text" style="font-size: 14px;">
-            <template #userAgreement>
-              <a href="#">{{ $t('auth.registration.agreement.userAgreement') }}</a>
-            </template>
-            <template #dataProcessingConsent>
-              <a href="#">{{ $t('auth.registration.agreement.dataProcessingConsent') }}</a>
-            </template>
-          </i18n>
+        <template #progress>
+          <v-progress-linear
+            :value="passwordStrength * 25"
+            :color="progressColor"
+            rounded
+            absolute
+            height="5"
+          />
         </template>
-      </v-checkbox>
-    </v-row>
-    <v-btn
-      color="primary"
-      block
-      rounded
-      height="40px"
-      class="mt-n2 mb-1"
-      :disabled="passwordStrength === 0 || password !== passwordRepeat"
-    >
+      </v-text-field>
+      <v-text-field
+        v-model="password2"
+        class="mt-5"
+        :placeholder="$t('auth.passwordRepeatPlaceholder')"
+        required
+        height="40"
+        outlined
+        dense
+        solo
+        flat
+        rounded
+        :type="showPassword ? 'text' : 'password'"
+        :append-icon="showPassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
+        @click:append="showPassword = !showPassword"
+      >
+      </v-text-field>
+      <v-alert
+        v-if="password2 !== password1"
+        dense
+        outlined
+        type="error"
+      >
+        Пароли не совпадают
+      </v-alert>
+      <v-row justify="space-between" class="mx-0 mb-3 mt-5">
+        <v-checkbox
+          v-model="agreedToTerms"
+          class="mt-n2"
+          color="primary"
+        >
+          <template #label>
+            <i18n path="auth.registration.agreement.text" style="font-size: 14px;">
+              <template #userAgreement>
+                <a href="#">{{ $t('auth.registration.agreement.userAgreement') }}</a>
+              </template>
+              <template #dataProcessingConsent>
+                <a href="#">{{ $t('auth.registration.agreement.dataProcessingConsent') }}</a>
+              </template>
+            </i18n>
+          </template>
+        </v-checkbox>
+      </v-row>
+      <v-btn
+        color="primary"
+        block
+        rounded
+        height="40px"
+        class="mt-n2 mb-1"
+        type="submit"
+        :disabled="passwordStrength === 0 || password1 !== password2"
+      >
       <span class="text-body-1">
         {{ $t('auth.registration.register') }}
       </span>
-    </v-btn>
+      </v-btn>
+    </form>
   </v-container>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import gql from 'graphql-tag'
+import local from "~/.nuxt/auth/schemes/local";
+import auth from "~/.nuxt/auth/auth";
 
 export default Vue.extend({
   name: 'RegistrationDialog',
 
-  apollo: {
-    // Simple query that will update the 'hello' vue property
-    employees: gql`query {
-      users {
-        edges{
-          node{
-            username
-            firstName
-          }
-        }
-      }
-    }`,
-  },
-
   data () {
     return {
       email: '',
-      password: '',
-      passwordRepeat: '',
+      password1: '',
+      password2: '',
       showPassword: false,
       agreedToTerms: false,
-      employees: '',
+      error: ''
     };
+  },
+
+  methods: {
+    register() {
+      this.$apollo.mutate({
+        mutation: gql`
+          mutation register(
+            $email: String!,
+            $username: String!,
+            $password1: String!,
+            $password2: String!
+          ) {
+              register (
+                email: $email,
+                username: $username,
+                password1: $password1,
+                password2: $password2
+              ) {
+                success,
+                token,
+                refreshToken,
+                errors
+              }
+            }
+        `,
+        variables: {
+          email: this.email,
+          username: this.email,
+          password1: this.password1,
+          password2: this.password2,
+        }
+      });
+    },
   },
 
   computed: {
     passwordStrength (): number {
-      if (this.password.length < 6) {
+      if (this.password1.length < 6) {
         return 0;
       }
-      const hasLower = /[a-z]/.test(this.password) ? 1 : 0;
-      const hasUpper = /[A-Z]/.test(this.password) ? 1 : 0;
-      const hasDigit = /[\d]/.test(this.password) ? 1 : 0;
-      const hasSymbol = /[\W]/.test(this.password) ? 1 : 0;
+      const hasLower = /[a-z]/.test(this.password1) ? 1 : 0;
+      const hasUpper = /[A-Z]/.test(this.password1) ? 1 : 0;
+      const hasDigit = /[\d]/.test(this.password1) ? 1 : 0;
+      const hasSymbol = /[\W]/.test(this.password1) ? 1 : 0;
       return hasLower + hasUpper + hasDigit + hasSymbol;
     },
     progressColor (): string {
