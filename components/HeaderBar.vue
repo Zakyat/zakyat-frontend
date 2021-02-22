@@ -21,8 +21,6 @@
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
-
-
     <v-btn v-if="$auth.loggedIn" text small @click="authDialog = !authDialog">
       <v-icon color="white" size="20">
         mdi-account-circle
@@ -35,8 +33,6 @@
       </v-icon>
       <span>{{ $t('login') }}</span>
     </v-btn>
-
-
     <v-dialog
       v-model="authDialog"
       width="440"

@@ -148,9 +148,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import gql from 'graphql-tag'
-import local from "~/.nuxt/auth/schemes/local";
-import auth from "~/.nuxt/auth/auth";
+import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'RegistrationDialog',
@@ -162,12 +160,12 @@ export default Vue.extend({
       password2: '',
       showPassword: false,
       agreedToTerms: false,
-      error: ''
+      error: '',
     };
   },
 
   methods: {
-    register() {
+    register () {
       this.$apollo.mutate({
         mutation: gql`
           mutation register(
@@ -194,7 +192,7 @@ export default Vue.extend({
           username: this.email,
           password1: this.password1,
           password2: this.password2,
-        }
+        },
       });
     },
   },
