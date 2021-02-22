@@ -21,13 +21,13 @@
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
-    <v-btn v-if="$auth.loggedIn" text small @click="authDialog = !authDialog">
-      <v-icon color="white" size="20">
-        mdi-account-circle
-      </v-icon>
-      <span>{{$auth.user.email}}</span>
-    </v-btn>
-    <v-btn v-else text small @click="authDialog = !authDialog">
+<!--    <v-btn v-if="$auth.loggedIn" text small @click="authDialog = !authDialog">-->
+<!--      <v-icon color="white" size="20">-->
+<!--        mdi-account-circle-->
+<!--      </v-icon>-->
+<!--      <span>{{$auth.user.email}}</span>-->
+<!--    </v-btn>-->
+    <v-btn text small @click="authDialog = !authDialog">
       <v-icon color="white" size="20">
         mdi-account-circle
       </v-icon>
