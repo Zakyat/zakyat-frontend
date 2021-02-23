@@ -14,7 +14,7 @@
     </v-row>
     <v-layout row>
       <v-flex
-        v-for="(item, j) in news"
+        v-for="(item, j) in posts"
         :key="j"
         xs6
         md3
@@ -42,16 +42,25 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
+  apollo: {
+    posts: gql`query{
+      posts {
+        title
+      }
+    }`
+  },
   data () {
     return {
-      news: [
+      newsSample: [
         { src: require('@/assets/images/news/1.png'), title: 'Горячие обеды в холодные дни', desc: 'Холода пришли внезапно. Тем больше потребность у бездомных людей в горячем питании. РК «Ту ...' },
         { src: require('@/assets/images/news/2.png'), title: 'Горячие обеды в холодные дни', desc: 'Холода пришли внезапно. Тем больше потребность у бездомных людей в горячем питании. РК «Ту ...' },
         { src: require('@/assets/images/news/3.png'), title: 'Горячие обеды в холодные дни', desc: 'Холода пришли внезапно. Тем больше потребность у бездомных людей в горячем питании. РК «Ту ...' },
         { src: require('@/assets/images/news/4.png'), title: 'Горячие обеды в холодные дни', desc: 'Холода пришли внезапно. Тем больше потребность у бездомных людей в горячем питании. РК «Ту ...' },
       ],
+      posts: ''
     };
   },
 });
