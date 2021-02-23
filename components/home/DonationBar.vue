@@ -44,7 +44,7 @@
         </v-radio-group>
       </v-col>
       <v-col cols="2" class="text-right">
-        <v-btn height="50" class="black--text ml-6" rounded>
+        <v-btn height="50" class="black--text ml-6" rounded depressed>
           {{ $t('home.sadaka.donate') }}
         </v-btn>
       </v-col>

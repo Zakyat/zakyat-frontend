@@ -1,5 +1,5 @@
 <template>
-  <v-container style="padding: 80px 6% 64px; max-width: 100%;">
+  <v-container style="padding: 80px 6% 64px; max-width: 100%; background-color: #F2F2F2">
     <v-row>
       <span class="mx-4">
         {{ $t('links.news') }}
@@ -19,7 +19,7 @@
         xs6
         md3
       >
-        <v-card class="ma-4" rounded>
+        <v-card class="ma-4" rounded flat>
           <v-img
             class="white--text align-end"
             height="200px"

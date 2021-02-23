@@ -13,6 +13,7 @@
       >
         <v-card
           rounded
+          flat
           solo
           class="founded"
         >
