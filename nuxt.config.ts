@@ -47,6 +47,7 @@ const config: NuxtConfig = {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    '@nuxtjs/apollo',
     [
       'nuxt-i18n',
       {
@@ -63,6 +64,13 @@ const config: NuxtConfig = {
       },
     ],
   ],
+  apollo: {
+    clientConfigs: {
+      default: {
+        httpEndpoint: 'http://127.0.0.1:8000/graphql',
+      },
+    }
+  },
   /*
   ** vuetify module configuration
   ** https://github.com/nuxt-community/vuetify-module
