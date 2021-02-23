@@ -38,11 +38,19 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
+  apollo: {
+    projects: gql` query {
+      projects {
+        title
+      }
+    }`
+  },
   data () {
     return {
-      projects: [
+      projectsSample: [
         { title: 'Накорми нуждающегося', src: require('@/assets/images/projects/svg/food.svg') },
         { title: 'Центр помощи «Хаят»', src: require('@/assets/images/projects/svg/people.svg') },
         { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/svg/wear.svg') },
@@ -52,6 +60,7 @@ export default Vue.extend({
         { title: 'Помоги собраться в школу', src: require('@/assets/images/projects/svg/backpack.svg') },
         { title: 'Воспитай Коран-хафиза', src: require('@/assets/images/projects/svg/boy.svg') },
       ],
+      projects: '',
     };
   },
 });
