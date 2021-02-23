@@ -27,6 +27,7 @@
     <v-spacer />
     <v-btn
       rounded
+      depressed
       dark
       color="primary"
       height="40px"
@@ -37,6 +38,7 @@
     <v-spacer />
     <v-btn
       rounded
+      depressed
       dark
       color="accent"
       height="40px"

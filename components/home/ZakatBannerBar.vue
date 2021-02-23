@@ -6,7 +6,7 @@
         {{ $t('home.zakat.description') }}
       </p>
       <p>{{ $t('home.zakat.for_pay') }}</p>
-      <v-btn height="45" rounded>
+      <v-btn height="45" rounded depressed>
         {{ $t('home.zakat.pay') }}
       </v-btn>
     </v-flex>

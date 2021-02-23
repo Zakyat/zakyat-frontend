@@ -5,7 +5,7 @@
       <p class="my-5" style="width: 88%;">
         {{ $t('home.volunteer.description') }}
       </p>
-      <v-btn height="40" rounded>
+      <v-btn height="40" rounded depressed>
         {{ $t('home.volunteer.join') }}
       </v-btn>
     </v-flex>
@@ -30,6 +30,7 @@ export default Vue.extend({
   background-color: #7fbcaa;
   padding: 80px 6% 30px 6%;
   color: #fff;
+  margin: 0;
 
   .zakat-img {
     float: right;
