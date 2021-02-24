@@ -1,8 +1,8 @@
 <template>
-  <div v-if="!isLoaded" class="app">
-    <Loader v-bind:loader-value="loaderValue"  />
-  </div>
-  <v-app v-else class="app-wrapper">
+  <v-app class="app-wrapper">
+    <div class="app">
+      <Loader />
+    </div>
     <HeaderBar />
     <NavBar />
     <v-divider />
@@ -32,28 +32,6 @@ export default Vue.extend({
 
   head () {
     return this.$nuxtI18nSeo();
-  },
-
-  data () {
-    return {
-      isLoaded: false,
-      loaderValue: 0,
-    };
-  },
-
-  mounted () {
-    document.onreadystatechange = () => {
-      if (document.readyState === 'loading') {
-        this.loaderValue = 30;
-      }
-      if (document.readyState === 'interactive') {
-        this.loaderValue = 60;
-      }
-      if (document.readyState === 'complete') {
-        this.isLoaded = true;
-        this.loaderValue = 100;
-      }
-    };
   },
 });
 </script>
