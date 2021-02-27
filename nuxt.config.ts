@@ -67,7 +67,7 @@ const config: NuxtConfig = {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'http://127.0.0.1:8000/graphql',
+        httpEndpoint: 'http://0.0.0.0:/api/graphql',
         mode: 'no-cors',
       },
       // fetchOptions: {
