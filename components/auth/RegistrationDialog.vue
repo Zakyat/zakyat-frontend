@@ -51,6 +51,7 @@
         type="email"
         class="mt-2"
         :placeholder="$t('auth.emailPlaceholder')"
+        color="default"
         outlined
         height="40"
         hide-details
@@ -64,7 +65,7 @@
         v-model="password1"
         class="mt-5"
         :placeholder="$t('auth.passwordPlaceholder')"
-        :hint="passwordMessage"
+        color="default"
         required
         height="40"
         outlined
@@ -73,6 +74,7 @@
         flat
         rounded
         loading
+        hide-details="false"
         :type="showPassword ? 'text' : 'password'"
         :append-icon="showPassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
         @click:append="showPassword = !showPassword"
@@ -84,13 +86,18 @@
             rounded
             absolute
             height="5"
+            class="mt-2 mb-0 pb-0"
           />
         </template>
       </v-text-field>
+      <p v-if="password1" class="passwordMessage ma-0 pa-0">{{passwordMessage}}</p>
       <v-text-field
         v-model="password2"
         class="mt-5"
+        :disabled="!password1"
         :placeholder="$t('auth.passwordRepeatPlaceholder')"
+        :hint="password2 !== password1 ? 'Пароли не совпадают': ''"
+        :color="password2 !== password1 ? 'red': 'success'"
         required
         height="40"
         outlined
@@ -103,14 +110,6 @@
         @click:append="showPassword = !showPassword"
       >
       </v-text-field>
-      <v-alert
-        v-if="password2 !== password1"
-        dense
-        outlined
-        type="error"
-      >
-        Пароли не совпадают
-      </v-alert>
       <v-row justify="space-between" class="mx-0 mb-3 mt-5">
         <v-checkbox
           v-model="agreedToTerms"
@@ -247,5 +246,10 @@ export default Vue.extend({
 
   a {
     text-decoration: none;
+  }
+
+  .passwordMessage {
+    font-size: 12px;
+    padding-top: 12px !important;
   }
 </style>
