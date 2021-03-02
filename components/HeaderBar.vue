@@ -52,11 +52,9 @@
       :placeholder="$t('search.placeholder')"
       :no-data-text="$t('search.noDataText')"
       append-icon=""
-      height="60"
+      height="50"
       light
       solo
-      rounded
-      shaped
       clearable
     />
   </v-system-bar>
@@ -100,5 +98,6 @@ export default Vue.extend({
   margin-top: 65px;
   width: 600px;
   z-index: 2;
+  border-radius: 10px;
 }
 </style>
