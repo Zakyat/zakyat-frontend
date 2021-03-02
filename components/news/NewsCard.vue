@@ -88,9 +88,9 @@ export default Vue.extend({
 <style>
 .description {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  height: 65px;
+  height: 110px;
 }
 </style>
