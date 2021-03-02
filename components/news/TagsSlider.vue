@@ -15,7 +15,7 @@
       >
         <v-slide-item
           v-for="tag in selectedTags"
-          :key="tag"
+          :key="tag.id"
         >
           <v-chip
             class="mx-3 tag-item"
@@ -25,7 +25,7 @@
             text-color="primary"
             @click:close="removeTag(tag)"
           >
-            <strong>#{{ tag }}</strong>&nbsp;
+            <strong>#{{ tag.name }}</strong>&nbsp;
           </v-chip>
         </v-slide-item>
       </v-slide-group>
@@ -36,7 +36,7 @@
       bottom
       :close-on-content-click="false"
     >
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <v-btn
           outlined
           rounded
@@ -63,10 +63,10 @@
         />
         <div class="mt-5">
           <v-checkbox
-            v-for="tag in tags"
-            :key="tag"
+            v-for="tag in postTags"
+            :key="tag.id"
             v-model="selectedTags"
-            :label="'#'+tag"
+            :label="'#'+tag.name"
             :value="tag"
             color="primary"
             on-icon="mdi-check-box-outline"
@@ -98,15 +98,29 @@
 <script lang="ts">
 import Vue from 'vue';
 
+import gql from 'graphql-tag';
+
 export default Vue.extend({
   data () {
     return {
-      tags: ['курбан_байрам', 'священныйпост', 'ураза_байрам', 'ураза_байрам2', 'ураза_байрам3', 'ураза_байрам4'],
-      selectedTags: [] as string[],
+      selectedTags: [],
+      postTags: [],
     };
   },
+  apollo: {
+    postTags: {
+      query: gql`
+        query {
+          postTags {
+            id
+            name
+          }
+        }
+      `,
+    },
+  },
   methods: {
-    removeTag (tag: string) {
+    removeTag (tag: never) {
       this.selectedTags.splice(this.selectedTags.indexOf(tag), 1);
     },
     removeAllTags () {
