@@ -15,7 +15,7 @@
       {{ title }}
     </v-card-title>
     <v-card-text class="my-3 pa-0 news-content black--text">
-      {{ content }}
+      {{ description }}
     </v-card-text>
     <v-card-subtitle
       class="pa-0 mb-5"
@@ -25,14 +25,14 @@
       <v-icon class="px-1" style="color: inherit;">
         mdi-circle-small
       </v-icon>
-      {{ author }}
+      {{ createdBy.bio }}
     </v-card-subtitle>
     <v-row
       style="width: 80%;"
     >
       <v-col
         v-for="tag in tags"
-        :key="tag"
+        :key="tag.id"
         cols="auto"
         class="py-0"
       >
@@ -40,7 +40,7 @@
           class="pa-0"
           style="color: #00ac00;"
         >
-          {{ tag }}
+          #{{ tag.name }}
         </v-card-text>
       </v-col>
     </v-row>
@@ -48,28 +48,32 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
 
 export default Vue.extend({
   props: {
     id: {
-      type: Number,
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
       required: true,
     },
     title: {
       type: String,
       required: true,
     },
-    content: {
+    description: {
       type: String,
       required: true,
     },
-    date: {
-      type: Date as PropType<Date>,
+    createdAt: {
+      type: String,
       required: true,
     },
-    author: {
-      type: String,
+    createdBy: {
+      type: Object,
       required: true,
     },
     tags: {
@@ -79,7 +83,9 @@ export default Vue.extend({
   },
   computed: {
     localeDate (): string {
-      return this.date.toLocaleDateString(this.$i18n.locale, {
+      const date = new Date(this.createdAt);
+
+      return date.toLocaleDateString(this.$i18n.locale, {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
