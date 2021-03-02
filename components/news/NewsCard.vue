@@ -24,7 +24,7 @@
         <v-card-title class="text-h5 pa-0">
           {{ title }}
         </v-card-title>
-        <v-card-text class="pa-0">
+        <v-card-text class="pa-0 description">
           {{ description }}
         </v-card-text>
         <v-row align="end">
@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'NewsCard',
@@ -73,7 +73,7 @@ export default Vue.extend({
   },
   computed: {
     localeDate (): string {
-      let date = new Date(this.createdAt).toLocaleDateString(this.$i18n.locale, {
+      const date = new Date(this.createdAt).toLocaleDateString(this.$i18n.locale, {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
@@ -85,3 +85,12 @@ export default Vue.extend({
   },
 });
 </script>
+<style>
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 65px;
+}
+</style>
