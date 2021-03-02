@@ -10,7 +10,6 @@
       :src="require('@/assets/images/news/1.png')"
     />
     <v-card-title>{{ title }}</v-card-title>
-    <v-card-title>{{ id }}</v-card-title>
 
     <v-card-text class="text--primary description">
       {{ description }}
