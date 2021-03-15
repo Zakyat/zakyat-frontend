@@ -39,9 +39,17 @@
         </v-card>
         <div class="map">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2242.9104027536914!2d49.121010616127506!3d55.794793680564595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead14469679e7%3A0x296da0eb2a902db1!2z0YPQuy4g0JTQt9C10YDQttC40L3RgdC60L7Qs9C-LCAyNywg0JrQsNC30LDQvdGMLCDQoNC10YHQvy4g0KLQsNGC0LDRgNGB0YLQsNC9LCA0MjAxMTE!5e0!3m2!1sru!2sru!4v1615845776334!5m2!1sru!2sru" width="250" height="150" style="border: 10px;" loading="lazy"></iframe>
-          <p>ул. Дзержинского, д. 27</p>
-          <span>9.00 – 18.00, обед 13.00 – 14.00 </span>
-          <span>Воскресенье – Четверг</span>
+          <div class="address mt-3 mb-3">
+            <img width="15" :src="require('@/assets/images/projects/svg/icons/pin.svg')" alt="">
+            <p class="ml-1 mb-0">ул. Дзержинского, д. 27</p>
+          </div>
+          <div class="address">
+            <img width="15" :src="require('@/assets/images/projects/svg/icons/clock.svg')" alt="">
+            <p class="ml-1 mb-0">
+              9.00 – 18.00, обед 13.00 – 14.00
+            </p>
+          </div>
+          <p class="ml-5">Воскресенье – Четверг</p>
         </div>
       </v-col>
     </v-row>
@@ -78,6 +86,11 @@ export default {
       p {
         font-size: 15px;
       }
+    }
+
+    .address {
+      display: flex;
+      align-items: center;
     }
   }
 </style>

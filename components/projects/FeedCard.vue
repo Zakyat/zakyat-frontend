@@ -87,7 +87,10 @@
             Пожертвовать
           </v-btn>
           <p>Мы готовы выслушать ваши идеи и предложения по проекту по номеру </p>
-          <p>8-987-225-33-22.</p>
+          <div class="phone">
+            <img width="20" :src="require('@/assets/images/projects/svg/icons/phone.svg')" alt="">
+            <p class="ml-5 mb-0">8-987-225-33-22.</p>
+          </div>
         </div>
       </v-col>
     </v-row>
@@ -134,6 +137,11 @@ export default {
     .food {
       display: flex;
       flex-direction: column;
+    }
+
+    .phone {
+      display: flex;
+      align-items: center;
     }
   }
 </style>
