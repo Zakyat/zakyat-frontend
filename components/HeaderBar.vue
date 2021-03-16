@@ -95,7 +95,7 @@ export default Vue.extend({
   position: absolute;
   left: 0;
   right: 0;
-  margin-top: 65px;
+  margin-top: 130px;
   width: 600px;
   z-index: 2;
   border-radius: 10px;
