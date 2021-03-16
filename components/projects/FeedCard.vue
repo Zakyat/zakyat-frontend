@@ -31,14 +31,26 @@
           <div class="map">
             <p>Сквер</p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2243.369274358174!2d49.104533716127314!3d55.786825480562506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead1956a7f5a7%3A0xafc21b107e13433f!2z0YPQuy4g0JHRg9GA0YXQsNC90LAg0KjQsNGF0LjQtNC4LCAxNywg0JrQsNC30LDQvdGMLCDQoNC10YHQvy4g0KLQsNGC0LDRgNGB0YLQsNC9LCA0MjAxMTE!5e0!3m2!1sru!2sru!4v1615844257396!5m2!1sru!2sru" width="250" height="150" style="border: 10px;" loading="lazy"></iframe>
-            <p>ул. Бурхана Шахиди, дом 17</p>
-            <p>Среда, Пятница</p>
+            <div class="address mt-3 mb-3">
+              <img width="15" :src="require('@/assets/images/projects/svg/icons/pin.svg')" alt="">
+              <p class="ml-3 mb-0">ул. Бурхана Шахиди, дом 17</p>
+            </div>
+            <div class="address mt-3 mb-3">
+              <img width="15" :src="require('@/assets/images/projects/svg/icons/clock.svg')" alt="">
+              <p class="ml-3 mb-0">Среда, Пятница</p>
+            </div>
           </div>
           <div class="map" style="margin-left: 100px;">
             <p>&laquo;Дом ветеранов&raquo;</p>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2243.369274358174!2d49.104533716127314!3d55.786825480562506!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead1956a7f5a7%3A0xafc21b107e13433f!2z0YPQuy4g0JHRg9GA0YXQsNC90LAg0KjQsNGF0LjQtNC4LCAxNywg0JrQsNC30LDQvdGMLCDQoNC10YHQvy4g0KLQsNGC0LDRgNGB0YLQsNC9LCA0MjAxMTE!5e0!3m2!1sru!2sru!4v1615844257396!5m2!1sru!2sru" width="250" height="150" style="border: 10px;" loading="lazy"></iframe>
-            <p>ул. Бурхана Шахиди, дом 17</p>
-            <p>Среда, Пятница</p>
+            <div class="address mt-3 mb-3">
+              <img width="15" :src="require('@/assets/images/projects/svg/icons/pin.svg')" alt="">
+              <p class="ml-3 mb-0">ул. Бурхана Шахиди, дом 17</p>
+            </div>
+            <div class="address">
+              <img width="15" :src="require('@/assets/images/projects/svg/icons/clock.svg')" alt="">
+              <p class="ml-3 mb-0">Вторник</p>
+            </div>
           </div>
         </div>
       </v-col>
@@ -140,6 +152,10 @@ export default {
     }
 
     .phone {
+      display: flex;
+      align-items: center;
+    }
+    .address {
       display: flex;
       align-items: center;
     }
