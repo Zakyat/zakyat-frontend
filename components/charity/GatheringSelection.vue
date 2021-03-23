@@ -54,11 +54,38 @@
 import Vue from 'vue';
 import { mapState } from 'vuex';
 import CharityCard from '@/components/charity/CharityCard.vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'GatheringSelection',
   components: {
     CharityCard,
+  },
+  apollo: {
+    campaign: {
+      query: gql`
+        query {
+          campaign (id: 1) {
+            id
+            title
+            problem
+            description
+            goal
+            createdBy {
+              bio
+            }
+            project{
+              title
+            }
+          }
+        }
+      `,
+    },
+  },
+  data () {
+    return {
+      campaign: '',
+    };
   },
   props: {
     gatheringId: {
