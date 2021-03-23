@@ -44,7 +44,7 @@
         </v-radio-group>
       </v-col>
       <v-col cols="2" class="text-right">
-        <v-btn height="50" class="black--text ml-6" rounded depressed>
+        <v-btn height="50" class="black--text ml-6" rounded depressed @click="donate(amount, -1, '', 0, 0)">
           {{ $t('home.sadaka.donate') }}
         </v-btn>
       </v-col>
@@ -54,13 +54,51 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
   data () {
     return {
       amounts: [1, 5, 10, 50, 100, 200, 300],
       amount: null,
+      url: '',
     };
+  },
+  methods: {
+    donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number) {
+      this.$apollo.mutate({
+        mutation: gql`
+          mutation addTransaction(
+              $amount: Float!,
+              $campaignId: Int,
+              $description: String,
+              $subscriptionDays: Int,
+              $transactionType: Int
+            ) {
+              addTransaction (
+                amount: $amount,
+                campaignId: $campaignId,
+                description: $description,
+                subscriptionDays: $subscriptionDays,
+                transactionType: $transactionType
+              ) {
+                url
+              }
+            }
+        `,
+        variables: {
+          amount: amount,
+          campaignId: campaignId,
+          description: description,
+          subscriptionDays: subscriptionDays,
+          transactionType: transactionType,
+        },
+        update: (cache, result) => {
+          this.url = result.data.addTransaction.url;
+          window.open(this.url, '_blank');
+        },
+      });
+    },
   },
 });
 </script>
