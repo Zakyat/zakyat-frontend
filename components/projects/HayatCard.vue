@@ -57,7 +57,9 @@
           </v-row>
         </v-card>
         <div class="map">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2242.9104027536914!2d49.121010616127506!3d55.794793680564595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead14469679e7%3A0x296da0eb2a902db1!2z0YPQuy4g0JTQt9C10YDQttC40L3RgdC60L7Qs9C-LCAyNywg0JrQsNC30LDQvdGMLCDQoNC10YHQvy4g0KLQsNGC0LDRgNGB0YLQsNC9LCA0MjAxMTE!5e0!3m2!1sru!2sru!4v1615845776334!5m2!1sru!2sru" width="250" height="150" style="border: 10px;" loading="lazy"></iframe>
+          <a target="_blank" href="https://goo.gl/maps/XKTsPsBkx2kCFpef7">
+            <img width="250" height="150" style="border: 10px;" :src="require('@/assets/images/maps/map.png')" alt="">
+          </a>
           <div class="address mt-3 mb-3">
             <img width="15" :src="require('@/assets/images/projects/svg/icons/pin.svg')" alt="">
             <p class="ml-1 mb-0">ул. Дзержинского, д. 27</p>
@@ -106,52 +108,52 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .project-card {
-    padding: 30px;
+.project-card {
+  padding: 30px;
+  border-radius: 10px;
+
+  .title {
+    font-size: 2rem !important;
+    font-weight: 700;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .project-info-card {
     border-radius: 10px;
 
-    .title {
-      font-size: 2rem !important;
-      font-weight: 700;
+    b {
+      font-size: 30px;
     }
 
-    .description {
-      font-size: 16px;
-    }
-
-    .project-info-card {
-      border-radius: 10px;
-
-      b {
-        font-size: 30px;
-      }
-
-      p {
-        font-size: 15px;
-      }
-    }
-
-    .second-description {
-      display: flex;
-      justify-content: space-between;
-      align-content: center;
-    }
-
-    .address {
-      display: flex;
-      align-items: center;
-    }
-
-    .green-text {
-      color: #00ac00;
-    }
-
-    .people-img {
-      margin-top: -100px;
-    }
-
-    li {
-      list-style-type: '- ';
+    p {
+      font-size: 15px;
     }
   }
+
+  .second-description {
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .address {
+    display: flex;
+    align-items: center;
+  }
+
+  .green-text {
+    color: #00ac00;
+  }
+
+  .people-img {
+    margin-top: -100px;
+  }
+
+  li {
+    list-style-type: '- ';
+  }
+}
 </style>

@@ -81,29 +81,29 @@ export default {
 </script>
 
 <style scoped lang="scss">
-  .project-card {
-    padding: 30px;
+.project-card {
+  padding: 30px;
+  border-radius: 10px;
+
+  .title {
+    font-size: 2rem !important;
+    font-weight: 700;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  .project-info-card {
     border-radius: 10px;
 
-    .title {
-      font-size: 2rem !important;
-      font-weight: 700;
+    b {
+      font-size: 30px;
     }
 
-    .description {
-      font-size: 16px;
-    }
-
-    .project-info-card {
-      border-radius: 10px;
-
-      b {
-        font-size: 30px;
-      }
-
-      p {
-        font-size: 15px;
-      }
+    p {
+      font-size: 15px;
     }
   }
+}
 </style>
