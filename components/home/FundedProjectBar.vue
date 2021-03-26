@@ -15,7 +15,7 @@
           rounded
           flat
           solo
-          class="founded"
+          class="funded"
         >
           <v-card-title style="word-break: normal;">
             {{ item.title }}
@@ -53,7 +53,7 @@ span {
   color: #000;
 }
 
-.founded {
+.funded {
   background: url('../../assets/images/news/tubetey.png') no-repeat right center !important;
   height: 246px;
   background-size: contain;

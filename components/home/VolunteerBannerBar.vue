@@ -11,7 +11,7 @@
     </v-flex>
     <v-flex xs12 md5>
       <v-img
-        class="zakat-img"
+        class="float-right mb-n7"
         max-width="400px"
         :src="require('@/assets/images/banners/womans.svg')"
       />
@@ -31,11 +31,6 @@ export default Vue.extend({
   padding: 80px 6% 30px 6%;
   color: #fff;
   margin: 0;
-
-  .zakat-img {
-    float: right;
-    margin-bottom: -30px;
-  }
 
   h1 {
     font: bold 36px;
