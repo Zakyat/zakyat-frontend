@@ -16,6 +16,7 @@
           flat
           solo
           class="funded"
+          :style="backgroundImg(item.src)"
         >
           <v-card-title style="word-break: normal;">
             {{ item.title }}
@@ -42,6 +43,12 @@ export default Vue.extend({
       ],
     };
   },
+
+  methods: {
+    backgroundImg (img: string) {
+      return `background: url(${img}) no-repeat right !important;`;
+    },
+  },
 });
 </script>
 <style scoped>
@@ -54,7 +61,6 @@ span {
 }
 
 .funded {
-  background: url('../../assets/images/news/tubetey.png') no-repeat right center !important;
   height: 246px;
   background-size: contain;
   zoom: 110%;
