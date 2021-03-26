@@ -45,6 +45,9 @@
         @set-dialog="currentDialog = $event"
       />
     </v-dialog>
+    <v-flex lg1 md2 xs4>
+      <LanguageSelector class="icon" />
+    </v-flex>
     <v-autocomplete
       v-show="isSearcherOpen"
       class="searcher mx-auto"
@@ -65,6 +68,7 @@
 <script lang="ts">
 import Vue from 'vue';
 import { rubles } from '@/plugins/currency';
+import LanguageSelector from '@/components/LanguageSelector.vue';
 import RegistrationDialog from '@/components/auth/RegistrationDialog.vue';
 import SignInDialog from '@/components/auth/SignInDialog.vue';
 import PasswordRecoveryDialog from '@/components/auth/PasswordRecoveryDialog.vue';
@@ -72,6 +76,7 @@ import SuccessDialog from '@/components/auth/SuccessDialog.vue';
 
 export default Vue.extend({
   components: {
+    LanguageSelector,
     PasswordRecoveryDialog,
     RegistrationDialog,
     SuccessDialog,
