@@ -1,5 +1,5 @@
 <template>
-  <v-container style="padding: 80px 6% 64px; max-width: 100%; background-color: #F2F2F2">
+  <v-container style="padding: 80px 6% 64px; max-width: 100%; background-color: #f2f2f2;">
     <v-row>
       <span class="mx-4">
         {{ $t('links.news') }}
@@ -50,7 +50,7 @@ export default Vue.extend({
       posts {
         title
       }
-    }`
+    }`,
   },
   data () {
     return {
@@ -60,7 +60,7 @@ export default Vue.extend({
         { src: require('@/assets/images/news/3.png'), title: 'Горячие обеды в холодные дни', desc: 'Холода пришли внезапно. Тем больше потребность у бездомных людей в горячем питании. РК «Ту ...' },
         { src: require('@/assets/images/news/4.png'), title: 'Горячие обеды в холодные дни', desc: 'Холода пришли внезапно. Тем больше потребность у бездомных людей в горячем питании. РК «Ту ...' },
       ],
-      posts: ''
+      posts: [],
     };
   },
 });
