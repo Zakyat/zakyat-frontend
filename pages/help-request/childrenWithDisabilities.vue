@@ -88,7 +88,7 @@
           offset-y
           min-width="290"
         >
-          <template v-slot:activator="{ on, attrs }">
+          <template #activator="{ on, attrs }">
             <v-text-field
               v-model="userDate"
               outlined
@@ -352,7 +352,7 @@
                 offset-y
                 min-width="290"
               >
-                <template v-slot:activator="{ on, attrs }">
+                <template #activator="{ on, attrs }">
                   <v-text-field
                     v-model="spouseDate"
                     outlined
@@ -407,14 +407,12 @@
             <v-icon>mdi-plus-circle-outline</v-icon>
           </v-btn>
         </h2>
-        <template>
-          <div
-            v-for="form in childFormsAmount"
-            :key="form"
-          >
-            <ChildForm />
-          </div>
-        </template>
+        <div
+          v-for="form in childFormsAmount"
+          :key="form"
+        >
+          <ChildForm />
+        </div>
       </div>
 
       <div class="category__agreement">
