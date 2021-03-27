@@ -16,12 +16,12 @@ import GatheringSelection from '@/components/charity/GatheringSelection.vue';
 import PaymentMethod from '@/components/charity/PaymentMethod.vue';
 
 export default Vue.extend({
-  layout: 'white',
   components: {
     CharityBanner,
     GatheringSelection,
     PaymentMethod,
   },
+  layout: 'white',
   computed: {
     gatheringId () {
       return parseInt(this.$route.query.id as string);
