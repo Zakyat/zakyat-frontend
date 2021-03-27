@@ -1,4 +1,4 @@
-name: Deploy PR demo to Pages
+name: Lint and deploy PR demo to Pages
 
 on: pull_request
 
@@ -12,9 +12,14 @@ jobs:
           persist-credentials: false
 
       - uses: actions/setup-node@v1
-      - name: Install and Build
+      - name: Install dependencies
+        run: npm install
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
         run: |
-          npm install
           export BASE_URL=/zakyat-frontend/${{ github.event.number }}/
           npm run generate
 
