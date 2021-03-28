@@ -62,27 +62,44 @@ export default Vue.extend({
       amounts: [1, 5, 10, 50, 100, 200, 300],
       amount: null,
       url: '',
+      errors: '',
+      ok: '',
+      transaction: Object,
     };
   },
   methods: {
     donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number) {
       this.$apollo.mutate({
         mutation: gql`
-          mutation addTransaction(
+          mutation startPayment(
               $amount: Float!,
-              $campaignId: Int,
-              $description: String,
-              $subscriptionDays: Int,
-              $transactionType: Int
+              $campaignId: Int!,
+              $description: String!,
+              $subscriptionDays: Int!,
+              $transactionType: Int!,
+              $successUrl: String!,
+              $failUrl: String!
             ) {
-              addTransaction (
+              startPayment(
                 amount: $amount,
                 campaignId: $campaignId,
                 description: $description,
                 subscriptionDays: $subscriptionDays,
-                transactionType: $transactionType
+                transactionType: $transactionType,
+                successUrl: $successUrl,
+                failUrl: $failUrl,
               ) {
-                url
+                url,
+                errors,
+                ok,
+                transaction{
+                  id
+                  amount
+                  payment{
+                    uid
+                    status
+                  }
+                }
               }
             }
         `,
@@ -92,9 +109,11 @@ export default Vue.extend({
           description: description,
           subscriptionDays: subscriptionDays,
           transactionType: transactionType,
+          successUrl: 'http://localhost:3000/payment/success',
+          failUrl: 'http://localhost:3000/payment/fail',
         },
         update: (cache, result) => {
-          this.url = result.data.addTransaction.url;
+          this.url = result.data.startPayment.url;
           window.open(this.url, '_blank');
         },
       });
