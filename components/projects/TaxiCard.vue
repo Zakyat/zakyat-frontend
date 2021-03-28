@@ -73,10 +73,12 @@
   </v-card>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   name: 'TaxiCard',
-};
+});
 </script>
 
 <style scoped lang="scss">
