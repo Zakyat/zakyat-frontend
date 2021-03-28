@@ -31,7 +31,7 @@
   </v-card>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 import MyTooltip from '@/components/Zakat/MyTooltip.vue';
 
