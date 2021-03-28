@@ -66,7 +66,7 @@
           class="my-0 py-0"
           on-icon="mdi-check-box-outline"
         >
-          <template v-slot:label>
+          <template #label>
             <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">
               <template #terms>
                 <nuxt-link to="/" color="primary">

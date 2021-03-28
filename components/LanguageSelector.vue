@@ -12,7 +12,7 @@
     dark
     @input="setLocale"
   >
-    <template v-slot:item="{ item }">
+    <template #item="{ item }">
       {{ item.name }}
     </template>
   </v-overflow-btn>
@@ -20,11 +20,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { NuxtVueI18n } from 'nuxt-i18n';
+import type { LocaleObject } from 'nuxt-i18n';
 
 export default Vue.extend({
   methods: {
-    setLocale (locale: NuxtVueI18n.Options.LocaleObject) {
+    setLocale (locale: LocaleObject) {
       this.$i18n.setLocale(locale.code);
       this.$vuetify.rtl = locale.rtl;
       // TODO: enable after translating the missing Vuetify keys

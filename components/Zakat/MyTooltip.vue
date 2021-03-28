@@ -1,6 +1,6 @@
 <template>
   <v-tooltip top max-width="400px">
-    <template v-slot:activator="{ on }">
+    <template #activator="{ on }">
       <span class="word" v-on="on">
         {{ word }}
       </span>
