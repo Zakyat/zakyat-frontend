@@ -9,7 +9,9 @@
         cols="9"
         class="pb-0"
       >
-        <h2 class="title mb-5">Помоги собраться в школу</h2>
+        <h2 class="title mb-5">
+          Помоги собраться в школу
+        </h2>
 
         <div>
           <p class="description">
@@ -49,7 +51,9 @@
             <img width="50" :src="require('@/assets/images/projects/svg/colored/stat_icon.svg')" alt="">
           </v-row>
           <v-row>
-            <p class="ma-0">детей получили <br> помощь за 2019 год</p>
+            <p class="ma-0">
+              детей получили <br> помощь за 2019 год
+            </p>
           </v-row>
         </v-card>
         <img :src="require('@/assets/images/projects/svg/colored/backpack.svg')" alt="">

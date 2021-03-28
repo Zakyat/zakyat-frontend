@@ -9,7 +9,9 @@
         cols="9"
         class="pb-0 mb-0"
       >
-        <h2 class="title mb-5">Центр помощи детям с&nbsp;особенностями развития и&nbsp;их&nbsp;родителям &laquo;Хаят&raquo;</h2>
+        <h2 class="title mb-5">
+          Центр помощи детям с&nbsp;особенностями развития и&nbsp;их&nbsp;родителям &laquo;Хаят&raquo;
+        </h2>
 
         <div>
           <p class="description">
@@ -24,9 +26,11 @@
             <span class="green-text">Посещение Центра для особенных детей и их родителей бесплатное.</span>
           </p>
         </div>
-        <div class='second-description'>
+        <div class="second-description">
           <div>
-            <p class="description mb-0">Посетители Центра — дети с различной способностью к самообслуживанию и диагнозами:</p>
+            <p class="description mb-0">
+              Посетители Центра — дети с различной способностью к самообслуживанию и диагнозами:
+            </p>
             <ul class="mb-5 pl-2">
               <li>ДЦП (от ходячих до полностью обездвиженных)</li>
               <li>Расстройство аутистического спектра</li>
@@ -53,7 +57,9 @@
             <img width="50" :src="require('@/assets/images/projects/svg/colored/stat_icon.svg')" alt="">
           </v-row>
           <v-row>
-            <p class="ma-0">людей накормлено <br> за 2019 год</p>
+            <p class="ma-0">
+              людей накормлено <br> за 2019 год
+            </p>
           </v-row>
         </v-card>
         <div class="map">
@@ -62,7 +68,9 @@
           </a>
           <div class="address mt-3 mb-3">
             <img width="15" :src="require('@/assets/images/projects/svg/icons/pin.svg')" alt="">
-            <p class="ml-1 mb-0">ул. Дзержинского, д. 27</p>
+            <p class="ml-1 mb-0">
+              ул. Дзержинского, д. 27
+            </p>
           </div>
           <div class="address">
             <img width="15" :src="require('@/assets/images/projects/svg/icons/clock.svg')" alt="">
@@ -70,16 +78,23 @@
               9.00 – 18.00, обед 13.00 – 14.00
             </p>
           </div>
-          <p class="ml-5">Воскресенье – Четверг</p>
+          <p class="ml-5">
+            Воскресенье – Четверг
+          </p>
         </div>
       </v-col>
       <v-col class="py-0 mt-0">
-        <div class='second-description'>
+        <div class="second-description">
           <div>
-
-            <p class="description">С самых первых занятий наши юные подопечные показывают хорошие результаты. За время работы Центра многие из них научились общаться, заботиться друг о друге и дружить. </p>
-            <p class="description">Истории наших подопечных мы публикуем на наших страничках в Instagram и Вконтакте.</p>
-            <p class="description">Вы можете пожертвовать любую сумму, чтобы поддержать данный проект</p>
+            <p class="description">
+              С самых первых занятий наши юные подопечные показывают хорошие результаты. За время работы Центра многие из них научились общаться, заботиться друг о друге и дружить.
+            </p>
+            <p class="description">
+              Истории наших подопечных мы публикуем на наших страничках в Instagram и Вконтакте.
+            </p>
+            <p class="description">
+              Вы можете пожертвовать любую сумму, чтобы поддержать данный проект
+            </p>
           </div>
           <div class="people-img">
             <img width="400" :src="require('@/assets/images/projects/svg/colored/people.svg')" alt="">

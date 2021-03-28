@@ -24,7 +24,7 @@ import TaxiCard from '@/components/projects/TaxiCard.vue';
 import SchoolCard from '@/components/projects/SchoolCard.vue';
 
 export default {
-  name: 'index',
+  name: 'Index',
   components: {
     SchoolCard,
     TaxiCard,

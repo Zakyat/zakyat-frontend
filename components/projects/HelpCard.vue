@@ -9,11 +9,15 @@
         cols="9"
         class="pb-0"
       >
-        <h2 class="title mb-5">Помощь тяжелобольным детям и взрослым</h2>
+        <h2 class="title mb-5">
+          Помощь тяжелобольным детям и взрослым
+        </h2>
 
         <div>
-          <p class="description">Фонд «Закят» оказывает помощь и поддержку детям и взрослым, имеющим тяжелые
-            заболевания и нуждающимся в лечении и реабилитации.</p>
+          <p class="description">
+            Фонд «Закят» оказывает помощь и поддержку детям и взрослым, имеющим тяжелые
+            заболевания и нуждающимся в лечении и реабилитации.
+          </p>
 
           <p class="description">
             <img style="float: right;" width="300" :src="require('@/assets/images/projects/svg/colored/arms.svg')" alt="">
@@ -23,10 +27,14 @@
             Каждое пожертвование — это чей-то первый шаг после затяжной болезни, чья-то долгожданная ремиссия.
           </p>
 
-          <p class="description"> Истории наших подопечных мы публикуем на наших страничках <br> в Instagram и
-            Вконтакте.</p>
+          <p class="description">
+            Истории наших подопечных мы публикуем на наших страничках <br> в Instagram и
+            Вконтакте.
+          </p>
 
-          <p class="description">Вы можете пожертвовать любую сумму, чтобы поддержать данный проект</p>
+          <p class="description">
+            Вы можете пожертвовать любую сумму, чтобы поддержать данный проект
+          </p>
         </div>
 
         <v-btn
@@ -53,7 +61,9 @@
             <img width="50" :src="require('@/assets/images/projects/svg/colored/stat_icon.svg')" alt="">
           </v-row>
           <v-row>
-            <p class="ma-0">человек получило <br> помощь в 2019 год</p>
+            <p class="ma-0">
+              человек получило <br> помощь в 2019 год
+            </p>
           </v-row>
         </v-card>
         <v-card
@@ -66,7 +76,9 @@
             <img width="50" :src="require('@/assets/images/projects/svg/colored/stat_icon.svg')" alt="">
           </v-row>
           <v-row>
-            <p class="ma-0">руб собрано на помощь за <br> 2019 год</p>
+            <p class="ma-0">
+              руб собрано на помощь за <br> 2019 год
+            </p>
           </v-row>
         </v-card>
       </v-col>

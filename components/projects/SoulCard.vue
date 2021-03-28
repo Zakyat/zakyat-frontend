@@ -9,7 +9,9 @@
         cols="9"
         class="pb-0"
       >
-        <h2 class="title mb-5">Духовная поддержка</h2>
+        <h2 class="title mb-5">
+          Духовная поддержка
+        </h2>
 
         <div>
           <p class="description">
@@ -46,7 +48,9 @@
             <img width="50" :src="require('@/assets/images/projects/svg/colored/stat_icon.svg')" alt="">
           </v-row>
           <v-row>
-            <p class="ma-0">человек получило <br> помощь в 2019 год</p>
+            <p class="ma-0">
+              человек получило <br> помощь в 2019 год
+            </p>
           </v-row>
         </v-card>
         <p>Вы можете пожертвовать любую сумму, чтобы поддержать данный проект.</p>

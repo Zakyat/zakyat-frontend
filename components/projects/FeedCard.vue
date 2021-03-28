@@ -9,7 +9,9 @@
         cols="9"
         class="pb-0"
       >
-        <h2 class="title mb-5">Накорми нуждающегося</h2>
+        <h2 class="title mb-5">
+          Накорми нуждающегося
+        </h2>
 
         <div>
           <p class="description">
@@ -24,10 +26,12 @@
             Мы верим, что организуя горячее питание обездоленным, мы не только улучшаем качество их жизни, но и дарим веру в доброту окружающего мира. Сытная домашняя еда, человеческое тепло и забота придают силы на пути к благополучной, счастливой жизни.
           </p>
 
-          <p class="description">Мы организуем питание бездомных и нуждающихся:</p>
+          <p class="description">
+            Мы организуем питание бездомных и нуждающихся:
+          </p>
         </div>
 
-        <div class='maps'>
+        <div class="maps">
           <div class="map">
             <p>Сквер</p>
             <a target="_blank" href="https://goo.gl/maps/sa5yxcsns3NdF1HC9">
@@ -35,11 +39,15 @@
             </a>
             <div class="address mt-3 mb-3">
               <img width="15" :src="require('@/assets/images/projects/svg/icons/pin.svg')" alt="">
-              <p class="ml-3 mb-0">ул. Бурхана Шахиди, дом 17</p>
+              <p class="ml-3 mb-0">
+                ул. Бурхана Шахиди, дом 17
+              </p>
             </div>
             <div class="address mt-3 mb-3">
               <img width="15" :src="require('@/assets/images/projects/svg/icons/clock.svg')" alt="">
-              <p class="ml-3 mb-0">Среда, Пятница</p>
+              <p class="ml-3 mb-0">
+                Среда, Пятница
+              </p>
             </div>
           </div>
           <div class="map" style="margin-left: 100px;">
@@ -49,11 +57,15 @@
             </a>
             <div class="address mt-3 mb-3">
               <img width="15" :src="require('@/assets/images/projects/svg/icons/pin.svg')" alt="">
-              <p class="ml-3 mb-0">ул. Бурхана Шахиди, дом 17</p>
+              <p class="ml-3 mb-0">
+                ул. Бурхана Шахиди, дом 17
+              </p>
             </div>
             <div class="address">
               <img width="15" :src="require('@/assets/images/projects/svg/icons/clock.svg')" alt="">
-              <p class="ml-3 mb-0">Вторник</p>
+              <p class="ml-3 mb-0">
+                Вторник
+              </p>
             </div>
           </div>
         </div>
@@ -71,7 +83,9 @@
             <img width="50" :src="require('@/assets/images/projects/svg/colored/stat_icon.svg')" alt="">
           </v-row>
           <v-row>
-            <p class="ma-0">людей накормлено <br> за 2019 год</p>
+            <p class="ma-0">
+              людей накормлено <br> за 2019 год
+            </p>
           </v-row>
         </v-card>
         <v-card
@@ -84,7 +98,9 @@
             <img width="50" :src="require('@/assets/images/projects/svg/colored/stat_icon.svg')" alt="">
           </v-row>
           <v-row>
-            <p class="ma-0">обедов раздали за 2019 <br> год</p>
+            <p class="ma-0">
+              обедов раздали за 2019 <br> год
+            </p>
           </v-row>
         </v-card>
         <div class="food">
@@ -105,7 +121,9 @@
           <p>Мы готовы выслушать ваши идеи и предложения по проекту по номеру </p>
           <div class="phone">
             <img width="20" :src="require('@/assets/images/projects/svg/icons/phone.svg')" alt="">
-            <p class="ml-5 mb-0">8-987-225-33-22.</p>
+            <p class="ml-5 mb-0">
+              8-987-225-33-22.
+            </p>
           </div>
         </div>
       </v-col>
@@ -159,6 +177,7 @@ export default {
     display: flex;
     align-items: center;
   }
+
   .address {
     display: flex;
     align-items: center;

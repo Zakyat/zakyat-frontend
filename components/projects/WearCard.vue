@@ -9,7 +9,9 @@
         cols="9"
         class="pb-0"
       >
-        <h2 class="title mb-5">Пункт приема и раздачи одежды</h2>
+        <h2 class="title mb-5">
+          Пункт приема и раздачи одежды
+        </h2>
 
         <div>
           <p class="description">
@@ -20,9 +22,12 @@
             <img style="float: right;" width="340" :src="require('@/assets/images/projects/svg/colored/wear.svg')" alt="">
             Приносите нам залежавшуюся в шкафах одежду и обувь, постельное белье, игрушки, косметику и хозяйственные товары — благодаря этому жизнь десятков людей и семей станет лучше, комфортнее и счастливее.
           </p>
-          <p class="description">Наши пункты выдачи никогда не&nbsp;пустуют&nbsp;&mdash; посетители приходят
+          <p class="description">
+            Наши пункты выдачи никогда не&nbsp;пустуют&nbsp;&mdash; посетители приходят
             с&nbsp;утра и&nbsp;до&nbsp;вечера.
-            У&nbsp;нас они могут не&nbsp;только получить одежду и&nbsp;вещи, но&nbsp;и&nbsp;отдохнуть за&nbsp;чашечкой горячего чая с&nbsp;угощениями.</p></div>
+            У&nbsp;нас они могут не&nbsp;только получить одежду и&nbsp;вещи, но&nbsp;и&nbsp;отдохнуть за&nbsp;чашечкой горячего чая с&nbsp;угощениями.
+          </p>
+        </div>
       </v-col>
       <v-col class="pb-0">
         <v-card
@@ -35,7 +40,9 @@
             <img width="50" :src="require('@/assets/images/projects/svg/colored/stat_icon.svg')" alt="">
           </v-row>
           <v-row>
-            <p class="ma-0">людей накормлено <br> за 2019 год</p>
+            <p class="ma-0">
+              людей накормлено <br> за 2019 год
+            </p>
           </v-row>
         </v-card>
         <div class="map">
@@ -44,7 +51,9 @@
           </a>
           <div class="address mt-3 mb-3">
             <img width="15" :src="require('@/assets/images/projects/svg/icons/pin.svg')" alt="">
-            <p class="ml-1 mb-0">ул. Дзержинского, д. 27</p>
+            <p class="ml-1 mb-0">
+              ул. Дзержинского, д. 27
+            </p>
           </div>
           <div class="address">
             <img width="15" :src="require('@/assets/images/projects/svg/icons/clock.svg')" alt="">
@@ -52,7 +61,9 @@
               9.00 – 18.00, обед 13.00 – 14.00
             </p>
           </div>
-          <p class="ml-5">Воскресенье – Четверг</p>
+          <p class="ml-5">
+            Воскресенье – Четверг
+          </p>
         </div>
       </v-col>
     </v-row>
