@@ -23,11 +23,11 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
-import SpecificNewsCard from '@/components/news/_id/SpecificNewsCard';
-import GreyCard from '@/components/news/_id/GreyCard';
-import OtherNews from '@/components/news/_id/OtherNews';
+import SpecificNewsCard from '@/components/news/_id/SpecificNewsCard.vue';
+import GreyCard from '@/components/news/_id/GreyCard.vue';
+import OtherNews from '@/components/news/_id/OtherNews.vue';
 
 import gql from 'graphql-tag';
 

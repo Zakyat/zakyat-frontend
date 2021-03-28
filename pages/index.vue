@@ -17,7 +17,7 @@
   </v-layout>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 
 import PartnerBar from '@/components/home/PartnerBar.vue';
