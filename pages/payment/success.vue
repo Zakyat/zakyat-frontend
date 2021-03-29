@@ -6,7 +6,7 @@
         <div class="text-center">
           <h1>Успешная оплата</h1>
           <p>
-            Спасибо! Ваше пожертвование <b>10₽</b> успешно поступило на&nbsp;счет <b>сбора &#8470;&nbsp;309.</b> <br> Смотрите историю совершенных пожертвований в&nbsp;разделе
+            Спасибо! Ваше пожертвование <b>{{transaction.amount}}₽</b> успешно поступило на&nbsp;счет <b>сбора &#8470;&nbsp;{{transaction.campaign.id}}.</b> <br> Смотрите историю совершенных пожертвований в&nbsp;разделе
             <nuxt-link
               to="/"
               class="green-text"
@@ -21,8 +21,32 @@
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
 export default {
   name: 'PaymentSuccess',
+  data () {
+    return {
+      transaction: '',
+    };
+  },
+  apollo: {
+    transaction: {
+      query: gql`
+        query getTransaction($id:Int!) {
+          transaction (id: $id) {
+            amount,
+            campaign {
+              id
+            }
+          }
+        }
+      `,
+      variables () {
+        return { id: 50 };
+      },
+    },
+  },
 };
 </script>
 
