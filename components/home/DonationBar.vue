@@ -109,8 +109,8 @@ export default Vue.extend({
           description: description,
           subscriptionDays: subscriptionDays,
           transactionType: transactionType,
-          successUrl: 'http://localhost:3000/payment/success',
-          failUrl: 'http://localhost:3000/payment/fail',
+          successUrl: process.env.SUCCESS_PAYMENT_PAGE,
+          failUrl: process.env.FAIL_PAYMENT_PAGE,
         },
         update: (cache, result) => {
           this.url = result.data.startPayment.url;
