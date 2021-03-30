@@ -85,24 +85,19 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'DonationAmountSelection',
+  props: {
+    donationTabs: {
+      type: Array,
+      required: true,
+    },
+    amounts: {
+      type: Array,
+      required: true,
+    },
+  },
   data () {
     return {
       tab: null,
-      donationTabs: [
-        {
-          title: this.$t('charity.donationAmountSelection.donation_types.onetime.title'),
-          description: this.$t('charity.donationAmountSelection.donation_types.onetime.description'),
-        },
-        {
-          title: this.$t('charity.donationAmountSelection.donation_types.daily.title'),
-          description: this.$t('charity.donationAmountSelection.donation_types.daily.description'),
-        },
-        {
-          title: this.$t('charity.donationAmountSelection.donation_types.monthly.title'),
-          description: this.$t('charity.donationAmountSelection.donation_types.monthly.description'),
-        },
-      ],
-      amounts: [1, 5, 10, 50, 100, 200, 300, 500],
       selectedAmount: 0,
     };
   },

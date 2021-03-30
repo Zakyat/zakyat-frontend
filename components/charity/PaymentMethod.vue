@@ -37,8 +37,56 @@
             >
               {{ $t('charity.paymentMethod.bankDonationText') }}
             </v-card-text>
-            <DonationAmountSelection />
-            <Contacts />
+
+            <DonationAmountSelection :amounts="amounts" :donation-tabs="donationTabs" />
+
+            <div class="mt-n6">
+              <h3 v-if="userLogin" class="mt-12 mb-2">
+                {{ $t('charity.contacts.title') }}
+              </h3>
+              <Contacts v-if="userLogin" />
+              <v-row
+                justify="space-between"
+              >
+                <v-col
+                  cols="12"
+                  md="auto"
+                >
+                  <v-checkbox
+                    class="my-0 py-0"
+                    on-icon="mdi-check-box-outline"
+                  >
+                    <template #label>
+                      <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">
+                        <template #terms>
+                          <nuxt-link to="/" color="primary">
+                            {{ $t('charity.contacts.terms_conditions.terms') }}
+                          </nuxt-link>
+                        </template>
+                        <template #data>
+                          <nuxt-link to="/" color="primary">
+                            {{ $t('charity.contacts.terms_conditions.data_processing') }}
+                          </nuxt-link>
+                        </template>
+                      </i18n>
+                    </template>
+                  </v-checkbox>
+                </v-col>
+                <v-col
+                  cols="12"
+                  md="auto"
+                >
+                  <v-btn
+                    rounded
+                    color="primary"
+                    text
+                    @click="donate(amount, campaignId, '', 0, 0)"
+                  >
+                    {{ $t('charity.contacts.resumeBtn') }}
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </div>
           </v-card>
         </v-tab-item>
         <v-tab-item
@@ -65,6 +113,7 @@
 import Vue from 'vue';
 import DonationAmountSelection from '@/components/charity/DonationAmountSelection.vue';
 import Contacts from '@/components/charity/Contacts.vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'PaymentMethod',
@@ -72,9 +121,23 @@ export default Vue.extend({
     DonationAmountSelection,
     Contacts,
   },
+  props: {
+    campaignId: {
+      type: Number,
+      required: true,
+    },
+  },
   data () {
     return {
+      userLogin: false,
+      url: '',
+      errors: '',
+      ok: '',
+      transaction: Object,
+      subscriptionDays: 0,
+      amount: 10,
       tab: null,
+
       paymentMethods: [
         this.$t('charity.paymentMethod.methods.bank_card'),
         this.$t('charity.paymentMethod.methods.SMS'),
@@ -82,7 +145,79 @@ export default Vue.extend({
         this.$t('charity.paymentMethod.methods.yandex_money'),
         this.$t('charity.paymentMethod.methods.paypal'),
       ],
+
+      amounts: [1, 5, 10, 50, 100, 200, 300, 500],
+
+      donationTabs: [
+        {
+          id: 0,
+          title: this.$t('charity.donationAmountSelection.donation_types.onetime.title'),
+          description: this.$t('charity.donationAmountSelection.donation_types.onetime.description'),
+        },
+        {
+          id: 1,
+          title: this.$t('charity.donationAmountSelection.donation_types.daily.title'),
+          description: this.$t('charity.donationAmountSelection.donation_types.daily.description'),
+        },
+        {
+          id: 30,
+          title: this.$t('charity.donationAmountSelection.donation_types.monthly.title'),
+          description: this.$t('charity.donationAmountSelection.donation_types.monthly.description'),
+        },
+      ],
     };
+  },
+  methods: {
+    donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number) {
+      this.$apollo.mutate({
+        mutation: gql`
+          mutation startPayment(
+              $amount: Float!,
+              $campaignId: Int!,
+              $description: String!,
+              $subscriptionDays: Int!,
+              $transactionType: Int!,
+              $successUrl: String!,
+              $failUrl: String!
+            ) {
+              startPayment(
+                amount: $amount,
+                campaignId: $campaignId,
+                description: $description,
+                subscriptionDays: $subscriptionDays,
+                transactionType: $transactionType,
+                successUrl: $successUrl,
+                failUrl: $failUrl,
+              ) {
+                url,
+                errors,
+                ok,
+                transaction{
+                  id
+                  amount
+                  payment{
+                    uid
+                    status
+                  }
+                }
+              }
+            }
+        `,
+        variables: {
+          amount,
+          campaignId,
+          description,
+          subscriptionDays,
+          transactionType,
+          successUrl: process.env.SUCCESS_PAYMENT_PAGE,
+          failUrl: process.env.FAIL_PAYMENT_PAGE,
+        },
+        update: (cache, result) => {
+          this.url = result.data.startPayment.url;
+          window.open(this.url, '_blank');
+        },
+      });
+    },
   },
 });
 </script>

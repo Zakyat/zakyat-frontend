@@ -5,7 +5,7 @@
       {{ $t('charity.title') }}
     </h1>
     <GatheringSelection :campaign-id="campaignId" />
-    <PaymentMethod class="mb-12" />
+    <PaymentMethod :campaign-id="campaignId" class="mb-12" />
   </v-container>
 </template>
 
