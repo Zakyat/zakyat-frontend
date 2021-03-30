@@ -6,7 +6,7 @@
         <div class="text-center">
           <h1>Успешная оплата</h1>
           <p>
-            Спасибо! Ваше пожертвование <b>{{transaction.amount}}₽</b> успешно поступило на&nbsp;счет <b>сбора &#8470;&nbsp;{{transaction.campaign.id}}.</b> <br> Смотрите историю совершенных пожертвований в&nbsp;разделе
+            Спасибо! Ваше пожертвование <b>{{transaction.amount | rubles}}</b> успешно поступило на&nbsp;счет <b>сбора &#8470;&nbsp;{{transaction.campaign.id}}.</b> <br> Смотрите историю совершенных пожертвований в&nbsp;разделе
             <nuxt-link
               to="/"
               class="green-text"

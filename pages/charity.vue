@@ -4,7 +4,7 @@
     <h1 class="mt-12">
       {{ $t('charity.title') }}
     </h1>
-    <GatheringSelection :gathering-id="gatheringId" />
+    <GatheringSelection :campaign-id="campaignId" />
     <PaymentMethod class="mb-12" />
   </v-container>
 </template>
@@ -23,7 +23,7 @@ export default Vue.extend({
     PaymentMethod,
   },
   computed: {
-    gatheringId () {
+    campaignId () {
       return parseInt(this.$route.query.id as string);
     },
   },

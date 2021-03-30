@@ -14,17 +14,17 @@
           rounded
           flat
           :placeholder="$t('charity.gathering.gatheringSelection')"
-          :items="gatherings"
+          :items="campaigns"
           item-value="id"
           class="pa-0 ma-0"
-          :value="gatheringId"
+          :value="campaignId"
           @input="$router.push(`/charity?id=${$event}`)"
         >
           <template #item="{ item }">
-            {{ item.name }}, {{ item.id }}
+            {{ item.title }}, {{ item.id }}
           </template>
           <template #selection="{ item }">
-            {{ item.name }}, {{ item.id }}
+            {{ item.title }}, {{ item.id }}
           </template>
         </v-select>
       </v-col>
@@ -44,15 +44,14 @@
       </v-col>
     </v-row>
     <CharityCard
-      v-if="gatheringId"
-      v-bind="selectedGathering"
+      v-if="campaignId"
+      v-bind="selectedCampaign"
     />
   </div>
 </template>
 
 <script>
 import Vue from 'vue';
-import { mapState } from 'vuex';
 import CharityCard from '@/components/charity/CharityCard.vue';
 import gql from 'graphql-tag';
 
@@ -61,11 +60,32 @@ export default Vue.extend({
   components: {
     CharityCard,
   },
+  props: {
+    campaignId: {
+      type: Number,
+    },
+  },
+  data () {
+    return {
+      campaigns: [],
+      campaign: '',
+    };
+  },
   apollo: {
-    campaign: {
+    campaigns: {
       query: gql`
         query {
-          campaign (id: 1) {
+          campaigns {
+            id,
+            title,
+          }
+        }
+      `,
+    },
+    campaign: {
+      query: gql`
+        query getCampaign($id:Int!) {
+          campaign (id: $id) {
             id
             title
             problem
@@ -80,23 +100,17 @@ export default Vue.extend({
           }
         }
       `,
-    },
-  },
-  data () {
-    return {
-      campaign: '',
-    };
-  },
-  props: {
-    gatheringId: {
-      type: Number,
-      default: 0,
+      variables () {
+        return {
+          id: this.campaignId,
+        };
+      },
     },
   },
   computed: {
-    ...mapState(['gatherings']),
-    selectedGathering () {
-      return this.gatherings.find(gathering => gathering.id === this.gatheringId);
+    selectedCampaign () {
+      this.$apollo.queries.campaign.refresh();
+      return this.campaign;
     },
   },
 });
