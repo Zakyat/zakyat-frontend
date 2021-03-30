@@ -38,7 +38,7 @@
               {{ $t('charity.paymentMethod.bankDonationText') }}
             </v-card-text>
 
-            <DonationAmountSelection @select-amount="selectAmount" :amounts="amounts" :donation-tabs="donationTabs" />
+            <DonationAmountSelection @select-days="selectDays" @select-amount="selectAmount" :amounts="amounts" :donation-tabs="donationTabs" />
 
             <div class="mt-n6">
               <h3 v-if="userLogin" class="mt-12 mb-2">
@@ -80,7 +80,7 @@
                     rounded
                     color="primary"
                     text
-                    @click="donate(amount, campaignId, '', 0, 2)"
+                    @click="donate(amount, campaignId, '', donationDays, 2)"
                   >
                     {{ $t('charity.contacts.resumeBtn') }}
                   </v-btn>
@@ -137,6 +137,7 @@ export default Vue.extend({
       subscriptionDays: 0,
       amount: 0,
       tab: null,
+      donationDays: 0,
 
       paymentMethods: [
         this.$t('charity.paymentMethod.methods.bank_card'),
@@ -150,17 +151,17 @@ export default Vue.extend({
 
       donationTabs: [
         {
-          id: 0,
+          days: 0,
           title: this.$t('charity.donationAmountSelection.donation_types.onetime.title'),
           description: this.$t('charity.donationAmountSelection.donation_types.onetime.description'),
         },
         {
-          id: 1,
+          days: 1,
           title: this.$t('charity.donationAmountSelection.donation_types.daily.title'),
           description: this.$t('charity.donationAmountSelection.donation_types.daily.description'),
         },
         {
-          id: 30,
+          days: 30,
           title: this.$t('charity.donationAmountSelection.donation_types.monthly.title'),
           description: this.$t('charity.donationAmountSelection.donation_types.monthly.description'),
         },
@@ -170,6 +171,10 @@ export default Vue.extend({
   methods: {
     selectAmount (amount: number) {
       this.amount = amount;
+    },
+    selectDays (tab: number) {
+      this.donationDays = this.donationTabs[tab]?.days;
+      console.log(this.donationDays);
     },
     donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number) {
       this.$apollo.mutate({

@@ -11,6 +11,7 @@
         center-active
         show-arrows
         class="payment-tabs pa-1"
+        :onchange="selectDays()"
       >
         <v-tab
           v-for="{ title } in donationTabs"
@@ -105,6 +106,9 @@ export default Vue.extend({
   methods: {
     selectAmount () {
       this.$emit('select-amount', this.selectedAmount);
+    },
+    selectDays () {
+      this.$emit('select-days', this.tab);
     },
   }
 });
