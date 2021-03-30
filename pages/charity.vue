@@ -16,6 +16,7 @@ import GatheringSelection from '@/components/charity/GatheringSelection.vue';
 import PaymentMethod from '@/components/charity/PaymentMethod.vue';
 
 export default Vue.extend({
+  name: 'charity',
   layout: 'white',
   components: {
     CharityBanner,
@@ -35,7 +36,6 @@ export default Vue.extend({
   methods: {
     makeAnonymous (isAnonymous: boolean) {
       this.isAnonymous = isAnonymous;
-      console.log(this.isAnonymous);
     },
   },
 });

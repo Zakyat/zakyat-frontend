@@ -45,7 +45,7 @@
                 <h3 v-if="!isAnonymous" class="mt-12 mb-2">
                   {{ $t('charity.contacts.title') }}
                 </h3>
-                <Contacts v-if="!isAnonymous" />
+                <Contacts @user="getUserData" v-if="!isAnonymous" />
               </div>
               <v-row
                 justify="space-between"
@@ -86,7 +86,7 @@
                     text
                     :disabled="!agreedToTerms"
 
-                    @click="donate(amount, campaignId, '', donationDays, 2)"
+                    @click="donate(amount, campaignId, description, donationDays, 2)"
                   >
                     {{ $t('charity.contacts.resumeBtn') }}
                   </v-btn>
@@ -141,6 +141,7 @@ export default Vue.extend({
     return {
       userLogin: false,
       url: '',
+      description: '',
       errors: '',
       ok: '',
       transaction: Object,
@@ -185,6 +186,10 @@ export default Vue.extend({
     },
     selectDays (tab: number) {
       this.donationDays = this.donationTabs[tab]?.days;
+    },
+    getUserData (user: any) {
+      this.description = `${user.name} ${user.lastName} ${user.email} ${user.phone}`;
+      console.log(this.description);
     },
     donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number) {
       this.$apollo.mutate({

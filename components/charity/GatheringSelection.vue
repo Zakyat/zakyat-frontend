@@ -119,7 +119,6 @@ export default Vue.extend({
   methods: {
     makeAnonymous () {
       this.$emit('anonymous', this.isAnonymous);
-      console.log(this.isAnonymous);
     },
   },
 });
