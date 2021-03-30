@@ -92,6 +92,7 @@
                   color="#00AC00"
                   class="text-none donate"
                   style="font-weight: normal;"
+                  :to="`/charity?id=${campaign.id}`"
                 >
                   {{ $t('home.slideshow.donate') }}
                 </v-btn>
@@ -106,7 +107,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-// import { mapState } from 'vuex';
 
 import gql from 'graphql-tag';
 
@@ -137,8 +137,5 @@ export default Vue.extend({
       campaigns: [],
     };
   },
-  // computed: {
-  //   ...mapState(['gatherings']),
-  // },
 });
 </script>

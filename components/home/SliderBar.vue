@@ -96,10 +96,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapState } from 'vuex';
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import { SwiperOptions } from 'swiper'; // eslint-disable-line import/named
-import { RootState } from '@/store/index';
 import 'swiper/css/swiper.css';
 
 import gql from 'graphql-tag';
@@ -142,11 +140,6 @@ export default Vue.extend({
       } as SwiperOptions,
       campaigns: '',
     };
-  },
-  computed: {
-    ...mapState({
-      slides: state => (state as RootState).gatherings,
-    }),
   },
 });
 </script>
