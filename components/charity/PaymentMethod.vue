@@ -41,10 +41,12 @@
             <DonationAmountSelection @select-days="selectDays" @select-amount="selectAmount" :amounts="amounts" :donation-tabs="donationTabs" />
 
             <div class="mt-n6">
-              <h3 v-if="userLogin" class="mt-12 mb-2">
-                {{ $t('charity.contacts.title') }}
-              </h3>
-              <Contacts v-if="userLogin" />
+              <div v-if="!userLogin">
+                <h3 v-if="!isAnonymous" class="mt-12 mb-2">
+                  {{ $t('charity.contacts.title') }}
+                </h3>
+                <Contacts v-if="!isAnonymous" />
+              </div>
               <v-row
                 justify="space-between"
               >
@@ -128,6 +130,10 @@ export default Vue.extend({
   props: {
     campaignId: {
       type: Number,
+      required: true,
+    },
+    isAnonymous: {
+      type: Boolean,
       required: true,
     },
   },

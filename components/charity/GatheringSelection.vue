@@ -34,6 +34,8 @@
         class="pa-0 md-0"
       >
         <v-checkbox
+          v-model="isAnonymous"
+          :onchange="makeAnonymous()"
           class="pa-0 md-0"
           on-icon="mdi-check-box-outline"
         >
@@ -69,6 +71,7 @@ export default Vue.extend({
     return {
       campaigns: [],
       campaign: '',
+      isAnonymous: false,
     };
   },
   apollo: {
@@ -111,6 +114,12 @@ export default Vue.extend({
     selectedCampaign () {
       this.$apollo.queries.campaign.refresh();
       return this.campaign;
+    },
+  },
+  methods: {
+    makeAnonymous () {
+      this.$emit('anonymous', this.isAnonymous);
+      console.log(this.isAnonymous);
     },
   },
 });

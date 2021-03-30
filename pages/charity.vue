@@ -4,8 +4,8 @@
     <h1 class="mt-12">
       {{ $t('charity.title') }}
     </h1>
-    <GatheringSelection :campaign-id="campaignId" />
-    <PaymentMethod :campaign-id="campaignId" class="mb-12" />
+    <GatheringSelection @anonymous="makeAnonymous" :campaign-id="campaignId" />
+    <PaymentMethod :isAnonymous="isAnonymous" :campaign-id="campaignId" class="mb-12" />
   </v-container>
 </template>
 
@@ -22,9 +22,20 @@ export default Vue.extend({
     GatheringSelection,
     PaymentMethod,
   },
+  data () {
+    return {
+      isAnonymous: false,
+    };
+  },
   computed: {
     campaignId () {
       return parseInt(this.$route.query.id as string);
+    },
+  },
+  methods: {
+    makeAnonymous (isAnonymous: boolean) {
+      this.isAnonymous = isAnonymous;
+      console.log(this.isAnonymous);
     },
   },
 });
