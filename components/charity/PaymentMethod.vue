@@ -55,6 +55,7 @@
                   <v-checkbox
                     class="my-0 py-0"
                     on-icon="mdi-check-box-outline"
+                    v-model="agreedToTerms"
                   >
                     <template #label>
                       <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">
@@ -77,9 +78,12 @@
                   md="auto"
                 >
                   <v-btn
+                    v-if="agreedToTerms"
                     rounded
                     color="primary"
                     text
+                    :disabled="!agreedToTerms"
+
                     @click="donate(amount, campaignId, '', donationDays, 2)"
                   >
                     {{ $t('charity.contacts.resumeBtn') }}
@@ -166,6 +170,7 @@ export default Vue.extend({
           description: this.$t('charity.donationAmountSelection.donation_types.monthly.description'),
         },
       ],
+      agreedToTerms: false,
     };
   },
   methods: {
@@ -174,7 +179,6 @@ export default Vue.extend({
     },
     selectDays (tab: number) {
       this.donationDays = this.donationTabs[tab]?.days;
-      console.log(this.donationDays);
     },
     donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number) {
       this.$apollo.mutate({
