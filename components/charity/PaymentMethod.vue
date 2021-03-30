@@ -38,7 +38,7 @@
               {{ $t('charity.paymentMethod.bankDonationText') }}
             </v-card-text>
 
-            <DonationAmountSelection :amounts="amounts" :donation-tabs="donationTabs" />
+            <DonationAmountSelection @select-amount="selectAmount" :amounts="amounts" :donation-tabs="donationTabs" />
 
             <div class="mt-n6">
               <h3 v-if="userLogin" class="mt-12 mb-2">
@@ -80,7 +80,7 @@
                     rounded
                     color="primary"
                     text
-                    @click="donate(amount, campaignId, '', 0, 0)"
+                    @click="donate(amount, campaignId, '', 0, 2)"
                   >
                     {{ $t('charity.contacts.resumeBtn') }}
                   </v-btn>
@@ -135,7 +135,7 @@ export default Vue.extend({
       ok: '',
       transaction: Object,
       subscriptionDays: 0,
-      amount: 10,
+      amount: 0,
       tab: null,
 
       paymentMethods: [
@@ -168,6 +168,9 @@ export default Vue.extend({
     };
   },
   methods: {
+    selectAmount (amount: number) {
+      this.amount = amount;
+    },
     donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number) {
       this.$apollo.mutate({
         mutation: gql`

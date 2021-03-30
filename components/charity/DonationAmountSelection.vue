@@ -66,6 +66,7 @@
           dense
           hide-details
           class="my-0 py-0 amounts"
+          :onchange="selectAmount()"
         >
           <v-radio
             v-for="a in amounts"
@@ -101,6 +102,11 @@ export default Vue.extend({
       selectedAmount: 0,
     };
   },
+  methods: {
+    selectAmount () {
+      this.$emit('select-amount', this.selectedAmount);
+    },
+  }
 });
 </script>
 
