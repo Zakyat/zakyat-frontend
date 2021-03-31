@@ -1,5 +1,5 @@
 <template>
-  <v-layout class="zakat-container" row>
+  <v-layout class="zakat-container">
     <v-flex xs12 md8>
       <h1>{{ $t('home.zakat.title') }}</h1>
       <p class="my-4">

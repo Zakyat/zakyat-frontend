@@ -48,7 +48,7 @@
 
             <v-row justify="space-around" align="end" no-gutters>
               <v-col cols="9" class="pl-4">
-                <v-row justify="space-between">
+                <v-row no-gutters justify="space-between">
                   <v-col class="pb-1">
                     <p class="subtitle mb-0 grey--text">
                       {{ $t('home.slideshow.collected') }}

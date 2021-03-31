@@ -6,14 +6,14 @@
     >
       <v-img :src="require('@/assets/images/slideshow1.jpg')" class="background">
         <v-card class="overlay" flat>
-          <v-row>
+          <v-row class="slide">
             <v-col cols="8">
               <v-card-title class="pb-0">
                 {{ slide.title }}
               </v-card-title>
               <v-card-text>
                 {{ slide.problem }}
-                <v-row justify="space-between">
+                <v-row no-gutters justify="space-between">
                   <v-col class="pb-1">
                     <p class="subtitle">
                       {{ $t('home.slideshow.collected') }}
@@ -145,6 +145,10 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+.slide {
+  margin: 0;
+}
+
 .swiper-container {
   width: 88%;
   min-height: 200px;
