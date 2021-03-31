@@ -16,6 +16,7 @@ import GatheringSelection from '@/components/charity/GatheringSelection.vue';
 import PaymentMethod from '@/components/charity/PaymentMethod.vue';
 
 export default Vue.extend({
+
   name: 'charity',
   layout: 'white',
   components: {

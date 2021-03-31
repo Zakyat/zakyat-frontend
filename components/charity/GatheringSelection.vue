@@ -39,7 +39,7 @@
           class="pa-0 md-0"
           on-icon="mdi-check-box-outline"
         >
-          <template v-slot:label>
+          <template #label>
             <span class="black--text"> {{ $t('charity.gathering.anonymous') }} </span>
           </template>
         </v-checkbox>
@@ -52,7 +52,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 import CharityCard from '@/components/charity/CharityCard.vue';
 import gql from 'graphql-tag';

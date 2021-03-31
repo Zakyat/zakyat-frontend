@@ -24,11 +24,11 @@
               width="250"
             />
 
-<!--            <v-card-actions style="position: absolute; bottom: 5px;">-->
-<!--              <v-btn rounded dark color="primary">-->
-<!--                {{ $t('home.projects.help') }}-->
-<!--              </v-btn>-->
-<!--            </v-card-actions>-->
+            <!--            <v-card-actions style="position: absolute; bottom: 5px;">-->
+            <!--              <v-btn rounded dark color="primary">-->
+            <!--                {{ $t('home.projects.help') }}-->
+            <!--              </v-btn>-->
+            <!--            </v-card-actions>-->
           </v-card-text>
         </v-card>
       </v-flex>
@@ -46,7 +46,7 @@ export default Vue.extend({
       projects {
         title
       }
-    }`
+    }`,
   },
   data () {
     return {
@@ -60,7 +60,7 @@ export default Vue.extend({
         { title: 'Помоги собраться в школу', src: require('@/assets/images/projects/svg/backpack.svg') },
         { title: 'Воспитай Коран-хафиза', src: require('@/assets/images/projects/svg/boy.svg') },
       ],
-      projects: '',
+      projects: [],
     };
   },
 });
