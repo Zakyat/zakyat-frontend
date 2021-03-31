@@ -37,7 +37,7 @@
           class="pa-0 md-0"
           on-icon="mdi-check-box-outline"
         >
-          <template v-slot:label>
+          <template #label>
             <span class="black--text"> {{ $t('charity.gathering.anonymous') }} </span>
           </template>
         </v-checkbox>
@@ -50,7 +50,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 import { mapState } from 'vuex';
 import CharityCard from '@/components/charity/CharityCard.vue';
@@ -69,7 +69,8 @@ export default Vue.extend({
   computed: {
     ...mapState(['gatherings']),
     selectedGathering () {
-      return this.gatherings.find(gathering => gathering.id === this.gatheringId);
+      const gatherings = this.gatherings as Array<Record<string, string|number>>;
+      return gatherings.find(gathering => gathering.id === this.gatheringId);
     },
   },
 });

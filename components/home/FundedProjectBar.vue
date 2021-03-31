@@ -13,22 +13,14 @@
       >
         <v-card
           rounded
-          outlined
+          flat
           solo
-          color="#F2F2F2"
-          height="250px"
+          class="funded"
+          :style="backgroundImg(item.src)"
         >
           <v-card-title style="word-break: normal;">
             {{ item.title }}
           </v-card-title>
-          <v-card-text v-if="item.src">
-            <v-img :src="item.src" contain height="155" style="position: absolute; right: 0;" />
-          </v-card-text>
-          <v-card-actions>
-            <v-btn rounded dark color="primary" class="mx-4" style="position: absolute; bottom: 15px;">
-              {{ item.button }}
-            </v-btn>
-          </v-card-actions>
         </v-card>
       </v-col>
     </v-row>
@@ -42,14 +34,20 @@ export default Vue.extend({
   data () {
     return {
       projects: [
-        { title: 'Собрали 6 234 234 ₽ для инвалидов за 2019 год ', button: 'Хочу помочь', flex: 6, src: require('@/assets/images/projects/funded/3.png') },
-        { title: '327 занятий провели с детьми за последний год', button: 'Хочу помочь', flex: 3 },
-        { title: '653 человека накормили за месяц', button: 'Хочу помочь', flex: 3, src: require('@/assets/images/projects/funded/1.png') },
-        { title: '234 волонтера присоединились к нам за год', button: 'Хочу помочь', flex: 3 },
-        { title: '2 345 семьям раздали одежды благодаря вам', button: 'Хочу помочь', flex: 3 },
-        { title: 'Собрали 456 234 ₽ на лекарства всем нуждающимся за 2019 год ', button: 'Хочу помочь', flex: 6, src: require('@/assets/images/projects/funded/2.png') },
+        { title: 'Собрали 6 234 234 ₽ для инвалидов за 2019 год ', button: 'Хочу помочь', flex: 6, src: require('@/assets/images/news/tubetey.png') },
+        { title: '327 занятий провели с детьми за последний год', button: 'Хочу помочь', flex: 3, src: require('@/assets/images/news/tubetey.png') },
+        { title: '653 человека накормили за месяц', button: 'Хочу помочь', flex: 3, src: require('@/assets/images/news/tubetey.png') },
+        { title: '234 волонтера присоединились к нам за год', button: 'Хочу помочь', flex: 3, src: require('@/assets/images/news/tubetey.png') },
+        { title: '2 345 семьям раздали одежды благодаря вам', button: 'Хочу помочь', flex: 3, src: require('@/assets/images/news/tubetey.png') },
+        { title: 'Собрали 456 234 ₽ на лекарства всем нуждающимся за 2019 год ', button: 'Хочу помочь', flex: 6, src: require('@/assets/images/news/tubetey.png') },
       ],
     };
+  },
+
+  methods: {
+    backgroundImg (img: string) {
+      return `background: url(${img}) no-repeat right !important;`;
+    },
   },
 });
 </script>
@@ -60,6 +58,12 @@ span {
   font-size: 36px;
   line-height: 43px;
   color: #000;
+}
+
+.funded {
+  height: 246px;
+  background-size: contain;
+  zoom: 110%;
 }
 
 a {

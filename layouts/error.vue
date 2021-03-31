@@ -12,8 +12,10 @@
   </v-app>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue';
+
+export default Vue.extend({
   layout: 'empty',
   props: {
     error: {
@@ -27,14 +29,13 @@ export default {
       otherError: 'An error occurred',
     };
   },
-  head () {
-    const title =
-      this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
+  head (): Record<string, string> {
+    const title = this.error.statusCode === 404 ? this.pageNotFound : this.otherError;
     return {
       title,
     };
   },
-};
+});
 </script>
 
 <style scoped>

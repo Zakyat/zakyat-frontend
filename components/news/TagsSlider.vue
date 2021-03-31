@@ -36,7 +36,7 @@
       bottom
       :close-on-content-click="false"
     >
-      <template v-slot:activator="{ on, attrs }">
+      <template #activator="{ on, attrs }">
         <v-btn
           outlined
           rounded

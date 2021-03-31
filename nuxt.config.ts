@@ -69,18 +69,18 @@ const config: NuxtConfig = {
   apollo: {
     clientConfigs: {
       default: {
-        httpEndpoint: 'http://127.0.0.1:8000/graphql',
+        httpEndpoint: `${process.env.API_BASE}/graphql`,
       },
-    }
+    },
   },
   auth: {
     strategies: {
       local: {
         endpoints: {
           login: { url: '/sessions', method: 'post', propertyName: 'token' },
-        }
-      }
-    }
+        },
+      },
+    },
   },
   /*
   ** vuetify module configuration

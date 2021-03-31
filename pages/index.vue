@@ -7,9 +7,9 @@
     <SliderBar />
     <DonationBar />
     <ProjectBar />
-    <VolunteerBannerBar />
-    <NewsBar />
     <ZakatBannerBar />
+    <NewsBar />
+    <VolunteerBannerBar />
     <FundedProjectBar />
     <AboutUsBar />
     <DonationBar />
@@ -17,7 +17,7 @@
   </v-layout>
 </template>
 
-<script>
+<script lang="ts">
 import Vue from 'vue';
 
 import PartnerBar from '@/components/home/PartnerBar.vue';

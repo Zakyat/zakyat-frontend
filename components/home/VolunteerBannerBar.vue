@@ -5,15 +5,15 @@
       <p class="my-5" style="width: 88%;">
         {{ $t('home.volunteer.description') }}
       </p>
-      <v-btn height="40" rounded>
+      <v-btn height="40" rounded depressed>
         {{ $t('home.volunteer.join') }}
       </v-btn>
     </v-flex>
     <v-flex xs12 md5>
       <v-img
-        max-width="506px"
-        width="100%"
-        :src="require('@/assets/images/banners/2.png')"
+        class="float-right mb-n7"
+        max-width="400px"
+        :src="require('@/assets/images/banners/womans.svg')"
       />
     </v-flex>
   </v-layout>
@@ -27,10 +27,10 @@ export default Vue.extend({
 
 <style lang="scss" scoped>
 .volunteer-container {
-  background-color: #3840f1;
+  background-color: #7fbcaa;
   padding: 80px 6% 30px 6%;
   color: #fff;
-  max-width: 100%;
+  margin: 0;
 
   h1 {
     font: bold 36px;
