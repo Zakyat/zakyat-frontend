@@ -104,17 +104,17 @@ export default Vue.extend({
             }
         `,
         variables: {
-          amount: amount,
-          campaignId: campaignId,
-          description: description,
-          subscriptionDays: subscriptionDays,
-          transactionType: transactionType,
+          amount,
+          campaignId,
+          description,
+          subscriptionDays,
+          transactionType,
           successUrl: process.env.SUCCESS_PAYMENT_PAGE,
           failUrl: process.env.FAIL_PAYMENT_PAGE,
         },
         update: (cache, result) => {
           this.url = result.data.startPayment.url;
-          window.open(this.url, '_blank');
+          window.open(this.url, '_self');
         },
       });
     },

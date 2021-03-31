@@ -110,7 +110,7 @@ export default Vue.extend({
     selectDays () {
       this.$emit('select-days', this.tab);
     },
-  }
+  },
 });
 </script>
 
