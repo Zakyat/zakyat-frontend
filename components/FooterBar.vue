@@ -45,19 +45,19 @@
           <v-btn text small>
             ©{{ new Date().getFullYear() }}  {{ $t('copyright') }}
           </v-btn>
-          <v-btn text small href="tel:+78432253322">
-            +7 (843) 225-33-22
+          <v-btn text small :href="`tel:${siteSettings.phone}`">
+            {{siteSettings.phone}}
           </v-btn>
-          <v-btn text small href="mailto:fondzakyat@yandex.ru">
-            fondzakyat@yandex.ru
+          <v-btn text small :href="siteSettings.email">
+            {{siteSettings.email}}
           </v-btn>
-          <v-btn text small>
+          <v-btn text small :href="siteSettings.vk">
             <v-icon medium>
               mdi-vk
             </v-icon>
             {{ $t('VK') }}
           </v-btn>
-          <v-btn text small>
+          <v-btn text small :href="siteSettings.insta">
             <v-icon medium>
               mdi-instagram
             </v-icon>
@@ -92,6 +92,12 @@ export default Vue.extend({
   components: {
     LanguageSelector,
     BecomeVolunteer,
+  },
+  props: {
+    siteSettings: {
+      type: Object,
+      required: true,
+    },
   },
   data () {
     return {

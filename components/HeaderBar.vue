@@ -9,13 +9,13 @@
       </v-icon>
       {{ $t('search.buttonName') }}
     </v-btn>
-    <v-btn text small>
+    <v-btn text smal :href="siteSettings.vk">
       <v-icon color="white" size="20">
         mdi-vk
       </v-icon>
       {{ $t('VK') }}
     </v-btn>
-    <v-btn text small>
+    <v-btn text small :href="siteSettings.insta">
       <v-icon color="white" size="20">
         mdi-instagram
       </v-icon>
@@ -91,6 +91,12 @@ export default Vue.extend({
     RegistrationDialog,
     SuccessDialog,
     SignInDialog,
+  },
+  props: {
+    siteSettings: {
+      type: Object,
+      required: true,
+    },
   },
   data () {
     return {

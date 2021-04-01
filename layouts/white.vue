@@ -3,18 +3,19 @@
     <div class="app">
       <Loader />
     </div>
-    <HeaderBar />
+    <HeaderBar :siteSettings="siteSettings" />
     <NavBar />
     <v-divider />
     <v-main>
       <nuxt />
     </v-main>
-    <FooterBar />
+    <FooterBar :siteSettings="siteSettings" />
   </v-app>
 </template>
 
 <script lang='ts'>
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 import HeaderBar from '@/components/HeaderBar.vue';
 import NavBar from '@/components/NavBar.vue';
@@ -28,6 +29,23 @@ export default Vue.extend({
     NavBar,
     FooterBar,
     Loader,
+  },
+  apollo: {
+    siteSettings: gql`query{
+      siteSettings {
+        email,
+        phone,
+        vk,
+        fb,
+        insta,
+        fondInformation
+      }
+    }`,
+  },
+  data () {
+    return {
+      siteSettings: '',
+    };
   },
 
   head () {
