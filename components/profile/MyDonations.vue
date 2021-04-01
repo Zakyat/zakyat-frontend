@@ -20,37 +20,6 @@
         />
       </v-col>
     </v-row>
-<!--    <v-simple-table>-->
-<!--      <template>-->
-<!--        <thead>-->
-<!--          <tr>-->
-<!--            <th>Статус пожертвования</th>-->
-<!--            <th>Тип пожертвования</th>-->
-<!--            <th>Сумма</th>-->
-<!--            <th>Дата</th>-->
-<!--            <th>Назначение платежа</th>-->
-<!--            <th>Способ платежа</th>-->
-<!--            <th> </th>-->
-<!--          </tr>-->
-<!--        </thead>-->
-<!--        <tbody>-->
-<!--          <tr>-->
-<!--            <td>В обработке</td>-->
-<!--            <td>Садака</td>-->
-<!--            <td>10<b>$</b></td>-->
-<!--            <td>01.12.2019</td>-->
-<!--            <td>-->
-<!--              Фаттахова Камиля-->
-<!--              <br>-->
-<!--              <p class="sbor">-->
-<!--                сбор №23-->
-<!--              </p>-->
-<!--            </td>-->
-<!--            <td>Master card *2324</td>-->
-<!--          </tr>-->
-<!--        </tbody>-->
-<!--      </template>-->
-<!--    </v-simple-table>-->
     <v-row
       align="center"
       class="pl-5"
@@ -67,51 +36,27 @@
       flat
       rounded
       outlined
-      v-for="item in 2"
-      :key="item"
+      v-for="donation in donations"
+      :key="donation.id"
     >
-      <div class="green"></div>
+
+      <div class="grey"></div>
+
       <v-row
         align="center"
         class="pl-5"
       >
         <!--        <v-col cols="auto" class="py-0"></v-col>-->
-        <v-col>Получено</v-col>
-        <v-col>Садака</v-col>
-        <v-col>10<b>$</b></v-col>
-        <v-col>01.12.2019</v-col>
+        <v-col v-if="donation.payment">{{ donation.payment.status ? 'В Обработке'  : 'Получено'}}</v-col>
+        <v-col v-else>-</v-col>
+        <v-col>{{ donation.transactionType }}</v-col>
+        <v-col>{{ donation.amount }}<b>$</b></v-col>
+        <v-col>{{ localeDate(donation.createAt )}}</v-col>
         <v-col class="">
-          Фаттахова Камиля
+          {{ donation.campaign.title }}
           <br>
           <p class="sbor">
-            сбор №23
-          </p>
-        </v-col>
-        <v-col>Master card *2324</v-col>
-      </v-row>
-    </v-card>
-    <v-card
-      class="donation pr-5 py-0 mb-3"
-      flat
-      rounded
-      outlined
-      v-for="item in 1"
-      :key="item"
-    >
-      <div class="grey"></div>
-      <v-row
-        align="center"
-        class="pl-5"
-      >
-        <v-col>В обработке</v-col>
-        <v-col>Садака</v-col>
-        <v-col>10<b>$</b></v-col>
-        <v-col>01.12.2019</v-col>
-        <v-col class="">
-          Фаттахова Камиля
-          <br>
-          <p class="sbor">
-            сбор №23
+            {{ donation.campaign.title }}
           </p>
         </v-col>
         <v-col>Master card *2324</v-col>
@@ -123,6 +68,22 @@
 <script>
 export default {
   name: 'MyDonations',
+  props: {
+    donations: {
+      type: Array,
+      required: true,
+    },
+  },
+  methods: {
+    localeDate (stringDate) {
+      const date = new Date(stringDate).toLocaleDateString(this.$i18n.locale, {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+      });
+      return date;
+    },
+  },
 };
 </script>
 

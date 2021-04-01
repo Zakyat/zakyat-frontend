@@ -62,6 +62,7 @@
         />
         <v-btn
           rounded
+          depressed
           color="primary"
           class="mt-5"
           width="184"

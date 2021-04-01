@@ -17,6 +17,8 @@
       flat
       rounded
       outlined
+      v-for="sub in subs"
+      :key="sub.id"
     >
       <div class="green"></div>
       <v-row
@@ -24,20 +26,20 @@
         class="pl-5"
       >
 <!--        <v-col cols="auto" class="py-0"></v-col>-->
-        <v-col>10<b>$</b></v-col>
-        <v-col>Ежедневно</v-col>
+        <v-col>{{ sub.amount }}<b>$</b></v-col>
+        <v-col>{{ sub.type }}</v-col>
         <v-col class="">
-          Фаттахова Камиля
+          {{ sub.campaign.title }}
           <br>
           <p class="sbor">
-            сбор №23
+            {{ sub.campaign.title }}
           </p>
         </v-col>
         <v-col>Master card *2324</v-col>
         <v-col>
-          <nuxt-link to="#" class="change-avatar">
+          <v-btn depressed text  class="change-avatar">
             Отменить подписку
-          </nuxt-link>
+          </v-btn>
         </v-col>
       </v-row>
     </v-card>
@@ -47,6 +49,12 @@
 <script>
 export default {
   name: 'Subscriptions',
+  props: {
+    subs: {
+      type: Array,
+      required: true,
+    },
+  },
 };
 </script>
 
