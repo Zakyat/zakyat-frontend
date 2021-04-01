@@ -2,11 +2,11 @@
   <v-layout white class="payment-layout">
     <v-container>
       <div class="payment-success">
-        <v-img width="325px" :src="require('@/assets/images/payment/payment-success.png')" alt="" />
+        <v-img width="250px" :src="require('@/assets/images/payment/payment-success.png')" alt="" />
         <div class="text-center">
           <h1>Успешная оплата</h1>
           <p>
-            Спасибо! Ваше пожертвование <b>{{transaction.amount | rubles}}</b> успешно поступило на&nbsp;счет <b>сбора &#8470;&nbsp;{{transaction.campaign.id}}.</b> <br> Смотрите историю совершенных пожертвований в&nbsp;разделе
+            Спасибо! Ваше пожертвование <b>{{transaction.amount | rubles}}</b> успешно поступило на&nbsp;счет <b v-if="transaction.campaign">сбора &#8470;&nbsp;{{transaction.campaign.id}}.</b> <br> Смотрите историю совершенных пожертвований в&nbsp;разделе
             <nuxt-link
               to="/"
               class="green-text"
@@ -43,7 +43,7 @@ export default {
         }
       `,
       variables () {
-        return { id: 50 };
+        return { id: 1 };
       },
     },
   },
