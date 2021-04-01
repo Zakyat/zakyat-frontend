@@ -111,8 +111,8 @@ export default Vue.extend({
   data () {
     return {
       userInfo: {
-        email: 'user@mail.com',
-        password: 'user',
+        email: '',
+        password: '',
       },
       showPassword: false,
 
