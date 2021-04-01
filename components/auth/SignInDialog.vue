@@ -49,7 +49,7 @@
       </v-col>
     </v-row>
     <v-text-field
-      v-model="email"
+      v-model="userInfo.email"
       type="email"
       class="mt-2"
       height="40"
@@ -62,7 +62,7 @@
       autofocus
     />
     <v-text-field
-      v-model="password"
+      v-model="userInfo.password"
       :placeholder="$t('auth.passwordPlaceholder')"
       required
       dense
@@ -82,6 +82,7 @@
       rounded
       dark
       class="font-weight-regular"
+      @click="login()"
     >
       <span class="text-body-1">
         {{ $t('auth.login.login') }}
@@ -101,17 +102,57 @@
   </v-container>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'SignInDialog',
   data () {
     return {
-      email: '',
-      password: '',
+      userInfo: {
+        email: 'user@mail.com',
+        password: 'user',
+      },
       showPassword: false,
+
+      ok: '',
+      token: '',
+      errors: [],
     };
+  },
+  methods: {
+    login () {
+      this.$apollo.mutate({
+        mutation: gql`
+          mutation auth(
+            $email: String!,
+            $password: String!
+          ) {
+            auth (
+              email: $email,
+              password: $password
+            ) {
+              ok,
+              token,
+              errors
+            }
+          }
+        `,
+        variables: {
+          email: this.userInfo.email,
+          password: this.userInfo.password,
+        },
+        update: (cache, result) => {
+          this.token = result.data.auth.token;
+          this.ok = result.data.auth.ok;
+          this.errors = result.data.auth.errors;
+
+          this.$apolloHelpers.onLogin(this.token);
+          this.$emit('auth');
+        },
+      });
+    },
   },
 });
 </script>

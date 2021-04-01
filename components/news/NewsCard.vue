@@ -3,7 +3,7 @@
     flat
     nuxt
     :to="`news/${id}`"
-    class="mb-5 px-5 pt-3 pb-2"
+    class="mb-5 px-5 pt-3 pb-2 news-card"
   >
     <v-row>
       <v-col
@@ -86,7 +86,7 @@ export default Vue.extend({
 });
 </script>
 <style>
-.description {
+.news-card .description {
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
