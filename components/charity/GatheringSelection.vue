@@ -14,17 +14,17 @@
           rounded
           flat
           :placeholder="$t('charity.gathering.gatheringSelection')"
-          :items="gatherings"
+          :items="campaigns"
           item-value="id"
           class="pa-0 ma-0"
-          :value="gatheringId"
+          :value="campaignId"
           @input="$router.push(`/charity?id=${$event}`)"
         >
           <template #item="{ item }">
-            {{ item.name }}, {{ item.id }}
+            {{ item.title }}, {{ item.id }}
           </template>
           <template #selection="{ item }">
-            {{ item.name }}, {{ item.id }}
+            {{ item.title }}, {{ item.id }}
           </template>
         </v-select>
       </v-col>
@@ -34,6 +34,8 @@
         class="pa-0 md-0"
       >
         <v-checkbox
+          v-model="isAnonymous"
+          :onchange="makeAnonymous()"
           class="pa-0 md-0"
           on-icon="mdi-check-box-outline"
         >
@@ -44,16 +46,16 @@
       </v-col>
     </v-row>
     <CharityCard
-      v-if="gatheringId"
-      v-bind="selectedGathering"
+      v-if="campaignId"
+      v-bind="selectedCampaign"
     />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapState } from 'vuex';
 import CharityCard from '@/components/charity/CharityCard.vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'GatheringSelection',
@@ -61,16 +63,62 @@ export default Vue.extend({
     CharityCard,
   },
   props: {
-    gatheringId: {
+    campaignId: {
       type: Number,
-      default: 0,
+    },
+  },
+  data () {
+    return {
+      campaigns: [],
+      campaign: '',
+      isAnonymous: false,
+    };
+  },
+  apollo: {
+    campaigns: {
+      query: gql`
+        query {
+          campaigns {
+            id,
+            title,
+          }
+        }
+      `,
+    },
+    campaign: {
+      query: gql`
+        query getCampaign($id:Int!) {
+          campaign (id: $id) {
+            id
+            title
+            problem
+            description
+            goal
+            createdBy {
+              bio
+            }
+            project{
+              title
+            }
+          }
+        }
+      `,
+      variables () {
+        return {
+          id: this.campaignId,
+        };
+      },
     },
   },
   computed: {
-    ...mapState(['gatherings']),
-    selectedGathering () {
-      const gatherings = this.gatherings as Array<Record<string, string|number>>;
-      return gatherings.find(gathering => gathering.id === this.gatheringId);
+    selectedCampaign () {
+      this.$apollo.queries.campaign.refresh();
+      return this.campaign;
+    },
+  },
+  methods: {
+    makeAnonymous () {
+      this.$emit('anonymous', this.isAnonymous);
     },
   },
 });

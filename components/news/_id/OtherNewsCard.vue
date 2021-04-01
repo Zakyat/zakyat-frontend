@@ -3,15 +3,16 @@
     rounded
     flat
     class="pb-3"
+    :to="`${id}`"
   >
     <v-img
       height="200px"
-      :src="src"
+      :src="require('@/assets/images/news/1.png')"
     />
     <v-card-title>{{ title }}</v-card-title>
 
     <v-card-text class="text--primary description">
-      {{ desc }}
+      {{ description }}
     </v-card-text>
   </v-card>
 </template>
@@ -21,7 +22,11 @@ import Vue from 'vue';
 
 export default Vue.extend({
   props: {
-    src: {
+    id: {
+      type: String,
+      required: true,
+    },
+    image: {
       type: String,
       required: true,
     },
@@ -29,7 +34,7 @@ export default Vue.extend({
       type: String,
       required: true,
     },
-    desc: {
+    description: {
       type: String,
       required: true,
     },

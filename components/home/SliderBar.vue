@@ -1,25 +1,25 @@
 <template>
   <Swiper :options="swiperOptions">
     <SwiperSlide
-      v-for="(slide, i) in slides"
+      v-for="(slide, i) in campaigns"
       :key="i"
     >
-      <v-img :src="slide.src" class="background">
+      <v-img :src="require('@/assets/images/slideshow1.jpg')" class="background">
         <v-card class="overlay" flat>
-          <v-row>
+          <v-row class="slide">
             <v-col cols="8">
               <v-card-title class="pb-0">
-                {{ slide.name }}, {{ slide.age }} лет
+                {{ slide.title }}
               </v-card-title>
               <v-card-text>
                 {{ slide.problem }}
-                <v-row justify="space-between">
+                <v-row no-gutters justify="space-between">
                   <v-col class="pb-1">
                     <p class="subtitle">
                       {{ $t('home.slideshow.collected') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ slide.collected | rubles }}
+                      {{ 3000 | rubles }}
                     </p>
                   </v-col>
                   <v-spacer />
@@ -28,7 +28,7 @@
                       {{ $t('home.slideshow.remaining') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ slide.required - slide.collected | rubles }}
+                      {{ slide.goal - 3000 | rubles }}
                     </p>
                   </v-col>
                   <v-spacer />
@@ -37,7 +37,7 @@
                       {{ $t('home.slideshow.required') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ slide.required | rubles }}
+                      {{ slide.goal | rubles }}
                     </p>
                   </v-col>
                 </v-row>
@@ -45,7 +45,7 @@
                   height="5"
                   rounded
                   background-color="#DADADA"
-                  :value="100*slide.collected/slide.required"
+                  :value="100*3000/slide.goal"
                 />
               </v-card-text>
             </v-col>
@@ -58,9 +58,9 @@
                     background-color="#DADADA"
                     size="60"
                     class="font-weight-bold text-h6"
-                    :value="100*slide.collected/slide.required"
+                    :value="100*3000/slide.goal"
                   >
-                    {{ Math.floor(100 * slide.collected / slide.required) }}%
+                    {{ Math.floor(100 * 3000 / slide.goal) }}%
                   </v-progress-circular>
                 </v-col>
               </v-row>
@@ -96,16 +96,37 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapState } from 'vuex';
 import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
 import { SwiperOptions } from 'swiper'; // eslint-disable-line import/named
-import { RootState } from '@/store/index';
 import 'swiper/css/swiper.css';
+
+import gql from 'graphql-tag';
 
 export default Vue.extend({
   components: {
     Swiper,
     SwiperSlide,
+  },
+  apollo: {
+    campaigns: {
+      query: gql`
+        query {
+          campaigns {
+            id
+            title
+            problem
+            description
+            goal
+            createdBy {
+              bio
+            }
+            project{
+              title
+            }
+          }
+        }
+      `,
+    },
   },
   data () {
     return {
@@ -117,17 +138,17 @@ export default Vue.extend({
           prevEl: '.swiper-button-prev',
         },
       } as SwiperOptions,
+      campaigns: '',
     };
-  },
-  computed: {
-    ...mapState({
-      slides: state => (state as RootState).gatherings,
-    }),
   },
 });
 </script>
 
 <style lang="scss" scoped>
+.slide {
+  margin: 0;
+}
+
 .swiper-container {
   width: 88%;
   min-height: 200px;
