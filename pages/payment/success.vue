@@ -5,8 +5,10 @@
         <v-img width="250px" :src="require('@/assets/images/payment/payment-success.png')" alt="" />
         <div class="text-center">
           <h1>Успешная оплата</h1>
-          <p>
-            Спасибо! Ваше пожертвование <b>{{transaction.amount | rubles}}</b> успешно поступило на&nbsp;счет <b v-if="transaction.campaign">сбора &#8470;&nbsp;{{transaction.campaign.id}}.</b> <br> Смотрите историю совершенных пожертвований в&nbsp;разделе
+          <p class="my-0">
+            Спасибо! Ваше пожертвование <b>{{transaction.amount | rubles}}</b> успешно поступило на&nbsp;счет <b v-if="transaction.campaign">сбора &#8470;&nbsp;{{transaction.campaign.id}}.</b></p>
+          <p class="my-0" v-if="this.$apolloHelpers.getToken()">
+            Смотрите историю совершенных пожертвований в&nbsp;разделе
             <nuxt-link
               to="/"
               class="green-text"
