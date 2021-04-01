@@ -28,7 +28,7 @@
       {{ $t('login') }}
     </v-btn>
     <div v-if="this.$apolloHelpers.getToken()">
-      <v-btn text small>
+      <v-btn text small to="/profile">
         <v-icon color="white" size="20">
           mdi-account-circle
         </v-icon>
