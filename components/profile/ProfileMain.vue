@@ -29,7 +29,8 @@
     >
       <v-form>
         <v-text-field
-          :placeholder="$t('charity.contacts.name')"
+          :placeholder="firstName ? firstName : $t('charity.contacts.name')"
+          v-model="user.firstName"
           rounded
           flat
           outlined
@@ -38,7 +39,19 @@
           dense
         />
         <v-text-field
-          :placeholder="$t('charity.contacts.email')"
+          :placeholder="lastName ? lastName : $t('charity.contacts.lastName')"
+          v-model="user.lastName"
+          rounded
+          flat
+          outlined
+          color="grey"
+          hide-details
+          dense
+          class="mt-3"
+        />
+        <v-text-field
+          :placeholder="email ? email : $t('charity.contacts.email')"
+          v-model="user.email"
           rounded
           flat
           outlined
@@ -53,7 +66,6 @@
           class="mt-5"
           width="184"
         >
-          <!--        {{ $t('charity.contacts.resumeBtn') }}-->
           Сменить пароль
         </v-btn>
       </v-form>
@@ -63,17 +75,73 @@
       md="3"
       class="apply-changes"
     >
-      <nuxt-link to="#" class="change">
+      <v-btn text color="primary" class="change" @click="updateUser()">
         Сохраненить <br>
         изменения
-      </nuxt-link>
+      </v-btn>
     </v-col>
   </v-row>
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
 export default {
   name: 'ProfileMain',
+  props: {
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+  },
+  data () {
+    return {
+      ok: '',
+      errors: [],
+      user: {
+        firstName: '',
+        lastName: '',
+        email: '',
+      },
+    };
+  },
+  methods: {
+    updateUser () {
+      this.$apollo.mutate({
+        mutation: gql`
+          mutation updateUser ($firstName: String!, $email: String!) {
+            updateUser(firstName: $firstName, email: $email){
+              ok,
+              errors
+              user {
+                firstName
+                lastName
+                email
+              }
+            }
+          }
+        `,
+        variables: {
+          firstName: this.user.firstName,
+          lastName: this.user.lastName,
+          email: this.user.email,
+        },
+        update: (cache, result) => {
+          this.firstName = result.data.updateUser.firstName;
+          this.lastName = result.data.updateUser.lastName;
+          this.email = result.data.updateUser.email;
+        },
+      });
+    },
+  },
 };
 </script>
 
