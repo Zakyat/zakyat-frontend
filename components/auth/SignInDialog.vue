@@ -1,6 +1,6 @@
 <template>
   <v-container class="sign-in-form rounded">
-    <v-row justify="space-between" class="mx-0">
+    <v-row justify="space-between" class="mx-0 pt-5">
       <h2>
         {{ $t('auth.login.title') }}
       </h2>
@@ -13,10 +13,10 @@
         {{ $t('auth.registration.register') }}
       </v-btn>
     </v-row>
-    <p class="pt-2 mb-0 text-body-2">
+    <p class="pt-2 mb-0 text-body-2 mb-5">
       {{ $t('auth.login.description') }}
     </p>
-    <v-row justify="space-between">
+    <v-row justify="space-between mb-5">
       <v-col cols="4">
         <v-btn
           color="rgba(0, 0, 0, 0.2)"
