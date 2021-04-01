@@ -19,7 +19,7 @@
         xs6
         md3
       >
-        <v-card class="ma-4" rounded flat>
+        <v-card class="ma-4" rounded flat :to="`news/${item.id}`">
           <v-img
             class="white--text align-end"
             height="200px"
@@ -48,6 +48,7 @@ export default Vue.extend({
   apollo: {
     posts: gql`query{
       posts {
+        id,
         title,
         description,
         image,
