@@ -52,11 +52,18 @@
         <v-col>{{ donation.transactionType }}</v-col>
         <v-col>{{ donation.amount }}<b>$</b></v-col>
         <v-col>{{ localeDate(donation.createAt )}}</v-col>
-        <v-col class="">
+        <v-col v-if="donation.campaign">
           {{ donation.campaign.title }}
           <br>
           <p class="sbor">
             {{ donation.campaign.title }}
+          </p>
+        </v-col>
+        <v-col v-else>
+          Без сбора
+          <br>
+          <p class="sbor">
+            -
           </p>
         </v-col>
         <v-col>Master card *2324</v-col>
