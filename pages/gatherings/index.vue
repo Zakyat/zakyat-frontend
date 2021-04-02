@@ -14,7 +14,7 @@
       <v-card-text class="pa-7">
         <v-row align="stretch" no-gutters>
           <v-col cols="3">
-            <v-img :src="require('@/assets/images/news/1.png')" style="border-radius: 15px;" aspect-ratio="5/6" height="100%" />
+            <v-img :src="campaign.photo" style="border-radius: 15px;" aspect-ratio="5/6" height="100%" />
           </v-col>
           <v-col>
             <v-row no-gutters>
@@ -35,7 +35,7 @@
                   class="font-weight-bold text-h5"
                   :value="100*3000/campaign.goal"
                 >
-                  {{ Math.floor(100 * 3000 / campaign.goal) }}%
+                  {{ Math.floor(100 * campaign.moneyCollected / campaign.goal) }}%
                 </v-progress-circular>
               </v-col>
             </v-row>
@@ -54,7 +54,7 @@
                       {{ $t('home.slideshow.collected') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ 3000 | rubles }}
+                      {{ campaign.moneyCollected | rubles }}
                     </p>
                   </v-col>
                   <v-spacer />
@@ -63,7 +63,7 @@
                       {{ $t('home.slideshow.remaining') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ campaign.goal - 3000 | rubles }}
+                      {{ campaign.goal - campaign.moneyCollected | rubles }}
                     </p>
                   </v-col>
                   <v-spacer />
@@ -80,7 +80,7 @@
                   height="9"
                   rounded
                   background-color="#DADADA"
-                  :value="100*3000/campaign.goal"
+                  :value="100*campaign.moneyCollected/campaign.goal"
                 />
               </v-col>
               <v-spacer />
@@ -117,6 +117,7 @@ export default Vue.extend({
         query {
           campaigns {
             id
+            photo
             title
             problem
             description
@@ -127,6 +128,7 @@ export default Vue.extend({
             project{
               title
             }
+            moneyCollected
           }
         }
       `,

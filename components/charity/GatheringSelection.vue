@@ -90,6 +90,7 @@ export default Vue.extend({
         query getCampaign($id:Int!) {
           campaign (id: $id) {
             id
+            photo
             title
             problem
             description
@@ -100,6 +101,7 @@ export default Vue.extend({
             project{
               title
             }
+            moneyCollected
           }
         }
       `,

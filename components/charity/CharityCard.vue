@@ -9,7 +9,7 @@
         width="250"
         height="280"
         class="charity-card-img"
-        :src="require('@/assets/images/slideshow1.jpg')"
+        :src="photo"
       />
     </v-col>
     <v-col>
@@ -51,7 +51,7 @@
                 {{ $t('charity.gathering.charityCard.collected') }}
               </v-card-text>
 <!--              <b>{{ collected | rubles }}</b>-->
-              <b>{{ 3000 | rubles }}</b>
+              <b>{{ moneyCollected | rubles }}</b>
             </v-col>
             <v-spacer />
             <v-col>
@@ -59,7 +59,7 @@
                 {{ $t('charity.gathering.charityCard.left') }}
               </v-card-text>
 <!--              <b>{{ remaining | rubles }}</b>-->
-              <b>{{ goal - 3000 | rubles }}</b>
+              <b>{{ goal - moneyCollected | rubles }}</b>
             </v-col>
             <v-spacer />
             <v-col class="text-right">
@@ -103,6 +103,10 @@ export default Vue.extend({
       type: String,
       required: true,
     },
+    photo: {
+      type: String,
+      required: true,
+    },
     title: {
       type: String,
       required: true,
@@ -127,14 +131,18 @@ export default Vue.extend({
       type: Object,
       required: false,
     },
+    moneyCollected: {
+      type: Number,
+      required: true,
+    },
   },
   computed: {
     remaining (): number {
-      return this.goal - 3000;
+      return this.goal - this.moneyCollected;
       // required - collected
     },
     collectedPercent (): number {
-      return Math.floor(100 * 3000 / this.goal);
+      return Math.floor(100 * this.moneyCollected / this.goal);
       // 100 * collected / required
     },
   },

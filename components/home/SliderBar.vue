@@ -4,7 +4,7 @@
       v-for="(slide, i) in campaigns"
       :key="i"
     >
-      <v-img :src="require('@/assets/images/slideshow1.jpg')" class="background">
+      <v-img :src="slide.photo" class="background">
         <v-card class="overlay" flat>
           <v-row class="slide">
             <v-col cols="8">
