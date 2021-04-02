@@ -38,7 +38,8 @@ export default Vue.extend({
         vk,
         fb,
         insta,
-        fondInformation
+        fondInformation,
+        allCollectedMoney
       }
     }`,
   },

@@ -9,9 +9,8 @@
     </v-row>
     <v-row no-gutters>
       <v-col cols="12" md="6">
-        <div class="py-6 black--text">
-          <p>{{ $t('home.about.paragraph1') }}</p>
-          <p>{{ $t('home.about.paragraph2') }}</p>
+        <div class="py-6 black--text" v-if="siteSettings">
+          <p>{{siteSettings.fondInformation}}</p>
           <v-btn height="40" rounded depressed dark color="accent">
             {{ $t('home.about.learn_more') }}
           </v-btn>
@@ -31,6 +30,32 @@
     </v-row>
   </v-container>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+import gql from 'graphql-tag';
+
+export default Vue.extend({
+  apollo: {
+    siteSettings: gql`query{
+      siteSettings {
+        email,
+        phone,
+        vk,
+        fb,
+        insta,
+        fondInformation,
+        allCollectedMoney
+      }
+    }`,
+  },
+  data () {
+    return {
+      siteSettings: '',
+    };
+  },
+});
+</script>
 
 <style lang="scss" scoped>
 .about-container {

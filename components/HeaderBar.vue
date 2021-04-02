@@ -1,7 +1,7 @@
 <template>
   <v-system-bar dark height="50" style="padding: 0 5%;">
     <img src="@/assets/images/heart.svg" class="ml-4 mr-3">
-    <span class="white--text">{{ $t('collected', [rubles(amount)]) }}</span>
+      <span class="white--text">{{ $t('collected', [rubles(siteSettings.allCollectedMoney)]) }}</span>
     <v-spacer />
     <v-btn text small @click="isSearcherOpen = !isSearcherOpen">
       <v-icon color="white" size="20">
