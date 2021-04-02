@@ -4,7 +4,7 @@
     class="pa-5"
   >
     <v-img
-      :src="require('@/assets/images/news/1.png')"
+      :src="image"
       height="300px"
       style="border-radius: 10px;"
     />

@@ -11,7 +11,7 @@
         md="4"
       >
         <v-img
-          :src="require('@/assets/images/news/1.png')"
+          :src="image"
           width="300px"
           style="border-radius: 10px;"
         />
@@ -51,6 +51,10 @@ export default Vue.extend({
   name: 'NewsCard',
   props: {
     id: {
+      type: String,
+      required: true,
+    },
+    image: {
       type: String,
       required: true,
     },

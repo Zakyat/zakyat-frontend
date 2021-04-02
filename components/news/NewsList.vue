@@ -27,6 +27,7 @@ export default Vue.extend({
     posts: gql`query{
       posts {
         id,
+        image,
         title,
         description,
         createdAt,

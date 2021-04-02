@@ -7,7 +7,7 @@
   >
     <v-img
       height="200px"
-      :src="require('@/assets/images/news/1.png')"
+      :src="image"
     />
     <v-card-title>{{ title }}</v-card-title>
 

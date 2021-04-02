@@ -23,7 +23,7 @@
           <v-img
             class="white--text align-end"
             height="200px"
-            :src="require('@/assets/images/news/1.png')"
+            :src="item.image"
           />
           <v-card-title style="word-break: normal; line-height: 25px; font-weight: bold;">
             {{ item.title }}
