@@ -75,6 +75,9 @@
       :append-icon="showPassword ? 'mdi-eye-outline' : 'mdi-eye-off-outline'"
       @click:append="showPassword = !showPassword"
     />
+    <v-alert text v-if="errors && errors.length !== 0" type="error">
+      {{errors[0]}}
+    </v-alert>
     <v-btn
       color="primary"
       block
@@ -149,7 +152,9 @@ export default Vue.extend({
           this.errors = result.data.auth.errors;
 
           this.$apolloHelpers.onLogin(this.token);
-          this.$emit('auth');
+          if (!result.data.auth.errors || result.data.auth.errors.length === 0) {
+            this.$emit('auth');
+          }
         },
       });
     },
