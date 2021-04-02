@@ -23,15 +23,15 @@
           <v-img
             class="white--text align-end"
             height="200px"
-            :src="item.src"
+            :src="require('@/assets/images/news/1.png')"
           />
           <v-card-title style="word-break: normal; line-height: 25px; font-weight: bold;">
             {{ item.title }}
           </v-card-title>
 
           <v-card-text class="text--primary">
-            <div style="line-height: 20px;">
-              {{ item.desc }}
+            <div class="description" style="line-height: 20px;">
+              {{ item.description }}
             </div>
           </v-card-text>
         </v-card>
@@ -48,7 +48,9 @@ export default Vue.extend({
   apollo: {
     posts: gql`query{
       posts {
-        title
+        title,
+        description,
+        image,
       }
     }`,
   },
@@ -77,5 +79,13 @@ span {
 
 a {
   float: right;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 40px;
 }
 </style>

@@ -11,6 +11,7 @@
         center-active
         show-arrows
         class="payment-tabs pa-1"
+        :onchange="selectDays()"
       >
         <v-tab
           v-for="{ title } in donationTabs"
@@ -66,6 +67,7 @@
           dense
           hide-details
           class="my-0 py-0 amounts"
+          :onchange="selectAmount()"
         >
           <v-radio
             v-for="a in amounts"
@@ -85,26 +87,29 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'DonationAmountSelection',
+  props: {
+    donationTabs: {
+      type: Array,
+      required: true,
+    },
+    amounts: {
+      type: Array,
+      required: true,
+    },
+  },
   data () {
     return {
       tab: null,
-      donationTabs: [
-        {
-          title: this.$t('charity.donationAmountSelection.donation_types.onetime.title'),
-          description: this.$t('charity.donationAmountSelection.donation_types.onetime.description'),
-        },
-        {
-          title: this.$t('charity.donationAmountSelection.donation_types.daily.title'),
-          description: this.$t('charity.donationAmountSelection.donation_types.daily.description'),
-        },
-        {
-          title: this.$t('charity.donationAmountSelection.donation_types.monthly.title'),
-          description: this.$t('charity.donationAmountSelection.donation_types.monthly.description'),
-        },
-      ],
-      amounts: [1, 5, 10, 50, 100, 200, 300, 500],
       selectedAmount: 0,
     };
+  },
+  methods: {
+    selectAmount () {
+      this.$emit('select-amount', this.selectedAmount);
+    },
+    selectDays () {
+      this.$emit('select-days', this.tab);
+    },
   },
 });
 </script>

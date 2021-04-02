@@ -15,3 +15,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ## Environmet variables
 API_BASE - variable for backend API server url. For example: http://127.0.0.1:8000/api
+
+SUCCESS_PAYMENT_PAGE - payment success page url
+
+FAIL_PAYMENT_PAGE - payment fail page url

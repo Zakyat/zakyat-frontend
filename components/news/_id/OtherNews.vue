@@ -1,5 +1,5 @@
 <template>
-  <v-row>
+  <div>
     <v-row
       justify="space-between"
     >
@@ -26,17 +26,16 @@
     </v-row>
     <v-row>
       <v-col
-        v-for="(item, j) in otherNews"
-        :key="j"
-        cols="12"
-        md="3"
+        v-for="item in filteredPosts"
+        :key="item.id"
+        cols="3"
       >
         <OtherNewsCard
           v-bind="item"
         />
       </v-col>
     </v-row>
-  </v-row>
+  </div>
 </template>
 
 <script lang="ts">
@@ -48,10 +47,16 @@ export default Vue.extend({
     OtherNewsCard,
   },
   props: {
-    otherNews: {
+    posts: {
       type: Array,
       required: true,
     },
+  },
+  data () {
+    return {
+      routeParams: this.$route.params,
+      filteredPosts: this.posts.filter((post: any) => post.id !== this.$route.params.id),
+    };
   },
 });
 </script>

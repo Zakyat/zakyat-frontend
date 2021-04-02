@@ -15,7 +15,8 @@
     <v-col>
       <v-row no-gutters>
         <v-col>
-          <h2>{{ name }}, {{ age }} лет</h2>
+<!--          <h2>{{ name }}, {{ age }} лет</h2>-->
+          <h2>{{ title }}</h2>
           <p>{{ problem }}</p>
         </v-col>
         <v-col
@@ -49,21 +50,23 @@
               <v-card-text class="pa-0 ma-0 progress-text">
                 {{ $t('charity.gathering.charityCard.collected') }}
               </v-card-text>
-              <b>{{ collected | rubles }}</b>
+<!--              <b>{{ collected | rubles }}</b>-->
+              <b>{{ 3000 | rubles }}</b>
             </v-col>
             <v-spacer />
             <v-col>
               <v-card-text class="pa-0 ma-0 progress-text">
                 {{ $t('charity.gathering.charityCard.left') }}
               </v-card-text>
-              <b>{{ remaining | rubles }}</b>
+<!--              <b>{{ remaining | rubles }}</b>-->
+              <b>{{ goal - 3000 | rubles }}</b>
             </v-col>
             <v-spacer />
             <v-col class="text-right">
               <v-card-text class="pa-0 ma-0 progress-text">
                 {{ $t('charity.gathering.charityCard.total') }}
               </v-card-text>
-              <b>{{ required | rubles }}</b>
+              <b>{{ goal | rubles }}</b>
             </v-col>
           </v-row>
           <v-progress-linear
@@ -97,22 +100,10 @@ export default Vue.extend({
   name: 'CharityCard',
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
-    collected: {
-      type: Number,
-      required: true,
-    },
-    required: {
-      type: Number,
-      required: true,
-    },
-    age: {
-      type: Number,
-      required: true,
-    },
-    name: {
+    title: {
       type: String,
       required: true,
     },
@@ -122,15 +113,29 @@ export default Vue.extend({
     },
     description: {
       type: String,
-      default: '',
+      required: true,
+    },
+    goal: {
+      type: Number,
+      required: true,
+    },
+    createdBy: {
+      type: Object,
+      required: true,
+    },
+    project: {
+      type: Object,
+      required: false,
     },
   },
   computed: {
     remaining (): number {
-      return this.required - this.collected;
+      return this.goal - 3000;
+      // required - collected
     },
     collectedPercent (): number {
-      return Math.floor(100 * this.collected / this.required);
+      return Math.floor(100 * 3000 / this.goal);
+      // 100 * collected / required
     },
   },
 });

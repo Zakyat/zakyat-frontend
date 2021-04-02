@@ -3,7 +3,7 @@
     flat
     nuxt
     :to="`news/${id}`"
-    class="mb-5 px-5 pt-3 pb-2"
+    class="mb-5 px-5 pt-3 pb-2 news-card"
   >
     <v-row>
       <v-col
@@ -24,8 +24,8 @@
         <v-card-title class="text-h5 pa-0">
           {{ title }}
         </v-card-title>
-        <v-card-text class="pa-0">
-          {{ content }}
+        <v-card-text class="pa-0 description">
+          {{ description }}
         </v-card-text>
         <v-row align="end">
           <v-card-text
@@ -36,7 +36,7 @@
             <v-icon class="px-1" style="color: inherit;">
               mdi-circle-small
             </v-icon>
-            {{ author }}
+            {{ createdBy.bio }}
           </v-card-text>
         </v-row>
       </v-col>
@@ -45,42 +45,52 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'NewsCard',
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
     title: {
       type: String,
       required: true,
     },
-    content: {
+    description: {
       type: String,
       required: true,
     },
-    date: {
-      type: Date as PropType<Date>,
+    createdAt: {
+      type: String,
       required: true,
     },
-    author: {
-      type: String,
+    createdBy: {
+      type: Object,
       required: true,
     },
   },
   computed: {
     localeDate (): string {
-      return this.date.toLocaleDateString(this.$i18n.locale, {
+      const date = new Date(this.createdAt).toLocaleDateString(this.$i18n.locale, {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
         hour: 'numeric',
         minute: 'numeric',
       });
+      return date;
     },
   },
 });
 </script>
+<style>
+.news-card .description {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 110px;
+}
+</style>

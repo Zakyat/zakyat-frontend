@@ -21,12 +21,23 @@
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
-    <v-btn text small @click="authDialog = !authDialog">
+    <v-btn v-if="!this.$apolloHelpers.getToken()" text small @click="authDialog = !authDialog">
       <v-icon color="white" size="20">
         mdi-account-circle
       </v-icon>
       {{ $t('login') }}
     </v-btn>
+    <div v-if="this.$apolloHelpers.getToken()">
+      <v-btn text small to="/profile">
+        <v-icon color="white" size="20">
+          mdi-account-circle
+        </v-icon>
+        ЛК
+      </v-btn>
+      <v-btn text small @click="logout()">
+        Выйти
+      </v-btn>
+    </div>
     <v-dialog
       v-model="authDialog"
       width="440"
@@ -42,6 +53,7 @@
       <component
         :is="currentDialog"
         style="background-color: white;"
+        @auth="closeAuth"
         @set-dialog="currentDialog = $event"
       />
     </v-dialog>
@@ -55,17 +67,15 @@
       :placeholder="$t('search.placeholder')"
       :no-data-text="$t('search.noDataText')"
       append-icon=""
-      height="60"
+      height="50"
       light
       solo
-      rounded
-      shaped
       clearable
     />
   </v-system-bar>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue';
 import { rubles } from '@/plugins/currency';
 import LanguageSelector from '@/components/LanguageSelector.vue';
@@ -93,6 +103,13 @@ export default Vue.extend({
   },
   methods: {
     rubles,
+    logout () {
+      this.$apolloHelpers.onLogout();
+      this.$router.go(0);
+    },
+    closeAuth () {
+      this.authDialog = !this.authDialog;
+    },
   },
 });
 </script>
@@ -102,8 +119,9 @@ export default Vue.extend({
   position: absolute;
   left: 0;
   right: 0;
-  margin-top: 65px;
+  margin-top: 130px;
   width: 600px;
   z-index: 2;
+  border-radius: 10px;
 }
 </style>
