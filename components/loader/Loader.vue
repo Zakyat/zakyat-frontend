@@ -18,41 +18,32 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'Loader',
-  data() {
+  data () {
     return {
       isLoaded: false,
       loaderValue: 0,
-    }
+    };
   },
   methods: {
-    makeLoad() {
+    makeLoad () {
       this.isLoaded = true
     },
   },
 
   beforeMount () {
-    console.log(document.readyState);
     document.onreadystatechange = () => {
-      if (document.readyState === 'loading') {
-        this.loaderValue = 30;
-      }
-      else if (document.readyState === 'interactive') {
-        this.loaderValue = 60;
-      }
+      if (document.readyState === 'loading') { this.loaderValue = 30; }
+      else if (document.readyState === 'interactive') { this.loaderValue = 60; }
       else if (document.readyState === 'complete') {
         this.loaderValue = 100;
         setTimeout(this.makeLoad, 1000 );
       }
     };
-    if (document.readyState === 'loading') {
-      this.loaderValue = 30;
-    }
-    else if (document.readyState === 'interactive') {
-      this.loaderValue = 60;
-    }
+    if (document.readyState === 'loading') { this.loaderValue = 30; }
+    else if (document.readyState === 'interactive') { this.loaderValue = 60; }
     else if (document.readyState === 'complete') {
       this.loaderValue = 100;
-      setTimeout(this.makeLoad, 1000 );
+      setTimeout(this.makeLoad, 1000);
     }
   },
 });
