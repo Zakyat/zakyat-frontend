@@ -1,5 +1,5 @@
 <template>
-  <Swiper :options="swiperOptions">
+  <Swiper :options="swiperOptions" v-if="campaigns">
     <SwiperSlide
       v-for="(slide, i) in campaigns"
       :key="i"

@@ -6,6 +6,7 @@
         md="9"
       >
         <SpecificNewsCard
+          v-if="post"
           v-bind="post"
         />
       </v-col>
@@ -18,6 +19,7 @@
     </v-row>
     <OtherNews
       class="my-10 mx-0"
+      v-if="posts"
       :posts="posts"
     />
   </v-container>

@@ -8,6 +8,7 @@
         cols="12"
         md="4"
         class="pa-0 ma-0"
+        v-if="campaigns"
       >
         <v-select
           outlined
@@ -46,7 +47,7 @@
       </v-col>
     </v-row>
     <CharityCard
-      v-if="campaignId"
+      v-if="campaignId && campaign"
       v-bind="selectedCampaign"
     />
   </div>
