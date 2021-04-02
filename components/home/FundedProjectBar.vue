@@ -7,7 +7,7 @@
     </v-row>
     <v-row style="min-width: 1000px;">
       <v-col
-        v-for="(item, j) in projects"
+        v-for="(item, j) in thanksForHelpingBlocks"
         :key="j"
         :cols="item.flex"
       >
@@ -16,7 +16,7 @@
           flat
           solo
           class="funded"
-          :style="backgroundImg(item.src)"
+          :style="backgroundImg(item.image)"
         >
           <v-card-title style="word-break: normal;">
             {{ item.title }}
@@ -29,8 +29,24 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
+  apollo: {
+    thanksForHelpingBlocks: {
+      query: gql`
+        query {
+          thanksForHelpingBlocks {
+            id,
+            title,
+            image,
+            flex,
+            sort,
+          }
+        }
+      `,
+    },
+  },
   data () {
     return {
       projects: [
@@ -41,6 +57,7 @@ export default Vue.extend({
         { title: '2 345 семьям раздали одежды благодаря вам', button: 'Хочу помочь', flex: 3, src: require('@/assets/images/news/tubetey.png') },
         { title: 'Собрали 456 234 ₽ на лекарства всем нуждающимся за 2019 год ', button: 'Хочу помочь', flex: 6, src: require('@/assets/images/news/tubetey.png') },
       ],
+      thanksForHelpingBlocks: '',
     };
   },
 
