@@ -19,7 +19,7 @@
                       {{ $t('home.slideshow.collected') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ 3000 | rubles }}
+                      {{ slide.moneyCollected | rubles }}
                     </p>
                   </v-col>
                   <v-spacer />
@@ -28,7 +28,7 @@
                       {{ $t('home.slideshow.remaining') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ slide.goal - 3000 | rubles }}
+                      {{ slide.goal - slide.moneyCollected | rubles }}
                     </p>
                   </v-col>
                   <v-spacer />
@@ -45,7 +45,7 @@
                   height="5"
                   rounded
                   background-color="#DADADA"
-                  :value="100*3000/slide.goal"
+                  :value="100*slide.moneyCollected/slide.goal"
                 />
               </v-card-text>
             </v-col>
@@ -58,9 +58,9 @@
                     background-color="#DADADA"
                     size="60"
                     class="font-weight-bold text-h6"
-                    :value="100*3000/slide.goal"
+                    :value="100*slide.moneyCollected/slide.goal"
                   >
-                    {{ Math.floor(100 * 3000 / slide.goal) }}%
+                    {{ Math.floor(100 * slide.moneyCollected / slide.goal) }}%
                   </v-progress-circular>
                 </v-col>
               </v-row>
@@ -113,6 +113,7 @@ export default Vue.extend({
         query {
           campaigns {
             id
+            photo
             title
             problem
             description
@@ -123,6 +124,7 @@ export default Vue.extend({
             project{
               title
             }
+            moneyCollected
           }
         }
       `,

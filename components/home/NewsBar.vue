@@ -18,6 +18,7 @@
         :key="j"
         xs6
         md3
+        class="px-2"
       >
         <v-card class="ma-4" rounded flat :to="`news/${item.id}`">
           <v-img
