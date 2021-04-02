@@ -57,9 +57,9 @@
         @set-dialog="currentDialog = $event"
       />
     </v-dialog>
-    <v-flex lg1 md2 xs4>
-      <LanguageSelector class="icon" />
-    </v-flex>
+<!--    <v-flex lg1 md2 xs4>-->
+<!--      <LanguageSelector class="icon" />-->
+<!--    </v-flex>-->
     <v-autocomplete
       v-show="isSearcherOpen"
       class="searcher mx-auto"
