@@ -2,10 +2,10 @@
   <v-card flat>
     <v-img
       style="border-radius: 10px;"
-      :src="img"
+      :src="photo"
     />
     <v-card-title class="pa-0 mt-3" style="font-size: 26px;">
-      {{ name }}
+      {{ fullName }}
     </v-card-title>
     <v-card-subtitle class="pa-0 mt-1">
       {{ position }}
@@ -14,27 +14,25 @@
       {{ $t('about.employee.duties') }}:
     </v-card-text>
     <v-card-text class="pa-0 black--text" style="width: 80%;">
-      <ol class="pl-4">
-        <li v-for="duty in duties" :key="duty" v-text="duty" />
-      </ol>
+      <p>{{bio}}</p>
     </v-card-text>
-    <v-btn text :href="'tel:' + phone" class="px-1 mt-3">
-      <v-icon>mdi-phone</v-icon>&nbsp;{{ phone }}
+    <v-btn text :href="'tel:' + phoneNumber" class="px-1 mt-3">
+      <v-icon>mdi-phone</v-icon>&nbsp;{{ phoneNumber }}
     </v-btn>
   </v-card>
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'Employee',
   props: {
-    img: {
+    fullName: {
       type: String,
       required: true,
     },
-    name: {
+    photo: {
       type: String,
       required: true,
     },
@@ -42,11 +40,11 @@ export default Vue.extend({
       type: String,
       required: true,
     },
-    duties: {
-      type: Array as PropType<string[]>,
+    bio: {
+      type: String,
       required: true,
     },
-    phone: {
+    phoneNumber: {
       type: String,
       required: true,
     },
