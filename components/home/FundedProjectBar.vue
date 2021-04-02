@@ -18,7 +18,7 @@
           class="funded"
           :style="backgroundImg(item.image)"
         >
-          <v-card-title style="word-break: normal;">
+          <v-card-title class="white-title" style="word-break: normal;">
             {{ item.title }}
           </v-card-title>
         </v-card>
@@ -85,5 +85,9 @@ span {
 
 a {
   float: right;
+}
+
+.white-title {
+  color: #fff;
 }
 </style>
