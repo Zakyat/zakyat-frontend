@@ -135,7 +135,7 @@
         height="40px"
         class="mt-n2 mb-1"
         type="submit"
-        :disabled="passwordStrength === 0 || password !== passwordRepeat"
+        :disabled="passwordStrength === 0 || password !== passwordRepeat || !agreedToTerms"
       >
       <span class="text-body-1">
         {{ $t('auth.registration.register') }}
