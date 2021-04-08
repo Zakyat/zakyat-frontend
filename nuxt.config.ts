@@ -19,9 +19,9 @@ const config: NuxtConfig = {
     ],
   },
   /*
-  ** Customize the progress-bar color
+  ** Customize the progress-bar
   */
-  loading: { color: '#fff' },
+  loading: '~/components/loader/Loader.vue',
   /*
   ** Global CSS
   */

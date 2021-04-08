@@ -1,15 +1,16 @@
 <template>
   <transition name="slide-fade">
-  <div v-if="!isLoaded" class="loader">
-      <div class="loader-inner">
+    <div v-if="loading" class="loader">
+      <div>
         <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
         <v-progress-linear
           rounded
           color="#006838"
           height="6px"
-          :value=loaderValue />
+          :value="loaderValue"
+        />
       </div>
-  </div>
+    </div>
   </transition>
 </template>
 
@@ -20,31 +21,24 @@ export default Vue.extend({
   name: 'Loader',
   data () {
     return {
-      isLoaded: false,
+      loading: false,
       loaderValue: 0,
     };
   },
   methods: {
-    makeLoad () {
-      this.isLoaded = true
+    // https://nuxtjs.org/docs/2.x/features/loading/#using-a-custom-loading-component
+    start () {
+      this.loading = true;
     },
-  },
-
-  beforeMount () {
-    document.onreadystatechange = () => {
-      if (document.readyState === 'loading') { this.loaderValue = 30; }
-      else if (document.readyState === 'interactive') { this.loaderValue = 60; }
-      else if (document.readyState === 'complete') {
-        this.loaderValue = 100;
-        setTimeout(this.makeLoad, 1000 );
-      }
-    };
-    if (document.readyState === 'loading') { this.loaderValue = 30; }
-    else if (document.readyState === 'interactive') { this.loaderValue = 60; }
-    else if (document.readyState === 'complete') {
-      this.loaderValue = 100;
-      setTimeout(this.makeLoad, 1000);
-    }
+    finish () {
+      this.loading = false;
+    },
+    fail (error: string) {
+      alert(error);
+    },
+    increase (amount: number) {
+      this.loaderValue = amount;
+    },
   },
 });
 </script>
@@ -55,21 +49,23 @@ export default Vue.extend({
   top: 0;
   z-index: 999;
   background: white;
-  width: 100%;
-  height: 100%;
-
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .slide-fade-enter-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
+
 .slide-fade-leave-active {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
-.slide-fade-enter, .slide-fade-leave-to {
+
+.slide-fade-enter,
+.slide-fade-leave-to {
   opacity: 0;
 }
 </style>
