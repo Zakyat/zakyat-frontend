@@ -1,16 +1,15 @@
 <template>
   <transition name="slide-fade">
-    <div v-if="loading" class="loader">
-      <div>
-        <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
-        <v-progress-linear
-          rounded
-          color="#006838"
-          height="6px"
-          :value="loaderValue"
-        />
-      </div>
-    </div>
+    <v-overlay v-if="loading" :value="loading" class="loader" opacity="0">
+      <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
+      <v-progress-linear
+        rounded
+        color="#006838"
+        height="6px"
+        style="margin-top: 8px;"
+        :value="loaderValue"
+      />
+    </v-overlay>
   </transition>
 </template>
 
@@ -45,15 +44,7 @@ export default Vue.extend({
 
 <style scoped>
 .loader {
-  position: fixed;
-  top: 0;
-  z-index: 999;
   background: white;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .slide-fade-enter-active {
