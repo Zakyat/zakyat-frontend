@@ -1,5 +1,5 @@
 <template>
-  <v-container style="padding: 80px 6% 64px; max-width: 100%;">
+  <v-container style="padding: 80px 6% 64px; max-width: 100%; background-color: #f2f2f2;">
     <v-row>
       <span class="mx-4">
         {{ $t('links.news') }}
@@ -14,12 +14,12 @@
     </v-row>
     <v-layout row>
       <v-flex
-        v-for="(item, j) in news"
+        v-for="(item, j) in posts"
         :key="j"
         xs6
         md3
       >
-        <v-card class="ma-4" rounded>
+        <v-card class="ma-4" rounded flat>
           <v-img
             class="white--text align-end"
             height="200px"
@@ -42,16 +42,25 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
+  apollo: {
+    posts: gql`query{
+      posts {
+        title
+      }
+    }`,
+  },
   data () {
     return {
-      news: [
+      newsSample: [
         { src: require('@/assets/images/news/1.png'), title: 'Горячие обеды в холодные дни', desc: 'Холода пришли внезапно. Тем больше потребность у бездомных людей в горячем питании. РК «Ту ...' },
         { src: require('@/assets/images/news/2.png'), title: 'Горячие обеды в холодные дни', desc: 'Холода пришли внезапно. Тем больше потребность у бездомных людей в горячем питании. РК «Ту ...' },
         { src: require('@/assets/images/news/3.png'), title: 'Горячие обеды в холодные дни', desc: 'Холода пришли внезапно. Тем больше потребность у бездомных людей в горячем питании. РК «Ту ...' },
         { src: require('@/assets/images/news/4.png'), title: 'Горячие обеды в холодные дни', desc: 'Холода пришли внезапно. Тем больше потребность у бездомных людей в горячем питании. РК «Ту ...' },
       ],
+      posts: [],
     };
   },
 });

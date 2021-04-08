@@ -27,6 +27,7 @@
     <v-spacer />
     <v-btn
       rounded
+      depressed
       dark
       color="primary"
       height="40px"
@@ -37,6 +38,7 @@
     <v-spacer />
     <v-btn
       rounded
+      depressed
       dark
       color="accent"
       height="40px"
@@ -53,8 +55,8 @@ export default Vue.extend({
   data () {
     return {
       pages: [
-        { text: this.$t('links.fees'), link: '/' },
-        { text: this.$t('links.projects'), link: '/' },
+        { text: this.$t('links.fees'), link: '/gatherings' },
+        { text: this.$t('links.projects'), link: '/projects' },
         { text: this.$t('links.reports'), link: '/reports' },
         { text: this.$t('links.news'), link: '/news' },
         { text: this.$t('links.about'), link: '/about' },

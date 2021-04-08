@@ -24,11 +24,11 @@
               width="250"
             />
 
-            <v-card-actions style="position: absolute; bottom: 5px;">
-              <v-btn rounded dark color="primary">
-                {{ $t('home.projects.help') }}
-              </v-btn>
-            </v-card-actions>
+            <!--            <v-card-actions style="position: absolute; bottom: 5px;">-->
+            <!--              <v-btn rounded dark color="primary">-->
+            <!--                {{ $t('home.projects.help') }}-->
+            <!--              </v-btn>-->
+            <!--            </v-card-actions>-->
           </v-card-text>
         </v-card>
       </v-flex>
@@ -38,20 +38,29 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
+  apollo: {
+    projects: gql` query {
+      projects {
+        title
+      }
+    }`,
+  },
   data () {
     return {
-      projects: [
-        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/2.png') },
-        { title: 'Центр помощи', src: require('@/assets/images/projects/2.png') },
-        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/3.png') },
-        { title: 'Работа с нуждающимися', src: require('@/assets/images/projects/2.png') },
-        { title: 'Духовная поддержка', src: require('@/assets/images/projects/4.png') },
-        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/5.png') },
-        { title: 'Стать волонтером', src: require('@/assets/images/projects/2.png') },
-        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/2.png') },
+      projectsSample: [
+        { title: 'Накорми нуждающегося', src: require('@/assets/images/projects/svg/food.svg') },
+        { title: 'Центр помощи «Хаят»', src: require('@/assets/images/projects/svg/people.svg') },
+        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/svg/wear.svg') },
+        { title: 'Помощь тяжелобольным детям и взрослым', src: require('@/assets/images/projects/svg/arms.svg') },
+        { title: 'Социальное такси', src: require('@/assets/images/projects/svg/taxi_fond.svg') },
+        { title: 'Духовная поддержка', src: require('@/assets/images/projects/svg/book.svg') },
+        { title: 'Помоги собраться в школу', src: require('@/assets/images/projects/svg/backpack.svg') },
+        { title: 'Воспитай Коран-хафиза', src: require('@/assets/images/projects/svg/boy.svg') },
       ],
+      projects: [],
     };
   },
 });

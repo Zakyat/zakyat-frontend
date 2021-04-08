@@ -25,7 +25,7 @@
           {{ title }}
         </v-card-title>
         <v-card-text class="pa-0">
-          {{ content }}
+          {{ description }}
         </v-card-text>
         <v-row align="end">
           <v-card-text
@@ -36,7 +36,7 @@
             <v-icon class="px-1" style="color: inherit;">
               mdi-circle-small
             </v-icon>
-            {{ author }}
+            {{ createdBy.bio }}
           </v-card-text>
         </v-row>
       </v-col>
@@ -45,41 +45,42 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'NewsCard',
   props: {
     id: {
-      type: Number,
+      type: String,
       required: true,
     },
     title: {
       type: String,
       required: true,
     },
-    content: {
+    description: {
       type: String,
       required: true,
     },
-    date: {
-      type: Date as PropType<Date>,
+    createdAt: {
+      type: String,
       required: true,
     },
-    author: {
-      type: String,
+    createdBy: {
+      type: Object,
       required: true,
     },
   },
   computed: {
     localeDate (): string {
-      return this.date.toLocaleDateString(this.$i18n.locale, {
+      const date = new Date(this.createdAt).toLocaleDateString(this.$i18n.locale, {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
         hour: 'numeric',
         minute: 'numeric',
       });
+      return date;
     },
   },
 });

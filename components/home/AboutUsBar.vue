@@ -12,7 +12,7 @@
         <div class="py-6 black--text">
           <p>{{ $t('home.about.paragraph1') }}</p>
           <p>{{ $t('home.about.paragraph2') }}</p>
-          <v-btn height="40" rounded dark color="accent">
+          <v-btn height="40" rounded depressed dark color="accent">
             {{ $t('home.about.learn_more') }}
           </v-btn>
         </div>
