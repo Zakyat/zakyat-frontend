@@ -5,7 +5,7 @@
     class="px-2"
   >
     <NewsCard
-      v-for="newsItem in news"
+      v-for="newsItem in posts"
       :key="newsItem.id"
       v-bind="newsItem"
     />
@@ -16,10 +16,25 @@
 import Vue from 'vue';
 import NewsCard from '@/components/news/NewsCard.vue';
 
+import gql from 'graphql-tag';
+
 export default Vue.extend({
   name: 'NewsList',
   components: {
     NewsCard,
+  },
+  apollo: {
+    posts: gql`query{
+      posts {
+        id,
+        title,
+        description,
+        createdAt,
+        createdBy {
+          bio
+        }
+      }
+    }`,
   },
   data () {
     return {
@@ -39,6 +54,7 @@ export default Vue.extend({
           author: 'Ринат Гарипов',
         },
       ],
+      posts: [],
     };
   },
 });
