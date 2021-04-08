@@ -45,7 +45,7 @@
 </template>
 
 <script lang="ts">
-import Vue, { PropType } from 'vue';
+import Vue from 'vue';
 
 export default Vue.extend({
   name: 'NewsCard',
@@ -73,7 +73,7 @@ export default Vue.extend({
   },
   computed: {
     localeDate (): string {
-      let date = new Date(this.createdAt).toLocaleDateString(this.$i18n.locale, {
+      const date = new Date(this.createdAt).toLocaleDateString(this.$i18n.locale, {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
