@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[19],{727:function(e,n,d){"use strict";d.r(n);var t=d(1).default.extend({middleware:function(e){return(0,e.redirect)("/reports/income")}}),r=d(26),component=Object(r.a)(t,undefined,undefined,!1,null,null,null);n.default=component.exports}}]);
