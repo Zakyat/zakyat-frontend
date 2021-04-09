@@ -39,7 +39,6 @@ export default Vue.extend({
   },
   data () {
     return {
-      routeParams: this.$route.params,
       post: '',
       posts: [],
     };
@@ -67,7 +66,7 @@ export default Vue.extend({
         }
       `,
       variables () {
-        return { id: this.routeParams.id };
+        return { id: this.$route.params.id };
       },
     },
     posts: gql`
