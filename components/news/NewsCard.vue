@@ -24,7 +24,7 @@
         <v-card-title class="text-h5 pa-0">
           {{ title }}
         </v-card-title>
-        <v-card-text class="pa-0">
+        <v-card-text class="pa-0 description">
           {{ description }}
         </v-card-text>
         <v-row align="end">
@@ -85,3 +85,12 @@ export default Vue.extend({
   },
 });
 </script>
+<style>
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 110px;
+}
+</style>

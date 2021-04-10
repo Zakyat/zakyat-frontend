@@ -5,7 +5,7 @@
     </h1>
 
     <v-card
-      v-for="(gathering, i) in gatherings"
+      v-for="(campaign, i) in campaigns"
       :key="i"
       flat
       style="border-radius: 15px;"
@@ -14,16 +14,16 @@
       <v-card-text class="pa-7">
         <v-row align="stretch" no-gutters>
           <v-col cols="3">
-            <v-img :src="gathering.src" style="border-radius: 15px;" aspect-ratio="5/6" height="100%" />
+            <v-img :src="require('@/assets/images/news/1.png')" style="border-radius: 15px;" aspect-ratio="5/6" height="100%" />
           </v-col>
           <v-col>
             <v-row no-gutters>
               <v-col class="px-4">
                 <h2 class="text-h4 font-weight-bold black--text">
-                  {{ gathering.name }}
+                  {{ campaign.title }}
                 </h2>
                 <h3 class="text-subtitle-1 black--text">
-                  {{ gathering.problem }}
+                  {{ campaign.problem }}
                 </h3>
               </v-col>
               <v-col cols="auto">
@@ -33,16 +33,16 @@
                   background-color="#DADADA"
                   size="60"
                   class="font-weight-bold text-h5"
-                  :value="100*gathering.collected/gathering.required"
+                  :value="100*3000/campaign.goal"
                 >
-                  {{ Math.floor(100 * gathering.collected / gathering.required) }}%
+                  {{ Math.floor(100 * 3000 / campaign.goal) }}%
                 </v-progress-circular>
               </v-col>
             </v-row>
 
             <v-row no-gutters>
               <v-col class="mt-4 px-4">
-                <p>{{ gathering.description }}</p>
+                <p>{{ campaign.description }}</p>
               </v-col>
             </v-row>
 
@@ -54,7 +54,7 @@
                       {{ $t('home.slideshow.collected') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ gathering.collected | rubles }}
+                      {{ 3000 | rubles }}
                     </p>
                   </v-col>
                   <v-spacer />
@@ -63,7 +63,7 @@
                       {{ $t('home.slideshow.remaining') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ gathering.required - gathering.collected | rubles }}
+                      {{ campaign.goal - 3000 | rubles }}
                     </p>
                   </v-col>
                   <v-spacer />
@@ -72,7 +72,7 @@
                       {{ $t('home.slideshow.required') }}
                     </p>
                     <p class="font-weight-bold mb-0">
-                      {{ gathering.required | rubles }}
+                      {{ campaign.goal | rubles }}
                     </p>
                   </v-col>
                 </v-row>
@@ -80,7 +80,7 @@
                   height="9"
                   rounded
                   background-color="#DADADA"
-                  :value="100*gathering.collected/gathering.required"
+                  :value="100*3000/campaign.goal"
                 />
               </v-col>
               <v-spacer />
@@ -106,11 +106,39 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { mapState } from 'vuex';
+// import { mapState } from 'vuex';
+
+import gql from 'graphql-tag';
 
 export default Vue.extend({
-  computed: {
-    ...mapState(['gatherings']),
+  apollo: {
+    campaigns: {
+      query: gql`
+        query {
+          campaigns {
+            id
+            title
+            problem
+            description
+            goal
+            createdBy {
+              bio
+            }
+            project{
+              title
+            }
+          }
+        }
+      `,
+    },
   },
+  data () {
+    return {
+      campaigns: [],
+    };
+  },
+  // computed: {
+  //   ...mapState(['gatherings']),
+  // },
 });
 </script>
