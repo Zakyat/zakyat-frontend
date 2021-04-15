@@ -25,16 +25,52 @@
     >
       <Retirees />
     </v-expansion-panel>
+    <v-expansion-panel
+      class="mt-5 pa-5"
+    >
+      <SingleParent />
+    </v-expansion-panel>
+    <v-expansion-panel
+      class="mt-5 pa-5"
+    >
+      <Orphan />
+    </v-expansion-panel>
+    <v-expansion-panel
+      class="mt-5 pa-5"
+    >
+      <Refugee />
+    </v-expansion-panel>
+    <v-expansion-panel
+      class="mt-5 pa-5"
+    >
+      <Homeless />
+    </v-expansion-panel>
+    <v-expansion-panel
+      class="mt-5 pa-5"
+    >
+      <Debtor />
+    </v-expansion-panel>
+    <v-expansion-panel
+      class="mt-5 pa-5"
+    >
+      <IslamStudent />
+    </v-expansion-panel>
   </v-expansion-panels>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import ChildrenWithDisabilities from '@/components/help-requests/panels/childrenWithDisabilities.vue'
+import ChildrenWithDisabilities from '@/components/help-requests/panels/ChildrenWithDisabilities.vue';
 import AdultWithHealthProblems from '@/components/help-requests/panels/AdultWithHealthProblems.vue';
 import LargeFamily from '@/components/help-requests/panels/LargeFamily.vue';
 import PoorFamily from '@/components/help-requests/panels/PoorFamily.vue';
 import Retirees from '@/components/help-requests/panels/Retirees.vue';
+import SingleParent from '@/components/help-requests/panels/SingleParent.vue';
+import Orphan from '@/components/help-requests/panels/Orphan.vue';
+import Refugee from '@/components/help-requests/panels/Refugee.vue';
+import IslamStudent from '@/components/help-requests/panels/IslamStudent.vue';
+import Homeless from '@/components/help-requests/panels/Homeless.vue';
+import Debtor from '@/components/help-requests/panels/Debtor.vue';
 
 export default Vue.extend({
   name: 'HelpRequestCategories',
@@ -44,6 +80,12 @@ export default Vue.extend({
     LargeFamily,
     PoorFamily,
     Retirees,
+    SingleParent,
+    Orphan,
+    Refugee,
+    IslamStudent,
+    Homeless,
+    Debtor,
   },
   data () {
     return {

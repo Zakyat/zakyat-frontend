@@ -20,7 +20,7 @@
       </div>
       <ul class="pl-5 mt-3">
         <li>Паспорт со&nbsp;страницами: главная, страница с&nbsp;регистрацией места жительства, брака и&nbsp;&laquo;дети&raquo;</li>
-        <li>Справки о&nbsp;доходах за&nbsp;последние 6&nbsp;месяцев (о&nbsp;заработной плате, о&nbsp;размере пенсии и/или пособия, трудовая книжка)</li>
+        <li>Справки о&nbsp;доходах за&nbsp;последние 6&nbsp;месяцев(о&nbsp;заработной плате, о&nbsp;размере пенсии и/или пособия, трудовая книжка)</li>
       </ul>
       <div class="documents-title mt-5">
         <img class="mr-3" width="25" :src="require('@/assets/images/help_request/document.svg')" alt="">
@@ -44,20 +44,6 @@
     </v-expansion-panel-content>
   </div>
 </template>
-
-<script lang="ts">
-import Vue from 'vue';
-
-export default Vue.extend({
-  name: 'PoorFamily',
-  props: {
-    item: {
-      type: Object,
-      required: true,
-    }
-  },
-});
-</script>
 
 <style scoped lang="scss">
 .documents-title {

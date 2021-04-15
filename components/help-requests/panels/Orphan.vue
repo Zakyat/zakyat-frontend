@@ -1,22 +1,24 @@
 <template>
   <div>
     <v-expansion-panel-header>
-      <h3>Многодетная малообеспеченная семья</h3>
+      <h3>Сирота</h3>
     </v-expansion-panel-header>
     <v-expansion-panel-content class="mt-5">
       <p class="mb-5">Для выбранной категории вам нужно предоставить</p>
-      <div class="documents-title">
+      <div class="documents-title mt-5">
         <img class="mr-3" width="25" :src="require('@/assets/images/help_request/document.svg')" alt="">
-        <h2>Документы по&nbsp;всем детям:</h2>
+        <h2>Документы по&nbsp;ребенку:</h2>
       </div>
       <ul class="pl-5 mt-3">
         <li>Если старше 14&nbsp;лет&nbsp;&mdash; паспорт со&nbsp;страницами: главная, страница по&nbsp;регистрации места жительства</li>
         <li>Если младше 14&nbsp;лет&nbsp;&mdash; свидетельство о&nbsp;рождении</li>
-        <li>Справка об&nbsp;инвалидности (при наличии)</li>
+        <li>Справка об инвалидности (при наличии)</li>
+        <li>Справка о наличии пособия</li>
+        <li>Фотография</li>
       </ul>
       <div class="documents-title mt-5">
         <img class="mr-3" width="25" :src="require('@/assets/images/help_request/document.svg')" alt="">
-        <h2>Документы по&nbsp;родителям или опекунам:</h2>
+        <h2>Документы по опекуну(-ам):</h2>
       </div>
       <ul class="pl-5 mt-3">
         <li>Паспорт со&nbsp;страницами: главная, страница с&nbsp;регистрацией места жительства, брака и&nbsp;&laquo;дети&raquo;</li>
@@ -24,10 +26,20 @@
       </ul>
       <div class="documents-title mt-5">
         <img class="mr-3" width="25" :src="require('@/assets/images/help_request/document.svg')" alt="">
+        <h2>Документы по биологическим родителям:</h2>
+      </div>
+      <ul class="pl-5 mt-3">
+        <li>Свидетельство о&nbsp;смерти (при наличии)</li>
+        <li>Свидетельство об&nbsp;отбывании наказания в&nbsp;местах лишения свободы (при наличии)</li>
+        <li>Свидетельство о&nbsp;разводе (при наличии)</li>
+        <li>Иные документы, доказывающие отсутствие родителя</li>
+      </ul>
+      <div class="documents-title mt-5">
+        <img class="mr-3" width="25" :src="require('@/assets/images/help_request/document.svg')" alt="">
         <h2>Общее:</h2>
       </div>
       <ul class="pl-5 mt-3">
-        <li>Выписка из домовой книги</li>
+        <li>Выписка из&nbsp;домовой книги</li>
         <li>Общая фотография</li>
       </ul>
 
