@@ -28,11 +28,18 @@
 <!--        <v-col cols="auto" class="py-0"></v-col>-->
         <v-col>{{ sub.amount }}<b>$</b></v-col>
         <v-col>{{ sub.type }}</v-col>
-        <v-col class="">
+        <v-col class="" v-if="sub.campaign">
           {{ sub.campaign.title }}
           <br>
           <p class="sbor">
             {{ sub.campaign.title }}
+          </p>
+        </v-col>
+        <v-col v-else>
+          Без сбора
+          <br>
+          <p class="sbor">
+            -
           </p>
         </v-col>
         <v-col>Master card *2324</v-col>
