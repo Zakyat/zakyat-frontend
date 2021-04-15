@@ -1,23 +1,50 @@
 <template>
-  <div>
-    <v-card
-      v-for="({text, route}, i) in categories"
-      :key="i"
-      flat
-      nuxt
-      :to="route"
-      class="category"
+  <v-expansion-panels flat>
+    <v-expansion-panel
+      class="mt-5 pa-5"
     >
-      {{ text }}
-    </v-card>
-  </div>
+      <ChildrenWithDisabilities />
+    </v-expansion-panel>
+    <v-expansion-panel
+      class="mt-5 pa-5"
+    >
+      <AdultWithHealthProblems />
+    </v-expansion-panel>
+    <v-expansion-panel
+      class="mt-5 pa-5"
+    >
+      <LargeFamily />
+    </v-expansion-panel>
+    <v-expansion-panel
+      class="mt-5 pa-5"
+    >
+      <PoorFamily />
+    </v-expansion-panel>
+    <v-expansion-panel
+      class="mt-5 pa-5"
+    >
+      <Retirees />
+    </v-expansion-panel>
+  </v-expansion-panels>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
+import ChildrenWithDisabilities from '@/components/help-requests/panels/childrenWithDisabilities.vue'
+import AdultWithHealthProblems from '@/components/help-requests/panels/AdultWithHealthProblems.vue';
+import LargeFamily from '@/components/help-requests/panels/LargeFamily.vue';
+import PoorFamily from '@/components/help-requests/panels/PoorFamily.vue';
+import Retirees from '@/components/help-requests/panels/Retirees.vue';
 
 export default Vue.extend({
   name: 'HelpRequestCategories',
+  components: {
+    ChildrenWithDisabilities,
+    AdultWithHealthProblems,
+    LargeFamily,
+    PoorFamily,
+    Retirees,
+  },
   data () {
     return {
       categories: [

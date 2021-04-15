@@ -7,8 +7,9 @@
       <h2 v-if="categoryChosen" class="mb-7">
         {{ $t('help_request.your_category') }}:
       </h2>
-      <h2 v-else class="mb-7">
-        {{ $t('help_request.choose_category') }}:
+      <h2 v-else class="mb-2">
+<!--        {{ $t('help_request.choose_category') }}:-->
+        Благотворительный фонд «Закят» предоставляет помощь по данным категориям:
       </h2>
       <nuxt-child />
     </div>
@@ -29,7 +30,6 @@ export default Vue.extend({
 
 <style scoped lang="scss">
 .content {
-  background-color: white;
   border-radius: 15px;
   padding: 40px;
   margin-bottom: 100px;
