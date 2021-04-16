@@ -3,12 +3,15 @@
     <img src="@/assets/images/heart.svg" class="ml-4 mr-3">
       <span class="white--text">{{ $t('collected', [rubles(siteSettings.allCollectedMoney)]) }}</span>
     <v-spacer />
-    <v-btn text small @click="isSearcherOpen = !isSearcherOpen">
-      <v-icon color="white" size="20">
-        mdi-magnify
-      </v-icon>
-      {{ $t('search.buttonName') }}
-    </v-btn>
+
+<!--    Search-->
+<!--    <v-btn text small @click="isSearcherOpen = !isSearcherOpen">-->
+<!--      <v-icon color="white" size="20">-->
+<!--        mdi-magnify-->
+<!--      </v-icon>-->
+<!--      {{ $t('search.buttonName') }}-->
+<!--    </v-btn>-->
+
     <v-btn text smal :href="siteSettings.vk">
       <v-icon color="white" size="20">
         mdi-vk
@@ -21,23 +24,26 @@
       </v-icon>
       {{ $t('instagram') }}
     </v-btn>
-    <v-btn v-if="!this.$apolloHelpers.getToken()" text small @click="authDialog = !authDialog">
-      <v-icon color="white" size="20">
-        mdi-account-circle
-      </v-icon>
-      {{ $t('login') }}
-    </v-btn>
-    <div v-if="this.$apolloHelpers.getToken()">
-      <v-btn text small to="/profile">
-        <v-icon color="white" size="20">
-          mdi-account-circle
-        </v-icon>
-        ЛК
-      </v-btn>
-      <v-btn text small @click="logout()">
-        Выйти
-      </v-btn>
-    </div>
+
+<!--    Authentication-->
+<!--    <v-btn v-if="!this.$apolloHelpers.getToken()" text small @click="authDialog = !authDialog">-->
+<!--      <v-icon color="white" size="20">-->
+<!--        mdi-account-circle-->
+<!--      </v-icon>-->
+<!--      {{ $t('login') }}-->
+<!--    </v-btn>-->
+<!--    <div v-if="this.$apolloHelpers.getToken()">-->
+<!--      <v-btn text small to="/profile">-->
+<!--        <v-icon color="white" size="20">-->
+<!--          mdi-account-circle-->
+<!--        </v-icon>-->
+<!--        ЛК-->
+<!--      </v-btn>-->
+<!--      <v-btn text small @click="logout()">-->
+<!--        Выйти-->
+<!--      </v-btn>-->
+<!--    </div>-->
+
     <v-dialog
       v-model="authDialog"
       width="440"
