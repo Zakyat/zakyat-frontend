@@ -104,11 +104,10 @@
                 md="auto"
               >
                 <v-btn
-                  v-if="agreedToTerms"
                   rounded
                   color="primary"
-                  text
                   :disabled="!agreedToTerms"
+                  text
 
                   @click="donate(amount, campaignId, description, donationDays, 2)"
                 >
