@@ -38,7 +38,7 @@
               {{ $t('charity.paymentMethod.bankDonationText') }}
             </v-card-text>
 
-            <DonationAmountSelection @select-days="selectDays" @select-amount="selectAmount" :amounts="amounts" :donation-tabs="donationTabs" />
+            <DonationAmountSelection @select-days="selectDays" @select-amount="selectAmount" :donation-amount="donationAmount" :amounts="amounts" :donation-tabs="donationTabs" />
 
             <v-row
               v-if="!userLogin"
@@ -154,6 +154,9 @@ export default Vue.extend({
       type: Number,
       required: true,
     },
+    donationAmount: {
+      type: String,
+    },
   },
   data () {
     return {
@@ -208,7 +211,6 @@ export default Vue.extend({
     },
     getUserData (user: any) {
       this.description = `${user.name} ${user.lastName} ${user.email} ${user.phone}`;
-      console.log(this.description);
     },
     donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number) {
       this.$apollo.mutate({
@@ -250,7 +252,7 @@ export default Vue.extend({
           campaignId,
           description,
           subscriptionDays,
-          transactionType,
+          transactionType: campaignId === -1 ? 0 : transactionType,
           successUrl: process.env.SUCCESS_PAYMENT_PAGE,
           failUrl: process.env.FAIL_PAYMENT_PAGE,
         },

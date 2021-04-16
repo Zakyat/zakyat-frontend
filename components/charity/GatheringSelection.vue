@@ -15,25 +15,25 @@
           rounded
           flat
           :placeholder="$t('charity.gathering.gatheringSelection')"
-          :items="campaigns"
+          :items="campaigns.concat(anyCampaign)"
           item-value="id"
           class="pa-0 ma-0"
           :value="campaignId"
           @input="$router.push(`/charity?id=${$event}`)"
         >
           <template #item="{ item }">
-            {{ item.title }}, {{ item.id }}
+            {{ item.title }}
           </template>
           <template #selection="{ item }">
-            {{ item.title }}, {{ item.id }}
+            {{ item.title }}
           </template>
         </v-select>
       </v-col>
     </v-row>
     <v-row class="my-0">
       <div>
-        <h2>{{ selectedCampaign.title }}</h2>
-        <p>{{ selectedCampaign.problem }}</p>
+        <h2 v-if="selectedCampaign">{{ selectedCampaign.title }}</h2>
+        <p v-if="selectedCampaign">{{ selectedCampaign.problem }}</p>
       </div>
     </v-row>
 <!--    <CharityCard-->
@@ -61,6 +61,9 @@ export default Vue.extend({
   data () {
     return {
       campaigns: [],
+      anyCampaign: [
+        { id: -1, title: 'Любой сбор' },
+      ],
       campaign: '',
     };
   },
@@ -97,7 +100,7 @@ export default Vue.extend({
       `,
       variables () {
         return {
-          id: this.campaignId,
+          id: this.campaignId === -1 ? 0 : this.campaignId,
         };
       },
     },

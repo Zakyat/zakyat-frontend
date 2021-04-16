@@ -31,7 +31,7 @@
       dark
       color="primary"
       height="40px"
-      to="/charity"
+      to="/charity?id=-1"
     >
       {{ $t('give_help') }}
     </v-btn>

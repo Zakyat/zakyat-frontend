@@ -97,11 +97,14 @@ export default Vue.extend({
       type: Array,
       required: true,
     },
+    donationAmount: {
+      type: String,
+    },
   },
   data () {
     return {
       tab: null,
-      selectedAmount: 0,
+      selectedAmount: this.donationAmount,
     };
   },
   methods: {
