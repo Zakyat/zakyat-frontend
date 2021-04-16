@@ -53,8 +53,6 @@
           outlined
           color="grey"
           dense
-          required
-          :rules="rules.phone"
           class="mt-3"
         />
       </v-col>
@@ -77,7 +75,6 @@ export default Vue.extend({
         name: [val => (val || '').length > 0 || 'Заполните это поле'],
         lastName: [val => (val || '').length > 0 || 'Заполните это поле'],
         email: [val => (val || '').length > 0 || 'Заполните это поле'],
-        phone: [val => (val || '').length > 0 || 'Заполните это поле'],
       },
     };
   },
