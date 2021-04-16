@@ -14,7 +14,7 @@
         cols="12"
         md="3"
       >
-        <GreyCard />
+
       </v-col>
     </v-row>
     <OtherNews
@@ -28,7 +28,6 @@
 <script lang="ts">
 import Vue from 'vue';
 import SpecificNewsCard from '@/components/news/_id/SpecificNewsCard.vue';
-import GreyCard from '@/components/news/_id/GreyCard.vue';
 import OtherNews from '@/components/news/_id/OtherNews.vue';
 
 import gql from 'graphql-tag';
@@ -36,7 +35,6 @@ import gql from 'graphql-tag';
 export default Vue.extend({
   components: {
     SpecificNewsCard,
-    GreyCard,
     OtherNews,
   },
   data () {
