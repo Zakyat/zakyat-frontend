@@ -2,115 +2,138 @@
   <v-row
     class="mt-5"
   >
+<!--    <v-col cols="12">-->
+<!--      <h3>{{ $t('charity.paymentMethod.title') }}</h3>-->
+<!--    </v-col>-->
+<!--    <v-col cols="12" class="mt-n2">-->
+<!--      <v-tabs-->
+<!--        v-model="tab"-->
+<!--        hide-slider-->
+<!--        grow-->
+<!--        centered-->
+<!--        center-active-->
+<!--        show-arrows-->
+<!--        class="payment-tabs pa-1"-->
+<!--      >-->
+<!--        <v-tab-->
+<!--          v-for="method in paymentMethods"-->
+<!--          :key="method"-->
+<!--          class="payment-tab"-->
+<!--          active-class="payment-tab-primary"-->
+<!--        >-->
+<!--          {{ method }}-->
+<!--        </v-tab>-->
+<!--      </v-tabs>-->
+<!--    </v-col>-->
     <v-col cols="12">
-      <h3>{{ $t('charity.paymentMethod.title') }}</h3>
-    </v-col>
-    <v-col cols="12" class="mt-n2">
-      <v-tabs
-        v-model="tab"
-        hide-slider
-        grow
-        centered
-        center-active
-        show-arrows
-        class="payment-tabs pa-1"
-      >
-        <v-tab
-          v-for="method in paymentMethods"
-          :key="method"
-          class="payment-tab"
-          active-class="payment-tab-primary"
-        >
-          {{ method }}
-        </v-tab>
-      </v-tabs>
-    </v-col>
-    <v-col cols="12">
-      <v-tabs-items v-model="tab" class="mt-n4">
-        <v-tab-item>
+<!--      <v-tabs-items v-model="tab" class="mt-n4">-->
+<!--        <v-tab-item>-->
           <v-card
             flat
           >
-            <v-card-text
-              class="pa-0 ma-0"
-              style="color: black;"
-            >
-              {{ $t('charity.paymentMethod.bankDonationText') }}
-            </v-card-text>
+<!--            <v-card-text-->
+<!--              class="pa-0 ma-0"-->
+<!--              style="color: black;"-->
+<!--            >-->
+<!--              {{ $t('charity.paymentMethod.bankDonationText') }}-->
+<!--            </v-card-text>-->
 
             <DonationAmountSelection @select-days="selectDays" @select-amount="selectAmount" :amounts="amounts" :donation-tabs="donationTabs" />
 
-            <div class="mt-n6">
-              <div v-if="!userLogin">
-                <h3 v-if="!isAnonymous" class="mt-12 mb-2">
+            <v-row
+              v-if="!userLogin"
+              justify="space-between"
+              class="mt-10"
+            >
+              <v-col
+                cols="auto"
+                class="py-0 md-0"
+              >
+                <h3 v-if="!isAnonymous">
                   {{ $t('charity.contacts.title') }}
                 </h3>
-                <Contacts @user="getUserData" v-if="!isAnonymous" />
-              </div>
-              <v-row
-                justify="space-between"
+              </v-col>
+              <v-col
+                cols="auto"
+                class="py-0 md-0"
               >
-                <v-col
-                  cols="12"
-                  md="auto"
+                <v-checkbox
+                  v-model="isAnonymous"
+                  :onchange="makeAnonymous()"
+                  class="pa-0 md-0 mt-0"
+                  on-icon="mdi-check-box-outline"
+                  hide-details
                 >
-                  <v-checkbox
-                    class="my-0 py-0"
-                    on-icon="mdi-check-box-outline"
-                    v-model="agreedToTerms"
-                  >
-                    <template #label>
-                      <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">
-                        <template #terms>
-                          <nuxt-link to="/" color="primary">
-                            {{ $t('charity.contacts.terms_conditions.terms') }}
-                          </nuxt-link>
-                        </template>
-                        <template #data>
-                          <nuxt-link to="/" color="primary">
-                            {{ $t('charity.contacts.terms_conditions.data_processing') }}
-                          </nuxt-link>
-                        </template>
-                      </i18n>
-                    </template>
-                  </v-checkbox>
-                </v-col>
-                <v-col
-                  cols="12"
-                  md="auto"
-                >
-                  <v-btn
-                    v-if="agreedToTerms"
-                    rounded
-                    color="primary"
-                    text
-                    :disabled="!agreedToTerms"
-
-                    @click="donate(amount, campaignId, description, donationDays, 2)"
-                  >
-                    {{ $t('charity.contacts.resumeBtn') }}
-                  </v-btn>
-                </v-col>
-              </v-row>
-            </div>
-          </v-card>
-        </v-tab-item>
-        <v-tab-item
-          v-for="i in paymentMethods.length"
-          :key="i"
-        >
-          <v-card
-            flat
-          >
-            <v-card-text
-              class="pa-0 ma-0"
-              style="color: black;"
+                  <template #label>
+                    <span class="black--text"> {{ $t('charity.gathering.anonymous') }} </span>
+                  </template>
+                </v-checkbox>
+              </v-col>
+            </v-row>
+            <Contacts @user="getUserData" v-if="!isAnonymous" />
+            <v-row
+              justify="space-between"
             >
-              {{ $t('charity.paymentMethod.defaultText') }}
-            </v-card-text>
+              <v-col
+                cols="12"
+                md="auto"
+              >
+                <v-checkbox
+                  class="my-0 py-0"
+                  on-icon="mdi-check-box-outline"
+                  v-model="agreedToTerms"
+                >
+                  <template #label>
+                    <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">
+                      <template #terms>
+                        <nuxt-link to="/" color="primary">
+                          {{ $t('charity.contacts.terms_conditions.terms') }}
+                        </nuxt-link>
+                      </template>
+                      <template #data>
+                        <nuxt-link to="/" color="primary">
+                          {{ $t('charity.contacts.terms_conditions.data_processing') }}
+                        </nuxt-link>
+                      </template>
+                    </i18n>
+                  </template>
+                </v-checkbox>
+              </v-col>
+              <v-col
+                cols="12"
+                md="auto"
+              >
+                <v-btn
+                  v-if="agreedToTerms"
+                  rounded
+                  color="primary"
+                  text
+                  :disabled="!agreedToTerms"
+
+                  @click="donate(amount, campaignId, description, donationDays, 2)"
+                >
+                  {{ $t('charity.contacts.resumeBtn') }}
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-card>
-        </v-tab-item>
-      </v-tabs-items>
+<!--        </v-tab-item>-->
+<!--        <v-tab-item-->
+<!--          v-for="i in paymentMethods.length"-->
+<!--          :key="i"-->
+<!--        >-->
+<!--          <v-card-->
+<!--            flat-->
+<!--          >-->
+<!--            <v-card-text-->
+<!--              class="pa-0 ma-0"-->
+<!--              style="color: black;"-->
+<!--            >-->
+<!--              {{ $t('charity.paymentMethod.defaultText') }}-->
+<!--            </v-card-text>-->
+<!--          </v-card>-->
+<!--        </v-tab-item>-->
+<!--      </v-tabs-items>-->
     </v-col>
   </v-row>
 </template>
@@ -132,10 +155,6 @@ export default Vue.extend({
       type: Number,
       required: true,
     },
-    isAnonymous: {
-      type: Boolean,
-      required: true,
-    },
   },
   data () {
     return {
@@ -149,6 +168,7 @@ export default Vue.extend({
       amount: 0,
       tab: null,
       donationDays: 0,
+      isAnonymous: false,
 
       paymentMethods: [
         this.$t('charity.paymentMethod.methods.bank_card'),
@@ -181,6 +201,9 @@ export default Vue.extend({
     };
   },
   methods: {
+    makeAnonymous () {
+      this.$emit('anonymous', this.isAnonymous);
+    },
     selectAmount (amount: number) {
       this.amount = amount;
     },
@@ -237,7 +260,7 @@ export default Vue.extend({
         },
         update: (cache, result) => {
           this.url = result.data.startPayment.url;
-          window.open(this.url, '_blank');
+          window.open(this.url, '_self');
         },
       });
     },

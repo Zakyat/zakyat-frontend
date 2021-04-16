@@ -29,39 +29,29 @@
           </template>
         </v-select>
       </v-col>
-      <v-spacer />
-      <v-col
-        cols="auto"
-        class="pa-0 md-0"
-      >
-        <v-checkbox
-          v-model="isAnonymous"
-          :onchange="makeAnonymous()"
-          class="pa-0 md-0"
-          on-icon="mdi-check-box-outline"
-        >
-          <template #label>
-            <span class="black--text"> {{ $t('charity.gathering.anonymous') }} </span>
-          </template>
-        </v-checkbox>
-      </v-col>
     </v-row>
-    <CharityCard
-      v-if="campaignId && campaign"
-      v-bind="selectedCampaign"
-    />
+    <v-row class="my-0">
+      <div>
+        <h2>{{ selectedCampaign.title }}</h2>
+        <p>{{ selectedCampaign.problem }}</p>
+      </div>
+    </v-row>
+<!--    <CharityCard-->
+<!--      v-if="campaignId && campaign"-->
+<!--      v-bind="selectedCampaign"-->
+<!--    />-->
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-import CharityCard from '@/components/charity/CharityCard.vue';
+// import CharityCard from '@/components/charity/CharityCard.vue';
 import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'GatheringSelection',
   components: {
-    CharityCard,
+    // CharityCard,
   },
   props: {
     campaignId: {
@@ -72,7 +62,6 @@ export default Vue.extend({
     return {
       campaigns: [],
       campaign: '',
-      isAnonymous: false,
     };
   },
   apollo: {

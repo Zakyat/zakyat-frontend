@@ -12,8 +12,9 @@
         flat
         outlined
         color="grey"
-        hide-details
         dense
+        :rules="rules.name"
+        required
       />
       <v-text-field
         :placeholder="$t('charity.contacts.email')"
@@ -22,8 +23,9 @@
         flat
         outlined
         color="grey"
-        hide-details
         dense
+        required
+        :rules="rules.email"
         class="mt-3"
       />
     </v-col>
@@ -39,7 +41,8 @@
           outlined
           color="grey"
           dense
-          hide-details
+          required
+          :rules="rules.lastName"
         />
         <v-text-field
           :placeholder="$t('charity.contacts.phone')"
@@ -49,15 +52,16 @@
           flat
           outlined
           color="grey"
-          hide-details
           dense
+          required
+          :rules="rules.phone"
           class="mt-3"
         />
       </v-col>
   </v-row>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 
 export default Vue.extend({
@@ -68,6 +72,13 @@ export default Vue.extend({
       lastName: '',
       email: '',
       phone: '',
+
+      rules: {
+        name: [val => (val || '').length > 0 || 'Заполните это поле'],
+        lastName: [val => (val || '').length > 0 || 'Заполните это поле'],
+        email: [val => (val || '').length > 0 || 'Заполните это поле'],
+        phone: [val => (val || '').length > 0 || 'Заполните это поле'],
+      },
     };
   },
   methods: {
