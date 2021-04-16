@@ -1,6 +1,6 @@
 <template>
   <v-container class="reports" fluid>
-    <v-row>
+    <v-row class="mb-10">
       <v-col>
         <v-select
           v-model="selectedPage"

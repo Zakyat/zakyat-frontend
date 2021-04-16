@@ -1,40 +1,41 @@
 <template>
   <v-content style="padding: 0 10px 10px;">
-    <v-row style="padding: 0 0 30px;">
-      <v-tabs
-        v-model="tab"
-        hide-slider
-        grow
-        centered
-        center-active
-        show-arrows
-        class="payment-tabs pa-1"
-      >
-        <v-tab class="payment-tab" active-class="payment-tab-primary" value="needy">
-          {{ $t('reports.expenses.needly') }}
-        </v-tab>
-        <v-tab class="payment-tab" active-class="payment-tab-primary" value="spending">
-          {{ $t('reports.expenses.spending') }}
-        </v-tab>
-      </v-tabs>
-    </v-row>
-    <v-tabs-items v-model="tab" style="background-color: initial;">
-      <v-tab-item><Needly :page="page" :month="month" :year="year" /></v-tab-item>
-      <v-tab-item><Spending :page="page" :month="month" :year="year" /></v-tab-item>
-    </v-tabs-items>
+<!--    <v-row style="padding: 0 0 30px;">-->
+<!--      <v-tabs-->
+<!--        v-model="tab"-->
+<!--        hide-slider-->
+<!--        grow-->
+<!--        centered-->
+<!--        center-active-->
+<!--        show-arrows-->
+<!--        class="payment-tabs pa-1"-->
+<!--      >-->
+<!--        <v-tab class="payment-tab" active-class="payment-tab-primary" value="needy">-->
+<!--          {{ $t('reports.expenses.needly') }}-->
+<!--        </v-tab>-->
+<!--        <v-tab class="payment-tab" active-class="payment-tab-primary" value="spending">-->
+<!--          {{ $t('reports.expenses.spending') }}-->
+<!--        </v-tab>-->
+<!--      </v-tabs>-->
+<!--    </v-row>-->
+<!--    <v-tabs-items v-model="tab" style="background-color: initial;">-->
+<!--      <v-tab-item><Needly :page="page" :month="month" :year="year" /></v-tab-item>-->
+<!--      <v-tab-item><Spending :page="page" :month="month" :year="year" /></v-tab-item>-->
+<!--    </v-tabs-items>-->
+    <Needly :page="page" :month="month" :year="year" />
   </v-content>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import Needly from '@/components/reports/Needly.vue';
-import Spending from '@/components/reports/Spending.vue';
+// import Spending from '@/components/reports/Spending.vue';
 
 export default Vue.extend({
   name: 'Expenses',
   components: {
     Needly,
-    Spending,
+    // Spending,
   },
   props: {
     page: {
