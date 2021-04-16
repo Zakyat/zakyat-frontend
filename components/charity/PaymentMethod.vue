@@ -2,41 +2,41 @@
   <v-row
     class="mt-5"
   >
-<!--    <v-col cols="12">-->
-<!--      <h3>{{ $t('charity.paymentMethod.title') }}</h3>-->
-<!--    </v-col>-->
-<!--    <v-col cols="12" class="mt-n2">-->
-<!--      <v-tabs-->
-<!--        v-model="tab"-->
-<!--        hide-slider-->
-<!--        grow-->
-<!--        centered-->
-<!--        center-active-->
-<!--        show-arrows-->
-<!--        class="payment-tabs pa-1"-->
-<!--      >-->
-<!--        <v-tab-->
-<!--          v-for="method in paymentMethods"-->
-<!--          :key="method"-->
-<!--          class="payment-tab"-->
-<!--          active-class="payment-tab-primary"-->
-<!--        >-->
-<!--          {{ method }}-->
-<!--        </v-tab>-->
-<!--      </v-tabs>-->
-<!--    </v-col>-->
     <v-col cols="12">
-<!--      <v-tabs-items v-model="tab" class="mt-n4">-->
-<!--        <v-tab-item>-->
+      <h3>{{ $t('charity.paymentMethod.title') }}</h3>
+    </v-col>
+    <v-col cols="12" class="mt-n2">
+      <v-tabs
+        v-model="tab"
+        hide-slider
+        grow
+        centered
+        center-active
+        show-arrows
+        class="payment-tabs pa-1"
+      >
+        <v-tab
+          v-for="method in paymentMethods"
+          :key="method"
+          class="payment-tab"
+          active-class="payment-tab-primary"
+        >
+          {{ method }}
+        </v-tab>
+      </v-tabs>
+    </v-col>
+    <v-col cols="12">
+      <v-tabs-items v-model="tab" class="mt-n4">
+        <v-tab-item>
           <v-card
             flat
           >
-<!--            <v-card-text-->
-<!--              class="pa-0 ma-0"-->
-<!--              style="color: black;"-->
-<!--            >-->
-<!--              {{ $t('charity.paymentMethod.bankDonationText') }}-->
-<!--            </v-card-text>-->
+            <v-card-text
+              class="pa-0 ma-0"
+              style="color: black;"
+            >
+              {{ $t('charity.paymentMethod.bankDonationText') }}
+            </v-card-text>
 
             <DonationAmountSelection @select-days="selectDays" @select-amount="selectAmount" :amounts="amounts" :donation-tabs="donationTabs" />
 
@@ -116,23 +116,23 @@
               </v-col>
             </v-row>
           </v-card>
-<!--        </v-tab-item>-->
-<!--        <v-tab-item-->
-<!--          v-for="i in paymentMethods.length"-->
-<!--          :key="i"-->
-<!--        >-->
-<!--          <v-card-->
-<!--            flat-->
-<!--          >-->
-<!--            <v-card-text-->
-<!--              class="pa-0 ma-0"-->
-<!--              style="color: black;"-->
-<!--            >-->
-<!--              {{ $t('charity.paymentMethod.defaultText') }}-->
-<!--            </v-card-text>-->
-<!--          </v-card>-->
-<!--        </v-tab-item>-->
-<!--      </v-tabs-items>-->
+        </v-tab-item>
+        <v-tab-item
+          v-for="i in paymentMethods.length"
+          :key="i"
+        >
+          <v-card
+            flat
+          >
+            <v-card-text
+              class="pa-0 ma-0"
+              style="color: black;"
+            >
+              {{ $t('charity.paymentMethod.defaultText') }}
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+      </v-tabs-items>
     </v-col>
   </v-row>
 </template>
@@ -172,9 +172,6 @@ export default Vue.extend({
       paymentMethods: [
         this.$t('charity.paymentMethod.methods.bank_card'),
         this.$t('charity.paymentMethod.methods.SMS'),
-        this.$t('charity.paymentMethod.methods.mobile_phone'),
-        this.$t('charity.paymentMethod.methods.yandex_money'),
-        this.$t('charity.paymentMethod.methods.paypal'),
       ],
 
       amounts: [1, 5, 10, 50, 100, 200, 300, 500],
