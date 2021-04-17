@@ -10,7 +10,7 @@
         class="pb-0"
       >
         <h2 class="title mb-5">
-          Помоги собраться в школу
+          {{ project.title }}
         </h2>
 
         <div>
@@ -67,6 +67,12 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'SchoolCard',
+  props: {
+    project: {
+      type: Object,
+      required: true,
+    },
+  },
 });
 </script>
 

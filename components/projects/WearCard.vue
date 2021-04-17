@@ -10,7 +10,7 @@
         class="pb-0"
       >
         <h2 class="title mb-5">
-          Пункт приема и раздачи одежды
+          {{ project.title }}
         </h2>
 
         <div>
@@ -36,7 +36,7 @@
           class="project-info-card mb-3 pa-7"
         >
           <v-row justify="space-between">
-            <b>1525</b>
+            <b>{{ project.firstNumber }}</b>
             <img width="50" :src="require('@/assets/images/projects/svg/colored/stat_icon.svg')" alt="">
           </v-row>
           <v-row>
@@ -75,6 +75,12 @@ import Vue from 'vue';
 
 export default Vue.extend({
   name: 'WearCard',
+  props: {
+    project: {
+      type: Object,
+      required: true,
+    },
+  },
 });
 </script>
 
