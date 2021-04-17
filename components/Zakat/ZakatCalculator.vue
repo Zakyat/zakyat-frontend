@@ -129,7 +129,7 @@ export default Vue.extend({
         },
         update: (cache, result) => {
           this.url = result.data.startPayment.url;
-          window.open(this.url, '_blank');
+          window.open(this.url, '_self');
         },
       });
     },

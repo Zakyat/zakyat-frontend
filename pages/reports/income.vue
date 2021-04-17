@@ -23,26 +23,33 @@
       </v-flex>
     </v-row>
     <v-row
-      v-for="(income, i) in incomeData.slice(0,10)"
-      :key="i"
+      v-for="transaction in transactions"
+      :key="transaction.id"
       align="center"
       class="mt-4"
       style="background: white; border-radius: 10px; min-height: 60px; padding: 20px;"
     >
       <v-flex lg2 class="text">
-        {{ income.date.toLocaleDateString($i18n.locale) }}
+<!--  income.date.toLocaleDateString($i18n.locale)-->
+        {{ localeDate(transaction.createAt) }}
       </v-flex>
-      <v-flex lg3 class="text" style="font-weight: bold;">
-        {{ income.benefactor }}
+      <v-flex lg3 class="text" v-if="transaction.user" style="font-weight: bold;">
+        {{ transaction.user.firstName }} {{ transaction.user.lastName }}
+      </v-flex>
+      <v-flex lg3 class="text" v-else style="font-weight: bold;">
+        Аноним
+      </v-flex>
+      <v-flex lg3 class="text" v-if="transaction.campaign">
+        {{ transaction.campaign.title }}
+      </v-flex>
+      <v-flex lg3 class="text" v-else>
+        Садака / Закят
       </v-flex>
       <v-flex lg3 class="text">
-        {{ income.target }}
-      </v-flex>
-      <v-flex lg3 class="text">
-        {{ income.donationType }}
+        {{ transaction.transactionType }}
       </v-flex>
       <v-flex lg1 class="text-right text" style="font-weight: bold;">
-        {{ income.amount | rubles }}
+        {{ transaction.amount | rubles }}
       </v-flex>
     </v-row>
   </v-content>
@@ -50,6 +57,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'Income',
@@ -67,8 +75,26 @@ export default Vue.extend({
       default: 2020,
     },
   },
+  apollo: {
+    transactions: gql` query {
+      transactions {
+        id
+        user {
+          firstName
+          lastName
+        }
+        amount
+        createAt
+        transactionType
+        campaign {
+          title
+        }
+      }
+    }`,
+  },
   data () {
     return {
+      transactions: '',
       incomeData: [
         {
           date: new Date(),
@@ -156,6 +182,16 @@ export default Vue.extend({
         },
       ],
     };
+  },
+  methods: {
+    localeDate (stringDate: string) {
+      const date = new Date(stringDate).toLocaleDateString(this.$i18n.locale, {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+      });
+      return date;
+    },
   },
   computed: {
     total (): number {

@@ -22,30 +22,31 @@
         </v-select>
       </v-col>
       <v-spacer />
-      <v-col cols="2">
-        <v-select
-          v-model="month"
-          :items="months"
-          item-text="text"
-          item-value="num"
-          hide-details
-          rounded
-          outlined
-          style="font-weight: bold;"
-        />
-      </v-col>
-      <v-col cols="2">
-        <v-select
-          v-model="year"
-          :items="years"
-          hide-details
-          rounded
-          outlined
-          style="font-weight: bold;"
-        />
-      </v-col>
+<!--      <v-col cols="2">-->
+<!--        <v-select-->
+<!--          v-model="month"-->
+<!--          :items="months"-->
+<!--          item-text="text"-->
+<!--          item-value="num"-->
+<!--          hide-details-->
+<!--          rounded-->
+<!--          outlined-->
+<!--          style="font-weight: bold;"-->
+<!--        />-->
+<!--      </v-col>-->
+<!--      <v-col cols="2">-->
+<!--        <v-select-->
+<!--          v-model="year"-->
+<!--          :items="years"-->
+<!--          hide-details-->
+<!--          rounded-->
+<!--          outlined-->
+<!--          style="font-weight: bold;"-->
+<!--        />-->
+<!--      </v-col>-->
     </v-row>
-    <nuxt-child :page="page" :month="month" :year="year" />
+<!--    <nuxt-child :page="page" :month="month" :year="year" />-->
+    <nuxt-child />
     <v-row class="text-center mt-6 text-black">
       <v-pagination
         v-model="page"
