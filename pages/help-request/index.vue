@@ -1,61 +1,65 @@
 <template>
-  <v-expansion-panels flat>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <ChildrenWithDisabilities />
-    </v-expansion-panel>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <AdultWithHealthProblems />
-    </v-expansion-panel>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <LargeFamily />
-    </v-expansion-panel>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <PoorFamily />
-    </v-expansion-panel>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <Retirees />
-    </v-expansion-panel>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <SingleParent />
-    </v-expansion-panel>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <Orphan />
-    </v-expansion-panel>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <Refugee />
-    </v-expansion-panel>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <Homeless />
-    </v-expansion-panel>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <Debtor />
-    </v-expansion-panel>
-    <v-expansion-panel
-      class="mt-5 pa-5"
-    >
-      <IslamStudent />
-    </v-expansion-panel>
-  </v-expansion-panels>
+  <div>
+    <v-expansion-panels flat>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <ChildrenWithDisabilities />
+      </v-expansion-panel>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <AdultWithHealthProblems />
+      </v-expansion-panel>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <LargeFamily />
+      </v-expansion-panel>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <PoorFamily />
+      </v-expansion-panel>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <Retirees />
+      </v-expansion-panel>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <SingleParent />
+      </v-expansion-panel>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <Orphan />
+      </v-expansion-panel>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <Refugee />
+      </v-expansion-panel>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <Homeless />
+      </v-expansion-panel>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <Debtor />
+      </v-expansion-panel>
+      <v-expansion-panel
+        class="mt-5 pa-5"
+      >
+        <IslamStudent />
+      </v-expansion-panel>
+    </v-expansion-panels>
+
+    <div class="watermark text-center">Временно не доступно</div>
+  </div>
 </template>
 
 <script lang="ts">
@@ -118,5 +122,13 @@ export default Vue.extend({
   background-color: #fafafa;
   border: 1px solid #ccc;
   font-size: 1.25em;
+}
+
+.watermark {
+  position: fixed;
+  top: 40%;
+  z-index: 5;
+  opacity: 30%;
+  font-size: 100px;
 }
 </style>
