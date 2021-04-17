@@ -36,9 +36,9 @@
             {{ $t('links.volunteers') }}
           </v-btn>
         </v-col>
-        <v-col cols="4" sm="2" lg="1" class="py-2 px-0">
-          <LanguageSelector />
-        </v-col>
+<!--        <v-col cols="4" sm="2" lg="1" class="py-2 px-0">-->
+<!--          <LanguageSelector />-->
+<!--        </v-col>-->
       </v-row>
       <v-row class="my-3">
         <v-col class="py-2 text-center white--text" cols="12">
@@ -85,12 +85,12 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import LanguageSelector from '@/components/LanguageSelector.vue';
+// import LanguageSelector from '@/components/LanguageSelector.vue';
 import BecomeVolunteer from '@/components/volunteer/BecomeVolunteer.vue';
 
 export default Vue.extend({
   components: {
-    LanguageSelector,
+    // LanguageSelector,
     BecomeVolunteer,
   },
   props: {
