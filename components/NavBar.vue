@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar flat color="white" height="120" style="padding: 0 5%;">
+  <div flat color="white" height="120" style="padding: 0 5%; display: flex; flex-wrap: wrap; align-items: center;">
     <nuxt-link to="/">
       <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
     </nuxt-link>
@@ -46,7 +46,7 @@
     >
       {{ $t('get_help') }}
     </v-btn>
-  </v-app-bar>
+  </div>
 </template>
 
 <script lang="ts">
