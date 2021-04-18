@@ -4,13 +4,6 @@
     justify-center
     align-center
   >
-    <div class="mobile">
-      <div class="loader-inner">
-        <img :src="require(`@/assets/logo/ru.svg`)">
-      </div>
-      <h1>Сайт временно не доступен для маленьких экранов</h1>
-      <h2>Пожалуйста перейдите на компьютер</h2>
-    </div>
     <SliderBar />
     <DonationBar />
     <ProjectBar />
@@ -52,23 +45,3 @@ export default Vue.extend({
   layout: 'white',
 });
 </script>
-
-<style lang="css">
-@media screen and (min-width: 1060px) {
-  .mobile {
-    display: none;
-  }
-}
-
-@media screen and (max-width: 1060px) {
-  .mobile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-    background: white;
-    width: 100%;
-    height: 100%;
-  }
-}
-</style>

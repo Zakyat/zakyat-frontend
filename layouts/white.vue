@@ -1,5 +1,12 @@
 <template>
   <v-app class="app-wrapper">
+    <div class="mobile">
+      <div class="loader-inner">
+        <img :src="require(`@/assets/logo/ru.svg`)">
+      </div>
+      <h1>Сайт временно не доступен для маленьких экранов</h1>
+      <h2>Пожалуйста перейдите на компьютер</h2>
+    </div>
     <div class="app">
       <Loader />
     </div>
@@ -66,5 +73,23 @@ export default Vue.extend({
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@media screen and (min-width: 1060px) {
+  .mobile {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 1060px) {
+  .mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    background: white;
+    width: 100%;
+    height: 100%;
+  }
 }
 </style>
