@@ -46,11 +46,11 @@
 <!--      </v-col>-->
     </v-row>
 <!--    <nuxt-child :page="page" :month="month" :year="year" />-->
-    <nuxt-child />
+    <nuxt-child :page="page" :items-on-page="itemsOnPage"/>
     <v-row class="text-center mt-6 text-black">
       <v-pagination
         v-model="page"
-        :length="total_page"
+        :length="totalPages"
         :total-visible="6"
         circle
       />
@@ -60,11 +60,22 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'Reports',
+  apollo: {
+    transactions: {
+      query: gql` query transactions {
+        transactions {
+          id
+        }
+      }`,
+    },
+  },
   data () {
     return {
+      transactions: [],
       pages: [
         { text: this.$t('reports.income.title'), path: '/reports/income' },
         { text: this.$t('reports.expenses.title'), path: '/reports/expenses' },
@@ -89,8 +100,13 @@ export default Vue.extend({
       ],
       month: new Date().getMonth() + 1,
       page: 1,
-      total_page: 10,
+      itemsOnPage: 10,
     };
+  },
+  computed: {
+    totalPages () {
+      return Math.ceil(this.transactions?.length / this.itemsOnPage);
+    },
   },
 });
 </script>

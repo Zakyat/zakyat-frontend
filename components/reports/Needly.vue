@@ -1,7 +1,8 @@
 <template>
   <div>
     <v-row>
-      <span class="subtitle">{{ $t('reports.expenses.subtitle') }}</span>
+<!--      <span class="subtitle">{{ $t('reports.expenses.subtitle') }}</span>-->
+      <span class="subtitle">Всего переданно нуждающимся</span>
       <v-spacer />
       <span class="subtitle">{{ total | rubles }}</span>
     </v-row>
@@ -23,26 +24,26 @@
       </v-flex>
     </v-row>
     <v-row
-      v-for="(donatation, i) in donationData.slice(0,10)"
+      v-for="(donatation, i) in campaigns"
       :key="i"
       align="center"
       class="mt-4"
       style="background: white; border-radius: 10px; min-height: 60px; padding: 20px;"
     >
       <v-flex lg2 class="text">
-        {{ donatation.applicationNumber }}
+        {{ donatation.id }}
       </v-flex>
       <v-flex lg2 class="text">
-        {{ donatation.date.toLocaleDateString($i18n.locale) }}
+        {{ localeDate(donatation.createdAt) }}
       </v-flex>
       <v-flex lg3 class="text" style="font-weight: bold;">
-        {{ donatation.beneficiary }}
+        {{ donatation.title }}
       </v-flex>
       <v-flex lg3 class="text">
-        {{ donatation.description }}
+        {{ donatation.problem }}
       </v-flex>
       <v-flex lg2 class="text-right text">
-        <span style="font-weight: bold;">{{ donatation.amounts.collected | rubles }}</span>/{{ donatation.amounts.needed | rubles }}
+        <span style="font-weight: bold;">{{ donatation.moneyCollected | rubles }}</span>/{{ donatation.goal | rubles }}
       </v-flex>
     </v-row>
   </div>
@@ -50,6 +51,8 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag';
+
 export default Vue.extend({
   props: {
     page: {
@@ -57,86 +60,54 @@ export default Vue.extend({
       default: 1,
       required: false,
     },
-    month: {
+    itemsOnPage: {
       type: Number,
-      default: 0,
-      required: false,
     },
-    year: {
-      type: Number,
-      default: 2020,
-      required: false,
+    // month: {
+    //   type: Number,
+    //   default: 0,
+    //   required: false,
+    // },
+    // year: {
+    //   type: Number,
+    //   default: 2020,
+    //   required: false,
+    // },
+  },
+  apollo: {
+    campaigns: {
+      query: gql`
+        query {
+          campaigns {
+            id
+            title
+            problem
+            goal
+            moneyCollected
+            createdAt
+          }
+        }
+      `,
     },
   },
   data () {
     return {
-      donationData: [
-        {
-          applicationNumber: 1587,
-          date: new Date(),
-          beneficiary: 'Раджабов Ильес Исламович',
-          description: 'Сыну требуется дорогостоящяя операция. Недостающая сумма 20000 рублей.',
-          amounts: {
-            collected: 20000,
-            needed: 25000,
-          },
-        },
-        {
-          applicationNumber: 1417,
-          date: new Date(),
-          beneficiary: 'Сабирзянова Римма Минзагитовна',
-          description: 'Сын с диагнозом ДЦП. Требуется беговая дорожка.',
-          amounts: {
-            collected: 220000,
-            needed: 250000,
-          },
-        },
-        {
-          applicationNumber: 1587,
-          date: new Date(),
-          beneficiary: 'Раджабов Ильес Исламович',
-          description: 'Сыну требуется дорогостоящяя операция. Недостающая сумма 20000 рублей.',
-          amounts: {
-            collected: 20000,
-            needed: 25000,
-          },
-        },
-        {
-          applicationNumber: 1417,
-          date: new Date(),
-          beneficiary: 'Сабирзянова Римма Минзагитовна',
-          description: 'Сын с диагнозом ДЦП. Требуется беговая дорожка.',
-          amounts: {
-            collected: 220000,
-            needed: 250000,
-          },
-        },
-        {
-          applicationNumber: 1587,
-          date: new Date(),
-          beneficiary: 'Раджабов Ильес Исламович',
-          description: 'Сыну требуется дорогостоящяя операция. Недостающая сумма 20000 рублей.',
-          amounts: {
-            collected: 20000,
-            needed: 25000,
-          },
-        },
-        {
-          applicationNumber: 1417,
-          date: new Date(),
-          beneficiary: 'Сабирзянова Римма Минзагитовна',
-          description: 'Сын с диагнозом ДЦП. Требуется беговая дорожка.',
-          amounts: {
-            collected: 220000,
-            needed: 250000,
-          },
-        },
-      ],
+      campaigns: [],
     };
+  },
+  methods: {
+    localeDate (stringDate: string) {
+      const date = new Date(stringDate).toLocaleDateString(this.$i18n.locale, {
+        year: 'numeric',
+        month: 'numeric',
+        day: 'numeric',
+      });
+      return date;
+    },
   },
   computed: {
     total (): number {
-      return this.donationData.reduce((acc, item) => item.amounts.collected + acc, 0);
+      return this.campaigns.reduce((acc, item) => item.moneyCollected + acc, 0);
     },
   },
 });

@@ -66,121 +66,47 @@ export default Vue.extend({
       type: Number,
       default: 1,
     },
-    month: {
+    itemsOnPage: {
       type: Number,
-      default: 0,
     },
-    year: {
-      type: Number,
-      default: 2020,
-    },
+    // month: {
+    //   type: Number,
+    //   default: 0,
+    // },
+    // year: {
+    //   type: Number,
+    //   default: 2020,
+    // },
   },
   apollo: {
-    transactions: gql` query {
-      transactions {
-        id
-        user {
-          firstName
-          lastName
+    transactions: {
+      query: gql` query transactions ($limit: Int, $offset: Int) {
+        transactions (limit: $limit, offset: $offset) {
+          id
+          user {
+            firstName
+            lastName
+          }
+          amount
+          createAt
+          transactionType
+          campaign {
+            title
+          }
         }
-        amount
-        createAt
-        transactionType
-        campaign {
-          title
-        }
-      }
-    }`,
+      }`,
+      variables () {
+        return {
+          limit: this.itemsOnPage,
+          offset: (this.page - 1) * this.itemsOnPage,
+        };
+      },
+    },
   },
   data () {
     return {
-      transactions: '',
-      incomeData: [
-        {
-          date: new Date(),
-          benefactor: 'Фатхуллина Алия Мударисовна',
-          target: 'Бурганова Альфия, сбор 309',
-          donationType: 'Разовое пожертвование',
-          amount: 20000,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Ибрагимов Марат',
-          target: 'Садака',
-          donationType: 'Ежедневное пожертвование',
-          amount: 10,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Фатхуллина Алия Мударисовна',
-          target: 'Бурганова Альфия, сбор 309',
-          donationType: 'Разовое пожертвование',
-          amount: 20000,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Ибрагимов Марат',
-          target: 'Садака',
-          donationType: 'Ежедневное пожертвование',
-          amount: 10,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Фатхуллина Алия Мударисовна',
-          target: 'Бурганова Альфия, сбор 309',
-          donationType: 'Разовое пожертвование',
-          amount: 20000,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Ибрагимов Марат',
-          target: 'Садака',
-          donationType: 'Ежедневное пожертвование',
-          amount: 10,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Фатхуллина Алия Мударисовна',
-          target: 'Бурганова Альфия, сбор 309',
-          donationType: 'Разовое пожертвование',
-          amount: 20000,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Ибрагимов Марат',
-          target: 'Садака',
-          donationType: 'Ежедневное пожертвование',
-          amount: 10,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Фатхуллина Алия Мударисовна',
-          target: 'Бурганова Альфия, сбор 309',
-          donationType: 'Разовое пожертвование',
-          amount: 20000,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Ибрагимов Марат',
-          target: 'Садака',
-          donationType: 'Ежедневное пожертвование',
-          amount: 10,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Фатхуллина Алия Мударисовна',
-          target: 'Бурганова Альфия, сбор 309',
-          donationType: 'Разовое пожертвование',
-          amount: 20000,
-        },
-        {
-          date: new Date(),
-          benefactor: 'Ибрагимов Марат',
-          target: 'Садака',
-          donationType: 'Ежедневное пожертвование',
-          amount: 10,
-        },
-      ],
+      transactions: [],
+      allTransactions: [],
     };
   },
   methods: {
@@ -195,7 +121,7 @@ export default Vue.extend({
   },
   computed: {
     total (): number {
-      return this.incomeData.reduce((acc, item) => item.amount + acc, 0);
+      return this.allTransactions.reduce((acc, item) => item.amount + acc, 0);
     },
   },
 });
