@@ -31,9 +31,12 @@
       </v-col>
     </v-row>
     <v-row class="my-0">
-      <div>
-        <h2 v-if="selectedCampaign">{{ selectedCampaign.title }}</h2>
-        <p v-if="selectedCampaign">{{ selectedCampaign.problem }}</p>
+      <div v-if="selectedCampaign">
+        <h2>{{ selectedCampaign.title }}</h2>
+        <p class="mb-0">{{ selectedCampaign.problem }}</p>
+        <nuxt-link :to="`all-incomes?id=${selectedCampaign.id}`">
+          Все пожертвования
+        </nuxt-link>
       </div>
     </v-row>
 <!--    <CharityCard-->
