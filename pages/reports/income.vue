@@ -1,5 +1,5 @@
 <template>
-  <v-content style="padding: 0 10px 10px;">
+  <v-main style="padding: 0 10px 10px;">
     <v-row>
       <span class="subtitle">{{ $t('reports.income.subtitle') }}</span>
       <v-spacer />
@@ -52,7 +52,15 @@
         {{ transaction.amount | rubles }}
       </v-flex>
     </v-row>
-  </v-content>
+    <v-row class="text-center mt-6 text-black">
+      <v-pagination
+        v-model="page"
+        :length="totalTransactionPages"
+        :total-visible="6"
+        circle
+      />
+    </v-row>
+  </v-main>
 </template>
 
 <script lang="ts">
@@ -62,6 +70,9 @@ import gql from 'graphql-tag';
 export default Vue.extend({
   name: 'Income',
   props: {
+    totalTransactionPages: {
+      type: Number,
+    },
     page: {
       type: Number,
       default: 1,

@@ -46,6 +46,14 @@
         <span style="font-weight: bold;">{{ donatation.moneyCollected | rubles }}</span>/{{ donatation.goal | rubles }}
       </v-flex>
     </v-row>
+    <v-row class="text-center mt-6 text-black">
+      <v-pagination
+        v-model="page"
+        :length="totalCampaignsPages"
+        :total-visible="6"
+        circle
+      />
+    </v-row>
   </div>
 </template>
 
@@ -55,10 +63,12 @@ import gql from 'graphql-tag';
 
 export default Vue.extend({
   props: {
+    totalCampaignsPages: {
+      type: Number,
+    },
     page: {
       type: Number,
       default: 1,
-      required: false,
     },
     itemsOnPage: {
       type: Number,
@@ -74,11 +84,16 @@ export default Vue.extend({
     //   required: false,
     // },
   },
+  data () {
+    return {
+      campaigns: [],
+    };
+  },
   apollo: {
     campaigns: {
       query: gql`
-        query {
-          campaigns {
+        query campaigns ($limit: Int, $offset: Int) {
+          campaigns (limit: $limit, offset: $offset) {
             id
             title
             problem
@@ -88,12 +103,13 @@ export default Vue.extend({
           }
         }
       `,
+      variables () {
+        return {
+          limit: this.itemsOnPage,
+          offset: (this.page - 1) * this.itemsOnPage,
+        };
+      },
     },
-  },
-  data () {
-    return {
-      campaigns: [],
-    };
   },
   methods: {
     localeDate (stringDate: string) {
@@ -108,6 +124,10 @@ export default Vue.extend({
   computed: {
     total (): number {
       return this.campaigns.reduce((acc, item) => item.moneyCollected + acc, 0);
+    },
+    totalPages () {
+      console.log(this.allCampaigns?.length);
+      return Math.ceil(this.allCampaigns?.length / this.itemsOnPage);
     },
   },
 });

@@ -1,5 +1,5 @@
 <template>
-  <v-content style="padding: 0 10px 10px;">
+  <v-main style="padding: 0 10px 10px;">
 <!--    <v-row style="padding: 0 0 30px;">-->
 <!--      <v-tabs-->
 <!--        v-model="tab"-->
@@ -22,14 +22,20 @@
 <!--      <v-tab-item><Needly :page="page" :month="month" :year="year" /></v-tab-item>-->
 <!--      <v-tab-item><Spending :page="page" :month="month" :year="year" /></v-tab-item>-->
 <!--    </v-tabs-items>-->
-    <Needly :page="page" :month="month" :year="year" />
-  </v-content>
+<!--    <Needly :page="page" :month="month" :year="year" />-->
+    <Needly
+      :page="page"
+      :total-campaigns-pages="totalCampaignsPages"
+      :items-on-page="itemsOnPage"
+    />
+  </v-main>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 import Needly from '@/components/reports/Needly.vue';
 // import Spending from '@/components/reports/Spending.vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'Expenses',
@@ -53,12 +59,31 @@ export default Vue.extend({
   },
   data () {
     return {
+      campaigns: [],
+      itemsOnPage: 10,
+      selectedPage: this.$route.path,
       tab: null,
       components: [
         { text: this.$t('reports.expenses.needly'), component: 'needly' },
         { text: this.$t('reports.expenses.spending'), component: 'spending' },
       ],
     };
+  },
+  apollo: {
+    campaigns: {
+      query: gql`
+        query {
+          campaigns {
+            id
+          }
+        }
+      `,
+    },
+  },
+  computed: {
+    totalCampaignsPages () {
+      return Math.ceil(this.campaigns?.length / this.itemsOnPage);
+    },
   },
 });
 </script>
