@@ -1,9 +1,10 @@
 <template>
   <v-main style="padding: 0 10px 10px;">
     <v-row>
-      <span class="subtitle">{{ $t('reports.income.subtitle') }}</span>
+<!--      <span class="subtitle">{{ $t('reports.income.subtitle') }}</span>-->
+      <span class="subtitle">Всего собрано</span>
       <v-spacer />
-      <span class="subtitle">{{ total | rubles }}</span>
+      <span class="subtitle">{{ totalMoneyCollected | rubles }}</span>
     </v-row>
     <v-row style="padding: 30px 10px 10px;">
       <v-flex lg2 class="text--secondary">
@@ -70,6 +71,9 @@ import gql from 'graphql-tag';
 export default Vue.extend({
   name: 'Income',
   props: {
+    totalMoneyCollected: {
+      type: Number,
+    },
     totalTransactionPages: {
       type: Number,
     },
@@ -117,7 +121,6 @@ export default Vue.extend({
   data () {
     return {
       transactions: [],
-      allTransactions: [],
     };
   },
   methods: {
@@ -128,11 +131,6 @@ export default Vue.extend({
         day: 'numeric',
       });
       return date;
-    },
-  },
-  computed: {
-    total (): number {
-      return this.allTransactions.reduce((acc, item) => item.amount + acc, 0);
     },
   },
 });

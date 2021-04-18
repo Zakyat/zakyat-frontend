@@ -125,10 +125,6 @@ export default Vue.extend({
     total (): number {
       return this.campaigns.reduce((acc, item) => item.moneyCollected + acc, 0);
     },
-    totalPages () {
-      console.log(this.allCampaigns?.length);
-      return Math.ceil(this.allCampaigns?.length / this.itemsOnPage);
-    },
   },
 });
 </script>

@@ -49,12 +49,13 @@
     <nuxt-child
       :page="page"
       :total-transaction-pages="totalTransactionPages"
+      :total-money-collected="totalMoneyCollected"
       :items-on-page="itemsOnPage"
     />
   </v-container>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import gql from 'graphql-tag';
 
@@ -65,6 +66,7 @@ export default Vue.extend({
       query: gql` query {
         transactions {
           id
+          amount
         }
       }`,
     },
@@ -102,6 +104,9 @@ export default Vue.extend({
   computed: {
     totalTransactionPages () {
       return Math.ceil(this.transactions?.length / this.itemsOnPage);
+    },
+    totalMoneyCollected () {
+      return this.transactions.reduce((acc, item) => item.amount + acc, 0);
     },
   },
 });
