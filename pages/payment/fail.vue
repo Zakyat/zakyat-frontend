@@ -41,6 +41,7 @@ export default {
                 paymentId
                 status
                 campaign {
+                  id
                   title
                 }
               }
