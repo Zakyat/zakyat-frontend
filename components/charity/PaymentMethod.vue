@@ -236,14 +236,6 @@ export default Vue.extend({
                 url,
                 errors,
                 ok,
-                transaction{
-                  id
-                  amount
-                  payment{
-                    uid
-                    status
-                  }
-                }
               }
             }
         `,

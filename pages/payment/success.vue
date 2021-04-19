@@ -6,7 +6,7 @@
         <div class="text-center">
           <h1>Успешная оплата</h1>
           <p class="my-0">
-            Спасибо! Ваше пожертвование <b>{{transaction.amount | rubles}}</b> успешно поступило на&nbsp;счет <b v-if="transaction.campaign">сбора &#8470;&nbsp;{{transaction.campaign.id}}.</b></p>
+            Спасибо! Ваше пожертвование <b v-if="transaction">{{transaction.amount | rubles}}</b> успешно поступило на&nbsp;счет <b v-if="transaction.campaign">сбора &#8470;&nbsp;{{transaction.campaign.id}}.</b></p>
           <p class="my-0" v-if="this.$apolloHelpers.getToken()">
             Смотрите историю совершенных пожертвований в&nbsp;разделе
             <nuxt-link
@@ -32,21 +32,36 @@ export default {
       transaction: '',
     };
   },
-  apollo: {
-    transaction: {
-      query: gql`
-        query getTransaction($id:Int!) {
-          transaction (id: $id) {
-            amount,
-            campaign {
-              id
+  created () {
+    this.checkPaymentStatus();
+  },
+  methods: {
+    checkPaymentStatus () {
+      this.$apollo.mutate({
+        mutation: gql`
+          mutation checkPaymentStatus ($bankId: ID!) {
+            checkPaymentStatus (bankId: $bankId) {
+              ok
+              transaction {
+                id
+                amount
+                paymentId
+                status
+                campaign {
+                  title
+                }
+              }
+              errors
             }
           }
-        }
-      `,
-      variables () {
-        return { id: 1 };
-      },
+        `,
+        variables: {
+          bankId: this.$route.query.orderId,
+        },
+        update: (cache, result) => {
+          this.transaction = result.data.checkPaymentStatus.transaction;
+        },
+      });
     },
   },
 };
