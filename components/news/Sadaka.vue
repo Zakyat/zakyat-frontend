@@ -45,7 +45,7 @@
         block
         color="primary"
         class="mt-4"
-        @click="donate(amount, -1, '', 0, 0)"
+        :to="`/charity?id=-1&amount=${amount}`"
       >
         Пожертвовать
       </v-btn>
