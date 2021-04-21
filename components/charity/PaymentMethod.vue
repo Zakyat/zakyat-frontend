@@ -109,7 +109,7 @@
                   :disabled="!agreedToTerms"
                   text
 
-                  @click="donate(amount, campaignId, description, donationDays, 2)"
+                  @click="donate(amount, campaignId, description, donationDays, 2, isAnonymous)"
                 >
                   {{ $t('charity.contacts.resumeBtn') }}
                 </v-btn>
@@ -212,9 +212,16 @@ export default Vue.extend({
       this.donationDays = this.donationTabs[tab]?.days;
     },
     getUserData (user: any) {
-      this.description = `${user.name} ${user.lastName} ${user.email} ${user.phone}`;
+      this.description = `
+        {
+          "name": "${user.name}",
+          "lastName": "${user.lastName}",
+          "email": "${user.email}",
+          "phone": "${user.phone}"
+        }
+      `;
     },
-    donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number) {
+    donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number, isAnonymous: boolean) {
       this.$apollo.mutate({
         mutation: gql`
           mutation startPayment(
@@ -224,7 +231,8 @@ export default Vue.extend({
               $subscriptionDays: Int!,
               $transactionType: Int!,
               $successUrl: String!,
-              $failUrl: String!
+              $failUrl: String!,
+              $isAnonymous: Boolean!
             ) {
               startPayment(
                 amount: $amount,
@@ -234,6 +242,7 @@ export default Vue.extend({
                 transactionType: $transactionType,
                 successUrl: $successUrl,
                 failUrl: $failUrl,
+                isAnonymous: $isAnonymous,
               ) {
                 url,
                 errors,
@@ -249,6 +258,7 @@ export default Vue.extend({
           transactionType: campaignId === -1 ? 0 : transactionType,
           successUrl: process.env.SUCCESS_PAYMENT_PAGE,
           failUrl: process.env.FAIL_PAYMENT_PAGE,
+          isAnonymous,
         },
         update: (cache, result) => {
           this.url = result.data.startPayment.url;
