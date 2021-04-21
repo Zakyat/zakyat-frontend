@@ -55,7 +55,6 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'Sadaka',
@@ -63,60 +62,7 @@ export default Vue.extend({
     return {
       amounts: [1, 50, 100],
       amount: null,
-      url: '',
     };
-  },
-  methods: {
-    donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number) {
-      this.$apollo.mutate({
-        mutation: gql`
-          mutation startPayment(
-              $amount: Float!,
-              $campaignId: Int!,
-              $description: String!,
-              $subscriptionDays: Int!,
-              $transactionType: Int!,
-              $successUrl: String!,
-              $failUrl: String!
-            ) {
-              startPayment(
-                amount: $amount,
-                campaignId: $campaignId,
-                description: $description,
-                subscriptionDays: $subscriptionDays,
-                transactionType: $transactionType,
-                successUrl: $successUrl,
-                failUrl: $failUrl,
-              ) {
-                url,
-                errors,
-                ok,
-                transaction{
-                  id
-                  amount
-                  payment{
-                    uid
-                    status
-                  }
-                }
-              }
-            }
-        `,
-        variables: {
-          amount,
-          campaignId,
-          description,
-          subscriptionDays,
-          transactionType,
-          successUrl: process.env.SUCCESS_PAYMENT_PAGE,
-          failUrl: process.env.FAIL_PAYMENT_PAGE,
-        },
-        update: (cache, result) => {
-          this.url = result.data.startPayment.url;
-          window.open(this.url, '_blank');
-        },
-      });
-    },
   },
 });
 </script>
