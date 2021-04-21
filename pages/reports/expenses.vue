@@ -31,7 +31,7 @@
   </v-main>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import Needly from '@/components/reports/Needly.vue';
 // import Spending from '@/components/reports/Spending.vue';

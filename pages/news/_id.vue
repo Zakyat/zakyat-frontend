@@ -25,7 +25,7 @@
   </v-container>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import SpecificNewsCard from '@/components/news/_id/SpecificNewsCard.vue';
 import OtherNews from '@/components/news/_id/OtherNews.vue';

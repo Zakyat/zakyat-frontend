@@ -39,7 +39,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import CharityCard from '@/components/charity/CharityCard.vue';
 import gql from 'graphql-tag';

@@ -57,7 +57,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import gql from 'graphql-tag';
 
@@ -112,7 +112,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    localeDate (stringDate: string) {
+    localeDate (stringDate) {
       const date = new Date(stringDate).toLocaleDateString(this.$i18n.locale, {
         year: 'numeric',
         month: 'numeric',
@@ -122,7 +122,7 @@ export default Vue.extend({
     },
   },
   computed: {
-    total (): number {
+    total () {
       return this.campaigns.reduce((acc, item) => item.moneyCollected + acc, 0);
     },
   },

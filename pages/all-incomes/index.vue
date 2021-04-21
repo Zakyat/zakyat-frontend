@@ -63,7 +63,7 @@
   </v-container>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import gql from 'graphql-tag';
 
@@ -73,6 +73,7 @@ export default Vue.extend({
       transactions: [],
       itemsOnPage: 10,
       campaignId: this.$route.query.id,
+      page: 1,
     };
   },
   apollo: {
@@ -111,7 +112,7 @@ export default Vue.extend({
     },
   },
   methods: {
-    localeDate (stringDate: string) {
+    localeDate (stringDate) {
       const date = new Date(stringDate).toLocaleDateString(this.$i18n.locale, {
         year: 'numeric',
         month: 'numeric',
