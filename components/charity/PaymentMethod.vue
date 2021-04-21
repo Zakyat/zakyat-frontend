@@ -65,7 +65,7 @@
                   hide-details
                 >
                   <template #label>
-                    <span class="black--text"> {{ $t('charity.gathering.anonymous') }} </span>
+                    <MyTooltip :word="$t('charity.gathering.anonymous')" description="При нажатии на эту кнопку вы соглашаетесь что ваше имя не будет отображено в списке отчетах" />
                   </template>
                 </v-checkbox>
               </v-col>
@@ -86,12 +86,12 @@
                   <template #label>
                     <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">
                       <template #terms>
-                        <nuxt-link to="/" color="primary">
+                        <nuxt-link to="/terms" color="primary">
                           {{ $t('charity.contacts.terms_conditions.terms') }}
                         </nuxt-link>
                       </template>
                       <template #data>
-                        <nuxt-link to="/" color="primary">
+                        <nuxt-link to="/personal-data-processing" color="primary">
                           {{ $t('charity.contacts.terms_conditions.data_processing') }}
                         </nuxt-link>
                       </template>
@@ -141,6 +141,7 @@
 import Vue from 'vue';
 import DonationAmountSelection from '@/components/charity/DonationAmountSelection.vue';
 import Contacts from '@/components/charity/Contacts.vue';
+import MyTooltip from '@/components/Zakat/MyTooltip.vue';
 import gql from 'graphql-tag';
 
 export default Vue.extend({
@@ -148,6 +149,7 @@ export default Vue.extend({
   components: {
     DonationAmountSelection,
     Contacts,
+    MyTooltip,
   },
   props: {
     campaignId: {
