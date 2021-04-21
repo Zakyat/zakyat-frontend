@@ -3,7 +3,7 @@
     flat
     nuxt
     :to="`news/${id}`"
-    class="mb-5 px-5 pt-3 pb-2 news-card"
+    class="mb-5 px-5 py-5 news-card"
   >
     <v-row>
       <v-col
@@ -36,7 +36,7 @@
             <v-icon class="px-1" style="color: inherit;">
               mdi-circle-small
             </v-icon>
-            {{ createdBy.bio }}
+            {{ createdBy.fullName }}
           </v-card-text>
         </v-row>
       </v-col>

@@ -57,7 +57,7 @@ export default Vue.extend({
             description,
             createdAt,
             createdBy {
-              bio
+              fullName
             },
             tags {
               id,

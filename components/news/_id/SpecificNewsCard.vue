@@ -25,7 +25,7 @@
       <v-icon class="px-1" style="color: inherit;">
         mdi-circle-small
       </v-icon>
-      {{ createdBy.bio }}
+      {{ createdBy.fullName }}
     </v-card-subtitle>
     <v-row
       style="width: 80%;"
