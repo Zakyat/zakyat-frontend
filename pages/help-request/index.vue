@@ -57,8 +57,6 @@
         <IslamStudent />
       </v-expansion-panel>
     </v-expansion-panels>
-
-    <div class="watermark text-center">Временно не доступно</div>
   </div>
 </template>
 
@@ -122,13 +120,5 @@ export default Vue.extend({
   background-color: #fafafa;
   border: 1px solid #ccc;
   font-size: 1.25em;
-}
-
-.watermark {
-  position: fixed;
-  top: 40%;
-  z-index: 5;
-  opacity: 30%;
-  font-size: 100px;
 }
 </style>
