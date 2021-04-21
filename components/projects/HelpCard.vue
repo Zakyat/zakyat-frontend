@@ -43,7 +43,7 @@
           depressed
           color="primary"
           height="40px"
-          to="/charity"
+          to="/gatherings"
         >
           Пожертвовать
         </v-btn>

@@ -112,7 +112,7 @@
             depressed
             color="primary"
             height="40px"
-            to="/charity"
+            to="/gatherings"
             class="mb-5"
             style="align-self: center;"
           >
