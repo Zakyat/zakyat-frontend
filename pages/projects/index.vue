@@ -1,6 +1,6 @@
 <template>
   <v-layout white>
-    <div class="container mt-10">
+    <div class="container mt-10" v-if="projects">
       <HelpCard :project="projects[0]" />
       <FeedCard :project="projects[1]" />
       <WearCard :project="projects[2]" />

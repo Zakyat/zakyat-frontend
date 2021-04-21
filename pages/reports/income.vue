@@ -23,36 +23,38 @@
         {{ $t('reports.income.amount') }}
       </v-flex>
     </v-row>
-    <v-row
-      v-for="transaction in transactions"
-      :key="transaction.id"
-      align="center"
-      class="mt-4"
-      style="background: white; border-radius: 10px; min-height: 60px; padding: 20px;"
-    >
-      <v-flex lg2 class="text">
-<!--  income.date.toLocaleDateString($i18n.locale)-->
-        {{ localeDate(transaction.createAt) }}
-      </v-flex>
-      <v-flex lg3 class="text" v-if="transaction.user" style="font-weight: bold;">
-        {{ transaction.user.firstName }} {{ transaction.user.lastName }}
-      </v-flex>
-      <v-flex lg3 class="text" v-else style="font-weight: bold;">
-        Аноним
-      </v-flex>
-      <v-flex lg3 class="text" v-if="transaction.campaign">
-        {{ transaction.campaign.title }}
-      </v-flex>
-      <v-flex lg3 class="text" v-else>
-        Садака / Закят
-      </v-flex>
-      <v-flex lg3 class="text">
-        {{ transaction.transactionType }}
-      </v-flex>
-      <v-flex lg1 class="text-right text" style="font-weight: bold;">
-        {{ transaction.amount | rubles }}
-      </v-flex>
-    </v-row>
+    <div v-if="transactions">
+      <v-row
+        v-for="transaction in transactions"
+        :key="transaction.id"
+        align="center"
+        class="mt-4"
+        style="background: white; border-radius: 10px; min-height: 60px; padding: 20px;"
+      >
+        <v-flex lg2 class="text">
+          <!--  income.date.toLocaleDateString($i18n.locale)-->
+          {{ localeDate(transaction.createAt) }}
+        </v-flex>
+        <v-flex lg3 class="text" v-if="transaction.user" style="font-weight: bold;">
+          {{ transaction.user.firstName }} {{ transaction.user.lastName }}
+        </v-flex>
+        <v-flex lg3 class="text" v-else style="font-weight: bold;">
+          Аноним
+        </v-flex>
+        <v-flex lg3 class="text" v-if="transaction.campaign">
+          {{ transaction.campaign.title }}
+        </v-flex>
+        <v-flex lg3 class="text" v-else>
+          Садака / Закят
+        </v-flex>
+        <v-flex lg3 class="text">
+          {{ transaction.transactionType }}
+        </v-flex>
+        <v-flex lg1 class="text-right text" style="font-weight: bold;">
+          {{ transaction.amount | rubles }}
+        </v-flex>
+      </v-row>
+    </div>
     <v-row class="text-center mt-6 text-black">
       <v-pagination
         v-model="page"
