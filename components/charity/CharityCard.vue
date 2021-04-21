@@ -84,7 +84,7 @@
           align-self="end"
           class="pa-0 ma-0"
         >
-          <nuxt-link style="text-decoration: none;" to="/">
+          <nuxt-link style="text-decoration: none;" :to="`all-incomes?id=${id}`">
             {{ $t('charity.gathering.charityCard.seeGatherings') }}
           </nuxt-link>
         </v-col>

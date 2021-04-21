@@ -30,31 +30,24 @@
         </v-select>
       </v-col>
     </v-row>
-    <v-row class="my-0">
-      <div v-if="selectedCampaign">
-        <h2>{{ selectedCampaign.title }}</h2>
-        <p class="mb-0">{{ selectedCampaign.problem }}</p>
-        <nuxt-link :to="`all-incomes?id=${selectedCampaign.id}`">
-          Все пожертвования
-        </nuxt-link>
-      </div>
-    </v-row>
-<!--    <CharityCard-->
-<!--      v-if="campaignId && campaign"-->
-<!--      v-bind="selectedCampaign"-->
-<!--    />-->
+    <div v-if="selectedCampaign">
+      <CharityCard
+        v-if="campaignId && campaign"
+        v-bind="selectedCampaign"
+      />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
-// import CharityCard from '@/components/charity/CharityCard.vue';
+import CharityCard from '@/components/charity/CharityCard.vue';
 import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'GatheringSelection',
   components: {
-    // CharityCard,
+    CharityCard,
   },
   props: {
     campaignId: {
