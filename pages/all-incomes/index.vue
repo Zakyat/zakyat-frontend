@@ -1,7 +1,7 @@
 <template>
   <v-container class="mt-10">
     <v-row>
-      <span class="subtitle">Для сбора "{{ transactions[0].campaign.title }}" всего собрано</span>
+      <span class="subtitle" v-if="transactions[0].campaign">Для сбора "{{ transactions[0].campaign.title }}" всего собрано</span>
       <v-spacer />
       <span class="subtitle">{{ totalMoneyCollected | rubles }}</span>
     </v-row>
@@ -77,8 +77,8 @@ export default Vue.extend({
   },
   apollo: {
     transactions: {
-      query: gql` query transactions ($campaignId: ID, $limit: Int, $offset: Int) {
-        transactions (campaignId: $campaignId, limit: $limit, offset: $offset) {
+      query: gql` query transactions ($campaignId: ID, $limit: Int, $offset: Int, $isSuccess: Boolean) {
+        transactions (campaignId: $campaignId, limit: $limit, offset: $offset, isSuccess: $isSuccess) {
           id
           user {
             firstName
@@ -97,6 +97,7 @@ export default Vue.extend({
           campaignId: this.campaignId,
           limit: this.itemsOnPage,
           offset: (this.page - 1) * this.itemsOnPage,
+          isSuccess: true,
         };
       },
     },

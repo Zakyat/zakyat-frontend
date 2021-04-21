@@ -73,12 +73,12 @@ import gql from 'graphql-tag';
 export default Vue.extend({
   name: 'Income',
   props: {
-    totalMoneyCollected: {
-      type: Number,
-    },
-    totalTransactionPages: {
-      type: Number,
-    },
+    // totalMoneyCollected: {
+    //   type: Number,
+    // },
+    // totalTransactionPages: {
+    //   type: Number,
+    // },
     page: {
       type: Number,
       default: 1,
@@ -97,8 +97,8 @@ export default Vue.extend({
   },
   apollo: {
     transactions: {
-      query: gql` query transactions ($limit: Int, $offset: Int) {
-        transactions (limit: $limit, offset: $offset) {
+      query: gql` query transactions ($limit: Int, $offset: Int, $isSuccess: Boolean) {
+        transactions (limit: $limit, offset: $offset, isSuccess: $isSuccess) {
           id
           user {
             firstName
@@ -116,6 +116,7 @@ export default Vue.extend({
         return {
           limit: this.itemsOnPage,
           offset: (this.page - 1) * this.itemsOnPage,
+          isSuccess: true,
         };
       },
     },
@@ -133,6 +134,14 @@ export default Vue.extend({
         day: 'numeric',
       });
       return date;
+    },
+  },
+  computed: {
+    totalTransactionPages () {
+      return Math.ceil(this.transactions?.length / this.itemsOnPage);
+    },
+    totalMoneyCollected () {
+      return this.transactions.reduce((acc, item) => item.amount + acc, 0);
     },
   },
 });
