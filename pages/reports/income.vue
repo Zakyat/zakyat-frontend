@@ -35,8 +35,8 @@
           <!--  income.date.toLocaleDateString($i18n.locale)-->
           {{ localeDate(transaction.createAt) }}
         </v-flex>
-        <v-flex lg3 class="text" v-if="transaction.user" style="font-weight: bold;">
-          {{ transaction.user.firstName }} {{ transaction.user.lastName }}
+        <v-flex lg3 class="text" v-if="transaction.fullName" style="font-weight: bold;">
+          {{ transaction.fullName }}
         </v-flex>
         <v-flex lg3 class="text" v-else style="font-weight: bold;">
           Аноним
@@ -100,10 +100,7 @@ export default Vue.extend({
       query: gql` query transactions ($limit: Int, $offset: Int, $isSuccess: Boolean) {
         transactions (limit: $limit, offset: $offset, isSuccess: $isSuccess) {
           id
-          user {
-            firstName
-            lastName
-          }
+          fullName
           amount
           createAt
           transactionType
