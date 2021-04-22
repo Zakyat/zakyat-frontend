@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-footer absolute app color="#202020" style="display: block;">
+    <v-footer class="pt-8" absolute app color="#202020" style="display: block;">
       <v-row
         justify="center"
       >
@@ -124,6 +124,7 @@ export default Vue.extend({
 .v-icon,
 .v-overflow-btn {
   color: white;
+  text-transform: none;
 }
 
 .active {

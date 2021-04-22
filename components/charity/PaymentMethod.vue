@@ -16,26 +16,28 @@
         class="payment-tabs pa-1"
       >
         <v-tab
-          v-for="method in paymentMethods"
-          :key="method"
+          v-for="(method, i) in campaign.paymentOptions"
+          :key="i"
           class="payment-tab"
           active-class="payment-tab-primary"
         >
-          {{ method }}
+          {{ method.title }}
         </v-tab>
       </v-tabs>
     </v-col>
     <v-col cols="12">
       <v-tabs-items v-model="tab" class="mt-n4">
-        <v-tab-item>
+        <v-tab-item v-for="(method, i) in campaign.paymentOptions" :key="i">
           <v-card
             flat
+            v-if="method.paymentType === 'A_1'"
           >
             <v-card-text
               class="pa-0 ma-0"
               style="color: black;"
             >
-              {{ $t('charity.paymentMethod.bankDonationText') }}
+              {{ method.description }}
+<!--              {{ $t('charity.paymentMethod.bankDonationText') }}-->
             </v-card-text>
 
             <DonationAmountSelection @select-days="selectDays" @select-amount="selectAmount" :donation-amount="donationAmount" :amounts="amounts" :donation-tabs="donationTabs" />
@@ -116,19 +118,15 @@
               </v-col>
             </v-row>
           </v-card>
-        </v-tab-item>
-        <v-tab-item
-          v-for="i in paymentMethods.length"
-          :key="i"
-        >
           <v-card
             flat
+            v-else
           >
             <v-card-text
               class="pa-0 ma-0"
               style="color: black;"
             >
-              {{ $t('charity.paymentMethod.defaultText') }}
+              {{ method.description }}
             </v-card-text>
           </v-card>
         </v-tab-item>
@@ -160,8 +158,30 @@ export default Vue.extend({
       type: String,
     },
   },
+  apollo: {
+    campaign: {
+      query: gql`
+        query getCampaign($id:Int!) {
+          campaign (id: $id) {
+            id
+            paymentOptions {
+              paymentType
+              title
+              description
+            }
+          }
+        }
+      `,
+      variables () {
+        return {
+          id: this.campaignId === -1 ? 0 : this.campaignId,
+        };
+      },
+    },
+  },
   data () {
     return {
+      campaign: '',
       userLogin: false,
       url: '',
       description: '',

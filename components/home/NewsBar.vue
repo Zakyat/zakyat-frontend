@@ -6,7 +6,7 @@
       </span>
       <v-spacer />
       <span>
-        <v-btn class="mt-5 black--text" text>
+        <v-btn class="mt-5 black--text" text to="/news">
           {{ $t('home.news.all') }}
           <v-icon>mdi-chevron-right</v-icon>
         </v-btn>

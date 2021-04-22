@@ -1,7 +1,7 @@
 <template>
   <v-system-bar dark height="50" style="padding: 0 5%;">
-    <img src="@/assets/images/heart.svg" class="ml-4 mr-3">
-      <span class="white--text">{{ $t('collected', [rubles(siteSettings.allCollectedMoney)]) }}</span>
+<!--    <img src="@/assets/images/heart.svg" class="ml-4 mr-3">-->
+<!--    <span class="white&#45;&#45;text">{{ $t('collected', [rubles(siteSettings.allCollectedMoney)]) }}</span>-->
     <v-spacer />
 
 <!--    Search-->
@@ -12,17 +12,19 @@
 <!--      {{ $t('search.buttonName') }}-->
 <!--    </v-btn>-->
 
-    <v-btn text smal :href="siteSettings.vk">
+    <v-btn text smal :href="siteSettings.vk" style="text-transform: none">
       <v-icon color="white" size="20">
         mdi-vk
       </v-icon>
-      {{ $t('VK') }}
+<!--      {{ $t('VK') }}-->
+      Вконтакте
     </v-btn>
-    <v-btn text small :href="siteSettings.insta">
-      <v-icon color="white" size="20">
+    <v-btn text small :href="siteSettings.insta" style="text-transform: none; font-size: 14px">
+      <v-icon color="white" size="21">
         mdi-instagram
       </v-icon>
-      {{ $t('instagram') }}
+<!--      {{ $t('instagram') }}-->
+      Инстаграмм
     </v-btn>
 
 <!--    Authentication-->

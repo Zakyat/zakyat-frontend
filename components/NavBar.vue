@@ -1,5 +1,5 @@
 <template>
-  <div flat color="white" height="120" style="padding: 0 5%; display: flex; flex-wrap: wrap; align-items: center;">
+  <div flat color="white" height="120" style="padding: 10px 5%; display: flex; flex-wrap: wrap; align-items: center;">
     <nuxt-link to="/">
       <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
     </nuxt-link>
@@ -69,6 +69,9 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .v-btn--active::before {
   opacity: 0;
+}
+.v-btn {
+  text-transform: none;
 }
 
 span {

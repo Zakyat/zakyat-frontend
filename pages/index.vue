@@ -45,3 +45,9 @@ export default Vue.extend({
   layout: 'white',
 });
 </script>
+
+<style>
+.v-btn {
+  text-transform: none;
+}
+</style>
