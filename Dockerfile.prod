@@ -20,5 +20,6 @@ ENV NUXT_PORT=3000
 
 
 # define the default command to run when starting the container
-CMD ["npm", "run", "build"]
+RUN npm ci
+RUN npm run build
 CMD ["npm", "run", "start"]
