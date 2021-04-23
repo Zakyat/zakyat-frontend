@@ -135,7 +135,7 @@
   </v-row>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import DonationAmountSelection from '@/components/charity/DonationAmountSelection.vue';
 import Contacts from '@/components/charity/Contacts.vue';
@@ -225,13 +225,13 @@ export default Vue.extend({
     makeAnonymous () {
       this.$emit('anonymous', this.isAnonymous);
     },
-    selectAmount (amount: number) {
+    selectAmount (amount) {
       this.amount = amount;
     },
-    selectDays (tab: number) {
+    selectDays (tab) {
       this.donationDays = this.donationTabs[tab]?.days;
     },
-    getUserData (user: any) {
+    getUserData (user) {
       this.description = `
         {
           "name": "${user.name}",
@@ -241,7 +241,7 @@ export default Vue.extend({
         }
       `;
     },
-    donate (amount: number, campaignId: number, description: string, subscriptionDays: number, transactionType: number, isAnonymous: boolean) {
+    donate (amount, campaignId, description, subscriptionDays, transactionType, isAnonymous) {
       this.$apollo.mutate({
         mutation: gql`
           mutation startPayment(

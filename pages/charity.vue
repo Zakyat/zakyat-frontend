@@ -8,7 +8,7 @@
   </v-container>
 </template>
 
-<script lang="ts">
+<script lang="js">
 import Vue from 'vue';
 import GatheringSelection from '@/components/charity/GatheringSelection.vue';
 import PaymentMethod from '@/components/charity/PaymentMethod.vue';
@@ -27,14 +27,14 @@ export default Vue.extend({
   },
   computed: {
     campaignId () {
-      return parseInt(this.$route.query.id as string);
+      return parseInt(this.$route.query.id);
     },
     donationAmount () {
       return this.$route.query.amount;
     },
   },
   methods: {
-    makeAnonymous (isAnonymous: boolean) {
+    makeAnonymous (isAnonymou) {
       this.isAnonymous = isAnonymous;
     },
   },
