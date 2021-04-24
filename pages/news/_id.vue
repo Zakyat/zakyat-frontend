@@ -1,21 +1,10 @@
 <template>
-  <v-container>
+  <v-container class="mt-5">
     <v-row>
-      <v-col
-        cols="12"
-        md="9"
-      >
-        <SpecificNewsCard
-          v-if="post"
-          v-bind="post"
-        />
-      </v-col>
-      <v-col
-        cols="12"
-        md="3"
-      >
-
-      </v-col>
+      <SpecificNewsCard
+        v-if="post"
+        v-bind="post"
+      />
     </v-row>
     <OtherNews
       class="my-10 mx-0"

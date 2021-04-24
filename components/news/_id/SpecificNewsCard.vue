@@ -10,7 +10,7 @@
     />
     <v-card-title
       class="pa-0 mt-5"
-      style="font-size: 27px;"
+      style="word-break: normal; font-size: 27px;"
     >
       {{ title }}
     </v-card-title>
@@ -99,7 +99,6 @@ export default Vue.extend({
 
 <style scoped>
 .news-content {
-  white-space: pre-wrap;
   font-size: 15px;
 }
 </style>
