@@ -1,7 +1,7 @@
 <template>
-  <v-container class="mt-10">
+  <v-container class="my-10">
     <v-row>
-      <span class="subtitle" v-if="transactions[0].campaign">Для сбора "{{ transactions[0].campaign.title }}" всего собрано</span>
+      <span class="subtitle" v-if="transactions[0]">Для сбора "{{ transactions[0].campaign.title }}" всего собрано</span>
       <v-spacer />
       <span class="subtitle">{{ totalMoneyCollected | rubles }}</span>
     </v-row>
@@ -33,13 +33,13 @@
         <!--  income.date.toLocaleDateString($i18n.locale)-->
         {{ localeDate(transaction.createAt) }}
       </v-flex>
-      <v-flex lg3 class="text" v-if="transaction.user" style="font-weight: bold;">
-        {{ transaction.user.firstName }} {{ transaction.user.lastName }}
+      <v-flex lg3 class="text" v-if="transaction.fullName" style="font-weight: bold;">
+        {{ transaction.fullName }}
       </v-flex>
       <v-flex lg3 class="text" v-else style="font-weight: bold;">
         Аноним
       </v-flex>
-      <v-flex lg3 class="text" v-if="transaction.campaign">
+      <v-flex lg3 class="text" v-if="transaction">
         {{ transaction.campaign.title }}
       </v-flex>
       <v-flex lg3 class="text" v-else>
@@ -81,10 +81,7 @@ export default Vue.extend({
       query: gql` query transactions ($campaignId: ID, $limit: Int, $offset: Int, $isSuccess: Boolean) {
         transactions (campaignId: $campaignId, limit: $limit, offset: $offset, isSuccess: $isSuccess) {
           id
-          user {
-            firstName
-            lastName
-          }
+          fullName
           amount
           createAt
           transactionType
