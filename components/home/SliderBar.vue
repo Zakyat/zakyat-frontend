@@ -1,7 +1,7 @@
 <template>
   <Swiper :options="swiperOptions" v-if="campaigns">
     <SwiperSlide
-      v-for="(slide, i) in campaigns"
+      v-for="(slide, i) in campaigns.filter(item => item.isActive)"
       :key="i"
     >
       <v-img :src="slide.photo" class="background">
@@ -125,6 +125,7 @@ export default Vue.extend({
               title
             }
             moneyCollected
+            isActive
           }
         }
       `,

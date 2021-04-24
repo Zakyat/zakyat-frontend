@@ -86,6 +86,7 @@
               <v-spacer />
               <v-col cols="auto">
                 <v-btn
+                  v-if="campaign.isActive"
                   rounded
                   depressed
                   dark
@@ -95,6 +96,17 @@
                   :to="`/charity?id=${campaign.id}`"
                 >
                   {{ $t('home.slideshow.donate') }}
+                </v-btn>
+                <v-btn
+                  v-else
+                  rounded
+                  depressed
+                  dark
+                  color="grey"
+                  class="text-none donate"
+                  style="font-weight: normal;"
+                >
+                  Сбор еще не открыт
                 </v-btn>
               </v-col>
             </v-row>
@@ -129,6 +141,7 @@ export default Vue.extend({
               title
             }
             moneyCollected
+            isActive
           }
         }
       `,
