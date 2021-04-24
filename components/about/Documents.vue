@@ -4,8 +4,8 @@
       {{ $t('about.documents') }}
     </h2>
     <v-row
-      v-for="document in documents"
-      :key="document.id"
+      v-for="(document, i) in documents"
+      :key="i"
       no-gutters
     >
       <v-col>
@@ -29,7 +29,7 @@ export default Vue.extend({
   data () {
     return {
       documents: [
-        { name: this.$t('about.document_names.regulation'), link: require('@/assets/about_us_files/article_of_association.pdf') },
+        { name: this.$t('about.document_names.regulation'), link: '/article_of_association.pdf' },
         { name: this.$t('about.document_names.record_sheet'), link: require('@/assets/about_us_files/record_sheet.jpeg') },
       ],
     };
