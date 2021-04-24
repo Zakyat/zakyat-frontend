@@ -14,8 +14,8 @@
           outlined
           rounded
           flat
-          :placeholder="$t('charity.gathering.gatheringSelection')"
-          :items="campaigns.concat(anyCampaign)"
+          :placeholder="campaignId && campaignId !== -1 ? campaigns[campaignId - 2].title : $t('charity.gathering.gatheringSelection')"
+          :items="campaigns.filter(item => item.isActive).concat(anyCampaign)"
           item-value="id"
           class="pa-0 ma-0"
           :value="campaignId"
@@ -70,6 +70,7 @@ export default Vue.extend({
           campaigns {
             id,
             title,
+            isActive
           }
         }
       `,
