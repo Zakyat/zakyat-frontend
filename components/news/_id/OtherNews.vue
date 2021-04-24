@@ -26,7 +26,7 @@
     </v-row>
     <v-row>
       <v-col
-        v-for="item in filteredPosts"
+        v-for="item in filteredPosts.slice(0, 4)"
         :key="item.id"
         cols="3"
       >

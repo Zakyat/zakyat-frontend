@@ -14,7 +14,7 @@
     </v-row>
     <v-layout row>
       <v-flex
-        v-for="(item, j) in posts"
+        v-for="(item, j) in posts.slice(0, 4)"
         :key="j"
         xs6
         md3
@@ -87,18 +87,18 @@ a {
 
 .title {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  height: 60px;
+  height: 42px;
   font-weight: bold;
 }
 
 .description {
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  height: 40px;
+  height: 60px;
 }
 </style>

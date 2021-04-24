@@ -9,7 +9,11 @@
       height="200px"
       :src="image"
     />
-    <v-card-title>{{ title }}</v-card-title>
+    <v-card-title style="word-break: normal; line-height: 25px; font-weight: bold;">
+      <div class="title" style="line-height: 20px;">
+        {{ title }}
+      </div>
+    </v-card-title>
 
     <v-card-text class="text--primary description">
       {{ description }}
@@ -43,11 +47,20 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-  .description {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    height: 70px;
-  }
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 42px;
+  font-weight: bold;
+}
+
+.description {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 70px;
+}
 </style>
