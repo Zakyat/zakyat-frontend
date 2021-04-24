@@ -27,7 +27,9 @@
             :src="item.image"
           />
           <v-card-title style="word-break: normal; line-height: 25px; font-weight: bold;">
-            {{ item.title }}
+            <div class="title" style="line-height: 20px;">
+              {{ item.title }}
+            </div>
           </v-card-title>
 
           <v-card-text class="text--primary">
@@ -81,6 +83,15 @@ span {
 
 a {
   float: right;
+}
+
+.title {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 60px;
+  font-weight: bold;
 }
 
 .description {
