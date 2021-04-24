@@ -24,7 +24,7 @@
       </v-flex>
     </v-row>
     <v-row
-      v-for="(donatation, i) in campaigns"
+      v-for="(donatation, i) in campaigns.filter(item => !item.isActive)"
       :key="i"
       align="center"
       class="mt-4"
@@ -100,6 +100,7 @@ export default Vue.extend({
             goal
             moneyCollected
             createdAt
+            isActive
           }
         }
       `,
@@ -123,7 +124,7 @@ export default Vue.extend({
   },
   computed: {
     total () {
-      return this.campaigns.reduce((acc, item) => item.moneyCollected + acc, 0);
+      return this.campaigns.filter(item => !item.isActive).reduce((acc, item) => item.moneyCollected + acc, 0);
     },
   },
 });
