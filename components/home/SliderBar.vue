@@ -7,7 +7,7 @@
       <v-img :src="slide.photo" class="background" style="height: 440px;">
         <v-card class="overlay" flat>
           <v-row class="slide">
-            <v-col cols="8">
+            <v-col cols="9">
               <v-card-title class="pb-0">
                 {{ slide.title }}
               </v-card-title>
@@ -49,7 +49,7 @@
                 />
               </v-card-text>
             </v-col>
-            <v-col cols="3">
+            <v-col cols="2" style="margin-left: 20px;">
               <v-row justify="end">
                 <v-col cols="auto">
                   <v-progress-circular
