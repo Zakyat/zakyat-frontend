@@ -4,7 +4,7 @@
       v-for="(slide, i) in campaigns.filter(item => item.isActive)"
       :key="i"
     >
-      <v-img :src="slide.photo" class="background">
+      <v-img :src="slide.photo" class="background" style="height: 440px;">
         <v-card class="overlay" flat>
           <v-row class="slide">
             <v-col cols="8">
