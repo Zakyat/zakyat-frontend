@@ -55,7 +55,7 @@
         </v-flex>
       </v-row>
     </div>
-    <v-row class="text-center mt-6 text-black">
+    <v-row class="text-center mt-6 text-black" v-if="totalTransactionPages > 1">
       <v-pagination
         v-model="page"
         :length="totalTransactionPages"
