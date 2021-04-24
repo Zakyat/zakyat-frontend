@@ -2,7 +2,7 @@
   <v-row no-gutters>
     <v-col
       cols="12"
-      md="auto"
+      md="3"
       class="pr-3"
     >
       <v-img
