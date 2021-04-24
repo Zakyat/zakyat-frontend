@@ -1,7 +1,7 @@
 <template>
   <v-container class="reports" fluid>
     <v-row class="mb-10">
-      <v-col>
+      <v-col v-if="campaigns.filter(item => !item.isActive).length !== 0">
         <v-select
           v-model="selectedPage"
           :items="pages"
@@ -20,6 +20,11 @@
             </span>
           </template>
         </v-select>
+      </v-col>
+      <v-col v-else>
+        <span class="text-h4 font-weight-bold">
+          Поступления
+        </span>
       </v-col>
       <v-spacer />
 <!--      <v-col cols="2">-->
@@ -70,6 +75,16 @@ export default Vue.extend({
         }
       }`,
     },
+    campaigns: {
+      query: gql`
+        query campaigns {
+          campaigns {
+            id
+            isActive
+          }
+        }
+      `,
+    },
   },
   data () {
     return {
@@ -78,6 +93,7 @@ export default Vue.extend({
         { text: this.$t('reports.income.title'), path: '/reports/income' },
         { text: this.$t('reports.expenses.title'), path: '/reports/expenses' },
       ],
+      campaigns: '',
       selectedPage: this.$route.path,
       years: [2018, 2019, 2020],
       year: 2020,
