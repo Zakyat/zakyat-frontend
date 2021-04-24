@@ -3,10 +3,10 @@
     <v-card-title class="font-weight-black">
       {{ $t('zakat.calculator.title') }}
     </v-card-title>
-    <v-card-subtitle class="font-weight-bold">
+    <v-card-subtitle class="font-weight-bold zakat-description" style="font-weight: normal !important; color: black !important;">
       {{ $t('zakat.calculator.subtitle') }}
     </v-card-subtitle>
-    <v-card-text class="mt-3">
+    <v-card-text>
       <v-text-field
         v-model.number="input"
         :label="$t('zakat.calculator.input_label')"
@@ -78,3 +78,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style>
+.zakat-description {
+  font-size: 13px !important;
+}
+</style>
