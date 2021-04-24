@@ -2,7 +2,7 @@
   <v-row
     class="mt-5"
   >
-    <v-col cols="12">
+    <v-col cols="12" v-if="campaign">
       <h3>{{ $t('charity.paymentMethod.title') }}</h3>
     </v-col>
     <v-col cols="12" class="mt-n2">
@@ -14,6 +14,7 @@
         center-active
         show-arrows
         class="payment-tabs pa-1"
+        v-if="campaign"
       >
         <v-tab
           v-for="(method, i) in campaign.paymentOptions"
@@ -26,7 +27,7 @@
       </v-tabs>
     </v-col>
     <v-col cols="12">
-      <v-tabs-items v-model="tab" class="mt-n4">
+      <v-tabs-items v-model="tab" class="mt-n4" v-if="campaign">
         <v-tab-item v-for="(method, i) in campaign.paymentOptions" :key="i">
           <v-card
             flat
@@ -131,6 +132,100 @@
           </v-card>
         </v-tab-item>
       </v-tabs-items>
+      <v-card
+        v-else
+        flat
+      >
+        <DonationAmountSelection
+          v-if="this.$route.query.type !== '1'"
+          @select-days="selectDays"
+          @select-amount="selectAmount"
+          :donation-amount="donationAmount"
+          :amounts="amounts"
+          :donation-tabs="donationTabs"
+        />
+        <v-row
+          v-if="!userLogin"
+          justify="space-between"
+          class="mt-10"
+        >
+          <v-col
+            cols="auto"
+            class="py-0 md-0"
+          >
+            <h3 v-if="!isAnonymous">
+              {{ $t('charity.contacts.title') }}
+            </h3>
+          </v-col>
+          <v-col
+            cols="auto"
+            class="py-0 md-0"
+          >
+            <v-checkbox
+              v-model="isAnonymous"
+              :onchange="makeAnonymous()"
+              class="pa-0 md-0 mt-0"
+              on-icon="mdi-check-box-outline"
+              hide-details
+            >
+              <template #label>
+                <MyTooltip :word="$t('charity.gathering.anonymous')" description="При нажатии на эту кнопку вы соглашаетесь что ваше имя не будет отображено в списке отчетах" />
+              </template>
+            </v-checkbox>
+          </v-col>
+        </v-row>
+        <Contacts @user="getUserData" v-if="!isAnonymous" />
+        <v-row
+          justify="space-between"
+        >
+          <v-col
+            cols="12"
+            md="auto"
+          >
+            <v-checkbox
+              class="my-0 py-0"
+              on-icon="mdi-check-box-outline"
+              v-model="agreedToTerms"
+            >
+              <template #label>
+                <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">
+                  <template #terms>
+                    <nuxt-link to="/terms" color="primary">
+                      {{ $t('charity.contacts.terms_conditions.terms') }}
+                    </nuxt-link>
+                  </template>
+                  <template #data>
+                    <nuxt-link to="/personal-data-processing" color="primary">
+                      {{ $t('charity.contacts.terms_conditions.data_processing') }}
+                    </nuxt-link>
+                  </template>
+                </i18n>
+              </template>
+            </v-checkbox>
+          </v-col>
+          <v-col
+            cols="12"
+            md="auto"
+          >
+            <v-btn
+              rounded
+              color="primary"
+              :disabled="!agreedToTerms"
+              text
+
+              @click="donate(
+                amount === 0 ? parseInt($route.query.amount) : amount, campaignId,
+                description,
+                donationDays,
+                donationType,
+                isAnonymous
+              )"
+            >
+              {{ $t('charity.contacts.resumeBtn') }}
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-card>
     </v-col>
   </v-row>
 </template>
@@ -174,7 +269,7 @@ export default Vue.extend({
       `,
       variables () {
         return {
-          id: this.campaignId === -1 ? 0 : this.campaignId,
+          id: this.campaignId === -1 ? 1 : this.campaignId,
         };
       },
     },
@@ -220,6 +315,11 @@ export default Vue.extend({
       ],
       agreedToTerms: false,
     };
+  },
+  computed: {
+    donationType () {
+      return this.$route.query.type ? parseInt(this.$route.query.type) : 2;
+    },
   },
   methods: {
     makeAnonymous () {
@@ -275,7 +375,7 @@ export default Vue.extend({
           campaignId,
           description,
           subscriptionDays,
-          transactionType: campaignId === -1 ? 0 : transactionType,
+          transactionType,
           successUrl: process.env.SUCCESS_PAYMENT_PAGE,
           failUrl: process.env.FAIL_PAYMENT_PAGE,
           isAnonymous,

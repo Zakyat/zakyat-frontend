@@ -56,7 +56,7 @@
         block
         color="primary"
         large
-        :to="`/charity?id=-1&amount=${0.025 * input}`"
+        :to="`/charity?id=-1&type=1&amount=${0.025 * input}`"
       >
         {{ $t('zakat.calculator.donate') }}
       </v-btn>

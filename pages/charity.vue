@@ -1,9 +1,12 @@
 <template>
   <v-container>
-    <h1 class="mt-12">
+    <h1 class="mt-12" v-if="donationType !== 1">
       {{ $t('charity.title') }}
     </h1>
-    <GatheringSelection @anonymous="makeAnonymous" :campaign-id="campaignId" />
+    <h1 class="mt-10" v-if="donationType === 1">
+      Закят в размере {{ parseInt(this.$route.query.amount) | rubles}}
+    </h1>
+    <GatheringSelection @anonymous="makeAnonymous" v-if="donationType !== 1" :campaign-id="campaignId" />
     <PaymentMethod :isAnonymous="isAnonymous" :campaign-id="campaignId" :donation-amount="donationAmount" class="mb-12" />
   </v-container>
 </template>
@@ -29,13 +32,16 @@ export default Vue.extend({
     campaignId () {
       return parseInt(this.$route.query.id);
     },
+    donationType () {
+      return parseInt(this.$route.query.type);
+    },
     donationAmount () {
       return this.$route.query.amount;
     },
   },
   methods: {
-    makeAnonymous (isAnonymou) {
-      this.isAnonymous = isAnonymous;
+    makeAnonymous () {
+      this.isAnonymous = !this.isAnonymous;
     },
   },
 });

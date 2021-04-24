@@ -50,7 +50,7 @@
           rounded
           depressed
           nuxt
-          :to="`/charity?id=-1&amount=${amount}`"
+          :to="`/charity?id=-1&type=0&amount=${amount}`"
         >
           {{ $t('home.sadaka.donate') }}
         </v-btn>
