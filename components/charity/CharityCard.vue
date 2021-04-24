@@ -83,6 +83,7 @@
           md="auto"
           align-self="end"
           class="pa-0 ma-0"
+          v-if="transactions.length !== 0"
         >
           <nuxt-link style="text-decoration: none;" :to="`all-incomes?id=${id}`">
             {{ $t('charity.gathering.charityCard.seeGatherings') }}
@@ -134,6 +135,9 @@ export default Vue.extend({
     moneyCollected: {
       type: Number,
       required: true,
+    },
+    transactions: {
+      type: Array,
     },
   },
   computed: {

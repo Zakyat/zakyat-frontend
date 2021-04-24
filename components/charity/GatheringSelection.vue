@@ -92,6 +92,9 @@ export default Vue.extend({
               title
             }
             moneyCollected
+            transactions {
+              id
+            }
           }
         }
       `,
