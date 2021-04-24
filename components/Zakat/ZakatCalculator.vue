@@ -1,4 +1,3 @@
-import gql from "graphql-tag";
 <template>
   <v-card flat class="pb-1">
     <v-card-title class="font-weight-black">
