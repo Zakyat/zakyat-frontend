@@ -1,14 +1,14 @@
 <template>
   <v-layout white>
     <div class="container mt-10" v-if="projects">
-      <HelpCard :project="projects[0]" />
-      <FeedCard :project="projects[1]" />
-      <WearCard :project="projects[2]" />
-      <HayatCard :project="projects[3]" />
-      <SoulCard :project="projects[4]" />
-      <HafizCard :project="projects[5]" />
-      <TaxiCard :project="projects[6]" />
-      <SchoolCard :project="projects[7]" />
+      <HelpCard :id="projects[0].frontId" :project="projects[0]" />
+      <FeedCard :id="projects[1].frontId" :project="projects[1]" />
+      <WearCard :id="projects[2].frontId" :project="projects[2]" />
+      <HayatCard :id="projects[3].frontId" :project="projects[3]" />
+      <SoulCard :id="projects[4].frontId" :project="projects[4]" />
+      <HafizCard :id="projects[5].frontId" :project="projects[5]" />
+      <TaxiCard :id="projects[6].frontId" :project="projects[6]" />
+      <SchoolCard :id="projects[7].frontId" :project="projects[7]" />
     </div>
   </v-layout>
 </template>
@@ -52,6 +52,7 @@ export default Vue.extend({
             description
             firstNumber
             secondNumber
+            frontId
           }
         }
       `,

@@ -1,7 +1,16 @@
 <template>
   <v-container style="max-width: 100%; padding: 80px 6% 64px;">
-    <span>{{ $t('home.projects.title') }}</span>
-    <v-layout class="mt-4" row>
+    <v-row>
+      <span>{{ $t('home.projects.title') }}</span>
+      <v-spacer />
+      <span>
+        <v-btn class="mt-5 black--text" text to="/projects">
+          Узнать подробнее
+          <v-icon>mdi-chevron-right</v-icon>
+        </v-btn>
+      </span>
+    </v-row>
+    <v-layout class="mt-4 wrap" row>
       <v-flex
         v-for="(item, j) in projects"
         :key="j"
@@ -11,14 +20,13 @@
         lg3
         class="d-flex"
       >
-        <v-card class="ma-4 project flex" outlined color="#F2F2F2">
+        <v-card class="ma-4 project flex" outlined color="#F2F2F2" :to="`projects/#${item.frontId}`">
           <v-card-title style="word-break: normal;">
             {{ item.title }}
           </v-card-title>
           <v-card-text class="text-center" style="position: absolute; bottom: 0;">
             <v-img
-              v-if="item.src"
-              :src="item.src"
+              :src="projectsSample[item.frontId-1].src"
               contain
               height="155"
               width="250"
@@ -45,20 +53,21 @@ export default Vue.extend({
     projects: gql` query {
       projects {
         title
+        frontId
       }
     }`,
   },
   data () {
     return {
       projectsSample: [
-        { title: 'Накорми нуждающегося', src: require('@/assets/images/projects/svg/food.svg') },
-        { title: 'Центр помощи «Хаят»', src: require('@/assets/images/projects/svg/people.svg') },
-        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/svg/wear.svg') },
         { title: 'Помощь тяжелобольным детям и взрослым', src: require('@/assets/images/projects/svg/arms.svg') },
-        { title: 'Социальное такси', src: require('@/assets/images/projects/svg/taxi_fond.svg') },
+        { title: 'Накорми нуждающегося', src: require('@/assets/images/projects/svg/food.svg') },
+        { title: 'Пункт приема и раздачи одежды', src: require('@/assets/images/projects/svg/wear.svg') },
+        { title: 'Центр помощи «Хаят»', src: require('@/assets/images/projects/svg/people.svg') },
         { title: 'Духовная поддержка', src: require('@/assets/images/projects/svg/book.svg') },
-        { title: 'Помоги собраться в школу', src: require('@/assets/images/projects/svg/backpack.svg') },
         { title: 'Воспитай Коран-хафиза', src: require('@/assets/images/projects/svg/boy.svg') },
+        { title: 'Социальное такси', src: require('@/assets/images/projects/svg/taxi_fond.svg') },
+        { title: 'Помоги собраться в школу', src: require('@/assets/images/projects/svg/backpack.svg') },
       ],
       projects: [],
     };
