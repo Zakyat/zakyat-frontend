@@ -10,7 +10,7 @@
 
     <v-row>
       <v-col cols="auto">
-        <v-btn text :href="'mailto:' + email">
+        <v-btn class="px-0" text :href="'mailto:' + email">
           <v-icon class="mr-3 mt-n1">
             mdi-email
           </v-icon>&nbsp;
@@ -18,7 +18,7 @@
         </v-btn>
       </v-col>
       <v-col cols="auto" class="ml-5">
-        <v-btn text :href="'tel:' + phone">
+        <v-btn class="px-0" text :href="'tel:' + phone">
           <v-icon class="mr-3">
             mdi-phone
           </v-icon>&nbsp;
