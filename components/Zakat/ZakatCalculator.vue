@@ -30,9 +30,6 @@ import gql from "graphql-tag";
         <v-list-item-title class="font-weight-medium">
           {{ nisab | rubles }}
         </v-list-item-title>
-        <v-list-item-subtitle>
-          {{ $t('zakat.calculator.gold') }}
-        </v-list-item-subtitle>
       </v-list-item-action>
     </v-list-item>
     <v-list-item>
@@ -75,9 +72,9 @@ export default Vue.extend({
   data () {
     return {
       goldPrice: 3848.83,
-      nisab: 326380.784,
+      nisab: 310000,
       input: null,
-      updateDate: new Date(2020, 6, 12),
+      updateDate: new Date(2021, 3, 7),
     };
   },
 });
