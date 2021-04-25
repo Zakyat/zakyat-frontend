@@ -52,16 +52,16 @@
             {{siteSettings.email}}
           </v-btn>
           <v-btn text small :href="siteSettings.vk">
-            <v-icon medium>
+            <v-icon medium class="mr-1">
               mdi-vk
             </v-icon>
-            {{ $t('VK') }}
+            Вконтакте
           </v-btn>
           <v-btn text small :href="siteSettings.insta">
-            <v-icon medium>
+            <v-icon medium class="mr-1">
               mdi-instagram
             </v-icon>
-            {{ $t('instagram') }}
+            Инстаграм
           </v-btn>
         </v-col>
       </v-row>
