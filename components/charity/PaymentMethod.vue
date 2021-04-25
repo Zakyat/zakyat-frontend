@@ -52,7 +52,7 @@
                 cols="auto"
                 class="py-0 md-0"
               >
-                <h3 v-if="!isAnonymous">
+                <h3>
                   {{ $t('charity.contacts.title') }}
                 </h3>
               </v-col>
@@ -73,7 +73,7 @@
                 </v-checkbox>
               </v-col>
             </v-row>
-            <Contacts @user="getUserData" v-if="!isAnonymous" />
+            <Contacts @user="getUserData" />
             <v-row
               justify="space-between"
             >
@@ -153,7 +153,7 @@
             cols="auto"
             class="py-0 md-0"
           >
-            <h3 v-if="!isAnonymous">
+            <h3>
               {{ $t('charity.contacts.title') }}
             </h3>
           </v-col>
@@ -162,7 +162,6 @@
             class="py-0 md-0"
           >
             <v-checkbox
-              v-model="isAnonymous"
               :onchange="makeAnonymous()"
               class="pa-0 md-0 mt-0"
               on-icon="mdi-check-box-outline"
@@ -174,7 +173,7 @@
             </v-checkbox>
           </v-col>
         </v-row>
-        <Contacts @user="getUserData" v-if="!isAnonymous" />
+        <Contacts @user="getUserData" />
         <v-row
           justify="space-between"
         >
@@ -225,6 +224,14 @@
             </v-btn>
           </v-col>
         </v-row>
+        <v-alert
+          v-if="wrongAmount"
+          dense
+          outlined
+          type="error"
+        >
+          {{ wrongAmount }}
+        </v-alert>
       </v-card>
     </v-col>
   </v-row>
@@ -314,6 +321,7 @@ export default Vue.extend({
         },
       ],
       agreedToTerms: false,
+      wrongAmount: '',
     };
   },
   computed: {
@@ -342,8 +350,9 @@ export default Vue.extend({
       `;
     },
     donate (amount, campaignId, description, subscriptionDays, transactionType, isAnonymous) {
-      this.$apollo.mutate({
-        mutation: gql`
+      if (amount > 0) {
+        this.$apollo.mutate({
+          mutation: gql`
           mutation startPayment(
               $amount: Float!,
               $campaignId: Int!,
@@ -370,21 +379,25 @@ export default Vue.extend({
               }
             }
         `,
-        variables: {
-          amount,
-          campaignId,
-          description,
-          subscriptionDays,
-          transactionType,
-          successUrl: process.env.SUCCESS_PAYMENT_PAGE,
-          failUrl: process.env.FAIL_PAYMENT_PAGE,
-          isAnonymous,
-        },
-        update: (cache, result) => {
-          this.url = result.data.startPayment.url;
-          window.open(this.url, '_self');
-        },
-      });
+          variables: {
+            amount,
+            campaignId,
+            description,
+            subscriptionDays,
+            transactionType,
+            successUrl: process.env.SUCCESS_PAYMENT_PAGE,
+            failUrl: process.env.FAIL_PAYMENT_PAGE,
+            isAnonymous,
+          },
+          update: (cache, result) => {
+            this.url = result.data.startPayment.url;
+            window.open(this.url, '_self');
+          },
+        });
+      }
+      else {
+        this.wrongAmount = 'Введите сумму пожертвования!';
+      }
     },
   },
 });
