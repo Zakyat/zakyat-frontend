@@ -106,7 +106,7 @@
                   class="text-none donate"
                   style="font-weight: normal;"
                 >
-                  Сбор еще не открыт
+                  Сбор закрыт
                 </v-btn>
               </v-col>
             </v-row>
