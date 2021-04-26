@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h1>Обработка персональных данных</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut dolor facilis hic itaque libero natus non, obcaecati ratione sapiente vero. Amet cumque deserunt dolores mollitia possimus tempora tempore ut voluptates?</p>
+    <h1>Пожертвование 1</h1>
+    <p>В случае невозможности использования средств на помощь конкретному человеку, Жертвователь передаёт право Фонду использовать эти пожертвования на оказание помощи семье этого человека или другим лицам, оказавшимся в такой же ситуации, по усмотрению фонда.</p>
   </v-container>
 </template>

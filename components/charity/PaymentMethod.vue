@@ -87,18 +87,28 @@
                   v-model="agreedToTerms"
                 >
                   <template #label>
-                    <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">
-                      <template #terms>
-                        <nuxt-link to="/terms" color="primary">
-                          {{ $t('charity.contacts.terms_conditions.terms') }}
-                        </nuxt-link>
-                      </template>
-                      <template #data>
-                        <nuxt-link to="/personal-data-processing" color="primary">
-                          {{ $t('charity.contacts.terms_conditions.data_processing') }}
-                        </nuxt-link>
-                      </template>
-                    </i18n>
+                    <span class="black--text">
+                        Я принимаю
+                      <nuxt-link to="/terms" color="primary">
+                        {{ $t('charity.contacts.terms_conditions.terms') }}
+                      </nuxt-link>,
+                      <nuxt-link to="/personal-data-processing" color="primary">
+                        условия соглашения
+                      </nuxt-link>
+                      и даю согласие на обработку персональных данных
+                    </span>
+<!--                    <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black&#45;&#45;text">-->
+<!--                      <template #terms>-->
+<!--                        <nuxt-link to="/terms" color="primary">-->
+<!--                          {{ $t('charity.contacts.terms_conditions.terms') }}-->
+<!--                        </nuxt-link>-->
+<!--                      </template>-->
+<!--                      <template #data>-->
+<!--                        <nuxt-link to="/personal-data-processing" color="primary">-->
+<!--                          {{ $t('charity.contacts.terms_conditions.data_processing') }}-->
+<!--                        </nuxt-link>-->
+<!--                      </template>-->
+<!--                    </i18n>-->
                   </template>
                 </v-checkbox>
               </v-col>
@@ -187,18 +197,28 @@
               v-model="agreedToTerms"
             >
               <template #label>
-                <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">
-                  <template #terms>
-                    <nuxt-link to="/terms" color="primary">
-                      {{ $t('charity.contacts.terms_conditions.terms') }}
-                    </nuxt-link>
-                  </template>
-                  <template #data>
-                    <nuxt-link to="/personal-data-processing" color="primary">
-                      {{ $t('charity.contacts.terms_conditions.data_processing') }}
-                    </nuxt-link>
-                  </template>
-                </i18n>
+                <span class="black--text">
+                    Я принимаю
+                  <nuxt-link to="/terms" color="primary" target="_blank">
+                    {{ $t('charity.contacts.terms_conditions.terms') }}
+                  </nuxt-link>,
+                  <nuxt-link to="/personal-data-processing" color="primary" target="_blank">
+                    условия соглашения
+                  </nuxt-link>
+                  и даю согласие на обработку персональных данных
+                </span>
+<!--                <i18n path="charity.contacts.terms_conditions.text" tag="span" class="black--text">-->
+<!--                  <template #terms>-->
+<!--                    <nuxt-link to="/terms" color="primary">-->
+<!--                      {{ $t('charity.contacts.terms_conditions.terms') }}-->
+<!--                    </nuxt-link>-->
+<!--                  </template>-->
+<!--                  <template #data>-->
+<!--                    <nuxt-link to="/personal-data-processing" color="primary">-->
+<!--                      {{ $t('charity.contacts.terms_conditions.data_processing') }}-->
+<!--                    </nuxt-link>-->
+<!--                  </template>-->
+<!--                </i18n>-->
               </template>
             </v-checkbox>
           </v-col>
