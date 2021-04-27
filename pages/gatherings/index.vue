@@ -5,7 +5,7 @@
     </h1>
 
     <v-card
-      v-for="(campaign, i) in campaigns"
+      v-for="(campaign, i) in campaigns.filter(item => item.isActive)"
       :key="i"
       flat
       style="border-radius: 15px;"
@@ -96,17 +96,6 @@
                   :to="`/charity?id=${campaign.id}`"
                 >
                   {{ $t('home.slideshow.donate') }}
-                </v-btn>
-                <v-btn
-                  v-else
-                  rounded
-                  depressed
-                  dark
-                  color="grey"
-                  class="text-none donate"
-                  style="font-weight: normal;"
-                >
-                  Сбор закрыт
                 </v-btn>
               </v-col>
             </v-row>
