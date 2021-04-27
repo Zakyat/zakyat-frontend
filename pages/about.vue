@@ -2,8 +2,7 @@
   <v-container class="mt-10">
     <v-card
       flat
-      rounded
-      class="pa-7"
+      class="pa-7 about-card"
     >
       <v-row>
         <v-col>
@@ -84,3 +83,9 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style>
+.about-card {
+  border-radius: 10px !important;
+}
+</style>
