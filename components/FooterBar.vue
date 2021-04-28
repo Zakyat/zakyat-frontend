@@ -25,15 +25,25 @@
           class="text-center white--text"
           cols="auto"
         >
+<!--          <v-btn-->
+<!--            text-->
+<!--            nuxt-->
+<!--            small-->
+<!--            class="pa-4"-->
+<!--            active-class="active"-->
+<!--            @click="VolunteerBanner()"-->
+<!--          >-->
+<!--            {{ $t('links.volunteers') }}-->
+<!--          </v-btn>-->
           <v-btn
             text
             nuxt
             small
             class="pa-4"
             active-class="active"
-            @click="VolunteerBanner()"
+            to="/payment-options"
           >
-            {{ $t('links.volunteers') }}
+            Способы оплаты
           </v-btn>
         </v-col>
 <!--        <v-col cols="4" sm="2" lg="1" class="py-2 px-0">-->
