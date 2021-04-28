@@ -17,7 +17,7 @@
         v-if="campaign"
       >
         <v-tab
-          v-for="(method, i) in campaign.paymentOptions"
+          v-for="(method, i) in paymentMethods"
           :key="i"
           class="payment-tab"
           active-class="payment-tab-primary"
@@ -316,11 +316,6 @@ export default Vue.extend({
       donationDays: 0,
       isAnonymous: false,
 
-      paymentMethods: [
-        this.$t('charity.paymentMethod.methods.bank_card'),
-        this.$t('charity.paymentMethod.methods.SMS'),
-      ],
-
       amounts: [1, 5, 10, 50, 100, 200, 300, 500],
 
       donationTabs: [
@@ -347,6 +342,23 @@ export default Vue.extend({
   computed: {
     donationType () {
       return this.$route.query.type ? parseInt(this.$route.query.type) : 2;
+    },
+
+    paymentMethods () {
+      if (this.campaign.paymentOptions.filter(item => item.paymentType === 'A_1').length === 0) {
+        const options = this.campaign.paymentOptions;
+        const bankOption = {
+          paymentType: 'A_1',
+          title: 'Банковской картой',
+          description: 'Оплата банковской картой',
+        };
+
+        options.unshift(bankOption);
+        return options;
+      }
+      else {
+        return this.campaign.paymentOptions;
+      }
     },
   },
   methods: {
