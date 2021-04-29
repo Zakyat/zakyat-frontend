@@ -5,7 +5,7 @@
         {{ $t('home.funded_project.title') }}
       </span>
     </v-row>
-    <v-row style="min-width: 1000px;">
+    <v-row>
       <v-col
         v-for="(item, j) in thanksForHelpingBlocks"
         :key="j"

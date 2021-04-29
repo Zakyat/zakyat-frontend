@@ -1,23 +1,25 @@
 <template>
   <v-layout class="zakat-container">
-    <v-flex xs12 md8>
-      <h1>{{ $t('home.zakat.title') }}</h1>
-      <p class="my-4">
-        {{ $t('home.zakat.description') }}
-      </p>
-      <p>{{ $t('home.zakat.for_pay') }}</p>
-      <v-btn to="/zakat" height="45" rounded depressed>
-        {{ $t('home.zakat.pay') }}
-      </v-btn>
-    </v-flex>
-    <v-flex xs12 md4>
-      <v-img
-        class="zakat-img"
-        max-width="256px"
-        width="100%"
-        :src="require('@/assets/images/banners/mans.svg')"
-      />
-    </v-flex>
+    <v-row>
+      <v-col cols="12" md="8">
+        <h1>{{ $t('home.zakat.title') }}</h1>
+        <p class="my-4">
+          {{ $t('home.zakat.description') }}
+        </p>
+        <p>{{ $t('home.zakat.for_pay') }}</p>
+        <v-btn class="mb-5" to="/zakat" height="45" rounded depressed>
+          {{ $t('home.zakat.pay') }}
+        </v-btn>
+      </v-col>
+      <v-col class="d-none d-sm-flex" cols="12" md="4">
+        <v-img
+          class="zakat-img"
+          max-width="256px"
+          width="100%"
+          :src="require('@/assets/images/banners/mans.svg')"
+        />
+      </v-col>
+    </v-row>
   </v-layout>
 </template>
 <script lang="ts">

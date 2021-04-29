@@ -1,7 +1,7 @@
 <template>
   <v-container class="donation-container">
     <v-row>
-      <v-col cols="11">
+      <v-col cols="12">
         <h1>{{ $t('home.sadaka.title') }}</h1>
         <p class="my-3">
           {{ $t('home.sadaka.description') }}
@@ -9,7 +9,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col cols="3">
+      <v-col cols="12" md="3">
         <v-text-field
           v-model.number="amount"
           rounded
@@ -22,18 +22,16 @@
           dark
           type="number"
           min="1"
-          height="50"
         />
       </v-col>
-      <v-col cols="7">
+      <v-col cols="12" md="7">
         <v-radio-group
           v-model="amount"
           row
           dark
           dense
           hide-details
-          class="amounts ml-5"
-          height="30"
+          class="amounts"
         >
           <v-radio
             v-for="a in amounts"
@@ -43,10 +41,10 @@
           />
         </v-radio-group>
       </v-col>
-      <v-col cols="2" class="text-right">
+      <v-col cols="12" md="2">
         <v-btn
           height="50"
-          class="black--text ml-6"
+          class="black--text"
           rounded
           depressed
           nuxt
