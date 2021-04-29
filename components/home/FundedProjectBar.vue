@@ -9,7 +9,8 @@
       <v-col
         v-for="(item, j) in thanksForHelpingBlocks"
         :key="j"
-        :cols="item.flex"
+        cols="12"
+        :md="item.flex"
       >
         <v-card
           rounded
