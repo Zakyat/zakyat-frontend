@@ -4,7 +4,8 @@
     justify-center
     align-center
   >
-    <SliderBar />
+    <SliderBar class="d-none d-md-block" />
+    <SliderMobile class="d-flex d-md-none" />
     <DonationBar />
     <ProjectBar />
     <ZakatBannerBar />
@@ -29,6 +30,7 @@ import VolunteerBannerBar from '@/components/home/VolunteerBannerBar.vue';
 import ProjectBar from '@/components/home/ProjectBar.vue';
 import FundedProjectBar from '@/components/home/FundedProjectBar.vue';
 import SliderBar from '@/components/home/SliderBar.vue';
+import SliderMobile from '@/components/home/SliderMobile.vue';
 
 export default Vue.extend({
   components: {
@@ -41,6 +43,7 @@ export default Vue.extend({
     ProjectBar,
     FundedProjectBar,
     SliderBar,
+    SliderMobile,
   },
   layout: 'white',
 });

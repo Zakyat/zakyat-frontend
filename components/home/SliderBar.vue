@@ -50,7 +50,7 @@
               </v-card-text>
             </v-col>
             <v-col cols="2" style="margin-left: 20px;">
-              <v-row justify="end">
+              <v-row justify="end" class="d-none d-lg-flex">
                 <v-col cols="auto">
                   <v-progress-circular
                     rotate="-90"
