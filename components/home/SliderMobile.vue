@@ -1,5 +1,5 @@
 <template>
-  <div class="campaigns">
+  <div class="campaigns" v-if="campaigns">
     <div v-for="(slide, i) in campaigns.filter(item => item.isActive)" :key="i">
       <v-card class="overlay" flat>
         <v-img :src="slide.photo" class="campaign" />
