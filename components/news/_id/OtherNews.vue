@@ -28,7 +28,9 @@
       <v-col
         v-for="item in filteredPosts.slice(0, 4)"
         :key="item.id"
-        cols="3"
+        cols="12"
+        sm="6"
+        md="3"
       >
         <OtherNewsCard
           v-bind="item"
