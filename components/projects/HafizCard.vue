@@ -6,7 +6,8 @@
   >
     <v-row>
       <v-col
-        cols="9"
+        cols="12"
+        md="9"
         class="pb-0"
       >
         <h2 class="title mb-5">
@@ -20,7 +21,7 @@
           </p>
 
           <p class="description">
-            <img style="float: right;" width="180" :src="require('@/assets/images/projects/svg/colored/boy.svg')" alt="">
+            <img style="float: right;" width="180" class="d-none d-lg-block" :src="require('@/assets/images/projects/svg/colored/boy.svg')" alt="">
             Хафиз — это человек, который наизусть знает все 600 страниц Корана — от самого
             первого до самого последнего аята. Хафизы хранят устную традицию священной
             книги, принимают участие во многих религиозных мероприятиях.
@@ -34,6 +35,8 @@
         </div>
       </v-col>
       <v-col
+        cols="12"
+        md="3"
         class="pb-0"
       >
         <v-card

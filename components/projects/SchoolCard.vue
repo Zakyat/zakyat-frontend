@@ -6,7 +6,8 @@
   >
     <v-row>
       <v-col
-        cols="9"
+        cols="12"
+        md="9"
         class="pb-0"
       >
         <h2 class="title mb-5">
@@ -34,11 +35,14 @@
           depressed
           color="grey"
           height="40px"
+          class="d-none d-sm-block"
         >
           Сбор временно приостановлен
         </v-btn>
       </v-col>
       <v-col
+        cols="12"
+        md="3"
         class="pb-0"
       >
         <v-card
@@ -56,7 +60,7 @@
             </p>
           </v-row>
         </v-card>
-        <img :src="require('@/assets/images/projects/svg/colored/backpack.svg')" alt="">
+        <img class="d-none d-lg-block" :src="require('@/assets/images/projects/svg/colored/backpack.svg')" alt="">
       </v-col>
     </v-row>
   </v-card>

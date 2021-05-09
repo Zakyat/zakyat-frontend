@@ -6,7 +6,8 @@
   >
     <v-row>
       <v-col
-        cols="9"
+        cols="12"
+        md="9"
         class="pb-0"
       >
         <h2 class="title mb-5">
@@ -19,7 +20,7 @@
           </p>
 
           <p class="description">
-            <img style="float: right;" width="340" :src="require('@/assets/images/projects/svg/colored/wear.svg')" alt="">
+            <img style="float: right;" width="340" class="d-none d-lg-block" :src="require('@/assets/images/projects/svg/colored/wear.svg')" alt="">
             Приносите нам залежавшуюся в шкафах одежду и обувь, постельное белье, игрушки, косметику и хозяйственные товары — благодаря этому жизнь десятков людей и семей станет лучше, комфортнее и счастливее.
           </p>
           <p class="description">
@@ -29,7 +30,11 @@
           </p>
         </div>
       </v-col>
-      <v-col class="pb-0">
+      <v-col
+        cols="12"
+        md="3"
+        class="pb-0"
+      >
         <v-card
           flat
           color="white"

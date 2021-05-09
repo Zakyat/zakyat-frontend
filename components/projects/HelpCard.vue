@@ -6,7 +6,8 @@
   >
     <v-row>
       <v-col
-        cols="9"
+        cols="12"
+        md="9"
         class="pb-0"
       >
         <h2 class="title mb-5">
@@ -20,7 +21,7 @@
           </p>
 
           <p class="description">
-            <img style="float: right;" width="300" :src="require('@/assets/images/projects/svg/colored/arms.svg')" alt="">
+            <img style="float: right;" width="300" class="d-none d-lg-block" :src="require('@/assets/images/projects/svg/colored/arms.svg')" alt="">
             Поддержав этот проект, вы можете стать причастным к чьей-то большой победе — над недугом, болью и
             страданиями.
             Каждая такая победа — результат работы большой команды, и вы можете стать её частью.
@@ -49,6 +50,8 @@
         </v-btn>
       </v-col>
       <v-col
+        cols="12"
+        md="3"
         class="pb-0"
       >
         <v-card

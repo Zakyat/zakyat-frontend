@@ -6,7 +6,8 @@
   >
     <v-row>
       <v-col
-        cols="9"
+        cols="12"
+        md="9"
         class="pb-0"
       >
         <h2 class="title mb-5">
@@ -19,7 +20,7 @@
           </p>
 
           <p class="description">
-            <img style="float: right;" width="370" :src="require('@/assets/images/projects/svg/colored/taxi_fond.svg')" alt="">
+            <img style="float: right;" width="370" class="d-none d-lg-block" :src="require('@/assets/images/projects/svg/colored/taxi_fond.svg')" alt="">
             Наш проект «Социальное такси» призван помочь маломобильным группам людей свободно передвигаться по городу. Мы хотим, чтобы они могли вести полноценную, насыщенную жизнь, участвовать в общественных активностях, посещать музеи, театры и развлекательные центры.
           </p>
           <p class="description">
@@ -40,6 +41,8 @@
         </div>
       </v-col>
       <v-col
+        cols="12"
+        md="3"
         class="pb-0"
       >
         <v-card

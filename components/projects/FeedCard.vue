@@ -6,7 +6,8 @@
   >
     <v-row>
       <v-col
-        cols="9"
+        cols="12"
+        md="9"
         class="pb-0"
       >
         <h2 class="title mb-5">
@@ -32,7 +33,7 @@
         </div>
 
         <div class="maps">
-          <div class="map">
+          <div class="map" style="margin-right: 100px;">
             <p>Сквер</p>
             <a target="_blank" href="https://goo.gl/maps/sa5yxcsns3NdF1HC9">
               <img width="250" height="150" style="border: 10px;" :src="require('@/assets/images/maps/map.png')" alt="">
@@ -50,7 +51,7 @@
               </p>
             </div>
           </div>
-          <div class="map" style="margin-left: 100px;">
+          <div class="map">
             <p>&laquo;Дом ветеранов&raquo;</p>
             <a target="_blank" href="https://goo.gl/maps/sa5yxcsns3NdF1HC9">
               <img width="250" height="150" style="border: 10px;" :src="require('@/assets/images/maps/map.png')" alt="">
@@ -71,6 +72,8 @@
         </div>
       </v-col>
       <v-col
+        cols="12"
+        md="3"
         class="pb-0"
       >
         <v-card
@@ -104,7 +107,7 @@
           </v-row>
         </v-card>
         <div class="food">
-          <img :src="require('@/assets/images/projects/svg/colored/food.svg')" alt="">
+          <img class="d-none d-lg-block" :src="require('@/assets/images/projects/svg/colored/food.svg')" alt="">
           <p>Вы можете пожертвовать любую сумму, чтобы поддержать данный проект.</p>
           <v-btn
             rounded

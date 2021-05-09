@@ -6,7 +6,8 @@
   >
     <v-row>
       <v-col
-        cols="9"
+        cols="12"
+        md="9"
         class="pb-0 mb-0"
       >
         <h2 class="title mb-5">
@@ -45,6 +46,8 @@
         </div>
       </v-col>
       <v-col
+        cols="12"
+        md="3"
         class="pb-0 mb-0"
       >
         <v-card
@@ -83,7 +86,10 @@
           </p>
         </div>
       </v-col>
-      <v-col class="py-0 mt-0">
+      <v-col
+        cols="12"
+        class="py-0 mt-0"
+      >
         <div class="second-description">
           <div>
             <p class="description">
@@ -96,7 +102,7 @@
               Вы можете пожертвовать любую сумму, чтобы поддержать данный проект
             </p>
           </div>
-          <div class="people-img">
+          <div class="people-img d-none d-lg-flex">
             <img width="400" :src="require('@/assets/images/projects/svg/colored/people.svg')" alt="">
           </div>
         </div>

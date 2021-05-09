@@ -6,7 +6,8 @@
   >
     <v-row>
       <v-col
-        cols="9"
+        cols="12"
+        md="9"
         class="pb-0"
       >
         <h2 class="title mb-5">
@@ -19,7 +20,7 @@
           </p>
 
           <p class="description">
-            <img style="float: right;" width="270" :src="require('@/assets/images/projects/svg/colored/book.svg')" alt="">
+            <img style="float: right;" width="270" class="d-none d-lg-block" :src="require('@/assets/images/projects/svg/colored/book.svg')" alt="">
             Мы регулярно посещаем хосписы и наркодиспансеры, подолгу общаемся с их
             обитателями, стараемся ответить на все вопросы и подарить веру в
             Милосердие Создателя.
@@ -36,6 +37,8 @@
         </div>
       </v-col>
       <v-col
+        cols="12"
+        md="3"
         class="pb-0"
       >
         <v-card
