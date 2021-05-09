@@ -12,11 +12,11 @@
       class="mb-7"
     >
       <v-card-text class="pa-7">
-        <v-row align="stretch" no-gutters>
-          <v-col cols="3">
-            <v-img :src="campaign.photo" style="border-radius: 15px;" aspect-ratio="5/6" height="100%" />
+        <v-row>
+          <v-col cols="12" md="3">
+            <v-img :src="campaign.photo" class="gathering-img" aspect-ratio="5/6" />
           </v-col>
-          <v-col>
+          <v-col cols="12" md="9" class="card-text">
             <v-row no-gutters>
               <v-col class="px-4">
                 <h2 class="text-h4 font-weight-bold black--text">
@@ -26,7 +26,7 @@
                   {{ campaign.problem }}
                 </h3>
               </v-col>
-              <v-col cols="auto">
+              <v-col cols="auto" class="d-none d-sm-flex">
                 <v-progress-circular
                   rotate="-90"
                   color="primary"
@@ -42,12 +42,12 @@
 
             <v-row no-gutters>
               <v-col class="mt-4 px-4">
-                <p>{{ campaign.description }}</p>
+                <p class="card-text">{{ campaign.description }}</p>
               </v-col>
             </v-row>
 
-            <v-row justify="space-around" align="end" no-gutters>
-              <v-col cols="9" class="pl-4">
+            <v-row>
+              <v-col cols="12" md="9" class="pl-4">
                 <v-row no-gutters justify="space-between">
                   <v-col class="pb-1">
                     <p class="subtitle mb-0 grey--text">
@@ -83,7 +83,6 @@
                   :value="100*campaign.moneyCollected/campaign.goal"
                 />
               </v-col>
-              <v-spacer />
               <v-col cols="auto">
                 <v-btn
                   v-if="campaign.isActive"
@@ -143,3 +142,20 @@ export default Vue.extend({
   },
 });
 </script>
+
+<style lang="scss">
+.card-text {
+  @media screen and (max-width: 960px) {
+    padding: 0 !important;
+  }
+}
+
+.gathering-img {
+  border-radius: 15px;
+  height: 100%;
+
+  @media screen and (max-width: 960px) {
+    height: 300px;
+  }
+}
+</style>
