@@ -1,6 +1,6 @@
 <template>
   <v-col
-    cols="6"
+    cols="12"
     md="3"
     class="px-2"
   >
@@ -68,10 +68,6 @@ export default Vue.extend({
 </script>
 
 <style scoped>
-.sadaka-card {
-  width: 310px;
-}
-
 .amounts {
   border: 1px solid black;
   border-radius: 25px;

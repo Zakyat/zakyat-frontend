@@ -7,19 +7,19 @@
   >
     <v-row>
       <v-col
-        cols="4"
-        md="4"
+        cols="12"
+        sm="4"
       >
         <v-img
           :src="image"
           width="300px"
-          style="border-radius: 10px;"
+          style="border-radius: 10px; width: auto;"
         />
       </v-col>
 
       <v-col
-        cols="8"
-        md="8"
+        cols="12"
+        sm="8"
       >
         <v-card-title class="text-h5 pa-0">
           {{ title }}
