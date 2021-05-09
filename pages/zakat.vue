@@ -1,19 +1,19 @@
 <template>
   <v-container class="zakat-container" fluid>
-    <h1>{{ $t('zakat.title') }}</h1>
-    <v-row no-gutters>
+    <h1 class="mb-5">{{ $t('zakat.title') }}</h1>
+    <v-row>
       <v-col
         cols="12"
-        md="8"
-        class="pt-2 pr-2"
+        md="9"
+        class="pt-2"
       >
         <ZakatAbout />
         <QuestionList />
       </v-col>
       <v-col
-        cols="6"
+        cols="12"
         md="3"
-        class="pt-2 pl-5"
+        class="pt-2 mb-5"
       >
         <ZakatCalculator />
       </v-col>
