@@ -4,48 +4,51 @@
       <img :src="require(`@/assets/logo/${$i18n.locale}.svg`)">
     </nuxt-link>
     <v-spacer />
-    <v-spacer />
-    <v-spacer />
-    <nuxt-link
-      v-for="(page, i) in pages"
-      :key="i"
-      :to="page.link"
-      class="mx-3"
-    >
+    <div class="links">
+      <nuxt-link
+        v-for="(page, i) in pages"
+        :key="i"
+        :to="page.link"
+        class="mx-3"
+      >
       <span style="color: black;">
         {{ page.text }}
       </span>
-    </nuxt-link>
-    <nuxt-link
-      to="/zakat"
-      class="mx-3"
-    >
-      <span style="color: #00ac00;">
-        {{ $t('links.pay') }}
-      </span>
-    </nuxt-link>
+      </nuxt-link>
+      <nuxt-link
+        to="/zakat"
+        class="mx-3"
+      >
+        <span style="color: #00ac00;">
+          {{ $t('links.pay') }}
+        </span>
+      </nuxt-link>
+    </div>
     <v-spacer />
-    <v-btn
-      rounded
-      depressed
-      dark
-      color="primary"
-      height="40px"
-      to="/charity?id=-1"
-    >
-      {{ $t('give_help') }}
-    </v-btn>
-    <v-spacer />
-    <v-btn
-      rounded
-      depressed
-      dark
-      color="accent"
-      height="40px"
-      to="/help-request"
-    >
-      {{ $t('get_help') }}
-    </v-btn>
+    <div class="btns">
+      <v-btn
+        rounded
+        depressed
+        dark
+        color="primary"
+        height="40px"
+        to="/charity?id=-1"
+        class="give-help"
+      >
+        {{ $t('give_help') }}
+      </v-btn>
+      <v-btn
+        rounded
+        depressed
+        dark
+        color="accent"
+        height="40px"
+        to="/help-request"
+        style="margin-top: 10px;"
+      >
+        {{ $t('get_help') }}
+      </v-btn>
+    </div>
   </div>
 </template>
 
@@ -67,6 +70,28 @@ export default Vue.extend({
 </script>
 
 <style lang="scss" scoped>
+img {
+  @media screen and (max-width: 650px) {
+    width: 100%;
+  }
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.btns {
+  display: flex;
+  flex-wrap: wrap;
+
+  .give-help {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+}
+
 .v-btn--active::before {
   opacity: 0;
 }

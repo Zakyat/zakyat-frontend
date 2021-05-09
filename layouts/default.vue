@@ -1,12 +1,12 @@
 <template>
   <v-app class="app-wrapper">
-    <div class="mobile">
-      <div class="loader-inner">
-        <img :src="require(`@/assets/logo/ru.svg`)">
-      </div>
-      <h1>Сайт временно не доступен для маленьких экранов</h1>
-      <h2>Пожалуйста перейдите на компьютер</h2>
-    </div>
+<!--    <div class="mobile">-->
+<!--      <div class="loader-inner">-->
+<!--        <img :src="require(`@/assets/logo/ru.svg`)">-->
+<!--      </div>-->
+<!--      <h1>Сайт временно не доступен для маленьких экранов</h1>-->
+<!--      <h2>Пожалуйста перейдите на компьютер</h2>-->
+<!--    </div>-->
     <div class="app">
       <Loader />
     </div>

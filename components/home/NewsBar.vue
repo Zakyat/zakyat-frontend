@@ -16,11 +16,12 @@
       <v-flex
         v-for="(item, j) in posts.slice(0, 4)"
         :key="j"
-        xs6
+        xs12
+        sm6
         md3
-        class="px-2"
+        class="px-2 pt-4"
       >
-        <v-card class="ma-4" rounded flat :to="`news/${item.id}`">
+        <v-card rounded flat :to="`news/${item.id}`">
           <v-img
             class="white--text align-end"
             height="200px"
