@@ -6,46 +6,48 @@
       <v-spacer />
       <span class="subtitle">{{ total | rubles }}</span>
     </v-row>
-    <v-row style="padding: 30px 0 10px;">
-      <v-flex lg2 class="text--secondary">
-        {{ $t('reports.expenses.application_number') }}
-      </v-flex>
-      <v-flex lg2 class="text--secondary">
-        {{ $t('reports.expenses.application_date') }}
-      </v-flex>
-      <v-flex lg3 class="text--secondary">
-        {{ $t('reports.expenses.beneficiary_name') }}
-      </v-flex>
-      <v-flex lg3 class="text--secondary">
-        {{ $t('reports.expenses.situation_description') }}
-      </v-flex>
-      <v-flex lg2 class="text--secondary text-right">
-        {{ $t('reports.expenses.amounts') }}
-      </v-flex>
-    </v-row>
-    <v-row
-      v-for="(donatation, i) in campaigns.filter(item => !item.isActive)"
-      :key="i"
-      align="center"
-      class="mt-4"
-      style="background: white; border-radius: 10px; min-height: 60px; padding: 20px;"
-    >
-      <v-flex lg2 class="text">
-        {{ donatation.id }}
-      </v-flex>
-      <v-flex lg2 class="text">
-        {{ localeDate(donatation.createdAt) }}
-      </v-flex>
-      <v-flex lg3 class="text" style="font-weight: bold;">
-        {{ donatation.title }}
-      </v-flex>
-      <v-flex lg3 class="text">
-        {{ donatation.problem }}
-      </v-flex>
-      <v-flex lg2 class="text-right text">
-        <span style="font-weight: bold;">{{ donatation.moneyCollected | rubles }}</span>/{{ donatation.goal | rubles }}
-      </v-flex>
-    </v-row>
+    <div class="table">
+      <v-row style="padding: 30px 0 10px; min-width: 900px; margin: 0;">
+        <v-flex lg2 class="text--secondary">
+          {{ $t('reports.expenses.application_number') }}
+        </v-flex>
+        <v-flex lg2 class="text--secondary">
+          {{ $t('reports.expenses.application_date') }}
+        </v-flex>
+        <v-flex lg3 class="text--secondary">
+          {{ $t('reports.expenses.beneficiary_name') }}
+        </v-flex>
+        <v-flex lg3 class="text--secondary">
+          {{ $t('reports.expenses.situation_description') }}
+        </v-flex>
+        <v-flex lg2 class="text--secondary text-right">
+          {{ $t('reports.expenses.amounts') }}
+        </v-flex>
+      </v-row>
+      <v-row
+        v-for="(donatation, i) in campaigns.filter(item => !item.isActive)"
+        :key="i"
+        align="center"
+        class="mt-4"
+        style="background: white; border-radius: 10px; min-height: 60px; padding: 20px; min-width: 900px; margin: 0;"
+      >
+        <v-flex lg2 class="text">
+          {{ donatation.id }}
+        </v-flex>
+        <v-flex lg2 class="text">
+          {{ localeDate(donatation.createdAt) }}
+        </v-flex>
+        <v-flex lg3 class="text" style="font-weight: bold;">
+          {{ donatation.title }}
+        </v-flex>
+        <v-flex lg3 class="text">
+          {{ donatation.problem }}
+        </v-flex>
+        <v-flex lg2 class="text-right text">
+          <span style="font-weight: bold;">{{ donatation.moneyCollected | rubles }}</span>/{{ donatation.goal | rubles }}
+        </v-flex>
+      </v-row>
+    </div>
     <v-row class="text-center mt-6 text-black" v-if="totalCampaignsPages > 1">
       <v-pagination
         v-model="page"
@@ -131,6 +133,12 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+@media screen and (max-width: 1000px) {
+  .table {
+    overflow-x: auto;
+  }
+}
+
 .text {
   font-style: normal;
   font-size: 16px;

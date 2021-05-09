@@ -6,30 +6,30 @@
       <v-spacer />
       <span class="subtitle">{{ totalMoneyCollected | rubles }}</span>
     </v-row>
-    <v-row style="padding: 30px 10px 10px;">
-      <v-flex lg2 class="text--secondary">
-        {{ $t('reports.income.date') }}
-      </v-flex>
-      <v-flex lg3 class="text--secondary">
-        {{ $t('reports.income.benfactor_name') }}
-      </v-flex>
-      <v-flex lg3 class="text--secondary">
-        {{ $t('reports.income.donation_target') }}
-      </v-flex>
-      <v-flex lg3 class="text--secondary">
-        {{ $t('reports.income.donation_type') }}
-      </v-flex>
-      <v-flex lg1 class="text--secondary text-right">
-        {{ $t('reports.income.amount') }}
-      </v-flex>
-    </v-row>
-    <div v-if="transactions">
+    <div class="table">
+      <v-row style="padding: 30px 10px 10px; min-width: 900px; margin: 0;">
+        <v-flex lg2 class="text--secondary">
+          {{ $t('reports.income.date') }}
+        </v-flex>
+        <v-flex lg3 class="text--secondary">
+          {{ $t('reports.income.benfactor_name') }}
+        </v-flex>
+        <v-flex lg3 class="text--secondary">
+          {{ $t('reports.income.donation_target') }}
+        </v-flex>
+        <v-flex lg3 class="text--secondary">
+          {{ $t('reports.income.donation_type') }}
+        </v-flex>
+        <v-flex lg1 class="text--secondary text-right">
+          {{ $t('reports.income.amount') }}
+        </v-flex>
+      </v-row>
+      <div v-if="transactions">
       <v-row
         v-for="transaction in transactions"
         :key="transaction.id"
-        align="center"
         class="mt-4"
-        style="background: white; border-radius: 10px; min-height: 60px; padding: 20px;"
+        style="background: white; border-radius: 10px; min-height: 60px; padding: 20px; min-width: 900px; margin: 0;"
       >
         <v-flex lg2 class="text">
           <!--  income.date.toLocaleDateString($i18n.locale)-->
@@ -54,6 +54,7 @@
           {{ transaction.amount | rubles }}
         </v-flex>
       </v-row>
+    </div>
     </div>
     <v-row class="text-center mt-6 text-black" v-if="totalTransactionPages > 1">
       <v-pagination
@@ -145,6 +146,12 @@ export default Vue.extend({
 </script>
 
 <style scoped>
+@media screen and (max-width: 1000px) {
+  .table {
+    overflow-x: auto;
+  }
+}
+
 .text {
   font-style: normal;
   font-size: 16px;
