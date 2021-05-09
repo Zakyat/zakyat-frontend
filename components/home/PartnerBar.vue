@@ -6,48 +6,62 @@
           {{ $t('home.partners.title') }}
         </h1>
       </v-col>
-      <v-col align-self="center" class="text-right">
-        <v-btn
-          fab
-          x-small
-          elevation="2"
-          color="white"
-          class="mr-5"
-          @click="currentPage--"
-        >
-          <v-icon size="24" color="black">
-            mdi-chevron-left
-          </v-icon>
-        </v-btn>
-        <v-btn
-          fab
-          x-small
-          elevation="2"
-          color="white"
-          @click="currentPage++"
-        >
-          <v-icon size="24" color="black">
-            mdi-chevron-right
-          </v-icon>
-        </v-btn>
+<!--      <v-col align-self="center" class="text-right">-->
+<!--        <v-btn-->
+<!--          fab-->
+<!--          x-small-->
+<!--          elevation="2"-->
+<!--          color="white"-->
+<!--          class="mr-5"-->
+<!--          @click="currentPage&#45;&#45;"-->
+<!--        >-->
+<!--          <v-icon size="24" color="black">-->
+<!--            mdi-chevron-left-->
+<!--          </v-icon>-->
+<!--        </v-btn>-->
+<!--        <v-btn-->
+<!--          fab-->
+<!--          x-small-->
+<!--          elevation="2"-->
+<!--          color="white"-->
+<!--          @click="currentPage++"-->
+<!--        >-->
+<!--          <v-icon size="24" color="black">-->
+<!--            mdi-chevron-right-->
+<!--          </v-icon>-->
+<!--        </v-btn>-->
+<!--      </v-col>-->
+    </v-row>
+    <v-row>
+      <v-col
+        v-for="(partner, j) in partners"
+        :key="j"
+        class="text-center"
+        align-self="center"
+        cols="12"
+        sm="6"
+        lg="3"
+      >
+        <img :src="partner.src">
       </v-col>
     </v-row>
-    <v-carousel v-model="currentPage" hide-delimiters :show-arrows="false" height="350">
-      <v-carousel-item v-for="page in Math.ceil(partners.length / perPage)" :key="page">
-        <v-row>
-          <v-col
-            v-for="(partner, j) in partners.slice((page-1)*perPage, (page)*perPage)"
-            :key="j"
-            class="text-center"
-            align-self="center"
-            cols="6"
-            md="3"
-          >
-            <img :src="partner.src">
-          </v-col>
-        </v-row>
-      </v-carousel-item>
-    </v-carousel>
+<!--    <v-carousel v-model="currentPage" hide-delimiters :show-arrows="false" height="auto" style="overflow: auto;">-->
+<!--      <v-carousel-item v-for="page in Math.ceil(partners.length / perPage)" :key="page">-->
+<!--        <v-row>-->
+<!--          <v-col-->
+<!--            v-for="(partner, j) in partners.slice((page-1)*perPage, (page)*perPage)"-->
+<!--            :key="j"-->
+<!--            class="text-center"-->
+<!--            align-self="center"-->
+<!--            cols="12"-->
+<!--            sm="6"-->
+<!--            lg="3"-->
+<!--          >-->
+<!--            <img :src="partner.src">-->
+<!--          </v-col>-->
+<!--        </v-row>-->
+<!--      </v-carousel-item>-->
+<!--    </v-carousel>-->
   </v-container>
 </template>
 
