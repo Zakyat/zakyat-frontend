@@ -44,7 +44,7 @@
       <v-col
         cols="12"
         md="3"
-        class="pl-0"
+        class="pl-0 amount-selection pb-2"
       >
         <v-text-field
           v-model.number="selectedAmount"
@@ -60,7 +60,7 @@
       <v-col
         cols="12"
         md="9"
-        class="pr-0"
+        class="pr-0 amount-selection"
       >
         <v-radio-group
           v-model="selectedAmount"
@@ -143,5 +143,11 @@ export default Vue.extend({
 .payment-tab-primary {
   background-color: #00ac00;
   color: white !important;
+}
+
+@media screen and (max-width: 960px){
+  .amount-selection {
+    padding: 0;
+  }
 }
 </style>

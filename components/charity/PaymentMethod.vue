@@ -442,7 +442,6 @@ export default Vue.extend({
 }
 
 .payment-tab {
-  width: 300px;
   border-radius: 30px;
   text-transform: inherit;
   font-size: 15px;

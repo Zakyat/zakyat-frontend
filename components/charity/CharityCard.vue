@@ -6,9 +6,8 @@
       class="pr-3"
     >
       <v-img
-        width="250"
         height="280"
-        class="charity-card-img"
+        class="charity-card-img mb-2"
         :src="photo"
       />
     </v-col>
