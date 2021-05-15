@@ -9,12 +9,7 @@
           <h2>
             {{ $t('about.foundation_tasks') }}
           </h2>
-          <p class="pt-3">
-            {{ $t('about.paragraph1') }}
-          </p>
-          <p>
-            {{ $t('about.paragraph2') }}
-          </p>
+          <p class="pt-3">{{siteSettings.fondInformation}}</p>
         </v-col>
         <v-col>
           <v-img
@@ -61,9 +56,15 @@ export default Vue.extend({
         }
       `,
     },
+    siteSettings: gql`query{
+      siteSettings {
+        fondInformation,
+      }
+    }`,
   },
   data () {
     return {
+      siteSettings: '',
       certificates: [
         {
           img: require('@/assets/about_us_files/registration_certificate.jpg'),
