@@ -45,7 +45,7 @@
           {{ transaction.campaign.title }}
         </v-flex>
         <v-flex lg3 class="text" v-else>
-          Садака / Закят
+          -
         </v-flex>
         <v-flex lg3 class="text">
           {{ transaction.transactionType }}
