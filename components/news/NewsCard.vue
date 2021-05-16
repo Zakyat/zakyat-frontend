@@ -13,7 +13,7 @@
         <v-img
           :src="image"
           width="300px"
-          style="border-radius: 10px; width: auto;"
+          style="border-radius: 10px; width: auto; max-height: 205px;"
         />
       </v-col>
 
@@ -21,15 +21,15 @@
         cols="12"
         sm="8"
       >
-        <v-card-title class="text-h5 pa-0">
+        <v-card-title class="text-h5 title pa-0">
           {{ title }}
         </v-card-title>
-        <v-card-text class="pa-0 description">
+        <v-card-text class="pa-0 mt-1 description">
           {{ description }}
         </v-card-text>
         <v-row align="end">
           <v-card-text
-            class="pb-0"
+            class="pb-0 pl-3 mt-3"
             style="color: #9da3a6;"
           >
             {{ localeDate }}
@@ -96,5 +96,13 @@ export default Vue.extend({
   -webkit-box-orient: vertical;
   overflow: hidden;
   height: 110px;
+}
+
+.news-card .title {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  height: 60px;
 }
 </style>
