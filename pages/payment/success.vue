@@ -6,7 +6,7 @@
         <div class="text-center">
           <h1>Успешная оплата</h1>
           <p class="my-0">
-            Спасибо! Ваше пожертвование <b v-if="transaction">{{transaction.amount | rubles}}</b> успешно поступило на&nbsp;счет <b v-if="transaction.campaign">сбора &#8470;&nbsp;{{transaction.campaign.id}}.</b></p>
+            Спасибо! Ваше пожертвование <b v-if="transaction">{{transaction.amount | rubles}}</b> успешно поступило на&nbsp;счет <b v-if="transaction.campaign">сбора "{{transaction.campaign.title}}".</b></p>
           <p class="my-0" v-if="this.$apolloHelpers.getToken()">
             Смотрите историю совершенных пожертвований в&nbsp;разделе
             <nuxt-link
@@ -70,7 +70,7 @@ export default {
 
 <style scoped>
 .payment-layout {
-  height: 600px;
+  height: 100%;
   display: flex;
   align-items: center;
 }
