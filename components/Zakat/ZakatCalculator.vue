@@ -3,8 +3,8 @@
     <v-card-title class="font-weight-black">
       {{ $t('zakat.calculator.title') }}
     </v-card-title>
-    <v-card-subtitle class="font-weight-bold zakat-description" style="font-weight: normal !important; color: black !important;">
-      {{ $t('zakat.calculator.subtitle') }}
+    <v-card-subtitle class="font-weight-bold zakat-description" style="font-weight: bold !important; color: #434343 !important; width: 250px;">
+      Рассчитайте закят из вашего состояния
     </v-card-subtitle>
     <v-card-text>
       <v-text-field
