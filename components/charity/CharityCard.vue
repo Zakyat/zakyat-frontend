@@ -1,5 +1,5 @@
 <template>
-  <v-row no-gutters>
+  <v-row no-gutters class="mt-3">
     <v-col
       cols="12"
       md="3"
@@ -31,13 +31,13 @@
           </v-progress-circular>
         </v-col>
       </v-row>
-      <p class="description mt-3">
+      <p class="description">
         {{ description }}
       </p>
       <v-row justify="space-between" class="px-3 mt-8">
         <v-col
           cols="12"
-          md="8"
+          :md="transactions.length !== 0 ? '8' : '12'"
           class="pa-0"
         >
           <v-row
