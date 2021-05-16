@@ -13,7 +13,7 @@
                 </v-card-title>
                 <v-card-text>
                   {{ slide.problem }}
-                  <v-row no-gutters justify="space-between">
+                  <v-row no-gutters justify="space-between" class="mt-3">
                     <v-col class="pb-1">
                       <p class="subtitle">
                         {{ $t('home.slideshow.collected') }}
@@ -103,7 +103,7 @@
                 </v-card-title>
                 <v-card-text>
                   {{ slide.problem }}
-                  <v-row no-gutters justify="space-between">
+                  <v-row no-gutters justify="space-between" class="mt-3">
                     <v-col class="pb-1">
                       <p class="subtitle">
                         {{ $t('home.slideshow.collected') }}
@@ -215,6 +215,8 @@ export default Vue.extend({
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
         },
+        autoplay: true,
+        delay: 3,
       } as SwiperOptions,
       campaigns: '',
     };

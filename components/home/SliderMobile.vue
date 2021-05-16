@@ -1,5 +1,5 @@
 <template>
-  <div class="campaigns" v-if="campaigns">
+  <div v-if="campaigns" class="campaigns">
     <div v-for="(slide, i) in campaigns.filter(item => item.isActive)" :key="i">
       <v-card class="overlay" flat>
         <v-img :src="slide.photo" class="campaign" />
@@ -10,7 +10,7 @@
             </v-card-title>
             <v-card-text>
               {{ slide.problem }}
-              <v-row no-gutters justify="space-between">
+              <v-row no-gutters justify="space-between" class="mt-3">
                 <v-col class="pb-1">
                   <p class="subtitle">
                     {{ $t('home.slideshow.collected') }}
@@ -63,16 +63,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import { Swiper, SwiperSlide } from 'vue-awesome-swiper';
-import { SwiperOptions } from 'swiper'; // eslint-disable-line import/named
-import 'swiper/css/swiper.css';
 
 import gql from 'graphql-tag';
 
 export default Vue.extend({
   components: {
-    Swiper,
-    SwiperSlide,
   },
   apollo: {
     campaigns: {
@@ -100,14 +95,6 @@ export default Vue.extend({
   },
   data () {
     return {
-      swiperOptions: {
-        slidesPerView: 'auto',
-        spaceBetween: 30,
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-      } as SwiperOptions,
       campaigns: '',
     };
   },
@@ -126,7 +113,6 @@ export default Vue.extend({
   overflow-x: scroll;
   overflow-y: hidden;
   overflow: auto;
-
 }
 
 .overlay {
