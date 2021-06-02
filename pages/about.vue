@@ -20,7 +20,7 @@
       </v-row>
       <Employees v-if="employees" :employees="employees" class="mt-7" />
       <Certificates :certificates="certificates" />
-      <Documents />
+      <Documents class="mt-5" />
       <Contacts />
     </v-card>
   </v-container>

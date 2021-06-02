@@ -7,7 +7,7 @@
       position="center top"
       @click="overlay = !overlay"
     />
-    <p class="mt-3">
+    <p class="mt-5">
       {{ name }}
     </p>
     <v-overlay :value="overlay">

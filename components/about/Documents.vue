@@ -6,6 +6,7 @@
     <v-row
       v-for="(document, i) in documents"
       :key="i"
+      class="mt-3"
       no-gutters
     >
       <v-col>

@@ -4,7 +4,7 @@
       {{ $t('about.certificates') }}
     </h2>
 
-    <v-row>
+    <v-row class="mt-3">
       <v-col
         v-for="certificate in certificates"
         :key="certificate.name"
