@@ -2,7 +2,7 @@
   <v-container class="mt-10">
     <v-card
       flat
-      class="pa-7 about-card"
+      class="pa-7 about-card mb-10"
     >
       <v-row>
         <v-col>
