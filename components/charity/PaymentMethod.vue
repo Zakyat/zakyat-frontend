@@ -76,6 +76,7 @@
             <Contacts @user="getUserData" />
             <v-row
               justify="space-between"
+              align="center"
             >
               <v-col
                 cols="12"
@@ -90,8 +91,8 @@
                     <span class="black--text">
                         Я принимаю
                       <nuxt-link to="/terms" color="primary">
-                        {{ $t('charity.contacts.terms_conditions.terms') }}
-                      </nuxt-link>,
+                        {{ $t('charity.contacts.terms_conditions.terms') }},
+                      </nuxt-link>
                       <nuxt-link to="/personal-data-processing" color="primary">
                         условия соглашения
                       </nuxt-link>
@@ -200,8 +201,8 @@
                 <span class="black--text">
                     Я принимаю
                   <nuxt-link to="/terms" color="primary" target="_blank">
-                    {{ $t('charity.contacts.terms_conditions.terms') }}
-                  </nuxt-link>,
+                    {{ $t('charity.contacts.terms_conditions.terms') }},
+                  </nuxt-link>
                   <nuxt-link to="/personal-data-processing" color="primary" target="_blank">
                     условия соглашения
                   </nuxt-link>
@@ -435,7 +436,13 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style>
+.v-messages {
+  min-height: 0 !important;
+}
+.v-input__slot {
+  margin-bottom: 0;
+}
 .payment-tabs {
   border: 1px solid black;
   border-radius: 30px;
