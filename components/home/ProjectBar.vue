@@ -21,7 +21,7 @@
         class="d-flex"
       >
         <v-card class="ma-4 project flex" outlined color="#F2F2F2" :to="`projects/#${item.frontId}`">
-          <v-card-title style="word-break: normal;">
+          <v-card-title style="word-break: normal; font-size: 22px;">
             {{ item.title }}
           </v-card-title>
           <v-card-text class="text-center" style="position: absolute; bottom: 0;">
