@@ -19,6 +19,7 @@
       <v-text-field
         :placeholder="$t('charity.contacts.email')"
         v-model="email"
+        :onchange="userData()"
         rounded
         flat
         outlined
@@ -36,6 +37,7 @@
         <v-text-field
           :placeholder="$t('charity.contacts.lastName')"
           v-model="lastName"
+          :onchange="userData()"
           rounded
           flat
           outlined
@@ -54,6 +56,8 @@
           color="grey"
           dense
           class="mt-3"
+          required
+          :rules="rules.phone"
         />
       </v-col>
   </v-row>
@@ -74,7 +78,8 @@ export default Vue.extend({
       rules: {
         name: [val => (val || '').length > 0 || 'Заполните это поле'],
         lastName: [val => (val || '').length > 0 || 'Заполните это поле'],
-        email: [val => (val || '').length > 0 || 'Заполните это поле'],
+        email: [val => ((val || '').length > 0 && /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(String(val || ''))) || 'Проверьте правильность заполнения этого поля'],
+        phone: [val => ((val || '').length > 0 && /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im.test(String(val || ''))) || 'Проверьте правильность заполнения этого поля'],
       },
     };
   },
