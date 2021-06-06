@@ -27,7 +27,7 @@
             height="200px"
             :src="item.image"
           />
-          <v-card-title style="word-break: normal; line-height: 25px; font-weight: bold;">
+          <v-card-title style="word-break: normal; line-height: 25px; font-weight: bold; padding-bottom: 8px;">
             <div class="title" style="line-height: 20px;">
               {{ item.title }}
             </div>
