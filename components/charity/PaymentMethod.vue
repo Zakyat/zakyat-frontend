@@ -129,6 +129,15 @@
                 </v-btn>
               </v-col>
             </v-row>
+            <v-alert
+              v-if="wrongAmount"
+              dense
+              outlined
+              type="error"
+              class="mt-3"
+            >
+              {{ wrongAmount }}
+            </v-alert>
           </v-card>
           <v-card
             flat
@@ -250,6 +259,7 @@
           dense
           outlined
           type="error"
+          class="mt-3"
         >
           {{ wrongAmount }}
         </v-alert>
