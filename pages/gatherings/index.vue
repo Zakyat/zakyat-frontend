@@ -145,6 +145,11 @@ export default Vue.extend({
 
 <style lang="scss">
 .card-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+
   @media screen and (max-width: 960px) {
     padding: 0 !important;
   }
