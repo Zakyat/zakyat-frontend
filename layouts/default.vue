@@ -66,6 +66,18 @@ export default Vue.extend({
   max-width: 1440px;
   background-color: #f2f2f2;
   margin: 0 auto;
+
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  div {
+    word-break: normal !important;
+  }
 }
 
 .app {

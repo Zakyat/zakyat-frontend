@@ -38,8 +38,20 @@ export default Vue.extend({
 });
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 h1 {
   font-size: 20px;
+
+  p,
+  span,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  div {
+    word-break: normal !important;
+  }
 }
 </style>

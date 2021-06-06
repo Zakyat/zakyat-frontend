@@ -96,6 +96,7 @@ export default Vue.extend({
   -webkit-box-orient: vertical;
   overflow: hidden;
   height: 110px;
+  word-break: normal !important;
 }
 
 .news-card .title {
@@ -104,5 +105,6 @@ export default Vue.extend({
   -webkit-box-orient: vertical;
   overflow: hidden;
   height: 60px;
+  word-break: normal !important;
 }
 </style>
