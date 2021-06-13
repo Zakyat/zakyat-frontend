@@ -48,7 +48,7 @@
           -
         </v-flex>
         <v-flex lg3 class="text">
-          {{ transaction.transactionType }}
+          {{ transaction.transactionType === 'Напрямую' ? 'Садака' : transaction.transactionType }}
         </v-flex>
         <v-flex lg1 class="text-right text" style="font-weight: bold;">
           {{ transaction.amount | rubles }}
