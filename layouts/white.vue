@@ -57,7 +57,17 @@ export default Vue.extend({
   },
 
   head () {
-    return this.$nuxtI18nSeo();
+    return {
+      title: 'Закят',
+      meta: [
+        // hid is used as unique identifier. Do not use `vmid` for it as it will not work
+        {
+          hid: 'description',
+          name: 'Благотворительный фонд "Закят"',
+          content: 'Духовного управления мусульман Республики Татарстан'
+        }
+      ]
+    };
   },
 });
 </script>
