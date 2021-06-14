@@ -39,6 +39,9 @@ import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'Expenses',
+  head: {
+    title: 'Отчеты | Благотворительный фонд "Закят"',
+  },
   components: {
     Needly,
     // Spending,

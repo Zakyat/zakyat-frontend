@@ -121,3 +121,11 @@
 
   </v-container>
 </template>
+
+<script>
+  export default {
+    head: {
+      title: 'Условия публичной оферты | Благотворительный фонд "Закят"',
+    },
+  }
+</script>

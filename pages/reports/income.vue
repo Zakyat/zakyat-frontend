@@ -73,6 +73,9 @@ import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'Income',
+  head: {
+    title: 'Отчеты | Благотворительный фонд "Закят"',
+  },
   props: {
     // totalMoneyCollected: {
     //   type: Number,

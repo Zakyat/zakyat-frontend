@@ -27,6 +27,9 @@ import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'Index',
+  head: {
+    title: 'Проекты | Благотворительный фонд "Закят"',
+  },
   components: {
     SchoolCard,
     TaxiCard,

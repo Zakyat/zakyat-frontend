@@ -22,6 +22,9 @@ import OtherNews from '@/components/news/_id/OtherNews.vue';
 import gql from 'graphql-tag';
 
 export default Vue.extend({
+  head: {
+    title: 'Новость | Благотворительный фонд "Закят"',
+  },
   components: {
     SpecificNewsCard,
     OtherNews,

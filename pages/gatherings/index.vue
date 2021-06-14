@@ -111,6 +111,9 @@ import Vue from 'vue';
 import gql from 'graphql-tag';
 
 export default Vue.extend({
+  head: {
+    title: 'Сборы | Благотворительный фонд "Закят"',
+  },
   apollo: {
     campaigns: {
       query: gql`

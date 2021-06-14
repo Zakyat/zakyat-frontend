@@ -66,6 +66,9 @@ import gql from 'graphql-tag';
 
 export default Vue.extend({
   name: 'Reports',
+  head: {
+    title: 'Отчеты | Благотворительный фонд "Закят"',
+  },
   apollo: {
     transactions: {
       query: gql` query {

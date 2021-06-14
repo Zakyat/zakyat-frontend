@@ -27,6 +27,9 @@ import gql from 'graphql-tag';
 
 export default {
   name: 'PaymentSuccess',
+  head: {
+    title: 'Успешная оплата | Благотворительный фонд "Закят"',
+  },
   data () {
     return {
       transaction: '',

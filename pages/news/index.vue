@@ -18,6 +18,9 @@ import NewsList from '@/components/news/NewsList.vue';
 import Sadaka from '@/components/news/Sadaka.vue';
 
 export default Vue.extend({
+  head: {
+    title: 'Новости | Благотворительный фонд "Закят"',
+  },
   components: {
     Sadaka,
     NewsList,

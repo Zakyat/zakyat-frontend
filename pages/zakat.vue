@@ -33,6 +33,9 @@ export default Vue.extend({
     ZakatCalculator,
     ZakatAbout,
   },
+  head: {
+    title: 'Закят | Благотворительный фонд "Закят"',
+  },
 });
 </script>
 

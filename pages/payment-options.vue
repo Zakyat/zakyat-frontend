@@ -30,9 +30,12 @@
 </template>
 
 <script>
-    export default {
-        name: "payment-options"
-    }
+export default {
+  name: "payment-options",
+  head: {
+    title: 'Способы оплаты | Благотворительный фонд "Закят"',
+  },
+}
 </script>
 
 <style scoped>

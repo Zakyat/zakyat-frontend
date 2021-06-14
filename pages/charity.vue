@@ -44,5 +44,8 @@ export default Vue.extend({
       this.isAnonymous = !this.isAnonymous;
     },
   },
+  head: {
+    title: `Пожертвование | Благотворительный фонд "Закят"`,
+  },
 });
 </script>

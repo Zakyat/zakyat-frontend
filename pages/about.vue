@@ -41,6 +41,9 @@ export default Vue.extend({
     Certificates,
     Contacts,
   },
+  head: {
+    title: `О Фонде | Благотворительный фонд "Закят"`,
+  },
   apollo: {
     employees: {
       query: gql`

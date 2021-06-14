@@ -33,6 +33,9 @@ export default Vue.extend({
     Subscriptions,
     ProfileMain,
   },
+  head: {
+    title: 'Профиль | Благотворительный фонд "Закят"',
+  },
   data () {
     return {
       me: Object,

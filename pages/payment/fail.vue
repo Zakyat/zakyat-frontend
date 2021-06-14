@@ -19,6 +19,9 @@ import gql from 'graphql-tag';
 
 export default {
   name: 'PaymentFail',
+  head: {
+    title: 'Ошибка при оплате | Благотворительный фонд "Закят"',
+  },
   data () {
     return {
       transaction: '',
