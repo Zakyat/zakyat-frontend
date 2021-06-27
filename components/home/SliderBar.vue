@@ -1,5 +1,5 @@
-<template>
-    <Swiper :options="swiperOptions" v-if="campaigns && campaigns.filter(item => item.isActive).length > 1">
+<template v-if="campaigns">
+    <Swiper :options="swiperOptions" v-if="campaigns.filter(item => item.isActive).length > 1">
       <SwiperSlide
         v-for="(slide, i) in campaigns.filter(item => item.isActive)"
         :key="i"

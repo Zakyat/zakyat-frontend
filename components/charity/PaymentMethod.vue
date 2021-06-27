@@ -352,7 +352,7 @@ export default Vue.extend({
   },
   computed: {
     donationType () {
-      return this.$route.query.type ? parseInt(this.$route.query.type) : 2;
+      return this.$route.query.type ? parseInt(this.$route.query.type) : (this.$route.query.id === '-1' ? 0 : 2);
     },
 
     paymentMethods () {
