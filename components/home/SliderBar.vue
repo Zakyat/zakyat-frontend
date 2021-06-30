@@ -1,4 +1,4 @@
-<template v-if="campaigns">
+<template>
     <Swiper :options="swiperOptions" v-if="campaigns.filter(item => item.isActive).length > 1">
       <SwiperSlide
         v-for="(slide, i) in campaigns.filter(item => item.isActive)"
@@ -93,78 +93,80 @@
       </v-btn>
     </Swiper>
     <div class="container" style="max-width: 1000px;" v-else>
-      <div v-for="(slide, i) in campaigns.filter(item => item.isActive)" :key="i">
-        <v-img :src="slide.photo" class="background" style="height: 440px;">
-          <v-card class="overlay" flat>
-            <v-row class="slide">
-              <v-col cols="9">
-                <v-card-title class="pb-0">
-                  {{ slide.title }}
-                </v-card-title>
-                <v-card-text>
-                  {{ slide.problem }}
-                  <v-row no-gutters justify="space-between" class="mt-3">
-                    <v-col class="pb-1">
-                      <p class="subtitle">
-                        {{ $t('home.slideshow.collected') }}
-                      </p>
-                      <p class="font-weight-bold mb-0">
-                        {{ slide.moneyCollected | rubles }}
-                      </p>
-                    </v-col>
-                    <v-spacer />
-                    <v-col class="pb-1">
-                      <p class="subtitle">
-                        {{ $t('home.slideshow.remaining') }}
-                      </p>
-                      <p class="font-weight-bold mb-0">
-                        {{ slide.goal - slide.moneyCollected | rubles }}
-                      </p>
-                    </v-col>
-                    <v-spacer />
-                    <v-col class="pb-1 text-right">
-                      <p class="subtitle">
-                        {{ $t('home.slideshow.required') }}
-                      </p>
-                      <p class="font-weight-bold mb-0">
-                        {{ slide.goal | rubles }}
-                      </p>
+      <div v-if="campaigns">
+        <div v-for="(slide, i) in campaigns.filter(item => item.isActive)" :key="i">
+          <v-img :src="slide.photo" class="background" style="height: 440px;">
+            <v-card class="overlay" flat>
+              <v-row class="slide">
+                <v-col cols="9">
+                  <v-card-title class="pb-0">
+                    {{ slide.title }}
+                  </v-card-title>
+                  <v-card-text>
+                    {{ slide.problem }}
+                    <v-row no-gutters justify="space-between" class="mt-3">
+                      <v-col class="pb-1">
+                        <p class="subtitle">
+                          {{ $t('home.slideshow.collected') }}
+                        </p>
+                        <p class="font-weight-bold mb-0">
+                          {{ slide.moneyCollected | rubles }}
+                        </p>
+                      </v-col>
+                      <v-spacer />
+                      <v-col class="pb-1">
+                        <p class="subtitle">
+                          {{ $t('home.slideshow.remaining') }}
+                        </p>
+                        <p class="font-weight-bold mb-0">
+                          {{ slide.goal - slide.moneyCollected | rubles }}
+                        </p>
+                      </v-col>
+                      <v-spacer />
+                      <v-col class="pb-1 text-right">
+                        <p class="subtitle">
+                          {{ $t('home.slideshow.required') }}
+                        </p>
+                        <p class="font-weight-bold mb-0">
+                          {{ slide.goal | rubles }}
+                        </p>
+                      </v-col>
+                    </v-row>
+                    <v-progress-linear
+                      height="5"
+                      rounded
+                      background-color="#DADADA"
+                      :value="100*slide.moneyCollected/slide.goal"
+                    />
+                  </v-card-text>
+                </v-col>
+                <v-col cols="2" style="margin-left: 20px;">
+                  <v-row justify="end" class="d-none d-lg-flex">
+                    <v-col cols="auto">
+                      <v-progress-circular
+                        rotate="-90"
+                        color="primary"
+                        background-color="#DADADA"
+                        size="60"
+                        class="font-weight-bold text-h6"
+                        :value="100*slide.moneyCollected/slide.goal"
+                      >
+                        {{ Math.floor(100 * slide.moneyCollected / slide.goal) }}%
+                      </v-progress-circular>
                     </v-col>
                   </v-row>
-                  <v-progress-linear
-                    height="5"
-                    rounded
-                    background-color="#DADADA"
-                    :value="100*slide.moneyCollected/slide.goal"
-                  />
-                </v-card-text>
-              </v-col>
-              <v-col cols="2" style="margin-left: 20px;">
-                <v-row justify="end" class="d-none d-lg-flex">
-                  <v-col cols="auto">
-                    <v-progress-circular
-                      rotate="-90"
-                      color="primary"
-                      background-color="#DADADA"
-                      size="60"
-                      class="font-weight-bold text-h6"
-                      :value="100*slide.moneyCollected/slide.goal"
-                    >
-                      {{ Math.floor(100 * slide.moneyCollected / slide.goal) }}%
-                    </v-progress-circular>
-                  </v-col>
-                </v-row>
-                <v-row justify="end">
-                  <v-col cols="auto">
-                    <v-btn rounded depressed nuxt :to="`/charity?id=${slide.id}`" color="primary">
-                      {{ $t('home.slideshow.donate') }}
-                    </v-btn>
-                  </v-col>
-                </v-row>
-              </v-col>
-            </v-row>
-          </v-card>
-        </v-img>
+                  <v-row justify="end">
+                    <v-col cols="auto">
+                      <v-btn rounded depressed nuxt :to="`/charity?id=${slide.id}`" color="primary">
+                        {{ $t('home.slideshow.donate') }}
+                      </v-btn>
+                    </v-col>
+                  </v-row>
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-img>
+        </div>
       </div>
     </div>
 </template>
