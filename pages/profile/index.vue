@@ -66,9 +66,7 @@ export default Vue.extend({
             },
             transactions {
               id,
-              payment {
-                status,
-              },
+              status
               transactionType,
               amount,
               createAt,

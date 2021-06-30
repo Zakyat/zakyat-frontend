@@ -76,7 +76,7 @@
       md="3"
       class="apply-changes"
     >
-      <v-btn text color="primary" class="change" @click="updateUser()">
+      <v-btn text color="primary" class="change" @click="updateUser">
         Сохраненить <br>
         изменения
       </v-btn>
@@ -115,11 +115,11 @@ export default {
     };
   },
   methods: {
-    updateUser () {
+    updateUser() {
       this.$apollo.mutate({
         mutation: gql`
-          mutation updateUser ($firstName: String!, $email: String!) {
-            updateUser(firstName: $firstName, email: $email){
+          mutation updateUser ($firstName: String, $lastName: String, $email: String) {
+            updateUser(firstName: $firstName, lastName: $lastName, email: $email){
               ok,
               errors
               user {

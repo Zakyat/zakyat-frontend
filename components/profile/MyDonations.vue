@@ -47,7 +47,7 @@
         class="pl-5"
       >
         <!--        <v-col cols="auto" class="py-0"></v-col>-->
-        <v-col v-if="donation.payment">{{ donation.payment.status ? 'В Обработке'  : 'Получено'}}</v-col>
+        <v-col v-if="donation.status">{{ donation.status ? 'В Обработке'  : 'Получено'}}</v-col>
         <v-col v-else>-</v-col>
         <v-col>{{ donation.transactionType }}</v-col>
         <v-col>{{ donation.amount }}<b>$</b></v-col>
