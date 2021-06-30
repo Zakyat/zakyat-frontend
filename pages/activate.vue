@@ -6,7 +6,7 @@
         <div class="text-center">
           <h1>Спасибо!</h1>
           <p class="my-0">
-            Ваша почта <b>"email"</b> успешно подтверждена!
+            Ваша почта успешно подтверждена!
           </p>
         </div>
       </div>
@@ -15,9 +15,34 @@
 </template>
 
 <script>
-    export default {
-        name: "activate"
+  import gql from "graphql-tag";
+
+  export default {
+    name: "activate",
+    data () {
+      return {
+        routeParams: this.$route.params,
+      };
+    },
+    mounted() {
+      console.log(this.routeParams.token);
+      console.log(this.routeParams.uidb64);
+      this.$apollo.mutate({
+        mutation: gql`
+          mutation ($token: String!, $uidb64: String!) {
+            activate (token: $token, uidb64: $uidb64) {
+              ok
+              errors
+            }
+          }
+        `,
+        variables: {
+          token: this.routeParams.token,
+          uidb64: this.routeParams.uidb64,
+        },
+      });
     }
+  }
 </script>
 
 <style scoped>
