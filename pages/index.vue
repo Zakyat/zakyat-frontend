@@ -54,7 +54,7 @@ export default Vue.extend({
       {
         hid: 'description',
         name: 'description',
-        content: 'my website description'
+        content: 'Официальный сайт благотвторительного фонда "Закят"'
       }
     ],
   }
