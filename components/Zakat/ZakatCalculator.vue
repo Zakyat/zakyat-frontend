@@ -19,7 +19,7 @@
     <v-list-item class="mt-n8">
       <v-list-item-content>
         <v-list-item-title class="font-weight-medium">
-          {{ $t('zakat.calculator.nisab_for') }} {{ updateDate.toLocaleDateString($i18n.locale) }}
+          {{ $t('zakat.calculator.nisab_for') }} {{ siteSettings.nisabDate }}
         </v-list-item-title>
         <v-list-item-subtitle class="green--text">
           {{ $t('zakat.calculator.acording_to') }}
@@ -27,7 +27,7 @@
       </v-list-item-content>
       <v-list-item-action>
         <v-list-item-title class="font-weight-medium">
-          {{ nisab | rubles }}
+          {{ siteSettings.nisabPrice | rubles }}
         </v-list-item-title>
       </v-list-item-action>
     </v-list-item>
@@ -45,14 +45,14 @@
       </v-list-item-content>
       <v-list-item-action>
         <v-list-item-title class="font-weight-black">
-          {{ input > nisab ? 0.025 * input : 0 | rubles }}
+          {{ input > siteSettings.nisabPrice ? 0.025 * input : 0 | rubles }}
         </v-list-item-title>
       </v-list-item-action>
     </v-list-item>
     <v-card-actions class="ma-2">
       <v-btn
         rounded
-        :disabled="input < nisab"
+        :disabled="input < siteSettings.nisabPrice"
         block
         color="primary"
         large
@@ -66,6 +66,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from "graphql-tag";
 
 export default Vue.extend({
   data () {
@@ -74,7 +75,16 @@ export default Vue.extend({
       nisab: 310000,
       input: null,
       updateDate: new Date(2021, 3, 7),
+      siteSettings: '',
     };
+  },
+  apollo: {
+    siteSettings: gql`query{
+      siteSettings {
+        nisabPrice
+        nisabDate
+      }
+    }`,
   },
 });
 </script>
