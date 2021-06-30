@@ -2,54 +2,59 @@
   <div class="mt-5">
     <h2>Ваши подписки</h2>
 
-    <v-row
-      align="center"
-      class="pl-5"
-    >
-      <v-col><p>Сумма</p></v-col>
-      <v-col><p>Период</p></v-col>
-      <v-col><p>Назначение платежа</p></v-col>
-      <v-col><p>Способ платежа</p></v-col>
-      <v-col></v-col>
-    </v-row>
-    <v-card
-      class="subscription pr-5 py-0 mb-3"
-      flat
-      rounded
-      outlined
-      v-for="sub in subs"
-      :key="sub.id"
-    >
-      <div class="green"></div>
+    <div v-if="subs.length > 0">
       <v-row
         align="center"
         class="pl-5"
       >
-<!--        <v-col cols="auto" class="py-0"></v-col>-->
-        <v-col>{{ sub.amount }}<b>$</b></v-col>
-        <v-col>{{ sub.type }}</v-col>
-        <v-col class="" v-if="sub.campaign">
-          {{ sub.campaign.title }}
-          <br>
-          <p class="sbor">
-            {{ sub.campaign.title }}
-          </p>
-        </v-col>
-        <v-col v-else>
-          Без сбора
-          <br>
-          <p class="sbor">
-            -
-          </p>
-        </v-col>
-        <v-col>Master card *2324</v-col>
-        <v-col>
-          <v-btn depressed text  class="change-avatar">
-            Отменить подписку
-          </v-btn>
-        </v-col>
+        <v-col><p>Сумма</p></v-col>
+        <v-col><p>Период</p></v-col>
+        <v-col><p>Назначение платежа</p></v-col>
+        <v-col><p>Способ платежа</p></v-col>
+        <v-col></v-col>
       </v-row>
-    </v-card>
+      <v-card
+        class="subscription pr-5 py-0 mb-3"
+        flat
+        rounded
+        outlined
+        v-for="sub in subs"
+        :key="sub.id"
+      >
+        <div class="green"></div>
+        <v-row
+          align="center"
+          class="pl-5"
+        >
+          <!--        <v-col cols="auto" class="py-0"></v-col>-->
+          <v-col>{{ sub.amount }}<b>$</b></v-col>
+          <v-col>{{ sub.type }}</v-col>
+          <!--        <v-col class="" v-if="sub.campaign">-->
+          <!--          {{ sub.campaign.title }}-->
+          <!--          <br>-->
+          <!--          <p class="sbor">-->
+          <!--            {{ sub.campaign.title }}-->
+          <!--          </p>-->
+          <!--        </v-col>-->
+          <!--        <v-col v-else>-->
+          <!--          Без сбора-->
+          <!--          <br>-->
+          <!--          <p class="sbor">-->
+          <!--            - -->
+          <!--          </p>-->
+          <!--        </v-col>-->
+          <v-col>Master card *2324</v-col>
+          <v-col>
+            <v-btn depressed text  class="change-avatar">
+              Отменить подписку
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-card>
+    </div>
+    <div v-else>
+      Подписок пока нет
+    </div>
   </div>
 </template>
 

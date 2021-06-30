@@ -120,8 +120,8 @@ export default Vue.extend({
   methods: {
     rubles,
     logout () {
+      this.$router.push('/');
       this.$apolloHelpers.onLogout();
-      this.$router.go(0);
     },
     closeAuth () {
       this.authDialog = !this.authDialog;

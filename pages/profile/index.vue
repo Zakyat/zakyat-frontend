@@ -50,19 +50,12 @@ export default Vue.extend({
             firstName,
             lastName,
             email,
+            isActive
             subscriptions {
               id,
               active,
               amount,
               type,
-              campaign {
-                id
-                title,
-                project {
-                  id,
-                  title,
-                }
-              }
             },
             transactions {
               id,
@@ -70,6 +63,7 @@ export default Vue.extend({
               transactionType,
               amount,
               createAt,
+              paymentType
               campaign {
                 id
                 title,
@@ -79,7 +73,6 @@ export default Vue.extend({
                 }
               },
             },
-            isActive
           }
         }
       `,
