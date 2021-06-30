@@ -28,23 +28,23 @@
     </v-btn>
 
 <!--    Authentication-->
-<!--    <v-btn v-if="!this.$apolloHelpers.getToken()" text small @click="authDialog = !authDialog">-->
-<!--      <v-icon color="white" size="20">-->
-<!--        mdi-account-circle-->
-<!--      </v-icon>-->
-<!--      {{ $t('login') }}-->
-<!--    </v-btn>-->
-<!--    <div v-if="this.$apolloHelpers.getToken()">-->
-<!--      <v-btn text small to="/profile">-->
-<!--        <v-icon color="white" size="20">-->
-<!--          mdi-account-circle-->
-<!--        </v-icon>-->
-<!--        ЛК-->
-<!--      </v-btn>-->
-<!--      <v-btn text small @click="logout()">-->
-<!--        Выйти-->
-<!--      </v-btn>-->
-<!--    </div>-->
+    <v-btn v-if="!this.$apolloHelpers.getToken()" text small @click="authDialog = !authDialog">
+      <v-icon color="white" size="20">
+        mdi-account-circle
+      </v-icon>
+      {{ $t('login') }}
+    </v-btn>
+    <div v-if="this.$apolloHelpers.getToken()">
+      <v-btn text small to="/profile">
+        <v-icon color="white" size="20">
+          mdi-account-circle
+        </v-icon>
+        ЛК
+      </v-btn>
+      <v-btn text small @click="logout()">
+        Выйти
+      </v-btn>
+    </div>
 
     <v-dialog
       v-model="authDialog"
