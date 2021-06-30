@@ -11,41 +11,41 @@
           {{ $t('auth.login.login') }}
         </v-btn>
       </v-row>
-      <p class="pt-2 mb-5 text-body-2">
+      <p class="pt-2 mt-5 mb-5 text-body-2">
         {{ $t('auth.registration.description') }}
       </p>
-      <v-row justify="space-between" class="mb-5">
-        <v-col cols="4">
-          <v-btn
-            color="rgba(0, 0, 0, 0.2)"
-            outlined
-            rounded
-            block
-          >
-            <img src="@/assets/images/social-icons/vk.svg" alt="vk">
-          </v-btn>
-        </v-col>
-        <v-col cols="4">
-          <v-btn
-            color="rgba(0, 0, 0, 0.2)"
-            outlined
-            rounded
-            block
-          >
-            <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">
-          </v-btn>
-        </v-col>
-        <v-col cols="4">
-          <v-btn
-            color="rgba(0, 0, 0, 0.2)"
-            outlined
-            rounded
-            block
-          >
-            <img src="@/assets/images/social-icons/google.svg" alt="google">
-          </v-btn>
-        </v-col>
-      </v-row>
+<!--      <v-row justify="space-between" class="mb-5">-->
+<!--        <v-col cols="4">-->
+<!--          <v-btn-->
+<!--            color="rgba(0, 0, 0, 0.2)"-->
+<!--            outlined-->
+<!--            rounded-->
+<!--            block-->
+<!--          >-->
+<!--            <img src="@/assets/images/social-icons/vk.svg" alt="vk">-->
+<!--          </v-btn>-->
+<!--        </v-col>-->
+<!--        <v-col cols="4">-->
+<!--          <v-btn-->
+<!--            color="rgba(0, 0, 0, 0.2)"-->
+<!--            outlined-->
+<!--            rounded-->
+<!--            block-->
+<!--          >-->
+<!--            <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">-->
+<!--          </v-btn>-->
+<!--        </v-col>-->
+<!--        <v-col cols="4">-->
+<!--          <v-btn-->
+<!--            color="rgba(0, 0, 0, 0.2)"-->
+<!--            outlined-->
+<!--            rounded-->
+<!--            block-->
+<!--          >-->
+<!--            <img src="@/assets/images/social-icons/google.svg" alt="google">-->
+<!--          </v-btn>-->
+<!--        </v-col>-->
+<!--      </v-row>-->
       <v-text-field
         v-model="email"
         type="email"

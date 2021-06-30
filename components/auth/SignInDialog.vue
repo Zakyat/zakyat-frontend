@@ -13,41 +13,41 @@
         {{ $t('auth.registration.register') }}
       </v-btn>
     </v-row>
-    <p class="pt-2 mb-0 text-body-2 mb-5">
+    <p class="pt-2 mt-5 mb-0 text-body-2 mb-5">
       {{ $t('auth.login.description') }}
     </p>
-    <v-row justify="space-between mb-5">
-      <v-col cols="4">
-        <v-btn
-          color="rgba(0, 0, 0, 0.2)"
-          outlined
-          rounded
-          block
-        >
-          <img src="@/assets/images/social-icons/vk.svg" alt="vk">
-        </v-btn>
-      </v-col>
-      <v-col cols="4">
-        <v-btn
-          color="rgba(0, 0, 0, 0.2)"
-          outlined
-          rounded
-          block
-        >
-          <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">
-        </v-btn>
-      </v-col>
-      <v-col cols="4">
-        <v-btn
-          color="rgba(0, 0, 0, 0.2)"
-          outlined
-          rounded
-          block
-        >
-          <img src="@/assets/images/social-icons/google.svg" alt="google">
-        </v-btn>
-      </v-col>
-    </v-row>
+<!--    <v-row justify="space-between mb-5">-->
+<!--      <v-col cols="4">-->
+<!--        <v-btn-->
+<!--          color="rgba(0, 0, 0, 0.2)"-->
+<!--          outlined-->
+<!--          rounded-->
+<!--          block-->
+<!--        >-->
+<!--          <img src="@/assets/images/social-icons/vk.svg" alt="vk">-->
+<!--        </v-btn>-->
+<!--      </v-col>-->
+<!--      <v-col cols="4">-->
+<!--        <v-btn-->
+<!--          color="rgba(0, 0, 0, 0.2)"-->
+<!--          outlined-->
+<!--          rounded-->
+<!--          block-->
+<!--        >-->
+<!--          <img src="@/assets/images/social-icons/instagram.svg" alt="instagram">-->
+<!--        </v-btn>-->
+<!--      </v-col>-->
+<!--      <v-col cols="4">-->
+<!--        <v-btn-->
+<!--          color="rgba(0, 0, 0, 0.2)"-->
+<!--          outlined-->
+<!--          rounded-->
+<!--          block-->
+<!--        >-->
+<!--          <img src="@/assets/images/social-icons/google.svg" alt="google">-->
+<!--        </v-btn>-->
+<!--      </v-col>-->
+<!--    </v-row>-->
     <v-text-field
       v-model="userInfo.email"
       type="email"
