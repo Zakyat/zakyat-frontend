@@ -42,7 +42,9 @@
         sm="6"
         lg="3"
       >
-        <img :src="partner.src">
+        <a :href="partner.link" target="_blank">
+          <img :src="partner.logo">
+        </a>
       </v-col>
     </v-row>
 <!--    <v-carousel v-model="currentPage" hide-delimiters :show-arrows="false" height="auto" style="overflow: auto;">-->
@@ -67,20 +69,35 @@
 
 <script lang="ts">
 import Vue from 'vue';
+import gql from 'graphql-tag';
 
 export default Vue.extend({
+  apollo: {
+    partners: gql`
+      query {
+        partners {
+          id
+          title
+          logo
+          link
+          sort
+        }
+      }
+    `,
+  },
   data () {
     return {
-      partners: [
-        { src: require('@/assets/images/partners/1.svg') },
-        { src: require('@/assets/images/partners/2.png') },
-        { src: 'http://zakyatrt.ru/wp-content/uploads/2014/09/logo_info_islam.png' },
-        { src: require('@/assets/images/partners/3.png') },
-        { src: require('@/assets/images/partners/4.png') },
-        { src: require('@/assets/images/partners/5.png') },
-        { src: require('@/assets/images/partners/6.png') },
-        { src: 'http://zakyatrt.ru/wp-content/uploads/2016/06/1-e1466931484244.jpg' },
-      ],
+      // partners: [
+      //   { src: require('@/assets/images/partners/1.svg') },
+      //   { src: require('@/assets/images/partners/2.png') },
+      //   { src: 'http://zakyatrt.ru/wp-content/uploads/2014/09/logo_info_islam.png' },
+      //   { src: require('@/assets/images/partners/3.png') },
+      //   { src: require('@/assets/images/partners/4.png') },
+      //   { src: require('@/assets/images/partners/5.png') },
+      //   { src: require('@/assets/images/partners/6.png') },
+      //   { src: 'http://zakyatrt.ru/wp-content/uploads/2016/06/1-e1466931484244.jpg' },
+      // ],
+      partners: [],
       perPage: 8,
       currentPage: 0,
     };
