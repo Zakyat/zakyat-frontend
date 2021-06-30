@@ -2,6 +2,8 @@
   <v-system-bar dark height="50" style="padding: 0 5%;">
 <!--    <img src="@/assets/images/heart.svg" class="ml-4 mr-3">-->
 <!--    <span class="white&#45;&#45;text">{{ $t('collected', [rubles(siteSettings.allCollectedMoney)]) }}</span>-->
+    <a :href="`mailto:${siteSettings.phone}`" class="white--text ml-5">{{ siteSettings.email }}</a>
+    <a :href="`tel:${siteSettings.phone}`" class="white--text ml-5">{{ siteSettings.phone }}</a>
     <v-spacer />
 
 <!--    Search-->
