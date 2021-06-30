@@ -16,31 +16,16 @@
 import Vue from 'vue';
 import NewsCard from '@/components/news/NewsCard.vue';
 
-import gql from 'graphql-tag';
-
 export default Vue.extend({
   name: 'NewsList',
   components: {
     NewsCard,
   },
-  apollo: {
-    posts: gql`query{
-      posts {
-        id,
-        image,
-        title,
-        description,
-        createdAt,
-        createdBy {
-          fullName
-        }
-      }
-    }`,
-  },
-  data () {
-    return {
-      posts: [],
-    };
+  props: {
+    posts: {
+      type: Array,
+      required: true,
+    },
   },
 });
 </script>
