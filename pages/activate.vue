@@ -16,7 +16,7 @@
 
 <script>
     export default {
-        name: "email-confirmation"
+        name: "activate"
     }
 </script>
 
