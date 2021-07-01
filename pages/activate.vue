@@ -19,14 +19,7 @@
 
   export default {
     name: "activate",
-    data () {
-      return {
-        routeParams: this.$route.params,
-      };
-    },
     mounted() {
-      console.log(this.routeParams.token);
-      console.log(this.routeParams.uidb64);
       this.$apollo.mutate({
         mutation: gql`
           mutation ($token: String!, $uidb64: String!) {
@@ -37,8 +30,8 @@
           }
         `,
         variables: {
-          token: this.routeParams.token,
-          uidb64: this.routeParams.uidb64,
+          token: this.$route.query.token,
+          uidb64: this.$route.query.uidb64,
         },
       });
     }
