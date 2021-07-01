@@ -220,7 +220,7 @@ export default Vue.extend({
         autoplay: true,
         delay: 3,
       } as SwiperOptions,
-      campaigns: '',
+      campaigns: [],
     };
   },
 });

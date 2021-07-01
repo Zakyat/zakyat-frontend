@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5">
+  <div class="mt-5" v-if="subs">
     <h2>Ваши подписки</h2>
 
     <div v-if="subs.length > 0">

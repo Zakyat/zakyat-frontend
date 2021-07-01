@@ -10,13 +10,17 @@
     <div class="app">
       <Loader />
     </div>
-    <HeaderBar :siteSettings="siteSettings" />
+    <div v-if="siteSettings">
+      <HeaderBar :siteSettings="siteSettings" />
+    </div>
     <NavBar />
     <v-divider />
     <v-main>
       <nuxt />
     </v-main>
-    <FooterBar :siteSettings="siteSettings" />
+    <div v-if="siteSettings">
+      <FooterBar :siteSettings="siteSettings" />
+    </div>
   </v-app>
 </template>
 
@@ -52,7 +56,7 @@ export default Vue.extend({
   },
   data () {
     return {
-      siteSettings: '',
+      siteSettings: Object,
     };
   },
   head () {

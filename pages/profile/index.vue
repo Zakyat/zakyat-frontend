@@ -12,9 +12,15 @@
       flat
       class="mt-5 pa-12"
     >
-      <ProfileMain :firstName="me.firstName" :lastName="me.lastName" :email="me.email" />
-      <Subscriptions :subs="me.subscriptions" />
-      <MyDonations :donations="me.transactions" />
+      <div v-if="me">
+        <ProfileMain :firstName="me.firstName" :lastName="me.lastName" :email="me.email" />
+      </div>
+      <div v-if="me.subscriptions">
+        <Subscriptions :subs="me.subscriptions" />
+      </div>
+      <div v-if="me.transactions">
+        <MyDonations :donations="me.transactions" />
+      </div>
     </v-card>
   </v-container>
 </template>
