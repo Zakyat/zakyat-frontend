@@ -243,7 +243,8 @@
               text
 
               @click="donate(
-                amount === 0 ? parseInt($route.query.amount) : amount, campaignId,
+                amount === 0 ? parseInt($route.query.amount) : amount,
+                campaignId,
                 description,
                 donationDays,
                 donationType,

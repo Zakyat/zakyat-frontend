@@ -2,43 +2,43 @@
   <v-container>
 
 <!--    Donation periods selection-->
-<!--    <v-row>-->
-<!--      <v-tabs-->
-<!--        v-model="tab"-->
-<!--        hide-slider-->
-<!--        grow-->
-<!--        centered-->
-<!--        center-active-->
-<!--        show-arrows-->
-<!--        class="payment-tabs pa-1"-->
-<!--        :onchange="selectDays()"-->
-<!--      >-->
-<!--        <v-tab-->
-<!--          v-for="{ title } in donationTabs"-->
-<!--          :key="title"-->
-<!--          class="payment-tab"-->
-<!--          active-class="payment-tab-primary"-->
-<!--        >-->
-<!--          {{ title }}-->
-<!--        </v-tab>-->
-<!--      </v-tabs>-->
+    <v-row class="mt-5" v-if="this.$apolloHelpers.getToken()">
+      <v-tabs
+        v-model="tab"
+        hide-slider
+        grow
+        centered
+        center-active
+        show-arrows
+        class="payment-tabs pa-1"
+        :onchange="selectDays()"
+      >
+        <v-tab
+          v-for="{ title } in donationTabs"
+          :key="title"
+          class="payment-tab"
+          active-class="payment-tab-primary"
+        >
+          {{ title }}
+        </v-tab>
+      </v-tabs>
 
-<!--      <v-tabs-items v-model="tab" class="mt-3">-->
-<!--        <v-tab-item-->
-<!--          v-for="{title, description} in donationTabs"-->
-<!--          :key="title"-->
-<!--        >-->
-<!--          <v-card flat>-->
-<!--            <v-card-text-->
-<!--              class="pa-0 ma-0"-->
-<!--              style="color: black;"-->
-<!--            >-->
-<!--              {{ description }}-->
-<!--            </v-card-text>-->
-<!--          </v-card>-->
-<!--        </v-tab-item>-->
-<!--      </v-tabs-items>-->
-<!--    </v-row>-->
+      <v-tabs-items v-model="tab" class="mt-3">
+        <v-tab-item
+          v-for="{title, description} in donationTabs"
+          :key="title"
+        >
+          <v-card flat>
+            <v-card-text
+              class="pa-0 ma-0"
+              style="color: black;"
+            >
+              {{ description }}
+            </v-card-text>
+          </v-card>
+        </v-tab-item>
+      </v-tabs-items>
+    </v-row>
 
     <v-row class="mt-2">
       <v-col
