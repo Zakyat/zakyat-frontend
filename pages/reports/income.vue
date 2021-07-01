@@ -4,7 +4,7 @@
 <!--      <span class="subtitle">{{ $t('reports.income.subtitle') }}</span>-->
       <span class="subtitle">Всего собрано</span>
       <v-spacer />
-      <span class="subtitle">{{ transactions[0].totalSum | rubles }}</span>
+      <span class="subtitle">{{ transactions.length !== 0 ? transactions[0].totalSum : 0 | rubles }}</span>
     </v-row>
     <div class="table">
       <v-row style="padding: 30px 10px 10px; min-width: 900px; margin: 0;">
