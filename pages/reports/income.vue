@@ -4,7 +4,7 @@
 <!--      <span class="subtitle">{{ $t('reports.income.subtitle') }}</span>-->
       <span class="subtitle">Всего собрано</span>
       <v-spacer />
-      <span class="subtitle">{{ totalMoneyCollected | rubles }}</span>
+      <span class="subtitle">{{ transactions[0].totalSum | rubles }}</span>
     </v-row>
     <div class="table">
       <v-row style="padding: 30px 10px 10px; min-width: 900px; margin: 0;">
@@ -56,14 +56,14 @@
       </v-row>
     </div>
     </div>
-    <v-row class="text-center mt-6 text-black" v-if="totalTransactionPages > 1">
-      <v-pagination
-        v-model="page"
-        :length="totalTransactionPages"
-        :total-visible="6"
-        circle
-      />
-    </v-row>
+<!--    <v-row class="text-center mt-6 text-black" v-if="totalTransactionPages > 1">-->
+<!--      <v-pagination-->
+<!--        v-model="page"-->
+<!--        :length="totalTransactionPages"-->
+<!--        :total-visible="6"-->
+<!--        circle-->
+<!--      />-->
+<!--    </v-row>-->
   </v-main>
 </template>
 
@@ -101,13 +101,14 @@ export default Vue.extend({
   },
   apollo: {
     transactions: {
-      query: gql` query transactions ($limit: Int, $offset: Int, $isSuccess: Boolean) {
-        transactions (limit: $limit, offset: $offset, isSuccess: $isSuccess) {
+      query: gql` query transactions ( $isSuccess: Boolean) {
+        transactions ( isSuccess: $isSuccess) {
           id
           fullName
           amount
           createAt
           transactionType
+          totalSum
           campaign {
             title
           }
@@ -115,8 +116,8 @@ export default Vue.extend({
       }`,
       variables () {
         return {
-          limit: this.itemsOnPage,
-          offset: (this.page - 1) * this.itemsOnPage,
+          // limit: this.itemsOnPage,
+          // offset: (this.page - 1) * this.itemsOnPage,
           isSuccess: true,
         };
       },
