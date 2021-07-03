@@ -1,9 +1,11 @@
 <template>
-  <v-system-bar dark height="50" style="padding: 0 5%;">
+  <v-system-bar dark style="padding: 0 5%; height: auto; min-height: 50px; flex-wrap: wrap;">
 <!--    <img src="@/assets/images/heart.svg" class="ml-4 mr-3">-->
 <!--    <span class="white&#45;&#45;text">{{ $t('collected', [rubles(siteSettings.allCollectedMoney)]) }}</span>-->
-    <a :href="`mailto:${siteSettings.phone}`" class="white--text ml-5">{{ siteSettings.email }}</a>
-    <a :href="`tel:${siteSettings.phone}`" class="white--text ml-5">{{ siteSettings.phone }}</a>
+    <div style="font-size: 13px">
+      <a :href="`mailto:${siteSettings.phone}`" class="white--text">{{ siteSettings.email }}</a>
+      <a :href="`tel:${siteSettings.phone}`" class="white--text ml-5">{{ siteSettings.phone }}</a>
+    </div>
     <v-spacer />
 
 <!--    Search-->
