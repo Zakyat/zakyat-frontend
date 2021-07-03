@@ -16,7 +16,7 @@
           </v-btn>
         </div>
       </v-col>
-      <v-col cols="12" md="6" class="text-right">
+      <v-col cols="12" md="6" class="text-right" style="padding-left: 12px; padding-right: 12px;">
 <!--        <iframe-->
 <!--          width="98%"-->
 <!--          height="100%"-->
@@ -27,7 +27,6 @@
 <!--          class="py-6"-->
 <!--        />-->
         <v-img
-          width="570"
           style="border-radius: 10px;"
           :src="require('@/assets/images/about/cover.png')"
         />

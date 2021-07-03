@@ -1,10 +1,10 @@
 <template>
-  <v-container style="max-width: 100%; padding: 80px 6% 64px;">
-    <v-row>
+  <v-container style="max-width: 100%; padding: 80px 5% 64px;">
+    <v-row style="margin-left: 12px !important; margin-right: 12px !important;">
       <span>{{ $t('home.projects.title') }}</span>
       <v-spacer />
       <span>
-        <v-btn class="mt-5 black--text" text to="/projects">
+        <v-btn class="mt-5" depressed to="/projects">
           Узнать подробнее
           <v-icon>mdi-chevron-right</v-icon>
         </v-btn>
@@ -20,7 +20,7 @@
         lg3
         class="d-flex"
       >
-        <v-card class="ma-4 project flex" outlined color="#F2F2F2" :to="`projects/#${item.frontId}`">
+        <v-card class="ma-3 project flex" outlined color="#F2F2F2" :to="`projects/#${item.frontId}`">
           <v-card-title style="word-break: normal; font-size: 22px;">
             {{ item.title }}
           </v-card-title>

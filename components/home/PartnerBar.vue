@@ -1,7 +1,7 @@
 <template>
   <v-container style="padding: 60px 6% 10px; max-width: 100%;">
     <v-row justify="space-between">
-      <v-col align-self="center">
+      <v-col align-self="center" style="padding: 0;">
         <h1>
           {{ $t('home.partners.title') }}
         </h1>

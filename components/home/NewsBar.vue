@@ -1,12 +1,12 @@
 <template>
   <v-container style="padding: 80px 6% 64px; max-width: 100%; background-color: #f2f2f2;">
-    <v-row>
+    <v-row style="margin-left: 8px !important; margin-right: 8px !important;">
       <span>
         {{ $t('links.news') }}
       </span>
       <v-spacer />
       <span>
-        <v-btn class="black--text" text to="/news">
+        <v-btn class="black--text" depressed to="/news">
           {{ $t('home.news.all') }}
           <v-icon>mdi-chevron-right</v-icon>
         </v-btn>

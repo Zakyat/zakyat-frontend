@@ -1,7 +1,7 @@
 <template>
   <v-layout class="zakat-container">
     <v-row>
-      <v-col cols="12" md="8">
+      <v-col cols="12" md="8" style="padding: 0">
         <h1>{{ $t('home.zakat.title') }}</h1>
         <p class="my-4">
           {{ $t('home.zakat.description') }}
@@ -32,7 +32,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .zakat-container {
   background-color: #006838;
-  padding: 30px 6% 0 6%;
+  padding: 30px 5% 0 6%;
   width: 100%;
   color: #fff;
 

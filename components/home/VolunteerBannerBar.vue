@@ -59,7 +59,7 @@ export default Vue.extend({
 <style lang="scss" scoped>
 .volunteer-container {
   background-color: #7fbcaa;
-  padding: 80px 6% 30px 6%;
+  padding: 80px 7% 30px 7%;
   color: #fff;
   margin: 0;
 

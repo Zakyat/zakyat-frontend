@@ -65,4 +65,8 @@ export default Vue.extend({
 .v-btn {
   text-transform: none;
 }
+
+.row {
+  margin: 0 !important;
+}
 </style>

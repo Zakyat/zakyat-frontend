@@ -74,7 +74,7 @@ export default Vue.extend({
 .donation-container {
   background-color: #00ac00;
   max-width: 100%;
-  padding: 30px 6% 30px;
+  padding: 30px 5% 30px;
   color: #fff;
 
   h1 {
