@@ -1,5 +1,5 @@
 <template>
-  <v-main style="padding: 0 10px 10px;">
+  <v-main>
 <!--    <v-row style="padding: 0 0 30px;">-->
 <!--      <v-tabs-->
 <!--        v-model="tab"-->

@@ -1,7 +1,7 @@
 <template>
-  <v-container class="reports" fluid>
+  <div style="padding: 2% 5%" class="reports">
     <v-row class="mb-10">
-      <v-col v-if="campaigns.filter(item => !item.isActive).length !== 0">
+      <v-col style="padding-left: 0" v-if="campaigns.filter(item => !item.isActive).length !== 0">
         <v-select
           v-model="selectedPage"
           :items="pages"
@@ -21,7 +21,7 @@
           </template>
         </v-select>
       </v-col>
-      <v-col v-else>
+      <v-col v-else style="padding-left: 0" >
         <span class="text-h4 font-weight-bold">
           Поступления
         </span>
@@ -57,7 +57,7 @@
       :total-money-collected="totalMoneyCollected"
       :items-on-page="itemsOnPage"
     />
-  </v-container>
+  </div>
 </template>
 
 <script lang="js">

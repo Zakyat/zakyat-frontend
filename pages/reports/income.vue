@@ -1,13 +1,13 @@
 <template>
-  <v-main style="padding: 0 10px 10px;">
-    <v-row>
+  <v-main>
+    <v-row v-if="transactions">
 <!--      <span class="subtitle">{{ $t('reports.income.subtitle') }}</span>-->
       <span class="subtitle">Всего собрано</span>
       <v-spacer />
       <span class="subtitle">{{ transactions.length !== 0 ? transactions[0].totalSum : 0 | rubles }}</span>
     </v-row>
     <div class="table">
-      <v-row style="padding: 30px 10px 10px; min-width: 900px; margin: 0;">
+      <v-row style="padding: 20px 0 0 0; min-width: 900px; margin: 0;">
         <v-flex lg2 class="text--secondary">
           {{ $t('reports.income.date') }}
         </v-flex>
