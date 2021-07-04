@@ -2,7 +2,7 @@
   <v-system-bar dark style="padding: 0 5%; height: auto; min-height: 50px; flex-wrap: wrap;">
 <!--    <img src="@/assets/images/heart.svg" class="ml-4 mr-3">-->
 <!--    <span class="white&#45;&#45;text">{{ $t('collected', [rubles(siteSettings.allCollectedMoney)]) }}</span>-->
-    <div style="font-size: 13px">
+    <div style="font-size: 13px; padding-left: 13px">
       <a :href="`mailto:${siteSettings.phone}`" class="white--text">{{ siteSettings.email }}</a>
       <a :href="`tel:${siteSettings.phone}`" class="white--text ml-5">{{ siteSettings.phone }}</a>
     </div>
@@ -16,36 +16,38 @@
 <!--      {{ $t('search.buttonName') }}-->
 <!--    </v-btn>-->
 
-    <v-btn text smal :href="siteSettings.vk" style="text-transform: none;">
-      <v-icon color="white" size="20">
-        mdi-vk
-      </v-icon>
-<!--      {{ $t('VK') }}-->
-      Вконтакте
-    </v-btn>
-    <v-btn text small :href="siteSettings.insta" style="text-transform: none; font-size: 14px;">
-      <v-icon color="white" size="21">
-        mdi-instagram
-      </v-icon>
-<!--      {{ $t('instagram') }}-->
-      Инстаграм
-    </v-btn>
+    <div>
+      <v-btn text small :href="siteSettings.vk" style="text-transform: none; font-size: 14px;">
+        <v-icon color="white" size="20">
+          mdi-vk
+        </v-icon>
+        <!--      {{ $t('VK') }}-->
+        Вконтакте
+      </v-btn>
+      <v-btn text small :href="siteSettings.insta" style="text-transform: none; font-size: 14px;">
+        <v-icon color="white" size="21">
+          mdi-instagram
+        </v-icon>
+        <!--      {{ $t('instagram') }}-->
+        Инстаграм
+      </v-btn>
+    </div>
 
 <!--    Authentication-->
-    <v-btn v-if="!this.$apolloHelpers.getToken()" text small @click="authDialog = !authDialog">
-      <v-icon color="white" size="20">
+    <v-btn v-if="!this.$apolloHelpers.getToken()" text small @click="authDialog = !authDialog" style="font-size: 14px;">
+      <v-icon color="white" size="21">
         mdi-account-circle
       </v-icon>
       {{ $t('login') }}
     </v-btn>
     <div v-if="this.$apolloHelpers.getToken()">
-      <v-btn text small to="/profile">
-        <v-icon color="white" size="20">
+      <v-btn text small to="/profile" style="font-size: 14px;">
+        <v-icon color="white" size="21">
           mdi-account-circle
         </v-icon>
         ЛК
       </v-btn>
-      <v-btn text small @click="logout()">
+      <v-btn text small @click="logout()" style="font-size: 14px;">
         Выйти
       </v-btn>
     </div>

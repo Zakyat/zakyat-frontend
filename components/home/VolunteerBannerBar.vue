@@ -1,4 +1,4 @@
-<template>
+<template style="max-width: 100%;">
   <div>
     <v-layout class="volunteer-container" row>
       <v-flex xs12 md7>
@@ -13,7 +13,6 @@
       <v-flex xs12 md5>
         <v-img
           class="float-right mb-n7"
-          max-width="400px"
           :src="require('@/assets/images/banners/womans.svg')"
         />
       </v-flex>
