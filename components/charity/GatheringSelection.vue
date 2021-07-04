@@ -1,5 +1,5 @@
 <template>
-  <div class="px-3">
+  <div>
     <v-row
       v-if="campaigns[campaignId - 2]"
       justify="space-between"
