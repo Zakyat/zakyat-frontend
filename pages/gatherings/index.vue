@@ -83,7 +83,7 @@
                   :value="100*campaign.moneyCollected/campaign.goal"
                 />
               </v-col>
-              <v-col cols="auto">
+              <v-col cols="auto" align-self="end">
                 <v-btn
                   v-if="campaign.isActive"
                   rounded
