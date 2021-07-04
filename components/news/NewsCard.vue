@@ -12,7 +12,7 @@
       >
         <v-img
           :src="image"
-          width="300px"
+          height="100%"
           style="border-radius: 10px; width: auto; max-height: 205px;"
         />
       </v-col>
