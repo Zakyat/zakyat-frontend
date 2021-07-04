@@ -26,7 +26,7 @@
         </v-list-item-subtitle>
       </v-list-item-content>
       <v-list-item-action>
-        <v-list-item-title class="font-weight-medium">
+        <v-list-item-title class="font-weight-medium" v-if="siteSettings.nisabPrice">
           {{ siteSettings.nisabPrice | rubles }}
         </v-list-item-title>
       </v-list-item-action>
@@ -44,7 +44,7 @@
         </v-list-item-subtitle>
       </v-list-item-content>
       <v-list-item-action>
-        <v-list-item-title class="font-weight-black">
+        <v-list-item-title class="font-weight-black" v-if="siteSettings.nisabPrice">
           {{ input > siteSettings.nisabPrice ? 0.025 * input : 0 | rubles }}
         </v-list-item-title>
       </v-list-item-action>
