@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <div>
 
 <!--    Donation periods selection-->
     <v-row class="mt-5" v-if="this.$apolloHelpers.getToken()">
@@ -80,7 +80,7 @@
         </v-radio-group>
       </v-col>
     </v-row>
-  </v-container>
+  </div>
 </template>
 
 <script lang="ts">

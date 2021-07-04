@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <div style="padding: 10px 5%;">
     <h1 class="mt-12" v-if="donationType !== 1">
       {{ $t('charity.title') }}
     </h1>
@@ -8,7 +8,7 @@
     </h1>
     <GatheringSelection @anonymous="makeAnonymous" v-if="donationType !== 1" :campaign-id="campaignId" />
     <PaymentMethod :isAnonymous="isAnonymous" :campaign-id="campaignId" :donation-amount="donationAmount" class="mb-12" />
-  </v-container>
+  </div>
 </template>
 
 <script lang="js">
