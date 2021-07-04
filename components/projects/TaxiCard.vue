@@ -67,7 +67,7 @@
           depressed
           color="primary"
           height="40px"
-          to="/gatherings"
+          to="/charity?id=-1"
         >
           Пожертвовать
         </v-btn>
