@@ -11,7 +11,7 @@
       <v-col cols="12" md="6">
         <div class="py-6 black--text" v-if="siteSettings">
           <p>{{siteSettings.fondInformation}}</p>
-          <v-btn height="40" rounded depressed dark color="accent" to="/about">
+          <v-btn class="mt-2" height="40" rounded depressed dark color="accent" to="/about">
             {{ $t('home.about.learn_more') }}
           </v-btn>
         </div>
