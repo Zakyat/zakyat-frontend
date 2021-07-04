@@ -1,7 +1,6 @@
 <template>
   <div>
     <v-row
-      v-if="campaigns[campaignId - 2]"
       justify="space-between"
       class="mt-5"
     >
@@ -15,7 +14,7 @@
           outlined
           rounded
           flat
-          :placeholder="campaignId && campaignId !== -1 ? campaigns[campaignId - 2].title : $t('charity.gathering.gatheringSelection')"
+          :placeholder="campaignId && campaignId !== -1 ? campaigns.filter(camp => Number(camp.id) === Number(campaignId))[0].title : $t('charity.gathering.gatheringSelection')"
           :items="campaigns.filter(item => item.isActive).concat(anyCampaign)"
           item-value="id"
           class="pa-0 ma-0"
