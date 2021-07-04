@@ -82,10 +82,6 @@ export default Vue.extend({
     line-height: 43px;
   }
 
-  p {
-    width: 85%;
-  }
-
   .amounts {
     border: 1px solid #fff;
     border-radius: 25px;
